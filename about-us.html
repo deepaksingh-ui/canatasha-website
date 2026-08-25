@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -889,7 +931,95 @@ body {
         </div>
     </header>
 
-    (.*?)
+    
+    <div class="page-banner">
+        <div class="container">
+            <span class="badge badge-warning px-3 py-1 font-weight-bold text-dark mb-2">Our Legacy &amp; Leadership</span>
+            <h1>About Natasha &amp; Company</h1>
+            <p>ISO 9001:2015 Certified Chartered Accountancy Firm in Bhopal</p>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="service-badge">Firm Profile</span>
+                    <h2 class="font-weight-bold mb-3" style="color: #002e5b;">Empowering Businesses with Strategic Financial Excellence</h2>
+                    <p class="text-muted" style="line-height: 1.8;"><strong>Natasha &amp; Company</strong> is a premier firm of Chartered Accountants in Bhopal, established to deliver high-quality Audit, Direct &amp; Indirect Taxation, Corporate Advisory, and Compliance solutions to enterprises across India.</p>
+                    <p class="text-muted" style="line-height: 1.8;">Our firm is accredited under <strong>ISO 9001:2015 Certification</strong> and registered with MSME Udyam (<strong>UDYAM-MP-10-0002966</strong>). We blend deep industry knowledge with cutting-edge digital compliance systems to protect our clients' financial interests.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded border">
+                                <i class="fa fa-certificate fa-2x text-success mr-3"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0 text-dark">ISO 9001:2015</h6>
+                                    <small class="text-muted">Certified Firm</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex align-items-center p-3 bg-light rounded border">
+                                <i class="fa fa-id-card fa-2x text-success mr-3"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0 text-dark">UDYAM Reg.</h6>
+                                    <small class="text-muted">MP-10-0002966</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="p-4 bg-white rounded shadow-sm border leader-card">
+                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" class="rounded-circle mb-3 shadow" style="width: 170px; height: 170px; object-fit: cover; border: 4px solid #006B63;" onerror="this.src='images/team-1.webp'"/>
+                        <h4 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h4>
+                        <span class="badge badge-success px-3 py-1 mb-3" style="background-color: #006B63;">Fellow Chartered Accountant (FCA) &bull; Founder</span>
+                        <p class="text-muted small text-left px-md-3" style="line-height: 1.7;">CA Natasha Rajvaidya is a visionary financial leader with extensive experience in corporate tax planning, statutory and internal audits, GST litigation defense, and startup mentorship. She is committed to delivering transparent, ethical, and growth-oriented solutions for corporates, SMEs, and HNIs.</p>
+                        <div class="social-icons-top mt-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="btn btn-outline-dark btn-sm rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="btn btn-outline-dark btn-sm rounded-circle mr-1"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank" class="btn btn-outline-dark btn-sm rounded-circle"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="service-badge">Our Pillars</span>
+                <h2 class="font-weight-bold" style="color: #002e5b;">Our Vision, Mission &amp; Core Values</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 single-item">
+                        <i class="fa fa-eye fa-2x text-success mb-3"></i>
+                        <h4>Our Vision</h4>
+                        <p class="text-muted small">To be recognized as India's most trusted, tech-enabled Chartered Accountancy firm, championing client growth through uncompromising integrity and strategic financial innovation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 single-item">
+                        <i class="fa fa-bullseye fa-2x text-success mb-3"></i>
+                        <h4>Our Mission</h4>
+                        <p class="text-muted small">To simplify complex taxation, audit, and regulatory compliances for businesses and individuals with proactive advice, customized tax planning, and statutory accuracy.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 single-item">
+                        <i class="fa fa-shield fa-2x text-success mb-3"></i>
+                        <h4>Core Values</h4>
+                        <p class="text-muted small">Absolute Confidentiality, Statutory Ethics, Client-Centric Excellence, and Proactive Communication across all advisory, accounting, and compliance mandates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer pt-5 mt-5">
@@ -1008,7 +1138,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,

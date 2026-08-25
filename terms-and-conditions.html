@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -893,36 +935,16 @@ body {
     <div class="page-banner">
         <div class="container">
             <h1>Terms &amp; Conditions</h1>
-            <p>Natasha &amp; Company • Terms of Service &amp; Professional Engagement</p>
+            <p>Terms of Professional Engagement with Natasha &amp; Company</p>
         </div>
     </div>
-
     <section class="py-5">
         <div class="container">
             <div class="bg-white p-4 p-md-5 rounded shadow-sm border">
-                <h3 class="font-weight-bold mb-3" style="color: #002e5b;">1. Acceptance of Terms</h3>
-                <p class="text-muted">By accessing and using this website (<code>canatasha.com</code>), you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please refrain from using our services.</p>
-
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">2. About Natasha &amp; Co.</h4>
-                <p class="text-muted">This website is operated by <strong>NATASHA &amp; CO.</strong>, an ISO 9001:2015 Certified micro-enterprise registered under the Ministry of MSME, Government of India (Udyam Registration: <strong>UDYAM-MP-10-0002966</strong>).</p>
-                
-                <div class="p-3 bg-light rounded border mb-4">
-                    <h6 class="font-weight-bold mb-2 text-success">Registered Business &amp; Professional Activities:</h6>
-                    <ul class="mb-0 small text-muted">
-                        <li>Accounting, bookkeeping, and statutory auditing activities</li>
-                        <li>Direct &amp; Indirect Tax consultancy (Income Tax, GST, TDS)</li>
-                        <li>Corporate &amp; Legal advisory, Company and LLP incorporation</li>
-                        <li>Financial service activities &amp; project financing reports</li>
-                        <li>Societies, Trusts and Non-Profit organizational advisory</li>
-                        <li>Management consultancy &amp; Back-Office Processing (BPO)</li>
-                    </ul>
-                </div>
-
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">3. Professional Disclaimer</h4>
-                <p class="text-muted">The information contained in this website, including articles, calculators, and tax summaries, is for general informational purposes only and does not constitute formal professional audit opinion or legal advice. Specific advice should always be sought from a qualified Chartered Accountant before acting upon any information.</p>
-
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">4. Jurisdiction</h4>
-                <p class="text-muted">Any disputes arising out of the use of this website or professional engagements shall be subject to the exclusive jurisdiction of the competent courts in <strong>Bhopal, Madhya Pradesh, India</strong>.</p>
+                <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Scope of Professional Services</h4>
+                <p>All advisory, auditing, and filing services are rendered in compliance with Indian Direct Tax Laws, Central Goods and Services Tax Act 2017, and the Companies Act 2013. Any engagement is subject to the formal execution of an engagement letter and ICAI regulatory guidelines.</p>
+                <h5 class="font-weight-bold mt-4" style="color: #002e5b;">Jurisdiction</h5>
+                <p>All agreements and interactions are governed under the exclusive jurisdiction of the competent courts in Bhopal, Madhya Pradesh.</p>
             </div>
         </div>
     </section>
@@ -1045,7 +1067,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,

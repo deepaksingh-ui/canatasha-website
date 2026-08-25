@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -889,7 +931,86 @@ body {
         </div>
     </header>
 
-    (.*?)
+    
+    <div class="page-banner">
+        <div class="container">
+            <span class="badge badge-warning px-3 py-1 font-weight-bold text-dark mb-2">Join Our Team</span>
+            <h1>Career &amp; Articleship Openings</h1>
+            <p>Build your professional accounting career with CA Natasha &amp; Company.</p>
+        </div>
+    </div>
+
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 mb-4">
+                    <h3 class="font-weight-bold mb-4" style="color: #002e5b;">Current Job &amp; Articleship Openings</h3>
+                    
+                    <!-- Job 1 -->
+                    <div class="p-4 bg-white rounded shadow-sm border mb-4 single-item">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="font-weight-bold text-dark mb-1">CA Article Assistant (ICAI Registered)</h5>
+                                <span class="badge badge-success">Full Time &bull; Bhopal Office</span>
+                            </div>
+                            <span class="badge badge-light text-muted p-2 font-weight-bold">Stipend: Industry Standard</span>
+                        </div>
+                        <p class="text-muted small mt-2">Opportunity for CA Intermediate passed students to gain comprehensive hands-on exposure in Statutory Audits, Tax Audits, GST compliance, and Corporate Law representations.</p>
+                        <ul class="text-muted small pl-3 mb-3">
+                            <li>Direct interaction with partners and client CFOs.</li>
+                            <li>Comprehensive training on Tally Prime, Computax &amp; Government E-Portals.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="p-4 bg-white rounded shadow-sm border mb-4 single-item">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="font-weight-bold text-dark mb-1">Senior Tax &amp; Audit Executive (M.Com / Semi-Qualified CA)</h5>
+                                <span class="badge badge-primary">Full Time &bull; Experience: 2-4 Yrs</span>
+                            </div>
+                            <span class="badge badge-light text-muted p-2 font-weight-bold">Bhopal</span>
+                        </div>
+                        <p class="text-muted small mt-2">Looking for a seasoned accounting professional capable of independently handling client accounts, GST return reconciliations, and finalization of financial statements.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="p-4 bg-white rounded shadow-sm border">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Apply for Position</h4>
+                        <form onsubmit="alert('Thank you! Your resume application has been submitted to CA Natasha & Company HR Desk.'); return false;">
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Full Name *</label>
+                                <input type="text" class="form-control" placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Phone / WhatsApp *</label>
+                                <input type="tel" class="form-control" placeholder="+91" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Email Address *</label>
+                                <input type="email" class="form-control" placeholder="name@email.com" required/>
+                            </div>
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Applying For</label>
+                                <select class="form-control">
+                                    <option>CA Article Assistant</option>
+                                    <option>Senior Tax Executive</option>
+                                    <option>Accounting Internship</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Cover Note / Experience</label>
+                                <textarea class="form-control" rows="3" placeholder="Briefly describe your qualification..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-ca-primary btn-block font-weight-bold py-2">Submit Application</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer pt-5 mt-5">
@@ -1008,7 +1129,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,

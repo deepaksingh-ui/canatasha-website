@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -905,7 +947,7 @@ body {
             <div class="row mb-4">
                 <div class="col-12 text-center">
                     <div class="btn-group flex-wrap shadow-sm rounded bg-white p-1 border" role="group">
-                        <button type="button" class="btn btn-outline-success active font-weight-bold px-3 py-2" onclick="filterBlog('all')">All Articles ({len(curated_posts)})</button>
+                        <button type="button" class="btn btn-outline-success active font-weight-bold px-3 py-2" onclick="filterBlog('all')">All Articles (9)</button>
                         <button type="button" class="btn btn-outline-success font-weight-bold px-3 py-2" onclick="filterBlog('tax')">Income Tax &amp; GST</button>
                         <button type="button" class="btn btn-outline-success font-weight-bold px-3 py-2" onclick="filterBlog('finance')">Finance &amp; Investment</button>
                         <button type="button" class="btn btn-outline-success font-weight-bold px-3 py-2" onclick="filterBlog('advisory')">Business Advisory</button>
@@ -917,19 +959,287 @@ body {
                 <!-- Main Articles Grid -->
                 <div class="col-lg-8">
                     <div class="row" id="blogGrid">
-                        {blog_cards_html}
+                        
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='why-your-gold-and-silver-just-got-more-precious-a-laymans-guide.html'">
+            <div class="card-img-wrapper">
+                <img src="images/gold-and-silver-prices.png" class="card-img-top w-100 h-100" alt="Why Your Gold & Silver Just Got More Precious: A Layman's Guide" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-warning px-3 py-1 font-weight-bold shadow-sm">Finance & Investment</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> CA Natasha Rajvaidya</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Nov 4, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="why-your-gold-and-silver-just-got-more-precious-a-laymans-guide.html" class="text-decoration-none" style="color: #002e5b;">Why Your Gold & Silver Just Got More Precious: A Layman's Guide</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Decoding the shine: 6 key economic and geopolitical reasons driving precious metals valuation upward, global central bank purchases, inflation hedge trends, and how to position your wealth securely.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 5 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='a-family-that-plans-together-pays-less-tax-together.html'">
+            <div class="card-img-wrapper">
+                <img src="images/HUF-and-its-tax-benefits.jpg" class="card-img-top w-100 h-100" alt="A Family That Plans Together, Pays Less Tax Together! (HUF Guide)" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-success px-3 py-1 font-weight-bold shadow-sm">Income Tax Planning</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> Ashish & CA Natasha</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Feb 21, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="a-family-that-plans-together-pays-less-tax-together.html" class="text-decoration-none" style="color: #002e5b;">A Family That Plans Together, Pays Less Tax Together! (HUF Guide)</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Understanding Hindu Undivided Family (HUF) and its immense tax benefits. Discover how forming an HUF creates a separate legal tax entity to legally reduce your family's overall tax burden under Indian tax laws.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 6 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html'">
+            <div class="card-img-wrapper">
+                <img src="images/invest-MP.jpg" class="card-img-top w-100 h-100" alt="Invest Madhya Pradesh – Global Investors Summit 2025: A Catalyst for Growth" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-primary px-3 py-1 font-weight-bold shadow-sm">Business Advisory</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> CA Natasha Rajvaidya</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Feb 18, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html" class="text-decoration-none" style="color: #002e5b;">Invest Madhya Pradesh – Global Investors Summit 2025: A Catalyst for Growth</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Madhya Pradesh is gearing up to host a grand Global Investors Summit in Bhopal, bringing together industrial leaders, policymakers, startups, and overseas investors to unlock massive regional economic growth.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 4 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html'">
+            <div class="card-img-wrapper">
+                <img src="images/itr-2024.png" class="card-img-top w-100 h-100" alt="7 Key Points Every Salaried Employee Must Know Before Filing ITR" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-success px-3 py-1 font-weight-bold shadow-sm">Income Tax Return</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> CA Natasha & Co. Desk</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Jun 18, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html" class="text-decoration-none" style="color: #002e5b;">7 Key Points Every Salaried Employee Must Know Before Filing ITR</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Crucial checklist for salaried taxpayers for FY 2024-25 / AY 2025-26: Form 16 vs AIS/TIS reconciliation, choosing Old vs New Tax Regime, claiming standard deductions, and avoiding statutory penalty notices.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 5 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='beyond-numbers-the-evolving-thought-process-of-a-ca-firm.html'">
+            <div class="card-img-wrapper">
+                <img src="images/cathought-process.jpg" class="card-img-top w-100 h-100" alt="Beyond Numbers: The Evolving Thought Process of a CA Firm" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-info px-3 py-1 font-weight-bold shadow-sm">Corporate Advisory</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> CA Natasha Rajvaidya</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Nov 4, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="beyond-numbers-the-evolving-thought-process-of-a-ca-firm.html" class="text-decoration-none" style="color: #002e5b;">Beyond Numbers: The Evolving Thought Process of a CA Firm</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">How modern Chartered Accountants have evolved from traditional number-crunchers and tax-filers into trusted strategic growth partners, virtual CFOs, and startup mentors guiding modern businesses.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 4 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html'">
+            <div class="card-img-wrapper">
+                <img src="images/pan-aadhar.jpeg" class="card-img-top w-100 h-100" alt="Big Relief on TDS Demands Due to PAN-Aadhaar Non-Linking" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-danger px-3 py-1 font-weight-bold shadow-sm">Direct Taxation</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> Tax Compliance Desk</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Jul 15, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html" class="text-decoration-none" style="color: #002e5b;">Big Relief on TDS Demands Due to PAN-Aadhaar Non-Linking</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">CBDT Circular relief updates regarding higher TDS deduction demands issued to deductors due to inoperative PAN. Step-by-step procedure to regularize PAN status and waive penalty demands.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 4 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html'">
+            <div class="card-img-wrapper">
+                <img src="images/GST-ISD.jpg" class="card-img-top w-100 h-100" alt="ISD Registration Now Mandatory From April 2025: Don't Lose GST Credit!" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-primary px-3 py-1 font-weight-bold shadow-sm">GST & Indirect Tax</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> GST Advisory Team</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Jun 10, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html" class="text-decoration-none" style="color: #002e5b;">ISD Registration Now Mandatory From April 2025: Don't Lose GST Credit!</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Crucial GST amendments making Input Service Distributor (ISD) registration mandatory for multi-branch entities. Learn how to distribute input tax credit on common service invoices seamlessly.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 5 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='taxability-of-long-term-capital-gains-under-section-112a.html'">
+            <div class="card-img-wrapper">
+                <img src="images/section-112a-income-tax-vector.png" class="card-img-top w-100 h-100" alt="Taxability of Long Term Capital Gains Under Section 112A" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-warning px-3 py-1 font-weight-bold shadow-sm">Capital Gains & Equity</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> CA Natasha Rajvaidya</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> May 20, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="taxability-of-long-term-capital-gains-under-section-112a.html" class="text-decoration-none" style="color: #002e5b;">Taxability of Long Term Capital Gains Under Section 112A</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">A deep dive into Section 112A of the Income Tax Act governing LTCG on listed shares and equity mutual funds. Calculation methodology, exemption limits, grandfathering clauses, and tax planning strategies.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 5 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='understanding-section-73-and-section-74-of-the-cgst-act.html'">
+            <div class="card-img-wrapper">
+                <img src="images/section73-CGST.jpg" class="card-img-top w-100 h-100" alt="Understanding Section 73 & Section 74 of CGST Act: Key to Tax Defense" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-danger px-3 py-1 font-weight-bold shadow-sm">GST Litigation</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> Legal & Audit Team</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> Apr 12, 2025</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="understanding-section-73-and-section-74-of-the-cgst-act.html" class="text-decoration-none" style="color: #002e5b;">Understanding Section 73 & Section 74 of CGST Act: Key to Tax Defense</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">Decoding GST show-cause notices issued under Section 73 (non-fraudulent cases) vs Section 74 (fraud/willful misstatement). Essential statutory rights, defense timelines, penalty limits, and appeal avenues.</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> 6 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
                     </div>
 
-                    <!-- Pagination -->
-                    <div class="text-center mt-4">
-                        <nav aria-label="Blog Page Navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled"><a class="page-link" href="#"><i class="fa fa-angle-left"></i> Previous</a></li>
-                                <li class="page-item active"><a class="page-link" style="background-color: #006B63; border-color: #006B63;" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">Next <i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                        </nav>
+                    <!-- 100% CENTERED MODERN PAGINATION -->
+                    <div class="pagination-container">
+                        <div class="custom-pagination">
+                            <span class="text-muted" style="cursor: not-allowed;"><i class="fa fa-angle-left mr-1"></i> Prev</span>
+                            <span class="active-page">1</span>
+                            <a href="#">2</a>
+                            <a href="#">Next <i class="fa fa-angle-right ml-1"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -958,7 +1268,47 @@ body {
                     <!-- Trending Topics -->
                     <div class="p-4 bg-white rounded shadow-sm border mb-4">
                         <h5 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-fire text-danger mr-2"></i> Trending Insights</h5>
-                        {recent_sidebar_html}
+                        <ul class='list-unstyled mb-0'>
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="images/gold-and-silver-prices.png" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="why-your-gold-and-silver-just-got-more-precious-a-laymans-guide.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">Why Your Gold & Silver Just Got More Precious: A Layman's Guide</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> Nov 4, 2025</small>
+        </div>
+    </li>
+    
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="images/HUF-and-its-tax-benefits.jpg" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="a-family-that-plans-together-pays-less-tax-together.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">A Family That Plans Together, Pays Less Tax Together! (HUF Guide)</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> Feb 21, 2025</small>
+        </div>
+    </li>
+    
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="images/invest-MP.jpg" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">Invest Madhya Pradesh – Global Investors Summit 2025: A Catalyst for Growth</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> Feb 18, 2025</small>
+        </div>
+    </li>
+    
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="images/itr-2024.png" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">7 Key Points Every Salaried Employee Must Know Before Filing ITR</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> Jun 18, 2025</small>
+        </div>
+    </li>
+    
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="images/cathought-process.jpg" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="beyond-numbers-the-evolving-thought-process-of-a-ca-firm.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">Beyond Numbers: The Evolving Thought Process of a CA Firm</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> Nov 4, 2025</small>
+        </div>
+    </li>
+    </ul>
                     </div>
 
                     <!-- Consultation Box -->
@@ -976,34 +1326,34 @@ body {
     </section>
 
     <script>
-        function searchArticles() {{
+        function searchArticles() {
             var input = document.getElementById('blogSearch').value.toLowerCase();
             var items = document.getElementsByClassName('blog-item');
-            for (var i = 0; i < items.length; i++) {{
+            for (var i = 0; i < items.length; i++) {
                 var text = items[i].innerText.toLowerCase();
                 items[i].style.display = text.includes(input) ? 'block' : 'none';
-            }}
-        }}
+            }
+        }
 
-        function filterBlog(category) {{
+        function filterBlog(category) {
             var items = document.getElementsByClassName('blog-item');
-            for (var i = 0; i < items.length; i++) {{
-                if (category === 'all') {{
+            for (var i = 0; i < items.length; i++) {
+                if (category === 'all') {
                     items[i].style.display = 'block';
-                }} else {{
+                } else {
                     var text = items[i].innerText.toLowerCase();
-                    if (category === 'tax' && (text.includes('tax') || text.includes('gst') || text.includes('itr') || text.includes('huf'))) {{
+                    if (category === 'tax' && (text.includes('tax') || text.includes('gst') || text.includes('itr') || text.includes('huf'))) {
                         items[i].style.display = 'block';
-                    }} else if (category === 'finance' && (text.includes('gold') || text.includes('invest') || text.includes('finance') || text.includes('silver') || text.includes('capital'))) {{
+                    } else if (category === 'finance' && (text.includes('gold') || text.includes('invest') || text.includes('finance') || text.includes('silver') || text.includes('capital'))) {
                         items[i].style.display = 'block';
-                    }} else if (category === 'advisory' && (text.includes('advisory') || text.includes('firm') || text.includes('thought') || text.includes('corporate'))) {{
+                    } else if (category === 'advisory' && (text.includes('advisory') || text.includes('firm') || text.includes('thought') || text.includes('corporate'))) {
                         items[i].style.display = 'block';
-                    }} else {{
+                    } else {
                         items[i].style.display = 'none';
-                    }}
-                }}
-            }}
-        }}
+                    }
+                }
+            }
+        }
     </script>
 
 
@@ -1124,7 +1474,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -889,7 +931,82 @@ body {
         </div>
     </header>
 
-    (.*?)
+    
+    <div class="page-banner">
+        <div class="container">
+            <span class="badge badge-warning px-3 py-1 font-weight-bold text-dark mb-2">Get in Touch</span>
+            <h1>Contact CA Natasha &amp; Company</h1>
+            <p>We are here to assist your business across direct taxes, GST, and audit matters.</p>
+        </div>
+    </div>
+
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border mb-4">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Corporate Office</h4>
+                        <p class="text-muted small mb-2"><i class="fa fa-map-marker text-success mr-2"></i> 195-A, 2nd Floor, Zone-1 M.P. Nagar, In front of DB Mall, Bhopal, MP - 462011</p>
+                        <p class="text-muted small mb-2"><i class="fa fa-phone text-success mr-2"></i> +91 9407000157</p>
+                        <p class="text-muted small mb-0"><i class="fa fa-envelope text-success mr-2"></i> info@canatasha.com</p>
+                    </div>
+
+                    <div class="p-4 bg-white rounded shadow-sm border mb-4">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Registered Office</h4>
+                        <p class="text-muted small mb-0"><i class="fa fa-building text-success mr-2"></i> 28 C, Samrat Colony, Ashoka Garden, Bhopal, MP - 462023</p>
+                    </div>
+
+                    <div class="p-4 rounded text-white text-center" style="background: #25d366;">
+                        <h5 class="font-weight-bold mb-1"><i class="fa fa-whatsapp mr-1"></i> Direct WhatsApp Support</h5>
+                        <p class="small mb-3">Chat directly with CA Natasha on WhatsApp for immediate queries.</p>
+                        <a href="https://wa.me/919407000157" target="_blank" class="btn btn-light btn-sm font-weight-bold text-success px-4 py-2">Start WhatsApp Chat</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="p-4 p-md-5 bg-white rounded shadow-sm border">
+                        <h3 class="font-weight-bold mb-3" style="color: #002e5b;">Book a Consultation</h3>
+                        <p class="text-muted small mb-4">Send us your requirements, and our team will get in touch with you within 24 hours.</p>
+                        
+                        <form onsubmit="alert('Thank you! Your consultation request has been received. Our partner desk will contact you shortly.'); return false;">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label class="small font-weight-bold text-dark">Full Name *</label>
+                                    <input type="text" class="form-control" placeholder="Your Name" required/>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="small font-weight-bold text-dark">Phone Number *</label>
+                                    <input type="tel" class="form-control" placeholder="+91" required/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label class="small font-weight-bold text-dark">Email Address *</label>
+                                    <input type="email" class="form-control" placeholder="name@domain.com" required/>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="small font-weight-bold text-dark">Service Needed</label>
+                                    <select class="form-control">
+                                        <option>Income Tax Filing / Planning</option>
+                                        <option>GST Return / Advisory</option>
+                                        <option>Statutory Audit / Assurance</option>
+                                        <option>Company / LLP Incorporation</option>
+                                        <option>Trust / NGO Compliance</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-dark">Message / Specific Requirements</label>
+                                <textarea class="form-control" rows="4" placeholder="Briefly describe your requirements..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-ca-primary px-5 py-2 font-weight-bold shadow">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer pt-5 mt-5">
@@ -1008,7 +1125,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,

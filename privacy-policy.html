@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=1001"/>
+    <link rel="stylesheet" href="css/style.css?v=1100"/>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -125,6 +125,48 @@
             color: #006B63;
             background: #f0fdf4;
             border-left: 4px solid #006B63;
+        }
+
+        /* Centered Pagination */
+        .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0 20px 0;
+        }
+        .custom-pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid #edf2f7;
+        }
+        .custom-pagination a, .custom-pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #002e5b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-pagination a:hover {
+            background: #f1f5f9;
+            color: #006B63;
+        }
+        .custom-pagination .active-page {
+            background: #006B63 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(0, 107, 99, 0.35);
         }
     </style>
 <style id="master-inlined-css">
@@ -893,40 +935,16 @@ body {
     <div class="page-banner">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p>Natasha &amp; Company • Commitment to Client Data Confidentiality</p>
+            <p>Confidentiality and Data Protection Commitment of Natasha &amp; Company</p>
         </div>
     </div>
-
     <section class="py-5">
         <div class="container">
             <div class="bg-white p-4 p-md-5 rounded shadow-sm border">
-                <h3 class="font-weight-bold mb-3" style="color: #002e5b;">1. Introduction &amp; Enterprise Details</h3>
-                <p class="text-muted"><strong>NATASHA &amp; CO.</strong> operates the website <code>https://canatasha.com</code>. This Privacy Policy explains how we collect, process, and safeguard your personal and business financial information in accordance with applicable Indian laws and the code of ethics established by the Institute of Chartered Accountants of India (ICAI).</p>
-                
-                <div class="p-3 bg-light rounded border mb-4">
-                    <ul class="list-unstyled mb-0 small">
-                        <li><strong>Enterprise Name:</strong> NATASHA &amp; CO.</li>
-                        <li><strong>Udyam Registration Number:</strong> UDYAM-MP-10-0002966</li>
-                        <li><strong>Registered Office:</strong> 28 C, Samrat Colony, Near Ashoka Garden, Govindpura, Bhopal, MP – 462023</li>
-                        <li><strong>Corporate Office:</strong> 195-A, 2nd Floor, Zone-1 M.P. Nagar, In front of DB Mall, Bhopal, MP – 462011</li>
-                        <li><strong>Email:</strong> info@canatasha.com | natasharaj23@gmail.com</li>
-                        <li><strong>Direct Helpline:</strong> +91 9407000157</li>
-                    </ul>
-                </div>
-
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">2. Information We Collect</h4>
-                <p class="text-muted">We collect information strictly necessary to provide accounting, taxation, auditing, and corporate consulting services:</p>
-                <ul class="text-muted">
-                    <li><strong>Contact Data:</strong> Name, phone number, email address, corporate entity name.</li>
-                    <li><strong>Financial &amp; Statutory Data:</strong> PAN, GSTIN, financial statements, bank records provided voluntarily for tax filing or audit.</li>
-                    <li><strong>Technical Data:</strong> IP address, device type, browser information for website security and optimization.</li>
-                </ul>
-
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">3. Confidentiality &amp; Data Security</h4>
-                <p class="text-muted">As Chartered Accountants, client confidentiality is paramount. We do not sell, trade, or rent client data to third parties. Data is utilized strictly for executing client service requests, government portal filings (Income Tax, GST, MCA), and legal compliance.</p>
-                
-                <h4 class="font-weight-bold mt-4 mb-2" style="color: #002e5b;">4. Contact for Privacy Inquiries</h4>
-                <p class="text-muted">If you have any questions regarding your data privacy, please contact our Compliance Officer at <strong>info@canatasha.com</strong> or call <strong>+91 9407000157</strong>.</p>
+                <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Client Confidentiality &amp; Ethical Standards</h4>
+                <p>Natasha &amp; Company is committed to safeguarding all personal, financial, and corporate data shared with us. Under the Code of Ethics established by the Institute of Chartered Accountants of India (ICAI), strict client confidentiality is maintained across all audit, tax, and advisory engagements.</p>
+                <h5 class="font-weight-bold mt-4" style="color: #002e5b;">Data Security</h5>
+                <p>All financial records, PAN/Aadhaar information, and balance sheets are stored on encrypted servers with multi-tier access controls. We do not sell or disclose client financial records to any third party.</p>
             </div>
         </div>
     </section>
@@ -1049,7 +1067,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 2 },
+                        768: { items: 1 },
                         1024: { items: 2 }
                     },
                     dots: true,
