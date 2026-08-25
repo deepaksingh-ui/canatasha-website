@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=27000"/>
+    <link rel="stylesheet" href="css/style.css?v=28000"/>
 
     <style id="master-inlined-css">
 
@@ -69,8 +69,8 @@ body.page-transitioning {
 .top-bar-custom {
     background: #111a24;
     color: #d1e3ff;
-    padding: 8px 0;
-    font-size: 13px;
+    padding: 9px 0;
+    font-size: 13.5px;
 }
 .top-bar-custom a {
     color: #d1e3ff;
@@ -129,7 +129,7 @@ body.page-transitioning {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    min-height: 82px;
+    min-height: 84px;
     position: relative;
     z-index: 2;
 }
@@ -144,7 +144,7 @@ body.page-transitioning {
     align-items: center;
 }
 .logo img {
-    height: 52px;
+    height: 54px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -166,23 +166,23 @@ body.page-transitioning {
 .header-info {
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 22px;
 }
 .header-info img {
-    height: 32px;
-    width: 32px;
-    margin-right: 8px;
+    height: 34px;
+    width: 34px;
+    margin-right: 9px;
 }
 .header-info-text h4 {
     color: #ffffff;
-    font-size: 15px;
+    font-size: 15.5px;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
 }
 .header-info-text span {
     color: rgba(255,255,255,0.85);
-    font-size: 11.5px;
+    font-size: 12px;
 }
 
 /* SHIMMER EFFECT BUTTONS */
@@ -191,9 +191,9 @@ body.page-transitioning {
     color: #002e5b !important;
     border: none;
     font-size: 14px;
-    font-weight: 700;
-    line-height: 40px;
-    padding: 0 22px;
+    font-weight: 800;
+    line-height: 42px;
+    padding: 0 24px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-radius: 3px;
@@ -241,10 +241,10 @@ body.page-transitioning {
 }
 .navbar-nav > li > a {
     color: #002e5b;
-    font-size: 14.5px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 0 18px;
-    line-height: 52px;
+    padding: 0 19px;
+    line-height: 54px;
     display: block;
     transition: 0.2s ease;
     text-decoration: none;
@@ -254,8 +254,8 @@ body.page-transitioning {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 18px;
-    right: 18px;
+    left: 19px;
+    right: 19px;
     height: 3px;
     background: #006B63;
     transform: scaleX(0);
@@ -289,7 +289,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. 100% PURE STATIC HERO BANNER (EXACT TEMPLATE-89 DARK FIDELITY, NO WHITE OVERLAY)
+   3. EXACT TEMPLATE-89 ZOOM-OUT TEXT ROTATION ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -299,37 +299,106 @@ body.page-transitioning {
     background-position: center right;
     background-repeat: no-repeat;
     overflow: hidden;
-    display: flex;
-    align-items: center;
 }
 
-.hero-static-content {
+.hero-zoom-slider {
     position: relative;
-    z-index: 5;
-    padding: 60px 0;
+    height: 600px;
+    width: 100%;
 }
-.hero-static-content h3.sub-title {
+
+.zoom-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1;
+}
+
+.zoom-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.text-slide-item {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* EXACT TEMPLATE-89 ZOOM-OUT (SCALE 1.35 -> SCALE 1.0) ANIMATION MECHANISM */
+.zoom-slide .text-content h3.sub-title,
+.zoom-slide .text-content h1.title,
+.zoom-slide .text-content p.description,
+.zoom-slide .text-content .btn-box {
+    transform: scale(1.35);
+    opacity: 0;
+    transition: transform 0.55s var(--ca-easing), opacity 0.55s ease;
+    will-change: transform, opacity;
+}
+
+.zoom-slide.active .text-content h3.sub-title {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.10s;
+}
+.zoom-slide.active .text-content h1.title {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.22s;
+}
+.zoom-slide.active .text-content p.description {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.34s;
+}
+.zoom-slide.active .text-content .btn-box {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.46s;
+}
+
+.zoom-slide.leaving .text-content h3.sub-title,
+.zoom-slide.leaving .text-content h1.title,
+.zoom-slide.leaving .text-content p.description,
+.zoom-slide.leaving .text-content .btn-box {
+    transform: scale(0.85);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* 110% GRAND TYPOGRAPHY */
+.text-content h3.sub-title {
     color: #002e5b !important;
-    font-size: 20px !important;
+    font-size: 21px !important;
     font-weight: 700 !important;
     letter-spacing: 0.5px !important;
     margin-bottom: 12px !important;
     text-transform: uppercase !important;
 }
-.hero-static-content h1.title {
+.text-content h1.title {
     color: #006B63 !important;
-    font-size: 58px !important;
+    font-size: 60px !important;
     font-weight: 900 !important;
-    line-height: 1.12 !important;
-    margin-bottom: 16px !important;
+    line-height: 1.10 !important;
+    margin-bottom: 18px !important;
     letter-spacing: -0.5px !important;
     text-transform: uppercase !important;
 }
-.hero-static-content p.description {
+.text-content p.description {
     color: #334155 !important;
-    font-size: 15.5px !important;
-    line-height: 1.65 !important;
-    max-width: 580px;
+    font-size: 16px !important;
+    line-height: 1.70 !important;
+    max-width: 600px;
     margin-bottom: 30px !important;
     font-weight: 500 !important;
 }
@@ -355,6 +424,37 @@ body.page-transitioning {
     color: #ffffff !important;
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
+}
+
+.zoom-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 78px;
+    background: #002e5b;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.9;
+    transition: background 0.3s, opacity 0.3s, transform 0.2s;
+}
+.zoom-nav:hover {
+    background: #006B63;
+    opacity: 1;
+}
+.zoom-nav.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+.zoom-nav.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
 }
 
 /* ==========================================================================
@@ -849,33 +949,39 @@ body.page-transitioning {
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
     
-    /* 100% STATIC HERO ON MOBILE */
-    .static-hero-area {
-        min-height: 480px !important;
+    /* STATIC HERO ON MOBILE */
+    .static-hero-area, .hero-zoom-slider {
+        height: 480px !important;
         background-position: center right !important;
-        padding: 25px 0 !important;
     }
     
-    .hero-static-content {
+    .text-slide-item {
+        height: 480px !important;
         padding: 20px 15px !important;
-        text-align: left !important;
+        justify-content: center !important;
     }
     
-    .hero-static-content h3.sub-title {
+    .text-content {
+        text-align: left !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .text-content h3.sub-title {
         font-size: 13px !important;
         margin-bottom: 4px !important;
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
     }
-    .hero-static-content h1.title {
+    .text-content h1.title {
         font-size: 30px !important;
         line-height: 1.15 !important;
         margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
     }
-    .hero-static-content p.description {
+    .text-content p.description {
         font-size: 12.5px !important;
         line-height: 1.5 !important;
         margin-bottom: 18px !important;
@@ -895,6 +1001,13 @@ body.page-transitioning {
         display: inline-block !important;
         margin: 0 !important;
         box-shadow: none !important;
+    }
+    
+    .zoom-nav {
+        width: 32px !important;
+        height: 52px !important;
+        font-size: 18px !important;
+        opacity: 0.75 !important;
     }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
@@ -1245,7 +1358,88 @@ body.page-transitioning {
                 }
             }, { passive: true });
 
-            // 3. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
+            // 3. EXACT TEMPLATE-89 ZOOM-OUT TEXT ROTATOR ENGINE
+            (function initTemplate89ZoomOutRotator() {
+                var $slides = $('.hero-zoom-slider .zoom-slide');
+                if (!$slides.length) return;
+                
+                var currentIndex = 0;
+                var totalSlides = $slides.length;
+                var zoomTimer = null;
+                var autoInterval = 4800;
+                
+                function goToSlide(nextIndex) {
+                    if (nextIndex === currentIndex) return;
+                    
+                    var $current = $slides.eq(currentIndex);
+                    var $next = $slides.eq(nextIndex);
+                    
+                    $current.addClass('leaving').removeClass('active');
+                    
+                    setTimeout(function(){
+                        $current.removeClass('leaving');
+                    }, 450);
+                    
+                    $next.addClass('active');
+                    currentIndex = nextIndex;
+                }
+                
+                function slideNext() {
+                    var next = (currentIndex + 1) % totalSlides;
+                    goToSlide(next);
+                }
+                
+                function slidePrev() {
+                    var prev = (currentIndex - 1 + totalSlides) % totalSlides;
+                    goToSlide(prev);
+                }
+                
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    zoomTimer = setInterval(slideNext, autoInterval);
+                }
+                
+                function stopAutoPlay() {
+                    if (zoomTimer) clearInterval(zoomTimer);
+                }
+                
+                $('#zoom-next').on('click', function(e){
+                    e.preventDefault();
+                    slideNext();
+                    startAutoPlay();
+                });
+                
+                $('#zoom-prev').on('click', function(e){
+                    e.preventDefault();
+                    slidePrev();
+                    startAutoPlay();
+                });
+                
+                // Touch Swipe on mobile
+                var touchStartX = 0;
+                var touchEndX = 0;
+                var sliderEl = document.querySelector('.hero-zoom-slider');
+                if (sliderEl) {
+                    sliderEl.addEventListener('touchstart', function(e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                        stopAutoPlay();
+                    }, { passive: true });
+                    
+                    sliderEl.addEventListener('touchend', function(e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        if (touchStartX - touchEndX > 40) {
+                            slideNext();
+                        } else if (touchEndX - touchStartX > 40) {
+                            slidePrev();
+                        }
+                        startAutoPlay();
+                    }, { passive: true });
+                }
+                
+                startAutoPlay();
+            })();
+
+            // 4. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
             if ($(".reviews-carousel").length) {
                 $(".reviews-carousel").owlCarousel({
                     loop: true,
@@ -1266,7 +1460,7 @@ body.page-transitioning {
                 });
             }
 
-            // 4. Sticky Header
+            // 5. Sticky Header
             window.onscroll = function () {
                 var header = document.getElementById("header");
                 if (window.pageYOffset > 120) {
@@ -1276,7 +1470,7 @@ body.page-transitioning {
                 }
             };
 
-            // 5. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
+            // 6. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
             if ('IntersectionObserver' in window) {
                 var revealObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
@@ -1298,7 +1492,7 @@ body.page-transitioning {
                 });
             }
 
-            // 6. SUBTLE 3D CARD TILT ON DESKTOP HOVER
+            // 7. SUBTLE 3D CARD TILT ON DESKTOP HOVER
             if (window.innerWidth > 992) {
                 document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
                     card.addEventListener('mousemove', function(e) {
@@ -1315,7 +1509,7 @@ body.page-transitioning {
                 });
             }
 
-            // 7. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
+            // 8. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
             function animateValue(obj, start, end, duration, suffix) {
                 let startTimestamp = null;
                 const step = (timestamp) => {
