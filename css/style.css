@@ -213,7 +213,7 @@ body {
 }
 
 /* ==========================================================================
-   100% STATIC PICTURE HERO + IN-PLACE SYNCHRONIZED ZOOM-IN TRANSITION
+   100% STATIC BACKGROUND HERO + PURE IN-PLACE ABSOLUTE ZOOM-IN ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -235,13 +235,32 @@ body {
     z-index: 1;
 }
 
-.hero-full-slider {
+/* ABSOLUTE OVERLAY ZOOM SLIDER (ZERO HORIZONTAL SLIDING) */
+.hero-zoom-slider {
     position: relative;
     z-index: 2;
     height: 600px;
+    width: 100%;
 }
-.hero-full-slider .owl-stage-outer, .hero-full-slider .owl-stage, .hero-full-slider .owl-item {
-    height: 600px;
+
+.zoom-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.65s ease, visibility 0.65s ease;
+    z-index: 1;
+}
+
+.zoom-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 .text-slide-item {
@@ -252,16 +271,23 @@ body {
     padding-top: 60px;
 }
 
-/* SYNCHRONIZED IN-PLACE ZOOM-IN (NO SIDEWAYS SLIDING) */
-.hero-full-slider .owl-item .text-content {
+/* TRUE ZOOM-IN POP MECHANISM */
+.zoom-slide .text-content {
+    transform: scale(0.60);
     opacity: 0;
-    transform: scale(0.82);
     transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
 }
-.hero-full-slider .owl-item.active .text-content {
-    opacity: 1 !important;
+
+.zoom-slide.active .text-content {
     transform: scale(1) !important;
+    opacity: 1 !important;
+}
+
+.zoom-slide.leaving .text-content {
+    transform: scale(1.15) !important;
+    opacity: 0 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 /* TYPOGRAPHY */
@@ -314,38 +340,36 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* EXACT SCREEN EDGE ARROWS (NEVER OVERLAP TEXT) */
-.hero-full-slider .owl-nav {
-    display: block;
-}
-.hero-full-slider .owl-prev, .hero-full-slider .owl-next {
+/* SCREEN-EDGE NAVIGATION ARROWS */
+.zoom-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 72px;
-    background: #002e5b !important;
-    color: #ffffff !important;
-    border-radius: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 22px !important;
-    transition: all 0.3s ease !important;
-    z-index: 99;
+    width: 46px;
+    height: 76px;
+    background: #002e5b;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
     opacity: 0.9;
+    transition: background 0.3s, opacity 0.3s, transform 0.2s;
 }
-.hero-full-slider .owl-prev:hover, .hero-full-slider .owl-next:hover {
-    background: #006B63 !important;
+.zoom-nav:hover {
+    background: #006B63;
     opacity: 1;
 }
-.hero-full-slider .owl-prev {
-    left: 0 !important;
-    border-radius: 0 4px 4px 0 !important;
+.zoom-nav.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
 }
-.hero-full-slider .owl-next {
-    right: 0 !important;
-    border-radius: 4px 0 0 4px !important;
+.zoom-nav.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
 }
 
 /* ==========================================================================
@@ -714,7 +738,7 @@ body {
     }
     
     /* STATIC HERO ON MOBILE - NO WHITE BOX */
-    .static-hero-area, .hero-full-slider, .hero-full-slider .owl-stage-outer, .hero-full-slider .owl-stage, .hero-full-slider .owl-item {
+    .static-hero-area, .hero-zoom-slider {
         height: 480px !important;
         background-position: center right !important;
     }
@@ -776,10 +800,10 @@ body {
         box-shadow: none !important;
     }
     
-    .hero-full-slider .owl-prev, .hero-full-slider .owl-next {
-        width: 30px !important;
-        height: 48px !important;
-        font-size: 15px !important;
+    .zoom-nav {
+        width: 32px !important;
+        height: 52px !important;
+        font-size: 18px !important;
         opacity: 0.75 !important;
     }
     

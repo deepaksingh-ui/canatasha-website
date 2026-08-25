@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=17000"/>
+    <link rel="stylesheet" href="css/style.css?v=18000"/>
 
     <style id="master-inlined-css">
 
@@ -230,7 +230,7 @@ body {
 }
 
 /* ==========================================================================
-   100% STATIC PICTURE HERO + IN-PLACE SYNCHRONIZED ZOOM-IN TRANSITION
+   100% STATIC BACKGROUND HERO + PURE IN-PLACE ABSOLUTE ZOOM-IN ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -252,13 +252,32 @@ body {
     z-index: 1;
 }
 
-.hero-full-slider {
+/* ABSOLUTE OVERLAY ZOOM SLIDER (ZERO HORIZONTAL SLIDING) */
+.hero-zoom-slider {
     position: relative;
     z-index: 2;
     height: 600px;
+    width: 100%;
 }
-.hero-full-slider .owl-stage-outer, .hero-full-slider .owl-stage, .hero-full-slider .owl-item {
-    height: 600px;
+
+.zoom-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.65s ease, visibility 0.65s ease;
+    z-index: 1;
+}
+
+.zoom-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 .text-slide-item {
@@ -269,16 +288,23 @@ body {
     padding-top: 60px;
 }
 
-/* SYNCHRONIZED IN-PLACE ZOOM-IN (NO SIDEWAYS SLIDING) */
-.hero-full-slider .owl-item .text-content {
+/* TRUE ZOOM-IN POP MECHANISM */
+.zoom-slide .text-content {
+    transform: scale(0.60);
     opacity: 0;
-    transform: scale(0.82);
     transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
 }
-.hero-full-slider .owl-item.active .text-content {
-    opacity: 1 !important;
+
+.zoom-slide.active .text-content {
     transform: scale(1) !important;
+    opacity: 1 !important;
+}
+
+.zoom-slide.leaving .text-content {
+    transform: scale(1.15) !important;
+    opacity: 0 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 /* TYPOGRAPHY */
@@ -331,38 +357,36 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* EXACT SCREEN EDGE ARROWS (NEVER OVERLAP TEXT) */
-.hero-full-slider .owl-nav {
-    display: block;
-}
-.hero-full-slider .owl-prev, .hero-full-slider .owl-next {
+/* SCREEN-EDGE NAVIGATION ARROWS */
+.zoom-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 72px;
-    background: #002e5b !important;
-    color: #ffffff !important;
-    border-radius: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 22px !important;
-    transition: all 0.3s ease !important;
-    z-index: 99;
+    width: 46px;
+    height: 76px;
+    background: #002e5b;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
     opacity: 0.9;
+    transition: background 0.3s, opacity 0.3s, transform 0.2s;
 }
-.hero-full-slider .owl-prev:hover, .hero-full-slider .owl-next:hover {
-    background: #006B63 !important;
+.zoom-nav:hover {
+    background: #006B63;
     opacity: 1;
 }
-.hero-full-slider .owl-prev {
-    left: 0 !important;
-    border-radius: 0 4px 4px 0 !important;
+.zoom-nav.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
 }
-.hero-full-slider .owl-next {
-    right: 0 !important;
-    border-radius: 4px 0 0 4px !important;
+.zoom-nav.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
 }
 
 /* ==========================================================================
@@ -731,7 +755,7 @@ body {
     }
     
     /* STATIC HERO ON MOBILE - NO WHITE BOX */
-    .static-hero-area, .hero-full-slider, .hero-full-slider .owl-stage-outer, .hero-full-slider .owl-stage, .hero-full-slider .owl-item {
+    .static-hero-area, .hero-zoom-slider {
         height: 480px !important;
         background-position: center right !important;
     }
@@ -793,10 +817,10 @@ body {
         box-shadow: none !important;
     }
     
-    .hero-full-slider .owl-prev, .hero-full-slider .owl-next {
-        width: 30px !important;
-        height: 48px !important;
-        font-size: 15px !important;
+    .zoom-nav {
+        width: 32px !important;
+        height: 52px !important;
+        font-size: 18px !important;
         opacity: 0.75 !important;
     }
     
@@ -929,20 +953,22 @@ body {
     </header>
 
     
-    <!-- 100% STATIC BACKGROUND HERO WITH FULL-WIDTH SLIDER & IN-PLACE ZOOM-IN -->
+    <!-- 100% STATIC BACKGROUND HERO WITH PURE IN-PLACE ABSOLUTE ZOOM ENGINE -->
     <section class="static-hero-area" id="home">
-        <div class="hero-full-slider owl-carousel">
+        <div class="hero-zoom-slider">
             <!-- SLIDE 1: FOR YOUR BUSINESS -->
-            <div class="container h-100 position-relative" style="z-index: 5;">
-                <div class="row h-100">
-                    <div class="col-lg-7 col-md-9 col-12">
-                        <div class="text-slide-item">
-                            <div class="text-content text-left">
-                                <h3 class="sub-title">WE PROVIDE BEST FINANCIAL SOLUTIONS</h3>
-                                <h1 class="title">FOR YOUR BUSINESS</h1>
-                                <p class="description">We have over 8+ years of dedicated professional experience in Tax, Audits, and Corporate Financial Management in Bhopal so we can make your business compliant and successful you can trust us.</p>
-                                <div class="btn-box">
-                                    <a class="theme-btn" href="services.html">View Services</a>
+            <div class="zoom-slide active">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">WE PROVIDE BEST FINANCIAL SOLUTIONS</h3>
+                                    <h1 class="title">FOR YOUR BUSINESS</h1>
+                                    <p class="description">We have over 8+ years of dedicated professional experience in Tax, Audits, and Corporate Financial Management in Bhopal so we can make your business compliant and successful you can trust us.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="services.html">View Services</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -951,16 +977,18 @@ body {
             </div>
 
             <!-- SLIDE 2: CA NATASHA RAJVAIDYA -->
-            <div class="container h-100 position-relative" style="z-index: 5;">
-                <div class="row h-100">
-                    <div class="col-lg-7 col-md-9 col-12">
-                        <div class="text-slide-item">
-                            <div class="text-content text-left">
-                                <h3 class="sub-title">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
-                                <h1 class="title">CA NATASHA RAJVAIDYA</h1>
-                                <p class="description">Empowering businesses, startups, and MSMEs across India with proactive income tax structuring, GST litigation defense, and statutory audit representations.</p>
-                                <div class="btn-box">
-                                    <a class="theme-btn" href="about-us.html">About Firm</a>
+            <div class="zoom-slide">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
+                                    <h1 class="title">CA NATASHA RAJVAIDYA</h1>
+                                    <p class="description">Empowering businesses, startups, and MSMEs across India with proactive income tax structuring, GST litigation defense, and statutory audit representations.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="about-us.html">About Firm</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -969,22 +997,28 @@ body {
             </div>
 
             <!-- SLIDE 3: NATASHA & COMPANY -->
-            <div class="container h-100 position-relative" style="z-index: 5;">
-                <div class="row h-100">
-                    <div class="col-lg-7 col-md-9 col-12">
-                        <div class="text-slide-item">
-                            <div class="text-content text-left">
-                                <h3 class="sub-title">ISO 9001:2015 CERTIFIED FIRM</h3>
-                                <h1 class="title">NATASHA &amp; COMPANY</h1>
-                                <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
-                                <div class="btn-box">
-                                    <a class="theme-btn" href="contact-us.html">Contact Us</a>
+            <div class="zoom-slide">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">ISO 9001:2015 CERTIFIED FIRM</h3>
+                                    <h1 class="title">NATASHA &amp; COMPANY</h1>
+                                    <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="contact-us.html">Contact Us</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- SCREEN EDGE NAVIGATION BUTTONS -->
+            <button class="zoom-nav prev" id="zoom-prev" aria-label="Previous Slide"><i class="fa fa-angle-left"></i></button>
+            <button class="zoom-nav next" id="zoom-next" aria-label="Next Slide"><i class="fa fa-angle-right"></i></button>
         </div>
     </section>
 
@@ -1704,23 +1738,86 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // 100% STATIC BACKGROUND + IN-PLACE ZOOM-IN CROSS-FADE (NO HORIZONTAL SLIDING)
-            var $heroSlider = $(".hero-full-slider");
-            if ($heroSlider.length) {
-                $heroSlider.owlCarousel({
-                    items: 1,
-                    loop: true,
-                    autoplay: true,
-                    autoplayTimeout: 5500,
-                    autoplayHoverPause: true,
-                    smartSpeed: 800,
-                    nav: true,
-                    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                    dots: false,
-                    touchDrag: true,
-                    mouseDrag: true
+            // PURE IN-PLACE ABSOLUTE ZOOM SLIDER ENGINE (ZERO HORIZONTAL SLIDING)
+            (function initPureZoomSlider() {
+                var $slides = $('.hero-zoom-slider .zoom-slide');
+                if (!$slides.length) return;
+                
+                var currentIndex = 0;
+                var totalSlides = $slides.length;
+                var zoomTimer = null;
+                var autoInterval = 5500;
+                
+                function goToSlide(nextIndex) {
+                    if (nextIndex === currentIndex) return;
+                    
+                    var $current = $slides.eq(currentIndex);
+                    var $next = $slides.eq(nextIndex);
+                    
+                    $current.addClass('leaving').removeClass('active');
+                    
+                    setTimeout(function(){
+                        $current.removeClass('leaving');
+                    }, 500);
+                    
+                    $next.addClass('active');
+                    currentIndex = nextIndex;
+                }
+                
+                function slideNext() {
+                    var next = (currentIndex + 1) % totalSlides;
+                    goToSlide(next);
+                }
+                
+                function slidePrev() {
+                    var prev = (currentIndex - 1 + totalSlides) % totalSlides;
+                    goToSlide(prev);
+                }
+                
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    zoomTimer = setInterval(slideNext, autoInterval);
+                }
+                
+                function stopAutoPlay() {
+                    if (zoomTimer) clearInterval(zoomTimer);
+                }
+                
+                $('#zoom-next').on('click', function(e){
+                    e.preventDefault();
+                    slideNext();
+                    startAutoPlay();
                 });
-            }
+                
+                $('#zoom-prev').on('click', function(e){
+                    e.preventDefault();
+                    slidePrev();
+                    startAutoPlay();
+                });
+                
+                // Mobile Touch Swipe Handling
+                var touchStartX = 0;
+                var touchEndX = 0;
+                var sliderEl = document.querySelector('.hero-zoom-slider');
+                if (sliderEl) {
+                    sliderEl.addEventListener('touchstart', function(e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                        stopAutoPlay();
+                    }, { passive: true });
+                    
+                    sliderEl.addEventListener('touchend', function(e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        if (touchStartX - touchEndX > 40) {
+                            slideNext();
+                        } else if (touchEndX - touchStartX > 40) {
+                            slidePrev();
+                        }
+                        startAutoPlay();
+                    }, { passive: true });
+                }
+                
+                startAutoPlay();
+            })();
 
             // REVIEWS CAROUSEL SLIDER (CONTINUOUS SMOOTH ROTATION)
             if ($(".reviews-carousel").length) {
