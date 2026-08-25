@@ -30,6 +30,7 @@
 
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -40,7 +41,7 @@ body {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     opacity: 1;
-    transition: opacity 0.28s var(--ca-easing);
+    transition: opacity 0.25s var(--ca-easing);
 }
 
 body.page-transitioning {
@@ -49,7 +50,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   1. SCROLL PROGRESS INDICATOR
+   1. SCROLL PROGRESS INDICATOR (SCREEN TOP)
    ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
@@ -64,7 +65,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   2. TOP BAR & BRAND HEADER (UNIFIED LEFT GRID ALIGNMENT)
+   2. TOP BAR & BRAND HEADER (UNIFIED GRID ALIGNMENT)
    ========================================================================== */
 .top-bar-custom {
     background: #111a24;
@@ -225,7 +226,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   2.1. NAVBAR (DESKTOP) - PERFECT LEFT ALIGNMENT WITH LOGO & TOP BAR
+   2.1. NAVBAR (DESKTOP) - PERFECT GRID ALIGNMENT
    ========================================================================== */
 .mainmenu-area {
     position: absolute;
@@ -268,7 +269,6 @@ body.page-transitioning {
     letter-spacing: 0.2px;
 }
 
-/* EXACT MILLIMETER ALIGNMENT: FIRST LINK 'HOME' FLUSH WITH LOGO & TOP BAR LEFT EDGE */
 .navbar-nav > li:first-child > a {
     padding-left: 0 !important;
 }
@@ -317,7 +317,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: HARDWARE ACCELERATED KEYFRAME ZOOM-OUT ENGINE
+   3. HERO BANNER: HIGH-IMPACT HARDWARE ACCELERATED ZOOM-OUT ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -344,7 +344,7 @@ body.page-transitioning {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
     z-index: 1;
 }
 
@@ -371,31 +371,25 @@ body.page-transitioning {
     margin: 0 !important;
 }
 
-/* HARDWARE ACCELERATED ZOOM-OUT KEYFRAMES */
+/* HIGH-IMPACT ZOOM-OUT KEYFRAME (SOLID PERFORMANCE ON MOBILE & DESKTOP) */
 @keyframes caZoomOutReveal {
     0% {
-        transform: scale(1.48) translate3d(0, 0, 0);
+        transform: scale(1.45) translateY(-8px);
         opacity: 0;
-        filter: blur(6px);
-    }
-    60% {
-        opacity: 0.95;
-        filter: blur(0px);
     }
     100% {
-        transform: scale(1.0) translate3d(0, 0, 0);
+        transform: scale(1.0) translateY(0);
         opacity: 1;
-        filter: blur(0px);
     }
 }
 
 @keyframes caZoomOutDismiss {
     0% {
-        transform: scale(1.0) translate3d(0, 0, 0);
+        transform: scale(1.0) translateY(0);
         opacity: 1;
     }
     100% {
-        transform: scale(0.82) translate3d(0, 0, 0);
+        transform: scale(0.85) translateY(6px);
         opacity: 0;
     }
 }
@@ -405,28 +399,28 @@ body.page-transitioning {
 .zoom-slide .text-content p.description,
 .zoom-slide .text-content .btn-box {
     opacity: 0;
-    transform: scale(1.48);
-    will-change: transform, opacity, filter;
+    transform: scale(1.45);
+    will-change: transform, opacity;
 }
 
 .zoom-slide.active .text-content h3.sub-title {
-    animation: caZoomOutReveal 0.65s var(--ca-easing) 0.05s both;
+    animation: caZoomOutReveal 0.62s var(--ca-easing) 0.04s both;
 }
 .zoom-slide.active .text-content h1.title {
-    animation: caZoomOutReveal 0.72s var(--ca-easing) 0.16s both;
+    animation: caZoomOutReveal 0.70s var(--ca-easing) 0.15s both;
 }
 .zoom-slide.active .text-content p.description {
-    animation: caZoomOutReveal 0.78s var(--ca-easing) 0.28s both;
+    animation: caZoomOutReveal 0.78s var(--ca-easing) 0.26s both;
 }
 .zoom-slide.active .text-content .btn-box {
-    animation: caZoomOutReveal 0.84s var(--ca-easing) 0.40s both;
+    animation: caZoomOutReveal 0.85s var(--ca-easing) 0.38s both;
 }
 
 .zoom-slide.leaving .text-content h3.sub-title,
 .zoom-slide.leaving .text-content h1.title,
 .zoom-slide.leaving .text-content p.description,
 .zoom-slide.leaving .text-content .btn-box {
-    animation: caZoomOutDismiss 0.4s ease both !important;
+    animation: caZoomOutDismiss 0.35s ease both !important;
 }
 
 /* 110% GRAND TYPOGRAPHY ON DESKTOP */
@@ -514,8 +508,8 @@ body.page-transitioning {
    4. 10-POINT LUXURY MOBILE NAVIGATION SYSTEM
    ========================================================================== */
 .hamburger-morph-btn {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background: #006B63;
     border: none;
     border-radius: 6px;
@@ -558,7 +552,7 @@ body.page-transitioning {
 
 #mobile-menu-drawer {
     display: none;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 3px solid #006B63;
@@ -626,14 +620,9 @@ body.page-transitioning {
     border-left: 3px solid transparent;
 }
 #mobile-menu-drawer ul li a:active {
-    transform: scale(0.975);
+    transform: scale(0.97);
 }
-#mobile-menu-drawer ul li a:hover {
-    background: #f0fdf4;
-    color: #006B63;
-    border-left: 4px solid #006B63;
-    padding-left: 20px;
-}
+#mobile-menu-drawer ul li a:hover,
 #mobile-menu-drawer ul li.active a {
     color: #006B63;
     background: #f0fdf4;
@@ -670,13 +659,13 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   5. CINEMATIC SECTION REVEAL, SPLIT-TEXT, PARALLAX & 3D MOTION SUITE
+   5. CINEMATIC SECTION REVEAL & MOBILE TOUCH PHYSICS
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(32px) scale(0.95);
-    transition: opacity 0.8s var(--ca-easing), transform 0.8s var(--ca-easing), filter 0.8s var(--ca-easing);
-    will-change: opacity, transform, filter;
+    transform: translateY(28px) scale(0.96);
+    transition: opacity 0.75s var(--ca-easing), transform 0.75s var(--ca-easing), filter 0.75s var(--ca-easing);
+    will-change: opacity, transform;
 }
 .reveal-on-scroll.is-visible {
     opacity: 1 !important;
@@ -685,14 +674,14 @@ body.page-transitioning {
 
 /* Blur to Sharp Image Transition */
 .img-blur-reveal {
-    filter: blur(12px) brightness(0.9);
-    transform: scale(1.08);
-    transition: filter 0.85s var(--ca-easing), transform 0.85s var(--ca-easing);
+    filter: blur(10px);
+    transform: scale(1.05);
+    transition: filter 0.8s var(--ca-easing), transform 0.8s var(--ca-easing);
     will-change: filter, transform;
 }
 .reveal-on-scroll.is-visible .img-blur-reveal,
 .reveal-on-scroll.is-visible.img-blur-reveal {
-    filter: blur(0px) brightness(1) !important;
+    filter: blur(0px) !important;
     transform: scale(1) !important;
 }
 
@@ -705,17 +694,17 @@ body.page-transitioning {
 
 /* 3D Depth Card Physics (Mobile Touch & Desktop Hover) */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
-    transition: transform 0.4s var(--ca-spring), box-shadow 0.4s ease, border-color 0.3s ease !important;
+    transition: transform 0.35s var(--ca-spring), box-shadow 0.35s ease, border-color 0.3s ease !important;
     transform-style: preserve-3d;
 }
 .blog-card:hover, .blog-card:active {
-    transform: translateY(-8px) scale(1.025) !important;
-    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.16) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 18px 40px rgba(0, 46, 91, 0.15) !important;
     border-color: #006B63 !important;
 }
 .single-item:hover, .single-item:active {
-    transform: translateY(-6px) scale(1.02) !important;
-    box-shadow: 0 18px 35px rgba(0, 107, 99, 0.14) !important;
+    transform: translateY(-5px) scale(1.015) !important;
+    box-shadow: 0 16px 32px rgba(0, 107, 99, 0.13) !important;
     border-color: #006B63 !important;
 }
 .leader-card {
@@ -726,13 +715,13 @@ body.page-transitioning {
     overflow: hidden;
 }
 .leader-card:hover, .leader-card:active {
-    transform: translateY(-8px) scale(1.025) !important;
-    box-shadow: 0 20px 40px rgba(0, 46, 91, 0.14) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 18px 36px rgba(0, 46, 91, 0.13) !important;
     border-color: #006B63 !important;
 }
 .calc-box-card:hover, .calc-box-card:active {
-    transform: translateY(-5px) scale(1.015) !important;
-    box-shadow: 0 18px 40px rgba(0, 46, 91, 0.12) !important;
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: 0 16px 35px rgba(0, 46, 91, 0.11) !important;
     border-color: #006B63 !important;
 }
 
@@ -951,7 +940,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY WITH CRISP ZOOM-OUT
+   6. MOBILE ONLY: ULTRA FLUID TOUCH & SOFT BLUR HERO VIEW
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -1010,6 +999,7 @@ body.page-transitioning {
         background-size: cover !important;
         background-position: center top !important;
         background-repeat: no-repeat !important;
+        touch-action: pan-y;
     }
     
     .text-slide-item {
@@ -1999,20 +1989,32 @@ body.page-transitioning {
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function(){
-            // 1. Mobile Menu Drawer & Morphing Hamburger Button (10-Point Nav)
-            $('#mobile-toggle-btn').on('click', function(e){
-                e.preventDefault();
-                $(this).toggleClass('is-active');
+            // 1. Mobile Menu Drawer & Morphing Hamburger Button (Instant Touch & Click)
+            function toggleMobileMenu(e) {
+                if (e) e.preventDefault();
+                $('#mobile-toggle-btn').toggleClass('is-active');
                 $('#mobile-menu-drawer').toggleClass('open');
+            }
+            $('#mobile-toggle-btn').on('click pointerdown', function(e){
+                e.stopPropagation();
+                toggleMobileMenu(e);
             });
 
-            // 9. TOUCH RIPPLE EFFECT ON MOBILE MENU ITEMS
-            $('.mobile-nav-link, .theme-btn, .btn').on('click', function(e){
+            $('#mobile-menu-drawer a').on('click', function(){
+                $('#mobile-toggle-btn').removeClass('is-active');
+                $('#mobile-menu-drawer').removeClass('open');
+            });
+
+            // 9. TOUCH RIPPLE EFFECT ON MOBILE MENU ITEMS & BUTTONS
+            $('.mobile-nav-link, .theme-btn, .btn').on('click pointerdown', function(e){
                 var $btn = $(this);
                 var offset = $btn.offset();
                 if (!offset) return;
-                var x = e.pageX - offset.left;
-                var y = e.pageY - offset.top;
+                var pageX = e.pageX || (e.originalEvent && e.originalEvent.touches && e.originalEvent.touches[0].pageX);
+                var pageY = e.pageY || (e.originalEvent && e.originalEvent.touches && e.originalEvent.touches[0].pageY);
+                if (!pageX || !pageY) return;
+                var x = pageX - offset.left;
+                var y = pageY - offset.top;
                 
                 var $ripple = $('<span class="ripple-wave"></span>').css({
                     top: y + 'px',
@@ -2035,12 +2037,12 @@ body.page-transitioning {
                     $('body').addClass('page-transitioning');
                     setTimeout(function(){
                         window.location.href = targetHref;
-                    }, 160);
+                    }, 150);
                 }
             });
 
-            // 2. SCROLL PROGRESS INDICATOR
-            window.addEventListener('scroll', function() {
+            // 2. SCROLL PROGRESS INDICATOR (FLUID ON MOBILE & LAPTOP)
+            function updateScrollProgress() {
                 var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 var scrolled = (winScroll / height) * 100;
@@ -2048,9 +2050,11 @@ body.page-transitioning {
                 if (bar) {
                     bar.style.width = scrolled + "%";
                 }
-            }, { passive: true });
+            }
+            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+            window.addEventListener('touchmove', updateScrollProgress, { passive: true });
 
-            // 3. HARDWARE ACCELERATED KEYFRAME ZOOM-OUT ROTATOR
+            // 3. HARDWARE ACCELERATED KEYFRAME ZOOM-OUT ROTATOR (IMMEDIATE LOAD + TOUCH SWIPE)
             (function initTemplate89ZoomOutRotator() {
                 var $slides = $('.hero-zoom-slider .zoom-slide');
                 if (!$slides.length) return;
@@ -2058,7 +2062,7 @@ body.page-transitioning {
                 var currentIndex = 0;
                 var totalSlides = $slides.length;
                 var zoomTimer = null;
-                var autoInterval = 4800;
+                var autoInterval = 3800; // Snappy 3.8s rotation
                 
                 function goToSlide(nextIndex) {
                     if (nextIndex === currentIndex) return;
@@ -2070,7 +2074,7 @@ body.page-transitioning {
                     
                     setTimeout(function(){
                         $current.removeClass('leaving');
-                    }, 420);
+                    }, 350);
                     
                     $next.addClass('active');
                     currentIndex = nextIndex;
@@ -2095,19 +2099,19 @@ body.page-transitioning {
                     if (zoomTimer) clearInterval(zoomTimer);
                 }
                 
-                $('#zoom-next').on('click', function(e){
+                $('#zoom-next').on('click pointerdown', function(e){
                     e.preventDefault();
                     slideNext();
                     startAutoPlay();
                 });
                 
-                $('#zoom-prev').on('click', function(e){
+                $('#zoom-prev').on('click pointerdown', function(e){
                     e.preventDefault();
                     slidePrev();
                     startAutoPlay();
                 });
                 
-                // Touch Swipe on mobile
+                // Touch Swipe on mobile with instant feedback
                 var touchStartX = 0;
                 var touchEndX = 0;
                 var sliderEl = document.querySelector('.hero-zoom-slider');
@@ -2119,15 +2123,22 @@ body.page-transitioning {
                     
                     sliderEl.addEventListener('touchend', function(e) {
                         touchEndX = e.changedTouches[0].screenX;
-                        if (touchStartX - touchEndX > 35) {
+                        if (touchStartX - touchEndX > 30) {
                             slideNext();
-                        } else if (touchEndX - touchStartX > 35) {
+                        } else if (touchEndX - touchStartX > 30) {
                             slidePrev();
                         }
                         startAutoPlay();
                     }, { passive: true });
                 }
                 
+                // Force immediate entry zoom animation on load
+                setTimeout(function(){
+                    $slides.eq(0).removeClass('active');
+                    void $slides.eq(0)[0].offsetWidth; // reflow
+                    $slides.eq(0).addClass('active');
+                }, 60);
+
                 startAutoPlay();
             })();
 
@@ -2139,7 +2150,7 @@ body.page-transitioning {
                     autoplay: true,
                     autoplayTimeout: 3500,
                     autoplayHoverPause: true,
-                    smartSpeed: 700,
+                    smartSpeed: 650,
                     responsive: {
                         0: { items: 1 },
                         768: { items: 1 },
@@ -2153,21 +2164,23 @@ body.page-transitioning {
             }
 
             // 5. Sticky Header
-            window.onscroll = function () {
+            function checkSticky() {
                 var header = document.getElementById("header");
-                if (window.pageYOffset > 120) {
+                if (!header) return;
+                if (window.pageYOffset > 100) {
                     header.classList.add("fixedhead");
                 } else {
                     header.classList.remove("fixedhead");
                 }
-            };
+            }
+            window.addEventListener('scroll', checkSticky, { passive: true });
 
-            // 6. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
+            // 6. CINEMATIC SCROLL REVEALS (ACTIVE ON MOBILE TOUCH & DESKTOP SCROLL)
             function triggerScrollReveals() {
-                var windowHeight = window.innerHeight;
+                var windowHeight = window.innerHeight || document.documentElement.clientHeight;
                 document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
                     var rect = el.getBoundingClientRect();
-                    if (rect.top <= windowHeight - 30) {
+                    if (rect.top <= windowHeight * 0.94) {
                         el.classList.add('is-visible');
                     }
                 });
@@ -2181,8 +2194,8 @@ body.page-transitioning {
                         }
                     });
                 }, {
-                    rootMargin: '0px 0px -20px 0px',
-                    threshold: 0.05
+                    rootMargin: '40px 0px -10px 0px',
+                    threshold: 0.02
                 });
 
                 document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
@@ -2191,9 +2204,10 @@ body.page-transitioning {
             }
 
             window.addEventListener('scroll', triggerScrollReveals, { passive: true });
-            triggerScrollReveals();
+            window.addEventListener('touchmove', triggerScrollReveals, { passive: true });
+            setTimeout(triggerScrollReveals, 100);
 
-            // 7. 3D PERSPECTIVE TILT ON HOVER (DESKTOP) & TOUCH (MOBILE)
+            // 7. 3D PERSPECTIVE TILT (DESKTOP) & TOUCH ELEVATION (MOBILE)
             document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
                 if (window.innerWidth > 992) {
                     card.addEventListener('mousemove', function(e) {
@@ -2235,14 +2249,15 @@ body.page-transitioning {
                         document.querySelectorAll('.counter-val').forEach(el => {
                             const target = parseInt(el.getAttribute('data-target'));
                             const suffix = el.getAttribute('data-suffix') || '';
-                            animateValue(el, 0, target, 2000, suffix);
+                            animateValue(el, 0, target, 1800, suffix);
                         });
                     }
                 }
             }
 
             window.addEventListener('scroll', checkCounters, { passive: true });
-            checkCounters();
+            window.addEventListener('touchmove', checkCounters, { passive: true });
+            setTimeout(checkCounters, 200);
         });
 
         // Tax Calculation Functions (Global)
