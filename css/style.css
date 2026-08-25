@@ -234,14 +234,8 @@ body {
     top: 0;
     background: #ffffff;
 }
-@keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
-}
 
-/* ==========================================================================
-   DYNAMIC HERO SLIDER MOTION & TOUCH SWIPE ENGINE
-   ========================================================================== */
+/* HERO SLIDER */
 .slider-area {
     height: 600px;
     position: relative;
@@ -612,9 +606,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* ==========================================================================
-   PERFECT SMARTPHONE & TABLET RESPONSIVE ENGINE
-   ========================================================================== */
+/* RESPONSIVE */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
