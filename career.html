@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=23000"/>
+    <link rel="stylesheet" href="css/style.css?v=24000"/>
 
     <style id="master-inlined-css">
 
@@ -39,11 +39,18 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    opacity: 1;
+    transition: opacity 0.3s var(--ca-easing);
+}
+
+body.page-transitioning {
+    opacity: 0.15;
+    pointer-events: none;
 }
 
 /* ==========================================================================
    1. SCROLL PROGRESS BAR (TOP OF SCREEN)
-   ========================================================================== */
+   ========================================================================= */
 #scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -142,6 +149,11 @@ body {
     max-width: 100%;
     object-fit: contain;
     display: block;
+    animation: ambientLogoFloat 4s ease-in-out infinite alternate;
+}
+@keyframes ambientLogoFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-3px); }
 }
 
 .header-main-content {
@@ -211,7 +223,7 @@ body {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR */
+/* NAVBAR (DESKTOP) */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -236,6 +248,22 @@ body {
     display: block;
     transition: 0.2s ease;
     text-decoration: none;
+    position: relative;
+}
+.navbar-nav > li > a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    right: 18px;
+    height: 3px;
+    background: #006B63;
+    transform: scaleX(0);
+    transition: transform 0.25s var(--ca-easing);
+}
+.navbar-nav > li:hover > a:after,
+.navbar-nav > li.active > a:after {
+    transform: scaleX(1);
 }
 .navbar-nav > li:hover > a,
 .navbar-nav > li.active > a {
@@ -419,7 +447,172 @@ body {
 }
 
 /* ==========================================================================
-   4. CINEMATIC SCROLL-DRIVEN PARALLAX & REVEAL
+   4. 10-POINT LUXURY MOBILE NAVIGATION ANIMATION SYSTEM
+   ========================================================================== */
+
+/* 1. Hamburger → X Morph Button */
+.hamburger-morph-btn {
+    width: 40px;
+    height: 40px;
+    background: #006B63;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    position: relative;
+    transition: background-color 0.28s ease, transform 0.2s var(--ca-spring);
+    box-shadow: 0 3px 10px rgba(0, 107, 99, 0.28);
+    outline: none !important;
+}
+.hamburger-morph-btn:active {
+    transform: scale(0.92);
+}
+.hamburger-morph-btn .bar {
+    width: 22px;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.34s var(--ca-easing), opacity 0.25s ease, background-color 0.25s ease;
+    transform-origin: center;
+}
+.hamburger-morph-btn.is-active {
+    background: #002e5b;
+}
+.hamburger-morph-btn.is-active .bar-1 {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.hamburger-morph-btn.is-active .bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger-morph-btn.is-active .bar-3 {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* 6 & 8. Menu Background Reveal (Clip-path + Glass Blur Backdrop) */
+#mobile-menu-drawer {
+    display: none;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 3px solid #006B63;
+    box-shadow: 0 18px 35px rgba(0, 46, 91, 0.18);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.42s var(--ca-easing), opacity 0.35s ease, padding 0.35s ease;
+    opacity: 0;
+    padding: 0 15px;
+    position: relative;
+}
+#mobile-menu-drawer.open {
+    display: block !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    padding: 16px 15px;
+}
+
+/* 2 & 5. Staggered Menu Reveal + Text Slide (from left) + Fade-in */
+#mobile-menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+#mobile-menu-drawer ul li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.34s var(--ca-easing), transform 0.34s var(--ca-easing);
+    margin-bottom: 4px;
+    position: relative;
+}
+#mobile-menu-drawer.open ul li {
+    opacity: 1;
+    transform: translateX(0);
+}
+#mobile-menu-drawer.open ul li:nth-child(1) { transition-delay: 0.04s; }
+#mobile-menu-drawer.open ul li:nth-child(2) { transition-delay: 0.08s; }
+#mobile-menu-drawer.open ul li:nth-child(3) { transition-delay: 0.12s; }
+#mobile-menu-drawer.open ul li:nth-child(4) { transition-delay: 0.16s; }
+#mobile-menu-drawer.open ul li:nth-child(5) { transition-delay: 0.20s; }
+#mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.24s; }
+#mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.28s; }
+#mobile-menu-drawer.open .mobile-drawer-bottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.34s var(--ca-easing) 0.32s, transform 0.34s var(--ca-easing) 0.32s;
+}
+.mobile-drawer-bottom {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+/* 3, 4, 7 & 9. Sliding Active Indicator, Morph Background, Scale & Touch Ripple */
+#mobile-menu-drawer ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 16px;
+    color: #002e5b;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.28s var(--ca-easing), color 0.25s ease, transform 0.2s var(--ca-spring), border-left 0.25s ease, padding-left 0.25s ease;
+    border-left: 3px solid transparent;
+}
+#mobile-menu-drawer ul li a:active {
+    transform: scale(0.975);
+}
+#mobile-menu-drawer ul li a:hover {
+    background: #f0fdf4;
+    color: #006B63;
+    border-left: 4px solid #006B63;
+    padding-left: 20px;
+}
+#mobile-menu-drawer ul li.active a {
+    color: #006B63;
+    background: #f0fdf4;
+    border-left: 4px solid #006B63;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+/* Touch Ripple on Menu Links */
+.ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 107, 99, 0.25);
+    transform: scale(0);
+    animation: ripplePulse 0.55s linear;
+    pointer-events: none;
+}
+@keyframes ripplePulse {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+#mobile-menu-drawer ul li a i.nav-arrow {
+    font-size: 12px;
+    opacity: 0.45;
+    transition: transform 0.25s var(--ca-easing), opacity 0.25s ease, color 0.25s ease;
+}
+#mobile-menu-drawer ul li a:hover i.nav-arrow,
+#mobile-menu-drawer ul li.active a i.nav-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+    color: #006B63;
+}
+
+/* ==========================================================================
+   5. CINEMATIC SECTION REVEAL, PARALLAX & 3D MOTION SUITE
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
@@ -699,148 +892,8 @@ body {
 }
 
 /* ==========================================================================
-   5. PREMIUM MOBILE HAMBURGER MORPHING & STAGGERED DRAWER NAVIGATION
+   6. MOBILE RESPONSIVE
    ========================================================================== */
-.hamburger-morph-btn {
-    width: 40px;
-    height: 40px;
-    background: #006B63;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 0;
-    position: relative;
-    transition: background-color 0.25s ease, transform 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 107, 99, 0.25);
-    outline: none !important;
-}
-.hamburger-morph-btn:active {
-    transform: scale(0.92);
-}
-.hamburger-morph-btn .bar {
-    width: 22px;
-    height: 2.5px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: transform 0.32s var(--ca-easing), opacity 0.25s ease, background-color 0.25s ease;
-    transform-origin: center;
-}
-
-/* Morph 3-Line to 'X' */
-.hamburger-morph-btn.is-active {
-    background: #002e5b;
-}
-.hamburger-morph-btn.is-active .bar-1 {
-    transform: translateY(7.5px) rotate(45deg);
-}
-.hamburger-morph-btn.is-active .bar-2 {
-    opacity: 0;
-    transform: scaleX(0);
-}
-.hamburger-morph-btn.is-active .bar-3 {
-    transform: translateY(-7.5px) rotate(-45deg);
-}
-
-/* Mobile Drawer Container */
-#mobile-menu-drawer {
-    display: none;
-    max-height: 0;
-    overflow: hidden;
-    background: #ffffff;
-    border-bottom: 3px solid #006B63;
-    box-shadow: 0 14px 30px rgba(0, 46, 91, 0.15);
-    transition: max-height 0.4s var(--ca-easing), opacity 0.35s ease, padding 0.35s ease;
-    opacity: 0;
-    padding: 0 15px;
-}
-#mobile-menu-drawer.open {
-    display: block !important;
-    max-height: 520px;
-    opacity: 1;
-    padding: 16px 15px;
-}
-
-/* Staggered Navigation Items Flow */
-#mobile-menu-drawer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-#mobile-menu-drawer ul li {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.32s var(--ca-easing), transform 0.32s var(--ca-easing);
-    margin-bottom: 3px;
-}
-#mobile-menu-drawer.open ul li {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered Delay for Each Navigation Item */
-#mobile-menu-drawer.open ul li:nth-child(1) { transition-delay: 0.04s; }
-#mobile-menu-drawer.open ul li:nth-child(2) { transition-delay: 0.08s; }
-#mobile-menu-drawer.open ul li:nth-child(3) { transition-delay: 0.12s; }
-#mobile-menu-drawer.open ul li:nth-child(4) { transition-delay: 0.16s; }
-#mobile-menu-drawer.open ul li:nth-child(5) { transition-delay: 0.20s; }
-#mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.24s; }
-#mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.28s; }
-#mobile-menu-drawer.open .mobile-drawer-bottom {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.32s var(--ca-easing) 0.32s, transform 0.32s var(--ca-easing) 0.32s;
-}
-.mobile-drawer-bottom {
-    opacity: 0;
-    transform: translateY(16px);
-}
-
-/* Sliding Active & Hover Selection Highlight with Green Indicator */
-#mobile-menu-drawer ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 14px;
-    color: #002e5b;
-    font-size: 14.5px;
-    font-weight: 600;
-    border-radius: 6px;
-    text-decoration: none;
-    position: relative;
-    transition: all 0.25s var(--ca-easing);
-    border-left: 3px solid transparent;
-}
-#mobile-menu-drawer ul li a:hover,
-#mobile-menu-drawer ul li a:active {
-    background: #f0fdf4;
-    color: #006B63;
-    border-left: 3px solid #006B63;
-    padding-left: 18px;
-}
-#mobile-menu-drawer ul li.active a {
-    color: #006B63;
-    background: #f0fdf4;
-    border-left: 4px solid #006B63;
-    font-weight: 700;
-    padding-left: 18px;
-}
-#mobile-menu-drawer ul li a i.nav-arrow {
-    font-size: 12px;
-    opacity: 0.5;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-#mobile-menu-drawer ul li a:hover i.nav-arrow,
-#mobile-menu-drawer ul li.active a i.nav-arrow {
-    opacity: 1;
-    transform: translateX(3px);
-    color: #006B63;
-}
-
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
@@ -1020,7 +1073,7 @@ body {
                     <!-- CLEAN UNIFIED BRAND LOGO -->
                     <div class="logo-wrapper">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="index.html" class="nav-transition-link">
                                 <img src="images/brand-logo.png" alt="Natasha &amp; Co. Chartered Accountants"/>
                             </a>
                         </div>
@@ -1047,11 +1100,11 @@ body {
                     <!-- HEADER ACTIONS (DESKTOP & MOBILE) -->
                     <div class="mobile-header-actions">
                         <div class="quote-btn">
-                            <a href="contact-us.html" class="text-decoration-none">
+                            <a href="contact-us.html" class="text-decoration-none nav-transition-link">
                                 <button type="button">Get a Quote</button>
                             </a>
                         </div>
-                        <!-- MORPHING HAMBURGER BUTTON (3 LINES TO X) -->
+                        <!-- 1. MORPHING HAMBURGER BUTTON (3 LINES TO X) -->
                         <button class="hamburger-morph-btn d-lg-none" type="button" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
                             <span class="bar bar-1"></span>
                             <span class="bar bar-2"></span>
@@ -1068,13 +1121,13 @@ body {
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="navbar-nav mr-auto">
-                            <li class=""><a href="index.html">Home</a></li>
-<li class=""><a href="about-us.html">About Us</a></li>
-<li class=""><a href="services.html">Services</a></li>
-<li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
-<li class="active"><a href="career.html">Career</a></li>
-<li class=""><a href="blog.html">Blog</a></li>
-<li class=""><a href="contact-us.html">Contact Us</a></li>
+                            <li class=""><a href="index.html" class="nav-transition-link">Home</a></li>
+<li class=""><a href="about-us.html" class="nav-transition-link">About Us</a></li>
+<li class=""><a href="services.html" class="nav-transition-link">Services</a></li>
+<li class=""><a href="knowledge-base.html" class="nav-transition-link">Knowledge Base</a></li>
+<li class="active"><a href="career.html" class="nav-transition-link">Career</a></li>
+<li class=""><a href="blog.html" class="nav-transition-link">Blog</a></li>
+<li class=""><a href="contact-us.html" class="nav-transition-link">Contact Us</a></li>
 
                         </ul>
                     </div>
@@ -1082,24 +1135,24 @@ body {
             </div>
         </div>
 
-        <!-- MOBILE SLIDING NAVIGATION DRAWER (STAGGERED SLIDE-UP + FADE-IN) -->
+        <!-- 10-POINT LUXURY MOBILE DRAWER -->
         <div id="mobile-menu-drawer" class="d-lg-none">
             <div class="container px-0">
                 <ul>
-                    <li class=""><a href="index.html"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="about-us.html"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="services.html"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="knowledge-base.html"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class="active"><a href="career.html"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="blog.html"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="contact-us.html"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+                    <li class=""><a href="index.html" class="mobile-nav-link nav-transition-link"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="about-us.html" class="mobile-nav-link nav-transition-link"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="services.html" class="mobile-nav-link nav-transition-link"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="knowledge-base.html" class="mobile-nav-link nav-transition-link"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class="active"><a href="career.html" class="mobile-nav-link nav-transition-link"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="blog.html" class="mobile-nav-link nav-transition-link"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="contact-us.html" class="mobile-nav-link nav-transition-link"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
 
                 </ul>
                 <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px; padding: 6px 14px;">
+                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
                         <i class="fa fa-phone mr-1"></i> +91 9407000157
                     </a>
-                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 6px; padding: 6px 14px;">
+                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
                         <i class="fa fa-whatsapp mr-1"></i> WhatsApp
                     </a>
                 </div>
@@ -1129,25 +1182,25 @@ body {
                 <div class="col-lg-2 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="index.html">Home</a></li>
-                        <li class="mb-2"><a href="about-us.html">About Us</a></li>
-                        <li class="mb-2"><a href="services.html">Our Services</a></li>
-                        <li class="mb-2"><a href="knowledge-base.html">Knowledge Base</a></li>
-                        <li class="mb-2"><a href="career.html">Career</a></li>
-                        <li class="mb-2"><a href="blog.html">Blog &amp; Insights</a></li>
-                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
-                        <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="index.html" class="nav-transition-link">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html" class="nav-transition-link">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Our Services</a></li>
+                        <li class="mb-2"><a href="knowledge-base.html" class="nav-transition-link">Knowledge Base</a></li>
+                        <li class="mb-2"><a href="career.html" class="nav-transition-link">Career</a></li>
+                        <li class="mb-2"><a href="blog.html" class="nav-transition-link">Blog &amp; Insights</a></li>
+                        <li class="mb-2"><a href="contact-us.html" class="nav-transition-link">Contact Us</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html" class="nav-transition-link">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <h5 class="text-white font-weight-bold mb-3">Our Practice</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="services.html">Income Tax &amp; TDS Filing</a></li>
-                        <li class="mb-2"><a href="services.html">GST Registration &amp; Returns</a></li>
-                        <li class="mb-2"><a href="services.html">Statutory &amp; Tax Audits</a></li>
-                        <li class="mb-2"><a href="services.html">Company &amp; LLP Formation</a></li>
-                        <li class="mb-2"><a href="services.html">Societies, Trust &amp; NGO Laws</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Income Tax &amp; TDS Filing</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">GST Registration &amp; Returns</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Statutory &amp; Tax Audits</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Company &amp; LLP Formation</a></li>
+                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Societies, Trust &amp; NGO Laws</a></li>
                     </ul>
                 </div>
 
@@ -1175,7 +1228,7 @@ body {
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7 text-center text-md-left">
-                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted">Terms &amp; Conditions</a></p>
+                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted nav-transition-link">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted nav-transition-link">Terms &amp; Conditions</a></p>
                     </div>
                     <div class="col-md-5 text-center text-md-right mt-2 mt-md-0">
                         <p class="mb-0 text-muted small">Designed for <strong>CA Natasha &amp; Co.</strong></p>
@@ -1200,6 +1253,38 @@ body {
                 e.preventDefault();
                 $(this).toggleClass('is-active');
                 $('#mobile-menu-drawer').toggleClass('open');
+            });
+
+            // 9. TOUCH RIPPLE EFFECT ON MOBILE MENU ITEMS
+            $('.mobile-nav-link').on('click', function(e){
+                var $btn = $(this);
+                var offset = $btn.offset();
+                var x = e.pageX - offset.left;
+                var y = e.pageY - offset.top;
+                
+                var $ripple = $('<span class="ripple-wave"></span>').css({
+                    top: y + 'px',
+                    left: x + 'px',
+                    width: '30px',
+                    height: '30px'
+                });
+                
+                $btn.append($ripple);
+                setTimeout(function(){
+                    $ripple.remove();
+                }, 600);
+            });
+
+            // 10. SMOOTH PAGE TRANSITION
+            $('.nav-transition-link').on('click', function(e){
+                var targetHref = $(this).attr('href');
+                if (targetHref && targetHref.indexOf('.html') !== -1 && targetHref.indexOf('#') === -1 && !$(this).attr('target')) {
+                    e.preventDefault();
+                    $('body').addClass('page-transitioning');
+                    setTimeout(function(){
+                        window.location.href = targetHref;
+                    }, 180);
+                }
             });
 
             // 2. SCROLL PROGRESS INDICATOR
