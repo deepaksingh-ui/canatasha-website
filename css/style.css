@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -212,7 +212,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT TEMPLATE-89 HERO SLIDER & WORD ENTRANCE ANIMATIONS
+   DYNAMIC HERO SLIDER WITH SMOOTH WORD MOTION & STAGGERED TRANSITIONS
    ========================================================================== */
 .slider-area {
     height: 600px;
@@ -235,10 +235,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.12) 100%);
 }
 
-/* Ken Burns Subtle Glide */
+/* Ken Burns Glide */
 .slider-wrapper .owl-item.active .single-slide {
     animation: kenBurnsMotion 8s ease-out infinite alternate;
 }
@@ -247,27 +247,31 @@ body {
     100% { transform: scale(1.06); }
 }
 
-/* Template-89 Exact Word Animations */
+/* STAGGERED WORD MOTION ON SLIDE CHANGE */
+.title1, .title2, .slide-desc, .banner-readmore {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .slider-wrapper .owl-item.active .title1 {
-    animation: slideInDown 0.75s cubic-bezier(0.25, 1, 0.5, 1) both;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.15s;
 }
 .slider-wrapper .owl-item.active .title2 {
-    animation: fadeInUp 0.85s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.35s;
 }
-.slider-wrapper .owl-item.active p {
-    animation: fadeInUp 0.95s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both;
+.slider-wrapper .owl-item.active .slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.55s;
 }
 .slider-wrapper .owl-item.active .banner-readmore {
-    animation: fadeInUp 1.05s cubic-bezier(0.25, 1, 0.5, 1) 0.45s both;
-}
-
-@keyframes slideInDown {
-    from { opacity: 0; transform: translateY(-35px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(35px); }
-    to { opacity: 1; transform: translateY(0); }
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.75s;
 }
 
 .banner-content {
@@ -284,22 +288,22 @@ body {
 }
 .text-content h3.title1 {
     color: #002e5b !important;
-    font-size: 21px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 8px !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 6px !important;
     text-transform: uppercase;
 }
 .text-content h1.title2 {
     color: #006B63 !important;
-    font-size: 56px !important;
-    font-weight: 800 !important;
-    line-height: 1.15 !important;
+    font-size: 58px !important;
+    font-weight: 900 !important;
+    line-height: 1.12 !important;
     margin-bottom: 15px !important;
     letter-spacing: -0.5px !important;
     text-transform: uppercase;
 }
-.text-content p {
+.text-content p.slide-desc {
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.65 !important;
@@ -340,7 +344,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 107, 99, 0.35);
 }
 
-/* TEMPLATE-89 EXACT SIDE EDGE RECTANGLE ARROWS */
+/* SIDE EDGE RECTANGLE ARROWS */
 .slider-wrapper .owl-nav {
     display: block;
 }
@@ -507,9 +511,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* ==========================================================================
-   PERFECT AUTO-SLIDING GOOGLE REVIEWS CAROUSEL
-   ========================================================================== */
+/* GOOGLE REVIEWS */
 .google-badge-box {
     background: #ffffff;
     border-radius: 12px;
@@ -756,8 +758,8 @@ body {
     .slider-area, .single-slide { height: 440px !important; }
     .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
     .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
-    .text-content h1.title2 { font-size: 26px !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
-    .text-content p { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+    .text-content h1.title2 { font-size: 30px !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
+    .text-content p.slide-desc { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
     .banner-btn { padding: 0 14px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
     
     .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }

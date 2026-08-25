@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=5000"/>
+    <link rel="stylesheet" href="css/style.css?v=6000"/>
 
     <style id="master-inlined-css">
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -229,7 +229,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT TEMPLATE-89 HERO SLIDER & WORD ENTRANCE ANIMATIONS
+   DYNAMIC HERO SLIDER WITH SMOOTH WORD MOTION & STAGGERED TRANSITIONS
    ========================================================================== */
 .slider-area {
     height: 600px;
@@ -252,10 +252,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.1) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.12) 100%);
 }
 
-/* Ken Burns Subtle Glide */
+/* Ken Burns Glide */
 .slider-wrapper .owl-item.active .single-slide {
     animation: kenBurnsMotion 8s ease-out infinite alternate;
 }
@@ -264,27 +264,31 @@ body {
     100% { transform: scale(1.06); }
 }
 
-/* Template-89 Exact Word Animations */
+/* STAGGERED WORD MOTION ON SLIDE CHANGE */
+.title1, .title2, .slide-desc, .banner-readmore {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
 .slider-wrapper .owl-item.active .title1 {
-    animation: slideInDown 0.75s cubic-bezier(0.25, 1, 0.5, 1) both;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.15s;
 }
 .slider-wrapper .owl-item.active .title2 {
-    animation: fadeInUp 0.85s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.35s;
 }
-.slider-wrapper .owl-item.active p {
-    animation: fadeInUp 0.95s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both;
+.slider-wrapper .owl-item.active .slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.55s;
 }
 .slider-wrapper .owl-item.active .banner-readmore {
-    animation: fadeInUp 1.05s cubic-bezier(0.25, 1, 0.5, 1) 0.45s both;
-}
-
-@keyframes slideInDown {
-    from { opacity: 0; transform: translateY(-35px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(35px); }
-    to { opacity: 1; transform: translateY(0); }
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.75s;
 }
 
 .banner-content {
@@ -301,22 +305,22 @@ body {
 }
 .text-content h3.title1 {
     color: #002e5b !important;
-    font-size: 21px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 8px !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 6px !important;
     text-transform: uppercase;
 }
 .text-content h1.title2 {
     color: #006B63 !important;
-    font-size: 56px !important;
-    font-weight: 800 !important;
-    line-height: 1.15 !important;
+    font-size: 58px !important;
+    font-weight: 900 !important;
+    line-height: 1.12 !important;
     margin-bottom: 15px !important;
     letter-spacing: -0.5px !important;
     text-transform: uppercase;
 }
-.text-content p {
+.text-content p.slide-desc {
     color: #334155 !important;
     font-size: 16px !important;
     line-height: 1.65 !important;
@@ -357,7 +361,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 107, 99, 0.35);
 }
 
-/* TEMPLATE-89 EXACT SIDE EDGE RECTANGLE ARROWS */
+/* SIDE EDGE RECTANGLE ARROWS */
 .slider-wrapper .owl-nav {
     display: block;
 }
@@ -524,9 +528,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* ==========================================================================
-   PERFECT AUTO-SLIDING GOOGLE REVIEWS CAROUSEL
-   ========================================================================== */
+/* GOOGLE REVIEWS */
 .google-badge-box {
     background: #ffffff;
     border-radius: 12px;
@@ -773,8 +775,8 @@ body {
     .slider-area, .single-slide { height: 440px !important; }
     .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
     .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
-    .text-content h1.title2 { font-size: 26px !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
-    .text-content p { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+    .text-content h1.title2 { font-size: 30px !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
+    .text-content p.slide-desc { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
     .banner-btn { padding: 0 14px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
     
     .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
@@ -908,10 +910,10 @@ body {
     </header>
 
     
-    <!-- HERO SLIDER WITH EXACT TEMPLATE-89 MOTION, TYPOGRAPHY & EDGE ARROWS -->
+    <!-- HERO SLIDER WITH PROMINENT NATASHA BRANDING & STAGGERED WORD MOTION -->
     <section class="slider-area" id="home">
         <div class="slider-wrapper owl-carousel">
-            <!-- SLIDE 1 -->
+            <!-- SLIDE 1: NATASHA & COMPANY -->
             <div class="single-slide" style="background-image: url('images/banner-1.webp');">
                 <div class="banner-content">
                     <div class="container">
@@ -919,9 +921,9 @@ body {
                             <div class="col-lg-7 col-md-8">
                                 <div class="text-content-wrapper">
                                     <div class="text-content text-left">
-                                        <h3 class="title1">WE PROVIDE BEST FINANCIAL SOLUTIONS</h3>
-                                        <h1 class="title2">FOR YOUR BUSINESS</h1>
-                                        <p>Natasha &amp; Company is an ISO 9001:2015 Certified Chartered Accountant firm delivering top-tier Audit, Taxation, GST, and Corporate Advisory services across India.</p>
+                                        <h3 class="title1">WELCOME TO CHARTERED ACCOUNTANTS</h3>
+                                        <h1 class="title2">NATASHA &amp; CO.</h1>
+                                        <p class="slide-desc">We Provide Best Financial Solutions For Your Business. ISO 9001:2015 Certified Chartered Accountants delivering top-tier Audit, Taxation, GST, and Corporate Advisory services across India.</p>
                                         <div class="banner-readmore">
                                             <a class="banner-btn" href="services.html">View Services</a>
                                             <a class="banner-btn banner-btn-green" href="contact-us.html">Get a Quote</a>
@@ -934,7 +936,7 @@ body {
                 </div>
             </div>
 
-            <!-- SLIDE 2 -->
+            <!-- SLIDE 2: CA NATASHA RAJVAIDYA -->
             <div class="single-slide" style="background-image: url('images/BPO-1536x1024.jpg');">
                 <div class="banner-content">
                     <div class="container">
@@ -943,8 +945,8 @@ body {
                                 <div class="text-content-wrapper">
                                     <div class="text-content text-left">
                                         <h3 class="title1">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
-                                        <h1 class="title2">TRUSTED CA EXPERTISE</h1>
-                                        <p>Empowering businesses with proactive direct tax structuring, show-cause litigation defense, and seamless statutory audit representations in Bhopal.</p>
+                                        <h1 class="title2">CA NATASHA RAJVAIDYA</h1>
+                                        <p class="slide-desc">Empowering businesses across India with proactive income tax structuring, GST litigation defense, and statutory audit representations in Bhopal.</p>
                                         <div class="banner-readmore">
                                             <a class="banner-btn" href="about-us.html">About Firm</a>
                                             <a class="banner-btn banner-btn-green" href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult." target="_blank">Consult on WhatsApp</a>
@@ -957,7 +959,7 @@ body {
                 </div>
             </div>
 
-            <!-- SLIDE 3 -->
+            <!-- SLIDE 3: ISO 9001:2015 CERTIFIED -->
             <div class="single-slide" style="background-image: url('images/finance-1-1536x1024.jpg');">
                 <div class="banner-content">
                     <div class="container">
@@ -966,8 +968,8 @@ body {
                                 <div class="text-content-wrapper">
                                     <div class="text-content text-left">
                                         <h3 class="title1">ISO 9001:2015 CERTIFIED FIRM</h3>
-                                        <h1 class="title2">DRIVING CLIENT GROWTH</h1>
-                                        <p>Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances.</p>
+                                        <h1 class="title2">FOR YOUR BUSINESS</h1>
+                                        <p class="slide-desc">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances in Bhopal.</p>
                                         <div class="banner-readmore">
                                             <a class="banner-btn" href="knowledge-base.html">Tax Calculators</a>
                                             <a class="banner-btn banner-btn-green" href="contact-us.html">Contact Firm</a>
@@ -1343,7 +1345,6 @@ body {
             </div>
 
             <div class="row align-items-stretch">
-                <!-- LEFT COLUMN: GOOGLE RATING & WRITE A REVIEW BUTTON -->
                 <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
                     <div class="google-badge-box">
                         <div class="d-flex align-items-center mb-3">
@@ -1371,10 +1372,8 @@ body {
                     </div>
                 </div>
 
-                <!-- RIGHT COLUMN: AUTO SLIDING REVIEWS CAROUSEL -->
                 <div class="col-lg-8 col-md-7">
                     <div class="owl-carousel reviews-carousel">
-                        <!-- REVIEW 1 -->
                         <div class="item">
                             <div class="review-card-item">
                                 <div>
@@ -1401,7 +1400,6 @@ body {
                             </div>
                         </div>
 
-                        <!-- REVIEW 2 -->
                         <div class="item">
                             <div class="review-card-item">
                                 <div>
@@ -1428,7 +1426,6 @@ body {
                             </div>
                         </div>
 
-                        <!-- REVIEW 3 -->
                         <div class="item">
                             <div class="review-card-item">
                                 <div>
@@ -1455,7 +1452,6 @@ body {
                             </div>
                         </div>
 
-                        <!-- REVIEW 4 -->
                         <div class="item">
                             <div class="review-card-item">
                                 <div>
@@ -1704,9 +1700,10 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // DYNAMIC HERO SLIDER (AUTO SLIDE + TEMPLATE-89 ANIMATIONS + TOUCH SWIPE)
+            // DYNAMIC HERO SLIDER (AUTO SLIDE + STAGGERED WORD MOTION + TOUCH SWIPE)
             if ($(".slider-wrapper").length) {
-                $(".slider-wrapper").owlCarousel({
+                var $heroSlider = $(".slider-wrapper");
+                $heroSlider.owlCarousel({
                     loop: true,
                     autoplay: true,
                     autoplayTimeout: 5000,
