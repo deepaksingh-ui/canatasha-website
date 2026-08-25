@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=22000"/>
+    <link rel="stylesheet" href="css/style.css?v=23000"/>
 
     <style id="master-inlined-css">
 
@@ -272,7 +272,6 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
 }
-/* SUBTLE SOFT SCRIM: KEEPS PIC DARK & CRISP WITHOUT WHITE WASH OUT */
 .static-hero-area:before {
     content: "";
     position: absolute;
@@ -420,7 +419,7 @@ body {
 }
 
 /* ==========================================================================
-   4. CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
+   4. CINEMATIC SCROLL-DRIVEN PARALLAX & REVEAL
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
@@ -433,7 +432,6 @@ body {
     transform: translateY(0) scale(1) !important;
 }
 
-/* Blur-to-Sharp Image Mask Reveal */
 .img-blur-reveal {
     filter: blur(10px) brightness(0.9);
     transform: scale(1.06);
@@ -446,7 +444,6 @@ body {
     transform: scale(1) !important;
 }
 
-/* Stagger Delays for Fluid Grid Cascade */
 .reveal-delay-1 { transition-delay: 0.08s !important; }
 .reveal-delay-2 { transition-delay: 0.16s !important; }
 .reveal-delay-3 { transition-delay: 0.24s !important; }
@@ -655,38 +652,6 @@ body {
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* Mobile Drawer */
-#mobile-menu-drawer {
-    display: none;
-    background: #ffffff;
-    border-bottom: 3px solid #006B63;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    padding: 15px;
-}
-#mobile-menu-drawer.open {
-    display: block !important;
-    animation: slideDown 0.3s ease;
-}
-#mobile-menu-drawer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-#mobile-menu-drawer ul li a {
-    display: block;
-    padding: 10px 14px;
-    color: #002e5b;
-    font-size: 15px;
-    font-weight: 600;
-    border-bottom: 1px solid #f1f5f9;
-    text-decoration: none;
-}
-#mobile-menu-drawer ul li.active a {
-    color: #006B63;
-    background: #f0fdf4;
-    border-left: 4px solid #006B63;
-}
-
 /* Subpage Banner */
 .page-banner {
     background: linear-gradient(135deg, rgba(0, 46, 91, 0.92), rgba(0, 107, 99, 0.88)), url('images/banner-1.webp');
@@ -734,8 +699,148 @@ body {
 }
 
 /* ==========================================================================
-   5. MOBILE VIEW
+   5. PREMIUM MOBILE HAMBURGER MORPHING & STAGGERED DRAWER NAVIGATION
    ========================================================================== */
+.hamburger-morph-btn {
+    width: 40px;
+    height: 40px;
+    background: #006B63;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    position: relative;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 107, 99, 0.25);
+    outline: none !important;
+}
+.hamburger-morph-btn:active {
+    transform: scale(0.92);
+}
+.hamburger-morph-btn .bar {
+    width: 22px;
+    height: 2.5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.32s var(--ca-easing), opacity 0.25s ease, background-color 0.25s ease;
+    transform-origin: center;
+}
+
+/* Morph 3-Line to 'X' */
+.hamburger-morph-btn.is-active {
+    background: #002e5b;
+}
+.hamburger-morph-btn.is-active .bar-1 {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.hamburger-morph-btn.is-active .bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger-morph-btn.is-active .bar-3 {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Mobile Drawer Container */
+#mobile-menu-drawer {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border-bottom: 3px solid #006B63;
+    box-shadow: 0 14px 30px rgba(0, 46, 91, 0.15);
+    transition: max-height 0.4s var(--ca-easing), opacity 0.35s ease, padding 0.35s ease;
+    opacity: 0;
+    padding: 0 15px;
+}
+#mobile-menu-drawer.open {
+    display: block !important;
+    max-height: 520px;
+    opacity: 1;
+    padding: 16px 15px;
+}
+
+/* Staggered Navigation Items Flow */
+#mobile-menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#mobile-menu-drawer ul li {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.32s var(--ca-easing), transform 0.32s var(--ca-easing);
+    margin-bottom: 3px;
+}
+#mobile-menu-drawer.open ul li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Delay for Each Navigation Item */
+#mobile-menu-drawer.open ul li:nth-child(1) { transition-delay: 0.04s; }
+#mobile-menu-drawer.open ul li:nth-child(2) { transition-delay: 0.08s; }
+#mobile-menu-drawer.open ul li:nth-child(3) { transition-delay: 0.12s; }
+#mobile-menu-drawer.open ul li:nth-child(4) { transition-delay: 0.16s; }
+#mobile-menu-drawer.open ul li:nth-child(5) { transition-delay: 0.20s; }
+#mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.24s; }
+#mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.28s; }
+#mobile-menu-drawer.open .mobile-drawer-bottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.32s var(--ca-easing) 0.32s, transform 0.32s var(--ca-easing) 0.32s;
+}
+.mobile-drawer-bottom {
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+/* Sliding Active & Hover Selection Highlight with Green Indicator */
+#mobile-menu-drawer ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    color: #002e5b;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.25s var(--ca-easing);
+    border-left: 3px solid transparent;
+}
+#mobile-menu-drawer ul li a:hover,
+#mobile-menu-drawer ul li a:active {
+    background: #f0fdf4;
+    color: #006B63;
+    border-left: 3px solid #006B63;
+    padding-left: 18px;
+}
+#mobile-menu-drawer ul li.active a {
+    color: #006B63;
+    background: #f0fdf4;
+    border-left: 4px solid #006B63;
+    font-weight: 700;
+    padding-left: 18px;
+}
+#mobile-menu-drawer ul li a i.nav-arrow {
+    font-size: 12px;
+    opacity: 0.5;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+#mobile-menu-drawer ul li a:hover i.nav-arrow,
+#mobile-menu-drawer ul li.active a i.nav-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+    color: #006B63;
+}
+
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
@@ -784,18 +889,6 @@ body {
         padding: 0 12px !important;
         border-radius: 4px !important;
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
-    }
-    .mobile-menu-btn {
-        background: #006B63 !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 4px !important;
-        padding: 5px 9px !important;
-        font-size: 16px !important;
-        cursor: pointer !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
     }
     
     /* STATIC HERO ON MOBILE */
@@ -958,8 +1051,11 @@ body {
                                 <button type="button">Get a Quote</button>
                             </a>
                         </div>
-                        <button class="mobile-menu-btn d-lg-none ml-2" type="button" id="mobile-toggle-btn" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
+                        <!-- MORPHING HAMBURGER BUTTON (3 LINES TO X) -->
+                        <button class="hamburger-morph-btn d-lg-none" type="button" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+                            <span class="bar bar-1"></span>
+                            <span class="bar bar-2"></span>
+                            <span class="bar bar-3"></span>
                         </button>
                     </div>
                 </div>
@@ -972,40 +1068,38 @@ body {
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="navbar-nav mr-auto">
-                            
-        <li class=""><a href="index.html">Home</a></li>
-        <li class=""><a href="about-us.html">About Us</a></li>
-        <li class=""><a href="services.html">Services</a></li>
-        <li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
-        <li class=""><a href="career.html">Career</a></li>
-        <li class="active"><a href="blog.html">Blog</a></li>
-        <li class=""><a href="contact-us.html">Contact Us</a></li>
-    
+                            <li class=""><a href="index.html">Home</a></li>
+<li class=""><a href="about-us.html">About Us</a></li>
+<li class=""><a href="services.html">Services</a></li>
+<li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
+<li class=""><a href="career.html">Career</a></li>
+<li class="active"><a href="blog.html">Blog</a></li>
+<li class=""><a href="contact-us.html">Contact Us</a></li>
+
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
 
-        <!-- MOBILE SLIDING NAVIGATION DRAWER -->
+        <!-- MOBILE SLIDING NAVIGATION DRAWER (STAGGERED SLIDE-UP + FADE-IN) -->
         <div id="mobile-menu-drawer" class="d-lg-none">
-            <div class="container">
+            <div class="container px-0">
                 <ul>
-                    
-        <li class=""><a href="index.html">Home</a></li>
-        <li class=""><a href="about-us.html">About Us</a></li>
-        <li class=""><a href="services.html">Services</a></li>
-        <li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
-        <li class=""><a href="career.html">Career</a></li>
-        <li class="active"><a href="blog.html">Blog</a></li>
-        <li class=""><a href="contact-us.html">Contact Us</a></li>
-    
+                    <li class=""><a href="index.html"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="about-us.html"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="services.html"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="knowledge-base.html"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="career.html"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class="active"><a href="blog.html"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="contact-us.html"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+
                 </ul>
-                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold">
+                <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px; padding: 6px 14px;">
                         <i class="fa fa-phone mr-1"></i> +91 9407000157
                     </a>
-                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold">
+                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 6px; padding: 6px 14px;">
                         <i class="fa fa-whatsapp mr-1"></i> WhatsApp
                     </a>
                 </div>
@@ -1166,9 +1260,10 @@ body {
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function(){
-            // 1. Mobile Menu Drawer Toggle
+            // 1. Mobile Menu Drawer & Morphing Hamburger Button
             $('#mobile-toggle-btn').on('click', function(e){
                 e.preventDefault();
+                $(this).toggleClass('is-active');
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
