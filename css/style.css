@@ -212,58 +212,43 @@ body {
 }
 
 /* ==========================================================================
-   HERO SLIDER - ZOOM IN / ZOOM OUT TRANSITIONS & HIGH-DEF PICTURES
+   100% STATIC BACKGROUND HERO + TEXT-ONLY DYNAMIC SLIDER
    ========================================================================== */
-.slider-area {
-    height: 600px;
+.static-hero-area {
     position: relative;
-    overflow: hidden;
-    background: #001f3f;
-}
-.slider-wrapper {
-    position: relative;
-}
-.single-slide {
     height: 600px;
+    background-image: url('images/banner-1.webp');
     background-size: cover;
     background-position: center right;
-    position: relative;
-    transition: transform 6s ease;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
-.owl-item.active .single-slide {
-    animation: kenBurnsZoom 8s ease-in-out infinite alternate;
-}
-
-@keyframes kenBurnsZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.06); }
-}
-
-.single-slide:before {
+.static-hero-area:before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.15) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 46%, rgba(255,255,255,0.15) 100%);
+    z-index: 1;
 }
 
-.banner-content {
+.text-slider-wrapper {
     position: relative;
     z-index: 2;
     height: 100%;
 }
-.text-content-wrapper {
+.text-slide-item {
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 600px;
     padding-top: 60px;
 }
 
 /* TYPOGRAPHY */
-.text-content h3.sub-title, .text-content h3.title1 {
+.text-content h3.sub-title {
     color: #002e5b !important;
     font-size: 20px !important;
     font-weight: 700 !important;
@@ -272,7 +257,7 @@ body {
     text-transform: uppercase !important;
     opacity: 0;
 }
-.text-content h1.title, .text-content h1.title2 {
+.text-content h1.title {
     color: #006B63 !important;
     font-size: 58px !important;
     font-weight: 900 !important;
@@ -290,7 +275,7 @@ body {
     margin-bottom: 28px !important;
     opacity: 0;
 }
-.text-content .btn-box, .text-content .banner-readmore {
+.text-content .btn-box {
     opacity: 0;
 }
 
@@ -318,11 +303,9 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* ==========================================================================
-   EXACT ZOOM IN & ZOOM OUT WORD TRANSITION KEYFRAMES
-   ========================================================================== */
+/* ZOOM IN / ZOOM OUT KEYFRAMES */
 .animated {
-    animation-duration: 0.9s;
+    animation-duration: 0.85s;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
 }
@@ -334,14 +317,6 @@ body {
 .animated.zoomInDown {
     animation-name: zoomInDown;
     -webkit-animation-name: zoomInDown;
-}
-.animated.zoomInUp {
-    animation-name: zoomInUp;
-    -webkit-animation-name: zoomInUp;
-}
-.animated.fadeInDown {
-    animation-name: fadeInDown;
-    -webkit-animation-name: fadeInDown;
 }
 .animated.fadeInUp {
     animation-name: fadeInUp;
@@ -396,7 +371,7 @@ body {
     }
     60% {
         opacity: 1;
-        -webkit-transform: scale3d(1.05, 1.05, 1.05) translate3d(0, 5px, 0);
+        transform: scale3d(1.05, 1.05, 1.05) translate3d(0, 5px, 0);
     }
     to {
         opacity: 1;
@@ -404,49 +379,16 @@ body {
     }
 }
 
-@keyframes zoomInUp {
-    from {
-        opacity: 0;
-        transform: scale3d(0.4, 0.4, 0.4) translate3d(0, 60px, 0);
-    }
-    60% {
-        opacity: 1;
-        transform: scale3d(1.05, 1.05, 1.05) translate3d(0, -5px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
-    }
-}
-@-webkit-keyframes zoomInUp {
-    from {
-        opacity: 0;
-        -webkit-transform: scale3d(0.4, 0.4, 0.4) translate3d(0, 60px, 0);
-    }
-    60% {
-        opacity: 1;
-        -webkit-transform: scale3d(1.05, 1.05, 1.05) translate3d(0, -5px, 0);
-    }
-    to {
-        opacity: 1;
-        -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
-    }
-}
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translate3d(0, -50px, 0); }
-    to { opacity: 1; transform: translate3d(0, 0, 0); }
-}
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translate3d(0, 50px, 0); }
+    from { opacity: 0; transform: translate3d(0, 40px, 0); }
     to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-/* DESKTOP SIDE ARROWS */
-.slider-wrapper .owl-nav {
+/* SIDE BOX ARROWS */
+.text-slider-wrapper .owl-nav {
     display: block;
 }
-.slider-wrapper .owl-prev, .slider-wrapper .owl-next {
+.text-slider-wrapper .owl-prev, .text-slider-wrapper .owl-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -463,12 +405,12 @@ body {
     z-index: 10;
     opacity: 0.9;
 }
-.slider-wrapper .owl-prev:hover, .slider-wrapper .owl-next:hover {
+.text-slider-wrapper .owl-prev:hover, .text-slider-wrapper .owl-next:hover {
     background: #006B63 !important;
     opacity: 1;
 }
-.slider-wrapper .owl-prev { left: 0; border-radius: 0 4px 4px 0 !important; }
-.slider-wrapper .owl-next { right: 0; border-radius: 4px 0 0 4px !important; }
+.text-slider-wrapper .owl-prev { left: 0; border-radius: 0 4px 4px 0 !important; }
+.text-slider-wrapper .owl-next { right: 0; border-radius: 4px 0 0 4px !important; }
 
 /* Subpage Banner */
 .page-banner {
@@ -791,7 +733,7 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE-OPTIMIZED HIGH DEFINITION PICTURE & CRYSTAL GLASS CARD
+   MOBILE VIEW: NO WHITE BOX + 100% STATIC BACKGROUND + PURE WORDS
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -855,75 +797,79 @@ body {
         justify-content: center !important;
     }
     
-    /* ULTRA-CLEAR MOBILE PICTURE & ADAPTIVE GLASS CARD */
-    .slider-area, .single-slide {
-        height: 540px !important;
-        background-position: center top !important;
-        background-size: cover !important;
+    /* STATIC HERO ON MOBILE - NO WHITE BOX */
+    .static-hero-area {
+        height: 480px !important;
+        background-position: center right !important;
     }
-    .single-slide:before {
-        background: linear-gradient(180deg, rgba(0, 20, 40, 0.40) 0%, rgba(0, 20, 40, 0.55) 50%, rgba(0, 20, 40, 0.75) 100%) !important;
+    .static-hero-area:before {
+        background: linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.20) 100%) !important;
     }
     
-    .text-content-wrapper {
-        height: 540px !important;
+    .text-slide-item {
+        height: 480px !important;
         padding: 20px 15px !important;
         justify-content: center !important;
     }
     
+    /* PURE TEXT - ABSOLUTELY NO WHITE BOX / BORDER / SHADOW */
     .text-content {
-        background: rgba(255, 255, 255, 0.92) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        padding: 24px 18px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25) !important;
-        border: 1px solid rgba(255, 255, 255, 0.8) !important;
-        text-align: center !important;
-        margin: 0 auto !important;
-        max-width: 95% !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        text-align: left !important;
+        margin: 0 !important;
+        max-width: 100% !important;
     }
     
-    .text-content h3.sub-title, .text-content h3.title1 {
-        font-size: 12.5px !important;
-        margin-bottom: 6px !important;
+    .text-content h3.sub-title {
+        font-size: 13.5px !important;
+        margin-bottom: 4px !important;
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
     }
-    .text-content h1.title, .text-content h1.title2 {
-        font-size: 28px !important;
+    .text-content h1.title {
+        font-size: 32px !important;
         line-height: 1.15 !important;
         margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
     }
     .text-content p.description {
-        font-size: 12.5px !important;
+        font-size: 13px !important;
         line-height: 1.5 !important;
-        margin-bottom: 16px !important;
-        color: #475569 !important;
+        margin-bottom: 18px !important;
+        color: #334155 !important;
+        max-width: 90% !important;
     }
     
     .banner-btn, .theme-btn {
-        background: #006B63 !important;
-        color: #ffffff !important;
-        border: none !important;
+        border: 2px solid #002e5b !important;
+        background: transparent !important;
+        color: #002e5b !important;
         padding: 0 20px !important;
-        font-size: 12.5px !important;
-        line-height: 38px !important;
-        border-radius: 6px !important;
+        font-size: 12px !important;
+        line-height: 36px !important;
+        border-radius: 3px !important;
         display: inline-block !important;
-        margin: 0 auto !important;
-        box-shadow: 0 4px 15px rgba(0, 107, 99, 0.3) !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+    .banner-btn:hover, .theme-btn:hover {
+        background: #002e5b !important;
+        color: #ffffff !important;
     }
     
-    .slider-wrapper .owl-prev, .slider-wrapper .owl-next {
+    .text-slider-wrapper .owl-prev, .text-slider-wrapper .owl-next {
         width: 30px !important;
         height: 48px !important;
         font-size: 15px !important;
         opacity: 0.75 !important;
-        background: rgba(0, 46, 91, 0.85) !important;
     }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
