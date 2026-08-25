@@ -12,11 +12,25 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=18000"/>
+    <link rel="stylesheet" href="css/style.css?v=20000"/>
 
     <style id="master-inlined-css">
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --ca-primary: #006B63;
+    --ca-secondary: #002e5b;
+    --ca-accent: #fde428;
+    --ca-dark: #0f172a;
+    --ca-light: #f8fafc;
+    --ca-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --ca-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -24,9 +38,27 @@ body {
     background: #ffffff;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* TOP BAR */
+/* ==========================================================================
+   1. SCROLL PROGRESS BAR (TOP OF SCREEN)
+   ========================================================================== */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
+    z-index: 999999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(253, 228, 40, 0.6);
+}
+
+/* ==========================================================================
+   2. TOP BAR & BRAND HEADER
+   ========================================================================== */
 .top-bar-custom {
     background: #111a24;
     color: #d1e3ff;
@@ -52,7 +84,6 @@ body {
     color: #00a896;
 }
 
-/* HEADER DESKTOP */
 .header {
     position: relative;
     z-index: 101;
@@ -155,7 +186,7 @@ body {
     letter-spacing: 0.5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.35s var(--ca-spring);
     position: relative;
     overflow: hidden;
 }
@@ -180,7 +211,7 @@ body {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR (Floating Overlay) */
+/* NAVBAR */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -230,7 +261,7 @@ body {
 }
 
 /* ==========================================================================
-   100% STATIC BACKGROUND HERO + PURE IN-PLACE ABSOLUTE ZOOM-IN ENGINE
+   3. HERO BANNER: 100% STATIC BACKGROUND + IN-PLACE TRUE ZOOM ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -252,7 +283,6 @@ body {
     z-index: 1;
 }
 
-/* ABSOLUTE OVERLAY ZOOM SLIDER (ZERO HORIZONTAL SLIDING) */
 .hero-zoom-slider {
     position: relative;
     z-index: 2;
@@ -290,9 +320,9 @@ body {
 
 /* TRUE ZOOM-IN POP MECHANISM */
 .zoom-slide .text-content {
-    transform: scale(0.60);
+    transform: scale(0.65);
     opacity: 0;
-    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.85s var(--ca-easing), opacity 0.85s var(--ca-easing);
     will-change: transform, opacity;
 }
 
@@ -333,7 +363,6 @@ body {
     margin-bottom: 28px !important;
 }
 
-/* OUTLINE BOX BUTTON */
 .banner-btn, .theme-btn {
     border: 2px solid #002e5b !important;
     border-radius: 3px !important;
@@ -348,7 +377,7 @@ body {
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
     background: transparent !important;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    transition: all 0.35s var(--ca-spring) !important;
 }
 .banner-btn:hover, .theme-btn:hover {
     background: #002e5b !important;
@@ -357,7 +386,6 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* SCREEN-EDGE NAVIGATION ARROWS */
 .zoom-nav {
     position: absolute;
     top: 50%;
@@ -390,17 +418,46 @@ body {
 }
 
 /* ==========================================================================
-   CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
+   4. CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(40px) scale(0.92);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    transform: translateY(35px) scale(0.94);
+    transition: opacity 0.85s var(--ca-easing), transform 0.85s var(--ca-easing), filter 0.85s var(--ca-easing);
+    will-change: opacity, transform, filter;
 }
 .reveal-on-scroll.is-visible {
     opacity: 1 !important;
     transform: translateY(0) scale(1) !important;
+}
+
+/* Split-Heading Character & Word Flow */
+.split-heading-flow {
+    overflow: hidden;
+    display: inline-block;
+}
+.split-heading-flow span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.7s var(--ca-easing), opacity 0.7s var(--ca-easing);
+}
+.reveal-on-scroll.is-visible .split-heading-flow span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Blur-to-Sharp Image Mask Reveal */
+.img-blur-reveal {
+    filter: blur(10px) brightness(0.9);
+    transform: scale(1.06);
+    transition: filter 0.9s var(--ca-easing), transform 0.9s var(--ca-easing);
+    will-change: filter, transform;
+}
+.reveal-on-scroll.is-visible .img-blur-reveal,
+.reveal-on-scroll.is-visible.img-blur-reveal {
+    filter: blur(0px) brightness(1) !important;
+    transform: scale(1) !important;
 }
 
 /* Stagger Delays for Fluid Grid Cascade */
@@ -411,9 +468,10 @@ body {
 .reveal-delay-5 { transition-delay: 0.40s !important; }
 .reveal-delay-6 { transition-delay: 0.48s !important; }
 
-/* 3D Dynamic Card Physics */
+/* 3D Depth Card Physics (Parallax Hover/Touch) */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
-    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transform-style: preserve-3d;
 }
 .blog-card:hover, .blog-card:active {
     transform: translateY(-10px) scale(1.03) !important;
@@ -455,7 +513,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    transition: transform 0.65s ease;
+    transition: transform 0.65s var(--ca-easing);
 }
 .leader-card:hover .team-img-box img {
     transform: scale(1.09);
@@ -690,7 +748,7 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE VIEW: 100% STATIC BACKGROUND + PURE WORDS
+   5. MOBILE CINEMATIC TOUCH INTERACTION
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -834,9 +892,28 @@ body {
     .whatsapp-float { bottom: 18px !important; right: 18px !important; width: 48px !important; height: 48px !important; font-size: 24px !important; }
 }
 
+/* ==========================================================================
+   6. ACCESSIBILITY: REDUCED MOTION PREFERENCE
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
     </style>
 </head>
 <body>
+    <!-- 1. SLEEK SCROLL PROGRESS INDICATOR -->
+    <div id="scroll-progress-bar"></div>
 
     <!-- TOP HEADER (DESKTOP) -->
     <div class="top-bar-custom d-none d-md-block">
@@ -1037,7 +1114,7 @@ body {
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <div class="single-item">
-                        <img src="images/hand.webp" alt="Accounting"/>
+                        <img src="images/hand.webp" class="img-blur-reveal" alt="Accounting"/>
                         <h4>Accounting &amp; Bookkeeping</h4>
                         <p class="text-muted">End-to-end accounting setup, ledger maintenance, MIS reporting, and balance sheet finalization under Indian Accounting Standards.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1045,7 +1122,7 @@ body {
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <div class="single-item">
-                        <img src="images/cash.webp" alt="Direct Tax"/>
+                        <img src="images/cash.webp" class="img-blur-reveal" alt="Direct Tax"/>
                         <h4>Direct Taxation &amp; ITR</h4>
                         <p class="text-muted">Proactive tax planning for individuals &amp; corporates, Advance Tax calculation, TDS filing, and representation before assessing officers.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1053,7 +1130,7 @@ body {
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
                     <div class="single-item">
-                        <img src="images/plan.webp" alt="GST"/>
+                        <img src="images/plan.webp" class="img-blur-reveal" alt="GST"/>
                         <h4>GST Advisory &amp; Litigation</h4>
                         <p class="text-muted">GST registration, monthly return filing, Input Tax Credit (ITC) optimization, ISD mechanism, and defense against show cause notices.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1061,7 +1138,7 @@ body {
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
                     <div class="single-item">
-                        <img src="images/brif.webp" alt="Audit"/>
+                        <img src="images/brif.webp" class="img-blur-reveal" alt="Audit"/>
                         <h4>Auditing &amp; Assurance</h4>
                         <p class="text-muted">Statutory Audits under Companies Act 2013, Tax Audits under Section 44AB, Internal Audits, Stock Audits, and Forensic Verification.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1069,7 +1146,7 @@ body {
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-5">
                     <div class="single-item">
-                        <img src="images/commo.webp" alt="Company Incorporation"/>
+                        <img src="images/commo.webp" class="img-blur-reveal" alt="Company Incorporation"/>
                         <h4>Company &amp; LLP Formation</h4>
                         <p class="text-muted">Private Limited, OPC, and LLP incorporation in Bhopal. Digital Signatures, DIN, MOA/AOA drafting, and annual MCA ROC filings.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1077,7 +1154,7 @@ body {
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-6">
                     <div class="single-item">
-                        <img src="images/reti.webp" alt="NGO & Trust"/>
+                        <img src="images/reti.webp" class="img-blur-reveal" alt="NGO & Trust"/>
                         <h4>Societies, Trust &amp; NGO Laws</h4>
                         <p class="text-muted">Registration of Charitable Trusts and Societies, Section 12A &amp; 80G tax exemptions, CSR compliance, and FCRA representations.</p>
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
@@ -1121,7 +1198,7 @@ body {
                 </div>
                 <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
                     <div class="p-4 bg-light rounded shadow-sm border leader-card">
-                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" class="rounded-circle mb-3 shadow" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" onerror="this.src='images/team-1.webp'"/>
+                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" class="rounded-circle mb-3 shadow img-blur-reveal" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" onerror="this.src='images/team-1.webp'"/>
                         <h4 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h4>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Fellow Chartered Accountant (FCA) &bull; Founder</span>
                         <p class="text-muted small px-3">Expert in Direct Tax planning, Corporate Audits, GST Litigation, and Business Advisory with over 8 years of dedicated practice.</p>
@@ -1147,7 +1224,7 @@ body {
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" onerror="this.src='images/team-1.webp'"/>
+                            <img src="images/natasha.jpg" class="img-blur-reveal" alt="CA Natasha Rajvaidya" onerror="this.src='images/team-1.webp'"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
                         <div class="mb-2">
@@ -1171,7 +1248,7 @@ body {
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-2.webp" alt="Senior Partner"/>
+                            <img src="images/team-2.webp" class="img-blur-reveal" alt="Senior Partner"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
                         <div class="mb-2">
@@ -1195,7 +1272,7 @@ body {
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-3.webp" alt="GST Specialist"/>
+                            <img src="images/team-3.webp" class="img-blur-reveal" alt="GST Specialist"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
                         <div class="mb-2">
@@ -1219,7 +1296,7 @@ body {
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-4.webp" alt="Corporate Law"/>
+                            <img src="images/team-4.webp" class="img-blur-reveal" alt="Corporate Law"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
                         <div class="mb-2">
@@ -1732,13 +1809,24 @@ body {
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function(){
-            // Mobile Menu Drawer Toggle
+            // 1. Mobile Menu Drawer Toggle
             $('#mobile-toggle-btn').on('click', function(e){
                 e.preventDefault();
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // PURE IN-PLACE ABSOLUTE ZOOM SLIDER ENGINE (ZERO HORIZONTAL SLIDING)
+            // 2. SCROLL PROGRESS INDICATOR
+            window.addEventListener('scroll', function() {
+                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                var bar = document.getElementById("scroll-progress-bar");
+                if (bar) {
+                    bar.style.width = scrolled + "%";
+                }
+            }, { passive: true });
+
+            // 3. PURE IN-PLACE ABSOLUTE ZOOM SLIDER (ZERO HORIZONTAL SLIDING)
             (function initPureZoomSlider() {
                 var $slides = $('.hero-zoom-slider .zoom-slide');
                 if (!$slides.length) return;
@@ -1819,7 +1907,7 @@ body {
                 startAutoPlay();
             })();
 
-            // REVIEWS CAROUSEL SLIDER (CONTINUOUS SMOOTH ROTATION)
+            // 4. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
             if ($(".reviews-carousel").length) {
                 $(".reviews-carousel").owlCarousel({
                     loop: true,
@@ -1840,7 +1928,7 @@ body {
                 });
             }
 
-            // Sticky Header
+            // 5. Sticky Header
             window.onscroll = function () {
                 var header = document.getElementById("header");
                 if (window.pageYOffset > 120) {
@@ -1850,7 +1938,7 @@ body {
                 }
             };
 
-            // CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN OBSERVER
+            // 6. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
             if ('IntersectionObserver' in window) {
                 var revealObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
@@ -1859,7 +1947,7 @@ body {
                         }
                     });
                 }, {
-                    rootMargin: '0px 0px -50px 0px',
+                    rootMargin: '0px 0px -40px 0px',
                     threshold: 0.1
                 });
 
@@ -1872,7 +1960,24 @@ body {
                 });
             }
 
-            // LIVE NUMBER COUNT UP ANIMATION ON SCROLL
+            // 7. SUBTLE 3D CARD TILT ON DESKTOP HOVER
+            if (window.innerWidth > 992) {
+                document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
+                    card.addEventListener('mousemove', function(e) {
+                        var rect = card.getBoundingClientRect();
+                        var x = e.clientX - rect.left - rect.width / 2;
+                        var y = e.clientY - rect.top - rect.height / 2;
+                        var tiltX = (y / rect.height) * -8;
+                        var tiltY = (x / rect.width) * 8;
+                        card.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-6px) scale(1.02)';
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        card.style.transform = '';
+                    });
+                });
+            }
+
+            // 8. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
             function animateValue(obj, start, end, duration, suffix) {
                 let startTimestamp = null;
                 const step = (timestamp) => {

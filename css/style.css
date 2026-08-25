@@ -1,15 +1,47 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+:root {
+    --ca-primary: #006B63;
+    --ca-secondary: #002e5b;
+    --ca-accent: #fde428;
+    --ca-dark: #0f172a;
+    --ca-light: #f8fafc;
+    --ca-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --ca-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #334155;
     background: #ffffff;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* TOP BAR */
+/* ==========================================================================
+   1. SCROLL PROGRESS BAR (TOP OF SCREEN)
+   ========================================================================== */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
+    z-index: 999999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(253, 228, 40, 0.6);
+}
+
+/* ==========================================================================
+   2. TOP BAR & BRAND HEADER
+   ========================================================================== */
 .top-bar-custom {
     background: #111a24;
     color: #d1e3ff;
@@ -35,7 +67,6 @@ body {
     color: #00a896;
 }
 
-/* HEADER DESKTOP */
 .header {
     position: relative;
     z-index: 101;
@@ -138,7 +169,7 @@ body {
     letter-spacing: 0.5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.35s var(--ca-spring);
     position: relative;
     overflow: hidden;
 }
@@ -163,7 +194,7 @@ body {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR (Floating Overlay) */
+/* NAVBAR */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -213,7 +244,7 @@ body {
 }
 
 /* ==========================================================================
-   100% STATIC BACKGROUND HERO + PURE IN-PLACE ABSOLUTE ZOOM-IN ENGINE
+   3. HERO BANNER: 100% STATIC BACKGROUND + IN-PLACE TRUE ZOOM ENGINE
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -235,7 +266,6 @@ body {
     z-index: 1;
 }
 
-/* ABSOLUTE OVERLAY ZOOM SLIDER (ZERO HORIZONTAL SLIDING) */
 .hero-zoom-slider {
     position: relative;
     z-index: 2;
@@ -273,9 +303,9 @@ body {
 
 /* TRUE ZOOM-IN POP MECHANISM */
 .zoom-slide .text-content {
-    transform: scale(0.60);
+    transform: scale(0.65);
     opacity: 0;
-    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.85s var(--ca-easing), opacity 0.85s var(--ca-easing);
     will-change: transform, opacity;
 }
 
@@ -316,7 +346,6 @@ body {
     margin-bottom: 28px !important;
 }
 
-/* OUTLINE BOX BUTTON */
 .banner-btn, .theme-btn {
     border: 2px solid #002e5b !important;
     border-radius: 3px !important;
@@ -331,7 +360,7 @@ body {
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
     background: transparent !important;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    transition: all 0.35s var(--ca-spring) !important;
 }
 .banner-btn:hover, .theme-btn:hover {
     background: #002e5b !important;
@@ -340,7 +369,6 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* SCREEN-EDGE NAVIGATION ARROWS */
 .zoom-nav {
     position: absolute;
     top: 50%;
@@ -373,17 +401,46 @@ body {
 }
 
 /* ==========================================================================
-   CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
+   4. CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(40px) scale(0.92);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    transform: translateY(35px) scale(0.94);
+    transition: opacity 0.85s var(--ca-easing), transform 0.85s var(--ca-easing), filter 0.85s var(--ca-easing);
+    will-change: opacity, transform, filter;
 }
 .reveal-on-scroll.is-visible {
     opacity: 1 !important;
     transform: translateY(0) scale(1) !important;
+}
+
+/* Split-Heading Character & Word Flow */
+.split-heading-flow {
+    overflow: hidden;
+    display: inline-block;
+}
+.split-heading-flow span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.7s var(--ca-easing), opacity 0.7s var(--ca-easing);
+}
+.reveal-on-scroll.is-visible .split-heading-flow span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Blur-to-Sharp Image Mask Reveal */
+.img-blur-reveal {
+    filter: blur(10px) brightness(0.9);
+    transform: scale(1.06);
+    transition: filter 0.9s var(--ca-easing), transform 0.9s var(--ca-easing);
+    will-change: filter, transform;
+}
+.reveal-on-scroll.is-visible .img-blur-reveal,
+.reveal-on-scroll.is-visible.img-blur-reveal {
+    filter: blur(0px) brightness(1) !important;
+    transform: scale(1) !important;
 }
 
 /* Stagger Delays for Fluid Grid Cascade */
@@ -394,9 +451,10 @@ body {
 .reveal-delay-5 { transition-delay: 0.40s !important; }
 .reveal-delay-6 { transition-delay: 0.48s !important; }
 
-/* 3D Dynamic Card Physics */
+/* 3D Depth Card Physics (Parallax Hover/Touch) */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
-    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transform-style: preserve-3d;
 }
 .blog-card:hover, .blog-card:active {
     transform: translateY(-10px) scale(1.03) !important;
@@ -438,7 +496,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: top center;
-    transition: transform 0.65s ease;
+    transition: transform 0.65s var(--ca-easing);
 }
 .leader-card:hover .team-img-box img {
     transform: scale(1.09);
@@ -673,7 +731,7 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE VIEW: 100% STATIC BACKGROUND + PURE WORDS
+   5. MOBILE CINEMATIC TOUCH INTERACTION
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -815,4 +873,21 @@ body {
     .counter-num { font-size: 32px !important; }
     
     .whatsapp-float { bottom: 18px !important; right: 18px !important; width: 48px !important; height: 48px !important; font-size: 24px !important; }
+}
+
+/* ==========================================================================
+   6. ACCESSIBILITY: REDUCED MOTION PREFERENCE
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
 }
