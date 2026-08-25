@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=7000"/>
+    <link rel="stylesheet" href="css/style.css?v=8000"/>
 
     <style id="master-inlined-css">
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
     color: #334155;
     background: #ffffff;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* TOP BAR */
@@ -229,7 +230,7 @@ body {
 }
 
 /* ==========================================================================
-   PURE "APPEAR -> DISPLAY -> COMPLETE DISAPPEAR" KEYFRAME ENGINE
+   SAMPLE-8A4A8 INSPIRED TEXT REVEAL MASK & FLUID MOBILE DYNAMICS
    ========================================================================== */
 .slider-area {
     height: 600px;
@@ -252,10 +253,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.12) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.15) 100%);
 }
 
-/* Ken Burns Subtle Glide */
+/* Ken Burns Subtle Motion */
 .slider-wrapper .owl-item.active .single-slide {
     animation: kenBurnsMotion 8s ease-out infinite alternate;
 }
@@ -264,50 +265,46 @@ body {
     100% { transform: scale(1.06); }
 }
 
-/* INACTIVE SLIDE: WORDS ARE COMPLETELY GAYAB / VANISHED */
-.slider-wrapper .owl-item:not(.active) .title1,
-.slider-wrapper .owl-item:not(.active) .title2,
-.slider-wrapper .owl-item:not(.active) .slide-desc,
-.slider-wrapper .owl-item:not(.active) .banner-readmore {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(-25px) !important;
-    transition: all 0.3s ease;
+/* TEXT REVEAL MASK (Like sample-8a4a8 curtain lift) */
+.text-reveal-mask {
+    overflow: hidden;
+    display: block;
+    margin-bottom: 8px;
+}
+.text-reveal-mask > * {
+    display: block;
+    transform: translateY(115%);
+    opacity: 0;
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease;
 }
 
-/* ACTIVE SLIDE: WORDS APPEAR FRESH WITH BEAUTIFUL STAGGERED KEYFRAMES */
-.slider-wrapper .owl-item.active .title1 {
-    opacity: 1 !important;
-    visibility: visible !important;
-    animation: slideInDown 0.8s cubic-bezier(0.25, 1, 0.5, 1) both;
+/* ACTIVE SLIDE REVEAL */
+.slider-wrapper .owl-item.active .mask-sub > * {
+    transform: translateY(0%);
+    opacity: 1;
+    transition-delay: 0.15s;
 }
-.slider-wrapper .owl-item.active .title2 {
-    opacity: 1 !important;
-    visibility: visible !important;
-    animation: fadeInUp 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.18s both;
+.slider-wrapper .owl-item.active .mask-title > * {
+    transform: translateY(0%);
+    opacity: 1;
+    transition-delay: 0.3s;
 }
-.slider-wrapper .owl-item.active .slide-desc {
-    opacity: 1 !important;
-    visibility: visible !important;
-    animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) 0.36s both;
+.slider-wrapper .owl-item.active .mask-desc > * {
+    transform: translateY(0%);
+    opacity: 1;
+    transition-delay: 0.45s;
 }
-.slider-wrapper .owl-item.active .banner-readmore {
-    opacity: 1 !important;
-    visibility: visible !important;
-    animation: zoomIn 1.1s cubic-bezier(0.25, 1, 0.5, 1) 0.54s both;
+.slider-wrapper .owl-item.active .mask-btn > * {
+    transform: translateY(0%);
+    opacity: 1;
+    transition-delay: 0.6s;
 }
 
-@keyframes slideInDown {
-    0% { opacity: 0; transform: translateY(-40px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes zoomIn {
-    0% { opacity: 0; transform: scale(0.85); }
-    100% { opacity: 1; transform: scale(1); }
+/* INACTIVE SLIDE: VANISH IMMEDIATELY */
+.slider-wrapper .owl-item:not(.active) .text-reveal-mask > * {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition-duration: 0.3s;
 }
 
 .banner-content {
@@ -327,7 +324,7 @@ body {
     font-size: 20px !important;
     font-weight: 700 !important;
     letter-spacing: 1px !important;
-    margin-bottom: 6px !important;
+    margin: 0 !important;
     text-transform: uppercase;
 }
 .text-content h1.title2 {
@@ -335,7 +332,7 @@ body {
     font-size: 58px !important;
     font-weight: 900 !important;
     line-height: 1.12 !important;
-    margin-bottom: 15px !important;
+    margin: 0 !important;
     letter-spacing: -0.5px !important;
     text-transform: uppercase;
 }
@@ -344,12 +341,12 @@ body {
     font-size: 16px !important;
     line-height: 1.65 !important;
     max-width: 580px;
-    margin-bottom: 28px !important;
+    margin: 0 !important;
 }
 
 .banner-btn {
     border: 2px solid #002e5b !important;
-    border-radius: 3px !important;
+    border-radius: 4px !important;
     color: #002e5b !important;
     display: inline-block !important;
     font-size: 14px !important;
@@ -728,7 +725,9 @@ body {
     margin-bottom: 15px;
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS (HIGH CONTRAST & CLEAR SIGHT DYNAMICS)
+   ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
@@ -791,12 +790,17 @@ body {
         justify-content: center !important;
     }
     
-    .slider-area, .single-slide { height: 440px !important; }
-    .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
-    .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
-    .text-content h1.title2 { font-size: 30px !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
-    .text-content p.slide-desc { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
-    .banner-btn { padding: 0 14px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
+    .slider-area, .single-slide { height: 480px !important; }
+    .single-slide:before {
+        background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.4) 100%) !important;
+    }
+    .text-content-wrapper { height: 480px !important; padding: 25px 15px !important; justify-content: center !important; }
+    
+    /* MOBILE CLEAR BIG TEXT REVEAL */
+    .text-content h3.title1 { font-size: 14px !important; font-weight: 800 !important; margin-bottom: 4px !important; letter-spacing: 0.5px !important; }
+    .text-content h1.title2 { font-size: 34px !important; line-height: 1.15 !important; margin-bottom: 12px !important; font-weight: 900 !important; }
+    .text-content p.slide-desc { font-size: 13.5px !important; line-height: 1.55 !important; margin-bottom: 20px !important; color: #1e293b !important; }
+    .banner-btn { padding: 0 18px !important; font-size: 12px !important; line-height: 36px !important; margin-right: 8px !important; margin-bottom: 8px !important; font-weight: 800 !important; }
     
     .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
     
@@ -928,7 +932,193 @@ body {
         </div>
     </header>
 
-    (.*?)
+    
+    <div class="page-banner">
+        <div class="container">
+            <span class="badge badge-warning px-3 py-1 font-weight-bold text-dark mb-2">Interactive Financial Hub</span>
+            <h1>Knowledge Base &amp; Tax Calculators</h1>
+            <p>Calculate Income Tax, Loan EMIs, Check Income Tax Slabs, and Track Statutory Due Dates.</p>
+        </div>
+    </div>
+
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <!-- CALCULATORS ROW -->
+            <div class="row mb-5">
+                <!-- TAX CALCULATOR -->
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-calculator text-success mr-2"></i> Income Tax Calculator (FY 2024-25 / AY 2025-26)</h4>
+                        <p class="text-muted small">Compare estimated tax payable under the New vs Old Tax Regime.</p>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Annual Taxable Income (₹)</label>
+                            <input type="number" class="form-control" id="calc-income" placeholder="e.g. 1200000" value="1200000"/>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Deductions (80C, 80D, HRA under Old Regime)</label>
+                            <input type="number" class="form-control" id="calc-deductions" placeholder="e.g. 150000" value="150000"/>
+                        </div>
+                        <button type="button" class="btn btn-block font-weight-bold text-white py-2" style="background: #006B63;" onclick="calculateTax()">Calculate Tax Comparison</button>
+                        
+                        <div class="mt-4 p-3 bg-light rounded border" id="tax-result">
+                            <div class="row text-center">
+                                <div class="col-6 border-right">
+                                    <small class="text-muted font-weight-bold">New Tax Regime</small>
+                                    <h5 class="text-success font-weight-bold mb-0" id="res-new">₹82,500</h5>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted font-weight-bold">Old Tax Regime</small>
+                                    <h5 class="text-primary font-weight-bold mb-0" id="res-old">₹1,32,600</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMI CALCULATOR -->
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-percent text-success mr-2"></i> Business / Home Loan EMI Calculator</h4>
+                        <p class="text-muted small">Calculate monthly EMI and total interest outflow.</p>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Loan Amount (₹)</label>
+                            <input type="number" class="form-control" id="emi-amount" placeholder="e.g. 2500000" value="2500000"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group mb-3">
+                                <label class="font-weight-bold small text-dark">Interest Rate (% p.a.)</label>
+                                <input type="number" class="form-control" id="emi-rate" placeholder="e.g. 8.5" value="8.5" step="0.1"/>
+                            </div>
+                            <div class="col-6 form-group mb-3">
+                                <label class="font-weight-bold small text-dark">Tenure (Years)</label>
+                                <input type="number" class="form-control" id="emi-tenure" placeholder="e.g. 10" value="10"/>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-block font-weight-bold text-white py-2" style="background: #006B63;" onclick="calculateEMI()">Calculate Monthly EMI</button>
+                        
+                        <div class="mt-4 p-3 bg-light rounded border" id="emi-result">
+                            <div class="row text-center">
+                                <div class="col-6 border-right">
+                                    <small class="text-muted font-weight-bold">Monthly EMI</small>
+                                    <h5 class="text-success font-weight-bold mb-0" id="res-emi">₹31,005</h5>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted font-weight-bold">Total Interest</small>
+                                    <h5 class="text-dark font-weight-bold mb-0" id="res-interest">₹12,20,560</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INCOME TAX SLABS TABLE -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="p-4 bg-white rounded shadow-sm border">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-table text-success mr-2"></i> Income Tax Slab Rates (New Tax Regime vs Old Tax Regime)</h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover mb-0 small">
+                                <thead style="background-color: #006B63; color: #ffffff;">
+                                    <tr>
+                                        <th>Income Range</th>
+                                        <th>New Tax Regime (Sec 115BAC)</th>
+                                        <th>Old Tax Regime (Individuals &lt; 60 Yrs)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Up to ₹3,00,000</td>
+                                        <td><span class="badge badge-success">Nil</span></td>
+                                        <td><span class="badge badge-success">Nil (Up to ₹2,50,000)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>₹3,00,001 – ₹7,00,000</td>
+                                        <td>5% (Tax Rebate u/s 87A up to ₹7 Lakhs)</td>
+                                        <td>5% (₹2.5L to ₹5L) | 20% (&gt; ₹5L)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>₹7,00,001 – ₹10,00,000</td>
+                                        <td>10%</td>
+                                        <td>20%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>₹10,00,001 – ₹12,00,000</td>
+                                        <td>15%</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>₹12,00,001 – ₹15,00,000</td>
+                                        <td>20%</td>
+                                        <td>30%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Above ₹15,00,000</td>
+                                        <td>30%</td>
+                                        <td>30%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPLIANCE CALENDAR -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-4 bg-white rounded shadow-sm border">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-calendar-check-o text-success mr-2"></i> Statutory Compliance Calendar &amp; Due Dates</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped mb-0 small">
+                                <thead style="background-color: #002e5b; color: #ffffff;">
+                                    <tr>
+                                        <th>Due Date</th>
+                                        <th>Statutory Compliance</th>
+                                        <th>Applicability</th>
+                                        <th>Action Form</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>07th Monthly</strong></td>
+                                        <td>TDS &amp; TCS Deposit for previous month</td>
+                                        <td>All Deductors / Taxpayers</td>
+                                        <td><span class="badge badge-warning">Challan ITNS 281</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>11th Monthly</strong></td>
+                                        <td>GSTR-1 Monthly Outward Supplies Filing</td>
+                                        <td>Registered GST Taxpayers</td>
+                                        <td><span class="badge badge-primary">Form GSTR-1</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>20th Monthly</strong></td>
+                                        <td>GSTR-3B Monthly Return &amp; Tax Payment</td>
+                                        <td>Regular GST Taxpayers</td>
+                                        <td><span class="badge badge-success">Form GSTR-3B</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>31st July</strong></td>
+                                        <td>Income Tax Return Filing for Non-Audit Cases</td>
+                                        <td>Individuals, Salaried, HUF, Firms</td>
+                                        <td><span class="badge badge-danger">ITR-1, 2, 3, 4</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>31st October</strong></td>
+                                        <td>Income Tax Return Filing for Audit Cases</td>
+                                        <td>Companies &amp; Tax Audit Cases</td>
+                                        <td><span class="badge badge-danger">ITR-5, 6, 7 &amp; 3CA/3CD</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer pt-5 mt-5">
@@ -1022,7 +1212,7 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // DYNAMIC HERO SLIDER (FADE OUT DISAPPEAR -> FRESH KEYFRAME ENTRANCE)
+            // DYNAMIC HERO SLIDER (TEXT-REVEAL MASK & SMOOTH FADE)
             if ($(".slider-wrapper").length) {
                 var $heroSlider = $(".slider-wrapper");
                 $heroSlider.owlCarousel({
