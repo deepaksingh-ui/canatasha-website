@@ -235,7 +235,9 @@ body {
     background: #ffffff;
 }
 
-/* HERO SLIDER */
+/* ==========================================================================
+   DYNAMIC HERO SLIDER MOTION ENGINE
+   ========================================================================== */
 .slider-area {
     height: 600px;
     position: relative;
@@ -436,7 +438,7 @@ body {
 }
 
 /* 3D Cards & Animations */
-.blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box {
+.blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box, .calc-box-card {
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
 }
 .blog-card:hover, .blog-card:active {
@@ -459,6 +461,12 @@ body {
 .leader-card:hover, .leader-card:active {
     transform: translateY(-10px) scale(1.03) !important;
     box-shadow: 0 20px 40px rgba(0, 46, 91, 0.15) !important;
+    border-color: #006B63 !important;
+}
+
+.calc-box-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.12) !important;
     border-color: #006B63 !important;
 }
 

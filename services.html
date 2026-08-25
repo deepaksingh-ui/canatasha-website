@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=2500"/>
+    <link rel="stylesheet" href="css/style.css?v=3000"/>
 
     <style id="master-inlined-css">
 
@@ -252,7 +252,9 @@ body {
     background: #ffffff;
 }
 
-/* HERO SLIDER */
+/* ==========================================================================
+   DYNAMIC HERO SLIDER MOTION ENGINE
+   ========================================================================== */
 .slider-area {
     height: 600px;
     position: relative;
@@ -453,7 +455,7 @@ body {
 }
 
 /* 3D Cards & Animations */
-.blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box {
+.blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box, .calc-box-card {
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
 }
 .blog-card:hover, .blog-card:active {
@@ -476,6 +478,12 @@ body {
 .leader-card:hover, .leader-card:active {
     transform: translateY(-10px) scale(1.03) !important;
     box-shadow: 0 20px 40px rgba(0, 46, 91, 0.15) !important;
+    border-color: #006B63 !important;
+}
+
+.calc-box-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.12) !important;
     border-color: #006B63 !important;
 }
 
@@ -1179,6 +1187,53 @@ body {
             window.addEventListener('scroll', checkCounters);
             checkCounters();
         });
+
+        // Tax Calculation Functions (Global)
+        function calculateTax() {
+            var inc = parseFloat(document.getElementById('calc-income').value) || 0;
+            var ded = parseFloat(document.getElementById('calc-deductions').value) || 0;
+            
+            var newTax = 0;
+            var netNew = Math.max(0, inc - 75000);
+            if (netNew <= 300000) newTax = 0;
+            else if (netNew <= 700000) newTax = (netNew - 300000) * 0.05;
+            else if (netNew <= 1000000) newTax = 20000 + (netNew - 700000) * 0.10;
+            else if (netNew <= 1200000) newTax = 50000 + (netNew - 1000000) * 0.15;
+            else if (netNew <= 1500000) newTax = 80000 + (netNew - 1200000) * 0.20;
+            else newTax = 140000 + (netNew - 1500000) * 0.30;
+            if (netNew <= 700000) newTax = 0;
+            newTax = Math.round(newTax * 1.04);
+
+            var netOld = Math.max(0, inc - 50000 - ded);
+            var oldTax = 0;
+            if (netOld <= 250000) oldTax = 0;
+            else if (netOld <= 500000) oldTax = (netOld - 250000) * 0.05;
+            else if (netOld <= 1000000) oldTax = 12500 + (netOld - 500000) * 0.20;
+            else oldTax = 112500 + (netOld - 1000000) * 0.30;
+            if (netOld <= 500000) oldTax = 0;
+            oldTax = Math.round(oldTax * 1.04);
+
+            document.getElementById('res-new').innerText = '₹' + newTax.toLocaleString('en-IN');
+            document.getElementById('res-old').innerText = '₹' + oldTax.toLocaleString('en-IN');
+        }
+
+        function calculateEMI() {
+            var P = parseFloat(document.getElementById('emi-amount').value) || 0;
+            var annualRate = parseFloat(document.getElementById('emi-rate').value) || 0;
+            var tenureYears = parseFloat(document.getElementById('emi-tenure').value) || 0;
+            
+            var r = (annualRate / 12) / 100;
+            var n = tenureYears * 12;
+            
+            if (P > 0 && r > 0 && n > 0) {
+                var emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                var totalPayment = emi * n;
+                var totalInterest = totalPayment - P;
+                
+                document.getElementById('res-emi').innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
+                document.getElementById('res-interest').innerText = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+            }
+        }
     </script>
 </body>
 </html>
