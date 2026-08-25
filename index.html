@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=2000"/>
+    <link rel="stylesheet" href="css/style.css?v=2500"/>
 
     <style id="master-inlined-css">
 
@@ -456,19 +456,84 @@ body {
 .blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box {
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
 }
-.blog-card:hover {
-    transform: translateY(-12px) scale(1.03) !important;
+.blog-card:hover, .blog-card:active {
+    transform: translateY(-10px) scale(1.025) !important;
     box-shadow: 0 24px 50px rgba(0, 46, 91, 0.18) !important;
     border-color: #006B63 !important;
 }
-.single-item:hover {
-    transform: translateY(-10px) scale(1.025) !important;
+.single-item:hover, .single-item:active {
+    transform: translateY(-8px) scale(1.02) !important;
     box-shadow: 0 20px 40px rgba(0, 107, 99, 0.16) !important;
     border-color: #006B63 !important;
 }
-.leader-card:hover {
+.leader-card {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+.leader-card:hover, .leader-card:active {
     transform: translateY(-10px) scale(1.03) !important;
     box-shadow: 0 20px 40px rgba(0, 46, 91, 0.15) !important;
+    border-color: #006B63 !important;
+}
+
+.team-img-box {
+    height: 250px;
+    background: #f8fafc;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px 8px 0 0;
+}
+.team-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+}
+.leader-card:hover .team-img-box img {
+    transform: scale(1.08);
+}
+
+.team-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #002e5b;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+.team-social-btn:hover {
+    background: #006B63;
+    color: #ffffff;
+    transform: scale(1.15);
+}
+
+.team-connect-btn {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background: #006B63;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+}
+.team-connect-btn:hover {
+    background: #002e5b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 46, 91, 0.25);
 }
 
 .service-badge {
@@ -898,7 +963,7 @@ body {
                                         <p>Empowering businesses across India with proactive income tax structuring, GST litigation defense, and seamless statutory audit representations.</p>
                                         <div class="banner-readmore">
                                             <a class="banner-btn" href="about-us.html">About Firm</a>
-                                            <a class="banner-btn banner-btn-green" href="https://wa.me/919407000157" target="_blank">Consult on WhatsApp</a>
+                                            <a class="banner-btn banner-btn-green" href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult." target="_blank">Consult on WhatsApp</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1048,7 +1113,7 @@ body {
         </div>
     </section>
 
-    <!-- OUR TEAM SECTION (MATCHING TEMPLATE 89) -->
+    <!-- OUR TEAM SECTION (MATCHING TEMPLATE 89 WITH ONE-CLICK CONNECT ACTIONS) -->
     <section class="py-5" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
@@ -1062,65 +1127,101 @@ body {
             <div class="row">
                 <!-- Team Member 1: CA Natasha -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card text-center p-3">
-                        <div class="overflow-hidden rounded mb-3" style="height: 240px; background: #f1f5f9;">
-                            <img src="images/natasha.jpg" class="w-100 h-100" style="object-fit: cover; object-position: top center;" alt="CA Natasha Rajvaidya" onerror="this.src='images/team-1.webp'"/>
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" onerror="this.src='images/team-1.webp'"/>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h5>
-                        <span class="badge badge-success mb-2" style="background-color: #006B63;">FCA &bull; Principal Partner</span>
-                        <p class="text-muted small mb-3">Direct Tax Specialist &bull; Statutory Audits &bull; Startup Mentor</p>
-                        <div class="social-icons-top mt-auto">
-                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="btn btn-sm btn-outline-dark rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/canatasharaj" target="_blank" class="btn btn-sm btn-outline-dark rounded-circle"><i class="fa fa-twitter"></i></a>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-success px-2 py-1" style="background-color: #006B63; font-size: 11px;">FCA &bull; Principal Partner</span>
                         </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Direct Tax Specialist &bull; Statutory Audits &bull; Startup Mentor</p>
+                        
+                        <!-- CONNECT LINKS -->
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult%20with%20you." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="team-connect-btn">
+                            <i class="fa fa-comments mr-1"></i> Connect / Consult
+                        </a>
                     </div>
                 </div>
 
                 <!-- Team Member 2 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card text-center p-3">
-                        <div class="overflow-hidden rounded mb-3" style="height: 240px; background: #f1f5f9;">
-                            <img src="images/team-2.webp" class="w-100 h-100" style="object-fit: cover; object-position: top center;" alt="Senior Partner"/>
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-2.webp" alt="Senior Partner"/>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b;">Ashish &amp; Associates</h5>
-                        <span class="badge badge-primary mb-2">Senior Partner &bull; Audit Lead</span>
-                        <p class="text-muted small mb-3">Company Law &bull; Ind AS Compliance &bull; Forensic Audit</p>
-                        <div class="social-icons-top mt-auto">
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle"><i class="fa fa-twitter"></i></a>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-primary px-2 py-1" style="font-size: 11px;">Senior Partner &bull; Audit Lead</span>
                         </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Company Law &bull; Ind AS Compliance &bull; Forensic Audit</p>
+                        
+                        <!-- CONNECT LINKS -->
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Auditing%20Services." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Lead
+                        </a>
                     </div>
                 </div>
 
                 <!-- Team Member 3 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card text-center p-3">
-                        <div class="overflow-hidden rounded mb-3" style="height: 240px; background: #f1f5f9;">
-                            <img src="images/team-3.webp" class="w-100 h-100" style="object-fit: cover; object-position: top center;" alt="GST Specialist"/>
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-3.webp" alt="GST Specialist"/>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b;">Senior Tax Advisor</h5>
-                        <span class="badge badge-warning text-dark mb-2 font-weight-bold">GST &amp; Litigation Specialist</span>
-                        <p class="text-muted small mb-3">Indirect Taxes &bull; Show Cause Notice Defense &bull; ITC Audit</p>
-                        <div class="social-icons-top mt-auto">
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle"><i class="fa fa-twitter"></i></a>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-warning text-dark px-2 py-1 font-weight-bold" style="font-size: 11px;">GST &amp; Litigation Lead</span>
                         </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Indirect Taxes &bull; Show Cause Notice Defense &bull; ITC Audit</p>
+                        
+                        <!-- CONNECT LINKS -->
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20GST%20Litigation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Advisor
+                        </a>
                     </div>
                 </div>
 
                 <!-- Team Member 4 -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card text-center p-3">
-                        <div class="overflow-hidden rounded mb-3" style="height: 240px; background: #f1f5f9;">
-                            <img src="images/team-4.webp" class="w-100 h-100" style="object-fit: cover; object-position: top center;" alt="Corporate Law"/>
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-4.webp" alt="Corporate Law"/>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b;">Corporate Law Head</h5>
-                        <span class="badge badge-info mb-2">ROC &amp; Startup Advisor</span>
-                        <p class="text-muted small mb-3">LLP &amp; Pvt Ltd Formations &bull; NGO/Trust 12A 80G Registrations</p>
-                        <div class="social-icons-top mt-auto">
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-dark rounded-circle"><i class="fa fa-twitter"></i></a>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-info px-2 py-1" style="font-size: 11px;">ROC &amp; Startup Advisor</span>
                         </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">LLP &amp; Pvt Ltd Formations &bull; NGO/Trust 12A 80G Filings</p>
+                        
+                        <!-- CONNECT LINKS -->
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Company%20Formation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Legal
+                        </a>
                     </div>
                 </div>
             </div>
