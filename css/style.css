@@ -23,17 +23,17 @@ body {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     opacity: 1;
-    transition: opacity 0.3s var(--ca-easing);
+    transition: opacity 0.28s var(--ca-easing);
 }
 
 body.page-transitioning {
-    opacity: 0.15;
+    opacity: 0.2;
     pointer-events: none;
 }
 
 /* ==========================================================================
    1. SCROLL PROGRESS BAR (TOP OF SCREEN)
-   ========================================================================= */
+   ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -272,7 +272,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: DARK & CRISP CONTRAST BACKGROUND (EXACT TEMPLATE-89 STYLE)
+   3. HERO BANNER: 100% CRYSTAL HD SHARP PICTURE (ZERO BLUR, ZERO WHITE FOG)
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -282,7 +282,9 @@ body.page-transitioning {
     background-position: center right;
     background-repeat: no-repeat;
     overflow: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
+/* SUBTLE CLEAN LEFT SCRIM SO PEOPLE REMAIN 100% CRISP AND DARK */
 .static-hero-area:before {
     content: "";
     position: absolute;
@@ -290,7 +292,7 @@ body.page-transitioning {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 42%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.50) 38%, rgba(255,255,255,0.0) 70%);
     z-index: 1;
 }
 
@@ -430,10 +432,8 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   4. 10-POINT LUXURY MOBILE NAVIGATION ANIMATION SYSTEM
+   4. 10-POINT LUXURY MOBILE NAVIGATION SYSTEM
    ========================================================================== */
-
-/* 1. Hamburger → X Morph Button */
 .hamburger-morph-btn {
     width: 40px;
     height: 40px;
@@ -477,7 +477,6 @@ body.page-transitioning {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* 6 & 8. Menu Background Reveal (Clip-path + Glass Blur Backdrop) */
 #mobile-menu-drawer {
     display: none;
     background: rgba(255, 255, 255, 0.96);
@@ -498,7 +497,6 @@ body.page-transitioning {
     padding: 16px 15px;
 }
 
-/* 2 & 5. Staggered Menu Reveal + Text Slide (from left) + Fade-in */
 #mobile-menu-drawer ul {
     list-style: none;
     padding: 0;
@@ -533,7 +531,6 @@ body.page-transitioning {
     transform: translateY(16px);
 }
 
-/* 3, 4, 7 & 9. Sliding Active Indicator, Morph Background, Scale & Touch Ripple */
 #mobile-menu-drawer ul li a {
     display: flex;
     align-items: center;
@@ -566,7 +563,6 @@ body.page-transitioning {
     padding-left: 20px;
 }
 
-/* Touch Ripple on Menu Links */
 .ripple-wave {
     position: absolute;
     border-radius: 50%;
@@ -933,7 +929,7 @@ body.page-transitioning {
         background-position: center right !important;
     }
     .static-hero-area:before {
-        background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.10) 100%) !important;
+        background: linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.0) 85%) !important;
     }
     
     .text-slide-item {
