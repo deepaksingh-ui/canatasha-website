@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=11000"/>
+    <link rel="stylesheet" href="css/style.css?v=12000"/>
 
     <style id="master-inlined-css">
 
@@ -229,7 +229,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT TEMPLATE-89 HERO SLIDER & WORD ENTRANCE ANIMATION
+   SAG INFOTECH TEMPLATE-89 HERO SLIDER & EXACT ANIMATIONS
    ========================================================================== */
 .slider-area {
     height: 600px;
@@ -268,8 +268,8 @@ body {
     padding-top: 60px;
 }
 
-/* EXACT TEMPLATE-89 TYPOGRAPHY */
-.text-content h3.title1 {
+/* TYPOGRAPHY */
+.text-content h3.sub-title, .text-content h3.title1 {
     color: #002e5b !important;
     font-size: 20px !important;
     font-weight: 700 !important;
@@ -278,7 +278,7 @@ body {
     text-transform: uppercase !important;
     opacity: 0;
 }
-.text-content h1.title2 {
+.text-content h1.title, .text-content h1.title2 {
     color: #006B63 !important;
     font-size: 58px !important;
     font-weight: 900 !important;
@@ -288,7 +288,7 @@ body {
     text-transform: uppercase !important;
     opacity: 0;
 }
-.text-content p {
+.text-content p.description {
     color: #334155 !important;
     font-size: 15.5px !important;
     line-height: 1.65 !important;
@@ -296,12 +296,12 @@ body {
     margin-bottom: 28px !important;
     opacity: 0;
 }
-.text-content .banner-readmore {
+.text-content .btn-box, .text-content .banner-readmore {
     opacity: 0;
 }
 
-/* EXACT TEMPLATE-89 VIEW SERVICES BUTTON */
-.banner-btn {
+/* OUTLINE BOX BUTTON (EXACT TEMPLATE-89) */
+.banner-btn, .theme-btn {
     border: 2px solid #002e5b !important;
     border-radius: 3px !important;
     color: #002e5b !important;
@@ -317,47 +317,71 @@ body {
     background: transparent !important;
     transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
-.banner-btn:hover {
+.banner-btn:hover, .theme-btn:hover {
     background: #002e5b !important;
     color: #ffffff !important;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* EXACT TEMPLATE-89 KEYFRAME ANIMATIONS */
+/* SAG INFOTECH EXACT ANIMATE.CSS CLASSES & KEYFRAMES */
 .animated {
-    animation-duration: 0.85s;
+    animation-duration: 1s;
     animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
 }
-.slideInDown {
-    animation-name: slideInDown;
+.animated.fadeInDown {
+    animation-name: fadeInDown;
+    -webkit-animation-name: fadeInDown;
 }
-.fadeInUp {
+.animated.fadeInUp {
     animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
 }
 
-@keyframes slideInDown {
+@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translate3d(0, -50px, 0);
+        transform: translate3d(0, -60px, 0);
     }
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
 }
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translate3d(0, 50px, 0);
+        transform: translate3d(0, 60px, 0);
     }
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
 }
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 60px, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
 
-/* EXACT TEMPLATE-89 LEFT & RIGHT BOX NAVIGATION ARROWS */
+/* LEFT & RIGHT SIDE BOX ARROWS */
 .slider-wrapper .owl-nav {
     display: block;
 }
@@ -770,10 +794,10 @@ body {
     
     .slider-area, .single-slide { height: 440px !important; }
     .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
-    .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
-    .text-content h1.title2 { font-size: 32px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
-    .text-content p { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
-    .banner-btn { padding: 0 16px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
+    .text-content h3.sub-title, .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
+    .text-content h1.title, .text-content h1.title2 { font-size: 32px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
+    .text-content p.description { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+    .banner-btn, .theme-btn { padding: 0 16px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
     
     .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
     
@@ -1064,36 +1088,30 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // EXACT TEMPLATE-89 HERO SLIDER WITH PROVEN KEYFRAME WORD ENTRANCE
+            // SAG INFOTECH EXACT DATA-ANIMATION CAROUSEL HOOKS
             var $heroSlider = $(".slider-wrapper");
             if ($heroSlider.length) {
-                function doAnimation(elems) {
-                    var animEndEv = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-                    elems.each(function () {
-                        var $this = $(this);
-                        var $animationType = $this.data('animation');
-                        var $animationDelay = $this.data('delay') || '0s';
-                        $this.css({
-                            'animation-delay': $animationDelay,
-                            '-webkit-animation-delay': $animationDelay
-                        }).addClass($animationType).one(animEndEv, function () {
-                            $this.removeClass($animationType);
+                $heroSlider.on('translate.owl.carousel', function () {
+                    $(this).find('[data-animation]').each(function () {
+                        var animName = $(this).data('animation');
+                        $(this).removeClass('animated ' + animName).css({
+                            'opacity': '0',
+                            'animation-delay': ''
                         });
                     });
-                }
+                });
 
-                $heroSlider.on('init.owl.carousel translated.owl.carousel', function (e) {
-                    var $elem = $(e.target).find(".owl-item.active");
-                    var $animateElem = $elem.find("[data-animation]");
-                    
-                    // Reset all
-                    $('.slider-wrapper').find("[data-animation]").removeClass('animated slideInDown fadeInUp').css('opacity', '0');
-                    
-                    // Animate active slide elements
-                    $elem.find("h3.title1").addClass('animated slideInDown').css('opacity', '1');
-                    $elem.find("h1.title2").css('animation-delay', '0.2s').addClass('animated fadeInUp').css('opacity', '1');
-                    $elem.find("p").css('animation-delay', '0.4s').addClass('animated fadeInUp').css('opacity', '1');
-                    $elem.find(".banner-readmore").css('animation-delay', '0.6s').addClass('animated fadeInUp').css('opacity', '1');
+                $heroSlider.on('translated.owl.carousel', function () {
+                    $(this).find('.owl-item.active [data-animation]').each(function () {
+                        var animName = $(this).data('animation');
+                        var delay = $(this).data('delay') || '0s';
+                        var duration = $(this).data('duration') || '1s';
+                        
+                        $(this).css({
+                            'animation-delay': delay,
+                            'animation-duration': duration
+                        }).addClass('animated ' + animName);
+                    });
                 });
 
                 $heroSlider.owlCarousel({
@@ -1110,14 +1128,18 @@ body {
                     mouseDrag: true
                 });
 
-                // Trigger first slide entrance immediately on load
+                // Trigger Initial Slide Animation
                 setTimeout(function(){
-                    var $elem = $(".slider-wrapper .owl-item.active");
-                    $elem.find("h3.title1").addClass('animated slideInDown').css('opacity', '1');
-                    $elem.find("h1.title2").css('animation-delay', '0.2s').addClass('animated fadeInUp').css('opacity', '1');
-                    $elem.find("p").css('animation-delay', '0.4s').addClass('animated fadeInUp').css('opacity', '1');
-                    $elem.find(".banner-readmore").css('animation-delay', '0.6s').addClass('animated fadeInUp').css('opacity', '1');
-                }, 150);
+                    $('.slider-wrapper .owl-item.active [data-animation]').each(function () {
+                        var animName = $(this).data('animation');
+                        var delay = $(this).data('delay') || '0s';
+                        var duration = $(this).data('duration') || '1s';
+                        $(this).css({
+                            'animation-delay': delay,
+                            'animation-duration': duration
+                        }).addClass('animated ' + animName);
+                    });
+                }, 100);
             }
 
             // REVIEWS CAROUSEL SLIDER (CONTINUOUS SMOOTH ROTATION)
