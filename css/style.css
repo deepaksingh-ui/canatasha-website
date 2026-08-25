@@ -213,42 +213,41 @@ body {
 }
 
 /* ==========================================================================
-   SAMPLE-8A4A8 INSPIRED TEXT REVEAL MASK & FLUID MOBILE DYNAMICS
+   STATIC HERO BACKGROUND WITH ROTATING & REVEALING WORDS
    ========================================================================== */
-.slider-area {
+.hero-static-area {
     height: 600px;
     position: relative;
-    overflow: hidden;
-}
-.slider-wrapper {
-    position: relative;
-}
-.single-slide {
-    height: 600px;
+    background-image: url('images/banner-1.webp');
     background-size: cover;
     background-position: center right;
-    position: relative;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
-.single-slide:before {
+.hero-static-area:before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.15) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 48%, rgba(255,255,255,0.15) 100%);
+    z-index: 1;
 }
 
-/* Ken Burns Subtle Motion */
-.slider-wrapper .owl-item.active .single-slide {
-    animation: kenBurnsMotion 8s ease-out infinite alternate;
+.text-slider-wrapper {
+    position: relative;
+    z-index: 2;
+    height: 600px;
 }
-@keyframes kenBurnsMotion {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.06); }
+.single-text-slide {
+    height: 600px;
+    background: transparent;
+    display: flex;
+    align-items: center;
 }
 
-/* TEXT REVEAL MASK (Like sample-8a4a8 curtain lift) */
+/* TEXT REVEAL MASK (Curtain Lift Transition) */
 .text-reveal-mask {
     overflow: hidden;
     display: block;
@@ -262,39 +261,34 @@ body {
 }
 
 /* ACTIVE SLIDE REVEAL */
-.slider-wrapper .owl-item.active .mask-sub > * {
+.text-slider-wrapper .owl-item.active .mask-sub > * {
     transform: translateY(0%);
     opacity: 1;
     transition-delay: 0.15s;
 }
-.slider-wrapper .owl-item.active .mask-title > * {
+.text-slider-wrapper .owl-item.active .mask-title > * {
     transform: translateY(0%);
     opacity: 1;
     transition-delay: 0.3s;
 }
-.slider-wrapper .owl-item.active .mask-desc > * {
+.text-slider-wrapper .owl-item.active .mask-desc > * {
     transform: translateY(0%);
     opacity: 1;
     transition-delay: 0.45s;
 }
-.slider-wrapper .owl-item.active .mask-btn > * {
+.text-slider-wrapper .owl-item.active .mask-btn > * {
     transform: translateY(0%);
     opacity: 1;
     transition-delay: 0.6s;
 }
 
-/* INACTIVE SLIDE: VANISH IMMEDIATELY */
-.slider-wrapper .owl-item:not(.active) .text-reveal-mask > * {
+/* INACTIVE SLIDE: VANISH IMMEDIATELY (GAYAB HONA) */
+.text-slider-wrapper .owl-item:not(.active) .text-reveal-mask > * {
     transform: translateY(-100%);
     opacity: 0;
     transition-duration: 0.3s;
 }
 
-.banner-content {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-}
 .text-content-wrapper {
     display: flex;
     flex-direction: column;
@@ -361,10 +355,10 @@ body {
 }
 
 /* SIDE EDGE RECTANGLE ARROWS */
-.slider-wrapper .owl-nav {
+.text-slider-wrapper .owl-nav {
     display: block;
 }
-.slider-wrapper .owl-prev, .slider-wrapper .owl-next {
+.text-slider-wrapper .owl-prev, .text-slider-wrapper .owl-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -381,12 +375,12 @@ body {
     z-index: 10;
     opacity: 0.9;
 }
-.slider-wrapper .owl-prev:hover, .slider-wrapper .owl-next:hover {
+.text-slider-wrapper .owl-prev:hover, .text-slider-wrapper .owl-next:hover {
     background: #006B63 !important;
     opacity: 1;
 }
-.slider-wrapper .owl-prev { left: 0; border-radius: 0 4px 4px 0 !important; }
-.slider-wrapper .owl-next { right: 0; border-radius: 4px 0 0 4px !important; }
+.text-slider-wrapper .owl-prev { left: 0; border-radius: 0 4px 4px 0 !important; }
+.text-slider-wrapper .owl-next { right: 0; border-radius: 4px 0 0 4px !important; }
 
 /* Subpage Banner */
 .page-banner {
@@ -709,7 +703,7 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE OPTIMIZATIONS (HIGH CONTRAST & CLEAR SIGHT DYNAMICS)
+   MOBILE OPTIMIZATIONS (100% STATIC BG & SHARP TEXT)
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -773,9 +767,9 @@ body {
         justify-content: center !important;
     }
     
-    .slider-area, .single-slide { height: 480px !important; }
-    .single-slide:before {
-        background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.4) 100%) !important;
+    .hero-static-area, .text-slider-wrapper, .single-text-slide { height: 480px !important; }
+    .hero-static-area:before {
+        background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.88) 60%, rgba(255,255,255,0.45) 100%) !important;
     }
     .text-content-wrapper { height: 480px !important; padding: 25px 15px !important; justify-content: center !important; }
     
@@ -785,7 +779,7 @@ body {
     .text-content p.slide-desc { font-size: 13.5px !important; line-height: 1.55 !important; margin-bottom: 20px !important; color: #1e293b !important; }
     .banner-btn { padding: 0 18px !important; font-size: 12px !important; line-height: 36px !important; margin-right: 8px !important; margin-bottom: 8px !important; font-weight: 800 !important; }
     
-    .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
+    .text-slider-wrapper .owl-prev, .text-slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
     .page-banner h1 { font-size: 24px !important; }
