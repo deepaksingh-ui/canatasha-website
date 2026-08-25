@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=28000"/>
+    <link rel="stylesheet" href="css/style.css?v=31000"/>
 
     <style id="master-inlined-css">
 
@@ -289,7 +289,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: 100% TRANSPARENT RAW TEMPLATE-89 ZOOM-OUT TEXT ROTATOR
+   3. HERO BANNER: DESKTOP RAW DARK CONTRAST (ZERO BLUR) & ZOOM-OUT ROTATOR
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -335,11 +335,8 @@ body.page-transitioning {
     padding-top: 50px;
 }
 
-/* PURE TRANSPARENT TEXT CONTENT (ZERO BOX, ZERO CONTAINER CARD) */
 .text-content {
     background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -387,7 +384,7 @@ body.page-transitioning {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* 110% GRAND TYPOGRAPHY */
+/* 110% GRAND TYPOGRAPHY ON DESKTOP */
 .text-content h3.sub-title {
     color: #002e5b !important;
     font-size: 21px !important;
@@ -908,7 +905,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE RESPONSIVE (EXACT TEMPLATE-89: ZERO WHITE BOX, ZERO WASH)
+   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY (MATCHING SCREENSHOT media_1787692322694.png)
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -960,34 +957,30 @@ body.page-transitioning {
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
     
-    /* MOBILE HERO: EXACT TEMPLATE-89 CLEAN FULL BANNER (ZERO BOX, 100% TRANSPARENT) */
+    /* MOBILE ONLY SOFT WHITE BLUR OVERLAY (NO BOX, FULL BANNER WASH) */
     .static-hero-area, .hero-zoom-slider {
-        height: 480px !important;
-        background-image: url('images/banner-1.webp') !important;
+        height: 500px !important;
+        background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('images/banner-1.webp') !important;
         background-size: cover !important;
-        background-position: center center !important;
+        background-position: center top !important;
         background-repeat: no-repeat !important;
     }
     
     .text-slide-item {
-        height: 480px !important;
-        padding: 20px 15px !important;
+        height: 500px !important;
+        padding: 25px 15px !important;
         justify-content: center !important;
     }
     
-    /* 100% TRANSPARENT: NO WHITE BOX, NO BACKGROUND, NO BORDER */
     .text-content {
         text-align: center !important;
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
         background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
         border: none !important;
         box-shadow: none !important;
         padding: 0 !important;
-        border-radius: 0 !important;
     }
     
     .text-content h3.sub-title {
@@ -996,7 +989,6 @@ body.page-transitioning {
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content h1.title {
         font-size: 30px !important;
@@ -1004,15 +996,13 @@ body.page-transitioning {
         margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content p.description {
         font-size: 13px !important;
         line-height: 1.55 !important;
-        margin-bottom: 18px !important;
+        margin-bottom: 20px !important;
         color: #1e293b !important;
-        font-weight: 600 !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        font-weight: 500 !important;
     }
     
     .banner-btn, .theme-btn {
@@ -1182,19 +1172,19 @@ body.page-transitioning {
     </header>
 
     
-    <!-- EXACT TEMPLATE-89 HERO SECTION WITH RAW DARK PIC & ZOOM-OUT TEXT ANIMATION -->
+    <!-- HERO SECTION: DESKTOP RAW DARK CONTRAST | MOBILE SOFT BLUR OVERLAY WITH ZOOM-OUT -->
     <section class="static-hero-area" id="home">
         <div class="hero-zoom-slider">
-            <!-- SLIDE 1: CA NATASHA RAJVAIDYA (PRIMARY BRAND SLIDE) -->
+            <!-- SLIDE 1: WELCOME TO NATASHA & COMPANY / CA NATASHA RAJVAIDYA -->
             <div class="zoom-slide active">
                 <div class="container h-100 position-relative" style="z-index: 5;">
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
-                                <div class="text-content text-left">
-                                    <h3 class="sub-title">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
+                                <div class="text-content">
+                                    <h3 class="sub-title">WELCOME TO NATASHA &amp; COMPANY</h3>
                                     <h1 class="title">CA NATASHA RAJVAIDYA</h1>
-                                    <p class="description">Empowering businesses, startups, and MSMEs across India with proactive income tax structuring, GST litigation defense, and statutory audit representations.</p>
+                                    <p class="description">Leading ISO 9001:2015 certified Chartered Accountancy firm in Bhopal offering strategic Tax Planning, Statutory Audits, GST Litigation, and Corporate Advisory.</p>
                                     <div class="btn-box">
                                         <a class="theme-btn nav-transition-link" href="about-us.html">About Firm</a>
                                         <a class="theme-btn nav-transition-link" href="contact-us.html">Consult CA</a>
@@ -1212,12 +1202,13 @@ body.page-transitioning {
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
-                                <div class="text-content text-left">
+                                <div class="text-content">
                                     <h3 class="sub-title">WE PROVIDE BEST FINANCIAL SOLUTIONS</h3>
                                     <h1 class="title">FOR YOUR BUSINESS</h1>
-                                    <p class="description">We have over 8+ years of dedicated professional experience in Tax, Audits, and Corporate Financial Management in Bhopal so we can make your business compliant and successful you can trust us.</p>
+                                    <p class="description">Natasha &amp; Company is an ISO 9001:2015 Certified Chartered Accountant firm delivering Strategic Tax Planning, Audits, GST, and Corporate Advisory services.</p>
                                     <div class="btn-box">
                                         <a class="theme-btn nav-transition-link" href="services.html">View Services</a>
+                                        <a class="theme-btn nav-transition-link" href="contact-us.html">Get a Quote</a>
                                     </div>
                                 </div>
                             </div>
@@ -1232,7 +1223,7 @@ body.page-transitioning {
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
-                                <div class="text-content text-left">
+                                <div class="text-content">
                                     <h3 class="sub-title">ISO 9001:2015 CERTIFIED FIRM</h3>
                                     <h1 class="title">NATASHA &amp; COMPANY</h1>
                                     <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
@@ -1682,7 +1673,7 @@ body.page-transitioning {
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
                                     </div>
                                     <div class="text-warning mb-2" style="font-size: 13px;">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                     <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
                                         "Very Responsive humble and professional. File my ITR in time. Thanks to Natasha and Company for seamless compliance."
