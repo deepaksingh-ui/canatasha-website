@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=12000"/>
+    <link rel="stylesheet" href="css/style.css?v=13000"/>
 
     <style id="master-inlined-css">
 
@@ -229,12 +229,13 @@ body {
 }
 
 /* ==========================================================================
-   SAG INFOTECH TEMPLATE-89 HERO SLIDER & EXACT ANIMATIONS
+   HERO SLIDER - DESKTOP & CRYSTAL CLEAR MOBILE ARCHITECTURE
    ========================================================================== */
 .slider-area {
     height: 600px;
     position: relative;
     overflow: hidden;
+    background: #001f3f;
 }
 .slider-wrapper {
     position: relative;
@@ -252,7 +253,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.10) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.15) 100%);
 }
 
 .banner-content {
@@ -300,7 +301,7 @@ body {
     opacity: 0;
 }
 
-/* OUTLINE BOX BUTTON (EXACT TEMPLATE-89) */
+/* OUTLINE BOX BUTTON */
 .banner-btn, .theme-btn {
     border: 2px solid #002e5b !important;
     border-radius: 3px !important;
@@ -324,7 +325,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* SAG INFOTECH EXACT ANIMATE.CSS CLASSES & KEYFRAMES */
+/* SAG INFOTECH EXACT ANIMATE.CSS KEYFRAMES */
 .animated {
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -342,7 +343,7 @@ body {
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translate3d(0, -60px, 0);
+        transform: translate3d(0, -50px, 0);
     }
     to {
         opacity: 1;
@@ -352,7 +353,7 @@ body {
 @-webkit-keyframes fadeInDown {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, -60px, 0);
+        -webkit-transform: translate3d(0, -50px, 0);
     }
     to {
         opacity: 1;
@@ -363,7 +364,7 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translate3d(0, 60px, 0);
+        transform: translate3d(0, 50px, 0);
     }
     to {
         opacity: 1;
@@ -373,7 +374,7 @@ body {
 @-webkit-keyframes fadeInUp {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, 60px, 0);
+        -webkit-transform: translate3d(0, 50px, 0);
     }
     to {
         opacity: 1;
@@ -381,7 +382,7 @@ body {
     }
 }
 
-/* LEFT & RIGHT SIDE BOX ARROWS */
+/* DESKTOP SIDE ARROWS */
 .slider-wrapper .owl-nav {
     display: block;
 }
@@ -729,7 +730,9 @@ body {
     margin-bottom: 15px;
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   MOBILE-OPTIMIZED HIGH DEFINITION PICTURE & CRYSTAL GLASS CARD
+   ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
@@ -792,14 +795,78 @@ body {
         justify-content: center !important;
     }
     
-    .slider-area, .single-slide { height: 440px !important; }
-    .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
-    .text-content h3.sub-title, .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
-    .text-content h1.title, .text-content h1.title2 { font-size: 32px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
-    .text-content p.description { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
-    .banner-btn, .theme-btn { padding: 0 16px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
+    /* ULTRA-CLEAR MOBILE PICTURE & ADAPTIVE GLASS CARD */
+    .slider-area, .single-slide {
+        height: 540px !important;
+        background-position: center top !important;
+        background-size: cover !important;
+    }
+    .single-slide:before {
+        /* Soft subtle dark-vignette so the background photo remains 100% visible and vivid */
+        background: linear-gradient(180deg, rgba(0, 20, 40, 0.40) 0%, rgba(0, 20, 40, 0.55) 50%, rgba(0, 20, 40, 0.75) 100%) !important;
+    }
     
-    .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
+    .text-content-wrapper {
+        height: 540px !important;
+        padding: 20px 15px !important;
+        justify-content: center !important;
+    }
+    
+    .text-content {
+        background: rgba(255, 255, 255, 0.92) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        padding: 24px 18px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25) !important;
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 95% !important;
+    }
+    
+    .text-content h3.sub-title, .text-content h3.title1 {
+        font-size: 12.5px !important;
+        margin-bottom: 6px !important;
+        color: #002e5b !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px !important;
+    }
+    .text-content h1.title, .text-content h1.title2 {
+        font-size: 28px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 10px !important;
+        color: #006B63 !important;
+        font-weight: 900 !important;
+    }
+    .text-content p.description {
+        font-size: 12.5px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 16px !important;
+        color: #475569 !important;
+    }
+    
+    .banner-btn, .theme-btn {
+        background: #006B63 !important;
+        color: #ffffff !important;
+        border: none !important;
+        padding: 0 20px !important;
+        font-size: 12.5px !important;
+        line-height: 38px !important;
+        border-radius: 6px !important;
+        display: inline-block !important;
+        margin: 0 auto !important;
+        box-shadow: 0 4px 15px rgba(0, 107, 99, 0.3) !important;
+    }
+    
+    /* MOBILE NAVIGATION ARROWS (SUBTLE & NON-INTRUSIVE) */
+    .slider-wrapper .owl-prev, .slider-wrapper .owl-next {
+        width: 30px !important;
+        height: 48px !important;
+        font-size: 15px !important;
+        opacity: 0.75 !important;
+        background: rgba(0, 46, 91, 0.85) !important;
+    }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
     .page-banner h1 { font-size: 24px !important; }
@@ -930,7 +997,7 @@ body {
     </header>
 
     
-    <!-- EXACT SAG INFOTECH TEMPLATE-89 HERO SLIDER -->
+    <!-- HERO SLIDER SECTION -->
     <section class="slider-area" id="home">
         <div class="slider-wrapper owl-carousel">
             <!-- SLIDE 1: EXACT TEMPLATE-89 -->
@@ -956,7 +1023,7 @@ body {
             </div>
 
             <!-- SLIDE 2: CA NATASHA RAJVAIDYA -->
-            <div class="single-slide" style="background-image: url('images/BPO-1536x1024.jpg');">
+            <div class="single-slide" style="background-image: url('images/finance-1-1536x1024.jpg');">
                 <div class="banner-content">
                     <div class="container">
                         <div class="row">
@@ -978,7 +1045,7 @@ body {
             </div>
 
             <!-- SLIDE 3: ISO 9001:2015 CERTIFIED -->
-            <div class="single-slide" style="background-image: url('images/finance-1-1536x1024.jpg');">
+            <div class="single-slide" style="background-image: url('images/banner-1.webp');">
                 <div class="banner-content">
                     <div class="container">
                         <div class="row">
