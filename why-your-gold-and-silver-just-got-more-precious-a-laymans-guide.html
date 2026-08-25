@@ -12,7 +12,121 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=999"/>
+    <link rel="stylesheet" href="css/style.css?v=1001"/>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #334155;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* 3D Cards & Animations */
+        .blog-card, .single-item, .leader-card, .review-card-item, .stat-counter-box {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
+            will-change: transform, box-shadow;
+        }
+        .blog-card:hover {
+            transform: translateY(-12px) scale(1.03) !important;
+            box-shadow: 0 24px 50px rgba(0, 46, 91, 0.18) !important;
+            border-color: #006B63 !important;
+            z-index: 10;
+        }
+        .blog-card .card-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+        }
+        .blog-card .card-img-top {
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+        .blog-card:hover .card-img-top {
+            transform: scale(1.12) !important;
+        }
+        .single-item:hover {
+            transform: translateY(-10px) scale(1.025) !important;
+            box-shadow: 0 20px 40px rgba(0, 107, 99, 0.16) !important;
+            border-color: #006B63 !important;
+        }
+        .stat-counter-box:hover {
+            transform: translateY(-10px) scale(1.04) !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3) !important;
+            background: rgba(255, 255, 255, 0.14) !important;
+            border-color: #fde428 !important;
+        }
+        .review-card-item:hover {
+            transform: translateY(-10px) scale(1.03) !important;
+            box-shadow: 0 20px 45px rgba(0, 107, 99, 0.18) !important;
+            border-color: #006B63 !important;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: #FFF !important;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none !important;
+            animation: pulse-green 2.2s infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.15) !important;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6) !important;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.06); box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Mobile Drawer Explicit Styling */
+        #mobile-menu-drawer {
+            display: none;
+            background: #ffffff;
+            border-bottom: 3px solid #006B63;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 15px;
+        }
+        #mobile-menu-drawer.open {
+            display: block !important;
+            animation: slideDown 0.3s ease;
+        }
+        #mobile-menu-drawer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #mobile-menu-drawer ul li a {
+            display: block;
+            padding: 10px 14px;
+            color: #002e5b;
+            font-size: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #f1f5f9;
+            text-decoration: none;
+        }
+        #mobile-menu-drawer ul li.active a {
+            color: #006B63;
+            background: #f0fdf4;
+            border-left: 4px solid #006B63;
+        }
+    </style>
 <style id="master-inlined-css">
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -683,7 +797,8 @@ body {
                                 <button type="button">Get a Quote</button>
                             </a>
                         </div>
-                        <button class="mobile-menu-btn d-lg-none ml-2" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-label="Toggle navigation">
+                        <!-- WORKING MOBILE MENU HAMBURGER BUTTON -->
+                        <button class="mobile-menu-btn d-lg-none ml-2" type="button" id="mobile-toggle-btn" aria-label="Toggle navigation">
                             <i class="fa fa-bars"></i>
                         </button>
                     </div>
@@ -691,8 +806,8 @@ body {
             </div>
         </div>
 
-        <!-- NAVBAR MENU -->
-        <div class="mainmenu-area">
+        <!-- DESKTOP NAVBAR MENU -->
+        <div class="mainmenu-area d-none d-lg-block">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -727,6 +842,49 @@ body {
                         </ul>
                     </div>
                 </nav>
+            </div>
+        </div>
+
+        <!-- MOBILE SLIDING NAVIGATION DRAWER -->
+        <div id="mobile-menu-drawer" class="d-lg-none">
+            <div class="container">
+                <ul>
+                    
+        <li class=""><a href="index.html">Home</a></li>
+        <li class=""><a href="about-us.html">About Us</a></li>
+        <li class="dropdown ">
+            <a href="services.html" class="dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down ml-1"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="services.html">Accounting Services</a></li>
+                <li><a href="services.html">Taxation &amp; GST Advisory</a></li>
+                <li><a href="services.html">Auditing &amp; Assurance</a></li>
+                <li><a href="services.html">Business &amp; Startup Advisory</a></li>
+                <li><a href="services.html">Company &amp; LLP Formation</a></li>
+                <li><a href="services.html">Societies, Trust &amp; NGO Laws</a></li>
+            </ul>
+        </li>
+        <li class="dropdown ">
+            <a href="knowledge-base.html" class="dropdown-toggle" data-toggle="dropdown">Knowledge Base <i class="fa fa-angle-down ml-1"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="knowledge-base.html">Income Tax Calculator</a></li>
+                <li><a href="knowledge-base.html">Loan EMI Calculator</a></li>
+                <li><a href="knowledge-base.html">Income Tax Slabs</a></li>
+                <li><a href="knowledge-base.html">Statutory Due Dates</a></li>
+            </ul>
+        </li>
+        <li class=""><a href="career.html">Career</a></li>
+        <li class="active"><a href="blog.html">Blog</a></li>
+        <li class=""><a href="contact-us.html">Contact Us</a></li>
+    
+                </ul>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold">
+                        <i class="fa fa-phone mr-1"></i> +91 9407000157
+                    </a>
+                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold">
+                        <i class="fa fa-whatsapp mr-1"></i> WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -774,7 +932,7 @@ body {
                         </div>
 
                         <div class="mt-4 text-center">
-                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20read%20your%20article%20'Why Your Gold & Silver Just Got Mor'%20and%20would%20like%20to%20consult." target="_blank" class="btn btn-ca-primary px-4 py-2 font-weight-bold shadow">
+                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20read%20your%20article%20'Why Your Gold & Silver Just Got Mor'%20and%20would%20like%20to%20consult." target="_blank" class="btn btn-success px-4 py-2 font-weight-bold shadow">
                                 <i class="fa fa-whatsapp mr-1"></i> Consult CA Natasha on this Topic
                             </a>
                             <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2">
@@ -884,6 +1042,12 @@ body {
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function(){
+            // Mobile Menu Drawer Toggle
+            $('#mobile-toggle-btn').on('click', function(e){
+                e.preventDefault();
+                $('#mobile-menu-drawer').toggleClass('open');
+            });
+
             // Hero Slider
             if ($(".slider-wrapper").length) {
                 $(".slider-wrapper").owlCarousel({
@@ -909,7 +1073,7 @@ body {
                     smartSpeed: 800,
                     responsive: {
                         0: { items: 1 },
-                        768: { items: 1 },
+                        768: { items: 2 },
                         1024: { items: 2 }
                     },
                     dots: true,
