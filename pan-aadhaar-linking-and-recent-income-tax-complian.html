@@ -671,40 +671,63 @@ body.page-transitioning {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR (DESKTOP) */
+/* ==========================================================================
+   2.1. NAVBAR (DESKTOP) - 100% FULL BLEED EDGE-TO-EDGE FIT (ZERO SIDE GAPS)
+   ========================================================================== */
 .mainmenu-area {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     width: 100%;
-    background: rgba(237, 237, 237, 0.45);
-    backdrop-filter: blur(5px);
+    background: rgba(245, 245, 245, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 99;
     display: block;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(0, 46, 91, 0.12);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
+
+.mainmenu-area .container {
+    max-width: 100% !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
 .navbar {
     padding: 0;
     background: transparent !important;
+    width: 100%;
 }
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .navbar-nav > li > a {
     color: #002e5b;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 0 19px;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 0 26px;
     line-height: 54px;
     display: block;
-    transition: 0.2s ease;
+    transition: 0.25s ease;
     text-decoration: none;
     position: relative;
+    letter-spacing: 0.2px;
 }
+
 .navbar-nav > li > a:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 19px;
-    right: 19px;
-    height: 3px;
+    left: 26px;
+    right: 26px;
+    height: 3.5px;
     background: #006B63;
     transform: scaleX(0);
     transition: transform 0.25s var(--ca-easing);
@@ -716,7 +739,7 @@ body.page-transitioning {
 .navbar-nav > li:hover > a,
 .navbar-nav > li.active > a {
     color: #006B63 !important;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.65);
 }
 
 /* Sticky Header */
@@ -737,7 +760,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: 100% TRANSPARENT RAW TEMPLATE-89 ZOOM-OUT TEXT ROTATOR
+   3. HERO BANNER: DESKTOP RAW DARK CONTRAST & ZOOM-OUT ROTATOR
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -783,11 +806,8 @@ body.page-transitioning {
     padding-top: 50px;
 }
 
-/* PURE TRANSPARENT TEXT CONTENT (ZERO BOX, ZERO CONTAINER CARD) */
 .text-content {
     background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
@@ -835,7 +855,7 @@ body.page-transitioning {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* 110% GRAND TYPOGRAPHY */
+/* 110% GRAND TYPOGRAPHY ON DESKTOP */
 .text-content h3.sub-title {
     color: #002e5b !important;
     font-size: 21px !important;
@@ -1077,7 +1097,7 @@ body.page-transitioning {
 
 /* ==========================================================================
    5. CINEMATIC SECTION REVEAL & 3D MOTION
-   ========================================================================== */
+   ========================================================================= */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(35px) scale(0.94);
@@ -1356,7 +1376,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE RESPONSIVE (EXACT TEMPLATE-89: ZERO WHITE BOX, ZERO WASH)
+   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -1408,34 +1428,30 @@ body.page-transitioning {
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
     
-    /* MOBILE HERO: EXACT TEMPLATE-89 CLEAN FULL BANNER (ZERO BOX, 100% TRANSPARENT) */
+    /* MOBILE ONLY SOFT WHITE BLUR OVERLAY (NO BOX, FULL BANNER WASH) */
     .static-hero-area, .hero-zoom-slider {
-        height: 480px !important;
-        background-image: url('images/banner-1.webp') !important;
+        height: 500px !important;
+        background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('images/banner-1.webp') !important;
         background-size: cover !important;
-        background-position: center center !important;
+        background-position: center top !important;
         background-repeat: no-repeat !important;
     }
     
     .text-slide-item {
-        height: 480px !important;
-        padding: 20px 15px !important;
+        height: 500px !important;
+        padding: 25px 15px !important;
         justify-content: center !important;
     }
     
-    /* 100% TRANSPARENT: NO WHITE BOX, NO BACKGROUND, NO BORDER */
     .text-content {
         text-align: center !important;
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
         background: transparent !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
         border: none !important;
         box-shadow: none !important;
         padding: 0 !important;
-        border-radius: 0 !important;
     }
     
     .text-content h3.sub-title {
@@ -1444,7 +1460,6 @@ body.page-transitioning {
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content h1.title {
         font-size: 30px !important;
@@ -1452,15 +1467,13 @@ body.page-transitioning {
         margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content p.description {
         font-size: 13px !important;
         line-height: 1.55 !important;
-        margin-bottom: 18px !important;
+        margin-bottom: 20px !important;
         color: #1e293b !important;
-        font-weight: 600 !important;
-        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        font-weight: 500 !important;
     }
     
     .banner-btn, .theme-btn {

@@ -206,40 +206,63 @@ body.page-transitioning {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR (DESKTOP) */
+/* ==========================================================================
+   2.1. NAVBAR (DESKTOP) - 100% FULL BLEED EDGE-TO-EDGE FIT (ZERO SIDE GAPS)
+   ========================================================================== */
 .mainmenu-area {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     width: 100%;
-    background: rgba(237, 237, 237, 0.45);
-    backdrop-filter: blur(5px);
+    background: rgba(245, 245, 245, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 99;
     display: block;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(0, 46, 91, 0.12);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
+
+.mainmenu-area .container {
+    max-width: 100% !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
 .navbar {
     padding: 0;
     background: transparent !important;
+    width: 100%;
 }
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .navbar-nav > li > a {
     color: #002e5b;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 0 19px;
+    font-size: 15.5px;
+    font-weight: 700;
+    padding: 0 26px;
     line-height: 54px;
     display: block;
-    transition: 0.2s ease;
+    transition: 0.25s ease;
     text-decoration: none;
     position: relative;
+    letter-spacing: 0.2px;
 }
+
 .navbar-nav > li > a:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 19px;
-    right: 19px;
-    height: 3px;
+    left: 26px;
+    right: 26px;
+    height: 3.5px;
     background: #006B63;
     transform: scaleX(0);
     transition: transform 0.25s var(--ca-easing);
@@ -251,7 +274,7 @@ body.page-transitioning {
 .navbar-nav > li:hover > a,
 .navbar-nav > li.active > a {
     color: #006B63 !important;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.65);
 }
 
 /* Sticky Header */
@@ -272,7 +295,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: DESKTOP RAW DARK CONTRAST (ZERO BLUR) & ZOOM-OUT ROTATOR
+   3. HERO BANNER: DESKTOP RAW DARK CONTRAST & ZOOM-OUT ROTATOR
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -609,7 +632,7 @@ body.page-transitioning {
 
 /* ==========================================================================
    5. CINEMATIC SECTION REVEAL & 3D MOTION
-   ========================================================================== */
+   ========================================================================= */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(35px) scale(0.94);
@@ -888,7 +911,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY (MATCHING SCREENSHOT media_1787692322694.png)
+   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
