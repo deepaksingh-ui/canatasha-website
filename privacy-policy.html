@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=13000"/>
+    <link rel="stylesheet" href="css/style.css?v=14000"/>
 
     <style id="master-inlined-css">
 
@@ -229,7 +229,7 @@ body {
 }
 
 /* ==========================================================================
-   HERO SLIDER - DESKTOP & CRYSTAL CLEAR MOBILE ARCHITECTURE
+   HERO SLIDER - ZOOM IN / ZOOM OUT TRANSITIONS & HIGH-DEF PICTURES
    ========================================================================== */
 .slider-area {
     height: 600px;
@@ -245,7 +245,17 @@ body {
     background-size: cover;
     background-position: center right;
     position: relative;
+    transition: transform 6s ease;
 }
+.owl-item.active .single-slide {
+    animation: kenBurnsZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurnsZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.06); }
+}
+
 .single-slide:before {
     content: "";
     position: absolute;
@@ -325,11 +335,26 @@ body {
     box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
 }
 
-/* SAG INFOTECH EXACT ANIMATE.CSS KEYFRAMES */
+/* ==========================================================================
+   EXACT ZOOM IN & ZOOM OUT WORD TRANSITION KEYFRAMES
+   ========================================================================== */
 .animated {
-    animation-duration: 1s;
+    animation-duration: 0.9s;
     animation-fill-mode: both;
     -webkit-animation-fill-mode: both;
+}
+
+.animated.zoomIn {
+    animation-name: zoomIn;
+    -webkit-animation-name: zoomIn;
+}
+.animated.zoomInDown {
+    animation-name: zoomInDown;
+    -webkit-animation-name: zoomInDown;
+}
+.animated.zoomInUp {
+    animation-name: zoomInUp;
+    -webkit-animation-name: zoomInUp;
 }
 .animated.fadeInDown {
     animation-name: fadeInDown;
@@ -340,46 +365,98 @@ body {
     -webkit-animation-name: fadeInUp;
 }
 
-@keyframes fadeInDown {
+@keyframes zoomIn {
     from {
         opacity: 0;
-        transform: translate3d(0, -50px, 0);
+        transform: scale3d(0.5, 0.5, 0.5);
+    }
+    50% {
+        opacity: 1;
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: scale3d(1, 1, 1);
     }
 }
-@-webkit-keyframes fadeInDown {
+@-webkit-keyframes zoomIn {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, -50px, 0);
+        -webkit-transform: scale3d(0.5, 0.5, 0.5);
+    }
+    50% {
+        opacity: 1;
     }
     to {
         opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transform: scale3d(1, 1, 1);
     }
 }
 
-@keyframes fadeInUp {
+@keyframes zoomInDown {
     from {
         opacity: 0;
-        transform: translate3d(0, 50px, 0);
+        transform: scale3d(0.4, 0.4, 0.4) translate3d(0, -60px, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.05, 1.05, 1.05) translate3d(0, 5px, 0);
     }
     to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     }
 }
-@-webkit-keyframes fadeInUp {
+@-webkit-keyframes zoomInDown {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(0, 50px, 0);
+        -webkit-transform: scale3d(0.4, 0.4, 0.4) translate3d(0, -60px, 0);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.05, 1.05, 1.05) translate3d(0, 5px, 0);
     }
     to {
         opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     }
+}
+
+@keyframes zoomInUp {
+    from {
+        opacity: 0;
+        transform: scale3d(0.4, 0.4, 0.4) translate3d(0, 60px, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.05, 1.05, 1.05) translate3d(0, -5px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes zoomInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.4, 0.4, 0.4) translate3d(0, 60px, 0);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.05, 1.05, 1.05) translate3d(0, -5px, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -50px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 50px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
 /* DESKTOP SIDE ARROWS */
@@ -802,7 +879,6 @@ body {
         background-size: cover !important;
     }
     .single-slide:before {
-        /* Soft subtle dark-vignette so the background photo remains 100% visible and vivid */
         background: linear-gradient(180deg, rgba(0, 20, 40, 0.40) 0%, rgba(0, 20, 40, 0.55) 50%, rgba(0, 20, 40, 0.75) 100%) !important;
     }
     
@@ -859,7 +935,6 @@ body {
         box-shadow: 0 4px 15px rgba(0, 107, 99, 0.3) !important;
     }
     
-    /* MOBILE NAVIGATION ARROWS (SUBTLE & NON-INTRUSIVE) */
     .slider-wrapper .owl-prev, .slider-wrapper .owl-next {
         width: 30px !important;
         height: 48px !important;
@@ -1090,7 +1165,7 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // SAG INFOTECH EXACT DATA-ANIMATION CAROUSEL HOOKS
+            // SAG INFOTECH EXACT ZOOM IN & SLIDE TRANSITION HOOKS
             var $heroSlider = $(".slider-wrapper");
             if ($heroSlider.length) {
                 $heroSlider.on('translate.owl.carousel', function () {
@@ -1107,7 +1182,7 @@ body {
                     $(this).find('.owl-item.active [data-animation]').each(function () {
                         var animName = $(this).data('animation');
                         var delay = $(this).data('delay') || '0s';
-                        var duration = $(this).data('duration') || '1s';
+                        var duration = $(this).data('duration') || '0.9s';
                         
                         $(this).css({
                             'animation-delay': delay,
@@ -1135,7 +1210,7 @@ body {
                     $('.slider-wrapper .owl-item.active [data-animation]').each(function () {
                         var animName = $(this).data('animation');
                         var delay = $(this).data('delay') || '0s';
-                        var duration = $(this).data('duration') || '1s';
+                        var duration = $(this).data('duration') || '0.9s';
                         $(this).css({
                             'animation-delay': delay,
                             'animation-duration': duration
