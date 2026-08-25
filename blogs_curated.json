@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Why Your Gold & Silver Just Got More Precious: A Layman's Guide",
+    "category": "Finance & Investment",
+    "badge_color": "warning",
+    "date": "Nov 4, 2025",
+    "author": "CA Natasha Rajvaidya",
+    "read_time": "5 min read",
+    "img": "images/gold-and-silver-prices.png",
+    "excerpt": "Decoding the shine: 6 key economic and geopolitical reasons driving precious metals valuation upward, global central bank purchases, inflation hedge trends, and how to position your wealth securely.",
+    "slug": "why-your-gold-and-silver-just-got-more-precious-a-laymans-guide"
+  },
+  {
+    "title": "A Family That Plans Together, Pays Less Tax Together! (HUF Guide)",
+    "category": "Income Tax Planning",
+    "badge_color": "success",
+    "date": "Feb 21, 2025",
+    "author": "Ashish & CA Natasha",
+    "read_time": "6 min read",
+    "img": "images/HUF-and-its-tax-benefits.jpg",
+    "excerpt": "Understanding Hindu Undivided Family (HUF) and its immense tax benefits. Discover how forming an HUF creates a separate legal tax entity to legally reduce your family's overall tax burden under Indian tax laws.",
+    "slug": "a-family-that-plans-together-pays-less-tax-together"
+  },
+  {
+    "title": "Invest Madhya Pradesh \u2013 Global Investors Summit 2025: A Catalyst for Growth",
+    "category": "Business Advisory",
+    "badge_color": "primary",
+    "date": "Feb 18, 2025",
+    "author": "CA Natasha Rajvaidya",
+    "read_time": "4 min read",
+    "img": "images/invest-MP.jpg",
+    "excerpt": "Madhya Pradesh is gearing up to host a grand Global Investors Summit in Bhopal, bringing together industrial leaders, policymakers, startups, and overseas investors to unlock massive regional economic growth.",
+    "slug": "invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth"
+  },
+  {
+    "title": "7 Key Points Every Salaried Employee Must Know Before Filing ITR",
+    "category": "Income Tax Return",
+    "badge_color": "success",
+    "date": "Jun 18, 2025",
+    "author": "CA Natasha & Co. Desk",
+    "read_time": "5 min read",
+    "img": "images/itr-2024.png",
+    "excerpt": "Crucial checklist for salaried taxpayers for FY 2024-25 / AY 2025-26: Form 16 vs AIS/TIS reconciliation, choosing Old vs New Tax Regime, claiming standard deductions, and avoiding statutory penalty notices.",
+    "slug": "7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return"
+  },
+  {
+    "title": "Beyond Numbers: The Evolving Thought Process of a CA Firm",
+    "category": "Corporate Advisory",
+    "badge_color": "info",
+    "date": "Nov 4, 2025",
+    "author": "CA Natasha Rajvaidya",
+    "read_time": "4 min read",
+    "img": "images/cathought-process.jpg",
+    "excerpt": "How modern Chartered Accountants have evolved from traditional number-crunchers and tax-filers into trusted strategic growth partners, virtual CFOs, and startup mentors guiding modern businesses.",
+    "slug": "beyond-numbers-the-evolving-thought-process-of-a-ca-firm"
+  },
+  {
+    "title": "Big Relief on TDS Demands Due to PAN-Aadhaar Non-Linking",
+    "category": "Direct Taxation",
+    "badge_color": "danger",
+    "date": "Jul 15, 2025",
+    "author": "Tax Compliance Desk",
+    "read_time": "4 min read",
+    "img": "images/pan-aadhar.jpeg",
+    "excerpt": "CBDT Circular relief updates regarding higher TDS deduction demands issued to deductors due to inoperative PAN. Step-by-step procedure to regularize PAN status and waive penalty demands.",
+    "slug": "big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking"
+  },
+  {
+    "title": "ISD Registration Now Mandatory From April 2025: Don't Lose GST Credit!",
+    "category": "GST & Indirect Tax",
+    "badge_color": "primary",
+    "date": "Jun 10, 2025",
+    "author": "GST Advisory Team",
+    "read_time": "5 min read",
+    "img": "images/GST-ISD.jpg",
+    "excerpt": "Crucial GST amendments making Input Service Distributor (ISD) registration mandatory for multi-branch entities. Learn how to distribute input tax credit on common service invoices seamlessly.",
+    "slug": "isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit"
+  },
+  {
+    "title": "Taxability of Long Term Capital Gains Under Section 112A",
+    "category": "Capital Gains & Equity",
+    "badge_color": "warning",
+    "date": "May 20, 2025",
+    "author": "CA Natasha Rajvaidya",
+    "read_time": "5 min read",
+    "img": "images/section-112a-income-tax-vector.png",
+    "excerpt": "A deep dive into Section 112A of the Income Tax Act governing LTCG on listed shares and equity mutual funds. Calculation methodology, exemption limits, grandfathering clauses, and tax planning strategies.",
+    "slug": "taxability-of-long-term-capital-gains-under-section-112a"
+  },
+  {
+    "title": "Understanding Section 73 & Section 74 of CGST Act: Key to Tax Defense",
+    "category": "GST Litigation",
+    "badge_color": "danger",
+    "date": "Apr 12, 2025",
+    "author": "Legal & Audit Team",
+    "read_time": "6 min read",
+    "img": "images/section73-CGST.jpg",
+    "excerpt": "Decoding GST show-cause notices issued under Section 73 (non-fraudulent cases) vs Section 74 (fraud/willful misstatement). Essential statutory rights, defense timelines, penalty limits, and appeal avenues.",
+    "slug": "understanding-section-73-and-section-74-of-the-cgst-act"
+  }
+]
