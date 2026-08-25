@@ -244,7 +244,7 @@ body {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: 100% STATIC BACKGROUND + IN-PLACE TRUE ZOOM ENGINE
+   3. HERO BANNER: DARK & CRISP CONTRAST BACKGROUND (EXACT TEMPLATE-89 STYLE)
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -255,6 +255,7 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
 }
+/* SUBTLE SOFT SCRIM: KEEPS PIC DARK & CRISP WITHOUT WHITE WASH OUT */
 .static-hero-area:before {
     content: "";
     position: absolute;
@@ -262,7 +263,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 46%, rgba(255,255,255,0.15) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 42%, rgba(255,255,255,0.02) 100%);
     z-index: 1;
 }
 
@@ -303,7 +304,7 @@ body {
 
 /* TRUE ZOOM-IN POP MECHANISM */
 .zoom-slide .text-content {
-    transform: scale(0.65);
+    transform: scale(0.70);
     opacity: 0;
     transition: transform 0.85s var(--ca-easing), opacity 0.85s var(--ca-easing);
     will-change: transform, opacity;
@@ -315,7 +316,7 @@ body {
 }
 
 .zoom-slide.leaving .text-content {
-    transform: scale(1.15) !important;
+    transform: scale(1.12) !important;
     opacity: 0 !important;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -339,11 +340,12 @@ body {
     text-transform: uppercase !important;
 }
 .text-content p.description {
-    color: #334155 !important;
+    color: #1e293b !important;
     font-size: 15.5px !important;
     line-height: 1.65 !important;
     max-width: 580px;
     margin-bottom: 28px !important;
+    font-weight: 500 !important;
 }
 
 .banner-btn, .theme-btn {
@@ -414,22 +416,6 @@ body {
     transform: translateY(0) scale(1) !important;
 }
 
-/* Split-Heading Character & Word Flow */
-.split-heading-flow {
-    overflow: hidden;
-    display: inline-block;
-}
-.split-heading-flow span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: transform 0.7s var(--ca-easing), opacity 0.7s var(--ca-easing);
-}
-.reveal-on-scroll.is-visible .split-heading-flow span {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Blur-to-Sharp Image Mask Reveal */
 .img-blur-reveal {
     filter: blur(10px) brightness(0.9);
@@ -451,7 +437,7 @@ body {
 .reveal-delay-5 { transition-delay: 0.40s !important; }
 .reveal-delay-6 { transition-delay: 0.48s !important; }
 
-/* 3D Depth Card Physics (Parallax Hover/Touch) */
+/* 3D Depth Card Physics */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
     transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
     transform-style: preserve-3d;
@@ -731,7 +717,7 @@ body {
 }
 
 /* ==========================================================================
-   5. MOBILE CINEMATIC TOUCH INTERACTION
+   5. MOBILE VIEW
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -795,13 +781,13 @@ body {
         justify-content: center !important;
     }
     
-    /* STATIC HERO ON MOBILE - NO WHITE BOX */
+    /* STATIC HERO ON MOBILE */
     .static-hero-area, .hero-zoom-slider {
         height: 480px !important;
         background-position: center right !important;
     }
     .static-hero-area:before {
-        background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.86) 60%, rgba(255,255,255,0.20) 100%) !important;
+        background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.10) 100%) !important;
     }
     
     .text-slide-item {
@@ -841,7 +827,8 @@ body {
         font-size: 12.5px !important;
         line-height: 1.5 !important;
         margin-bottom: 18px !important;
-        color: #334155 !important;
+        color: #1e293b !important;
+        font-weight: 500 !important;
         max-width: 90% !important;
     }
     
@@ -875,9 +862,6 @@ body {
     .whatsapp-float { bottom: 18px !important; right: 18px !important; width: 48px !important; height: 48px !important; font-size: 24px !important; }
 }
 
-/* ==========================================================================
-   6. ACCESSIBILITY: REDUCED MOTION PREFERENCE
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;
