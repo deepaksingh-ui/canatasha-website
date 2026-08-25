@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Home | Natasha & Company – Chartered Accountants</title>
+    <meta name="description" content="Natasha & Company is an ISO 9001:2015 Certified Chartered Accountancy firm in Bhopal offering Audit, Tax, GST, Corporate Law, and Business Advisory."/>
+    
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <link rel="stylesheet" href="css/style.css?v=22000"/>
+
+    <style id="master-inlined-css">
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --ca-primary: #006B63;
+    --ca-secondary: #002e5b;
+    --ca-accent: #fde428;
+    --ca-dark: #0f172a;
+    --ca-light: #f8fafc;
+    --ca-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --ca-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #334155;
+    background: #ffffff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. SCROLL PROGRESS BAR (TOP OF SCREEN)
+   ========================================================================== */
+#scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
+    z-index: 999999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(253, 228, 40, 0.6);
+}
+
+/* ==========================================================================
+   2. TOP BAR & BRAND HEADER
+   ========================================================================== */
+.top-bar-custom {
+    background: #111a24;
+    color: #d1e3ff;
+    padding: 8px 0;
+    font-size: 13px;
+}
+.top-bar-custom a {
+    color: #d1e3ff;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.top-bar-custom a:hover {
+    color: #00a896;
+}
+.social-icons-top a {
+    color: #d1e3ff;
+    margin-left: 12px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.social-icons-top a:hover {
+    color: #00a896;
+}
+
+.header {
+    position: relative;
+    z-index: 101;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.header-main.bg-green {
+    background: #006B63 !important;
+    position: relative;
+    overflow: hidden;
+}
+.header-main.white:before {
+    background: #ffffff;
+    content: "";
+    height: 100%;
+    left: -40px;
+    position: absolute;
+    transform: skewX(39deg);
+    width: 38%;
+    z-index: 1;
+}
+.header-main.white:after {
+    background: #ffffff;
+    border-right: 14px solid #fde428;
+    content: "";
+    height: 100%;
+    left: 33.5%;
+    position: absolute;
+    top: 0;
+    transform: skewX(39deg);
+    width: 70px;
+    z-index: 1;
+}
+
+.header-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 82px;
+    position: relative;
+    z-index: 2;
+}
+.logo-wrapper {
+    width: 32%;
+    position: relative;
+    z-index: 5;
+}
+.logo {
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 52px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.header-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 48%;
+    padding-right: 15px;
+}
+.header-info {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.header-info img {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+}
+.header-info-text h4 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+.header-info-text span {
+    color: rgba(255,255,255,0.85);
+    font-size: 11.5px;
+}
+
+/* SHIMMER EFFECT BUTTONS */
+.quote-btn button {
+    background: #fde428 !important;
+    color: #002e5b !important;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 0 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.35s var(--ca-spring);
+    position: relative;
+    overflow: hidden;
+}
+.quote-btn button:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: all 0.6s ease;
+}
+.quote-btn button:hover:after {
+    left: 130%;
+}
+.quote-btn button:hover {
+    background: #ffffff !important;
+    color: #006B63 !important;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
+}
+
+/* NAVBAR */
+.mainmenu-area {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(237, 237, 237, 0.45);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+.navbar {
+    padding: 0;
+    background: transparent !important;
+}
+.navbar-nav > li > a {
+    color: #002e5b;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 0 18px;
+    line-height: 52px;
+    display: block;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+.navbar-nav > li:hover > a,
+.navbar-nav > li.active > a {
+    color: #006B63 !important;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Sticky Header */
+.fixedhead {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+    animation: slideDown 0.3s ease;
+    z-index: 9999;
+}
+.fixedhead .mainmenu-area {
+    position: relative;
+    top: 0;
+    background: #ffffff;
+}
+
+/* ==========================================================================
+   3. HERO BANNER: DARK & CRISP CONTRAST BACKGROUND (EXACT TEMPLATE-89 STYLE)
+   ========================================================================== */
+.static-hero-area {
+    position: relative;
+    height: 600px;
+    background-image: url('images/banner-1.webp');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+/* SUBTLE SOFT SCRIM: KEEPS PIC DARK & CRISP WITHOUT WHITE WASH OUT */
+.static-hero-area:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 42%, rgba(255,255,255,0.02) 100%);
+    z-index: 1;
+}
+
+.hero-zoom-slider {
+    position: relative;
+    z-index: 2;
+    height: 600px;
+    width: 100%;
+}
+
+.zoom-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.65s ease, visibility 0.65s ease;
+    z-index: 1;
+}
+
+.zoom-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.text-slide-item {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+/* TRUE ZOOM-IN POP MECHANISM */
+.zoom-slide .text-content {
+    transform: scale(0.70);
+    opacity: 0;
+    transition: transform 0.85s var(--ca-easing), opacity 0.85s var(--ca-easing);
+    will-change: transform, opacity;
+}
+
+.zoom-slide.active .text-content {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+}
+
+.zoom-slide.leaving .text-content {
+    transform: scale(1.12) !important;
+    opacity: 0 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* TYPOGRAPHY */
+.text-content h3.sub-title {
+    color: #002e5b !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+}
+.text-content h1.title {
+    color: #006B63 !important;
+    font-size: 58px !important;
+    font-weight: 900 !important;
+    line-height: 1.12 !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.5px !important;
+    text-transform: uppercase !important;
+}
+.text-content p.description {
+    color: #1e293b !important;
+    font-size: 15.5px !important;
+    line-height: 1.65 !important;
+    max-width: 580px;
+    margin-bottom: 28px !important;
+    font-weight: 500 !important;
+}
+
+.banner-btn, .theme-btn {
+    border: 2px solid #002e5b !important;
+    border-radius: 3px !important;
+    color: #002e5b !important;
+    display: inline-block !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 42px !important;
+    padding: 0 28px !important;
+    margin-right: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    transition: all 0.35s var(--ca-spring) !important;
+}
+.banner-btn:hover, .theme-btn:hover {
+    background: #002e5b !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
+}
+
+.zoom-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 76px;
+    background: #002e5b;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.9;
+    transition: background 0.3s, opacity 0.3s, transform 0.2s;
+}
+.zoom-nav:hover {
+    background: #006B63;
+    opacity: 1;
+}
+.zoom-nav.prev {
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+.zoom-nav.next {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+}
+
+/* ==========================================================================
+   4. CINEMATIC SCROLL-DRIVEN PARALLAX, SCALE/ZOOM & FADE-IN REVEAL ENGINE
+   ========================================================================== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+    transition: opacity 0.85s var(--ca-easing), transform 0.85s var(--ca-easing), filter 0.85s var(--ca-easing);
+    will-change: opacity, transform, filter;
+}
+.reveal-on-scroll.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* Blur-to-Sharp Image Mask Reveal */
+.img-blur-reveal {
+    filter: blur(10px) brightness(0.9);
+    transform: scale(1.06);
+    transition: filter 0.9s var(--ca-easing), transform 0.9s var(--ca-easing);
+    will-change: filter, transform;
+}
+.reveal-on-scroll.is-visible .img-blur-reveal,
+.reveal-on-scroll.is-visible.img-blur-reveal {
+    filter: blur(0px) brightness(1) !important;
+    transform: scale(1) !important;
+}
+
+/* Stagger Delays for Fluid Grid Cascade */
+.reveal-delay-1 { transition-delay: 0.08s !important; }
+.reveal-delay-2 { transition-delay: 0.16s !important; }
+.reveal-delay-3 { transition-delay: 0.24s !important; }
+.reveal-delay-4 { transition-delay: 0.32s !important; }
+.reveal-delay-5 { transition-delay: 0.40s !important; }
+.reveal-delay-6 { transition-delay: 0.48s !important; }
+
+/* 3D Depth Card Physics */
+.blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
+    transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transform-style: preserve-3d;
+}
+.blog-card:hover, .blog-card:active {
+    transform: translateY(-10px) scale(1.03) !important;
+    box-shadow: 0 24px 50px rgba(0, 46, 91, 0.18) !important;
+    border-color: #006B63 !important;
+}
+.single-item:hover, .single-item:active {
+    transform: translateY(-8px) scale(1.025) !important;
+    box-shadow: 0 20px 40px rgba(0, 107, 99, 0.16) !important;
+    border-color: #006B63 !important;
+}
+.leader-card {
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+.leader-card:hover, .leader-card:active {
+    transform: translateY(-10px) scale(1.035) !important;
+    box-shadow: 0 22px 45px rgba(0, 46, 91, 0.16) !important;
+    border-color: #006B63 !important;
+}
+.calc-box-card:hover {
+    transform: translateY(-6px) scale(1.015) !important;
+    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.12) !important;
+    border-color: #006B63 !important;
+}
+
+.team-img-box {
+    height: 250px;
+    background: #f8fafc;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px 8px 0 0;
+}
+.team-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.65s var(--ca-easing);
+}
+.leader-card:hover .team-img-box img {
+    transform: scale(1.09);
+}
+
+.team-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #002e5b;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+.team-social-btn:hover {
+    background: #006B63;
+    color: #ffffff;
+    transform: scale(1.18);
+}
+
+.team-connect-btn {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background: #006B63;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+}
+.team-connect-btn:hover {
+    background: #002e5b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 46, 91, 0.25);
+}
+
+.service-badge {
+    display: inline-block;
+    background: rgba(0, 107, 99, 0.1);
+    color: #006B63;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+.single-item {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    margin-bottom: 30px;
+    border: 1px solid #edf2f7;
+    height: calc(100% - 30px);
+}
+.single-item h4 {
+    color: #002e5b;
+    font-size: 18.5px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* GOOGLE REVIEWS */
+.google-badge-box {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.review-card-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.review-card-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 14px 35px rgba(0, 46, 91, 0.12);
+    border-color: #006B63;
+}
+.reviewer-avatar {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.reviews-carousel .owl-stage-outer {
+    padding: 10px 0;
+}
+.reviews-carousel .owl-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+.reviews-carousel .owl-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.reviews-carousel .owl-dot.active {
+    background: #006B63;
+    width: 24px;
+    border-radius: 6px;
+}
+
+/* Floating WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #FFF !important;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+    animation: pulse-green 2.2s infinite;
+}
+@keyframes pulse-green {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1.06); box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Mobile Drawer */
+#mobile-menu-drawer {
+    display: none;
+    background: #ffffff;
+    border-bottom: 3px solid #006B63;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 15px;
+}
+#mobile-menu-drawer.open {
+    display: block !important;
+    animation: slideDown 0.3s ease;
+}
+#mobile-menu-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#mobile-menu-drawer ul li a {
+    display: block;
+    padding: 10px 14px;
+    color: #002e5b;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+}
+#mobile-menu-drawer ul li.active a {
+    color: #006B63;
+    background: #f0fdf4;
+    border-left: 4px solid #006B63;
+}
+
+/* Subpage Banner */
+.page-banner {
+    background: linear-gradient(135deg, rgba(0, 46, 91, 0.92), rgba(0, 107, 99, 0.88)), url('images/banner-1.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 135px 0 55px 0;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+.page-banner h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+.page-banner p {
+    font-size: 16px;
+    color: #f1f5f9;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+    background: #0f172a;
+    color: #94a3b8;
+}
+.footer h4, .footer h5 {
+    color: #ffffff;
+}
+.footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.footer a:hover {
+    color: #38bdf8;
+}
+.footer-logo-badge {
+    background: #ffffff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   5. MOBILE VIEW
+   ========================================================================== */
+@media (max-width: 991px) {
+    .top-bar-custom { display: none !important; }
+    
+    .header {
+        position: sticky !important;
+        top: 0;
+        z-index: 9999;
+        background: #ffffff !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    }
+    .header-main.bg-green {
+        background: #ffffff !important;
+        padding: 6px 0 !important;
+        border-bottom: 2px solid #006B63 !important;
+        min-height: 60px !important;
+    }
+    .header-main.white:before, .header-main.white:after { display: none !important; }
+    
+    .header-main-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 50px !important;
+        padding: 0 10px !important;
+    }
+    
+    .logo-wrapper { width: auto !important; max-width: 58% !important; }
+    .logo { padding: 0 !important; }
+    .logo img { height: 38px !important; max-height: 38px !important; width: auto !important; display: block !important; }
+    
+    .header-main-content { display: none !important; }
+    
+    .mobile-header-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    .quote-btn { display: inline-block !important; }
+    .quote-btn button {
+        background: #fde428 !important;
+        color: #002e5b !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        line-height: 32px !important;
+        padding: 0 12px !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+    }
+    .mobile-menu-btn {
+        background: #006B63 !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 4px !important;
+        padding: 5px 9px !important;
+        font-size: 16px !important;
+        cursor: pointer !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* STATIC HERO ON MOBILE */
+    .static-hero-area, .hero-zoom-slider {
+        height: 480px !important;
+        background-position: center right !important;
+    }
+    .static-hero-area:before {
+        background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.10) 100%) !important;
+    }
+    
+    .text-slide-item {
+        height: 480px !important;
+        padding: 20px 15px !important;
+        justify-content: center !important;
+    }
+    
+    .text-content {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        text-align: left !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .text-content h3.sub-title {
+        font-size: 13px !important;
+        margin-bottom: 4px !important;
+        color: #002e5b !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px !important;
+    }
+    .text-content h1.title {
+        font-size: 30px !important;
+        line-height: 1.15 !important;
+        margin-bottom: 10px !important;
+        color: #006B63 !important;
+        font-weight: 900 !important;
+    }
+    .text-content p.description {
+        font-size: 12.5px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 18px !important;
+        color: #1e293b !important;
+        font-weight: 500 !important;
+        max-width: 90% !important;
+    }
+    
+    .banner-btn, .theme-btn {
+        border: 2px solid #002e5b !important;
+        background: transparent !important;
+        color: #002e5b !important;
+        padding: 0 18px !important;
+        font-size: 12px !important;
+        line-height: 36px !important;
+        border-radius: 3px !important;
+        display: inline-block !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .zoom-nav {
+        width: 32px !important;
+        height: 52px !important;
+        font-size: 18px !important;
+        opacity: 0.75 !important;
+    }
+    
+    .page-banner { padding: 40px 15px 25px 15px !important; }
+    .page-banner h1 { font-size: 24px !important; }
+    .page-banner p { font-size: 13.5px !important; }
+    
+    .stat-counter-box { padding: 18px 10px !important; margin-bottom: 12px !important; }
+    .counter-num { font-size: 32px !important; }
+    
+    .whatsapp-float { bottom: 18px !important; right: 18px !important; width: 48px !important; height: 48px !important; font-size: 24px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- 1. SLEEK SCROLL PROGRESS INDICATOR -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- TOP HEADER (DESKTOP) -->
+    <div class="top-bar-custom d-none d-md-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <span><i class="fa fa-phone" style="color: #00a896;"></i> <a href="tel:+919407000157">+91 9407000157</a></span>
+                    <span><i class="fa fa-envelope" style="color: #00a896;"></i> <a href="mailto:info@canatasha.com">info@canatasha.com</a></span>
+                    <span><i class="fa fa-clock-o" style="color: #00a896;"></i> Mon - Sat: 9:30 AM - 7:30 PM</span>
+                </div>
+                <div class="col-md-4 text-right social-icons-top">
+                    <span class="mr-2 text-muted">Follow Us:</span>
+                    <a href="https://www.facebook.com/canatasharaj/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="https://twitter.com/canatasharaj" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header" id="header">
+        <div class="header-main bg-green white">
+            <div class="container">
+                <div class="header-main-wrapper">
+                    <!-- CLEAN UNIFIED BRAND LOGO -->
+                    <div class="logo-wrapper">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img src="images/brand-logo.png" alt="Natasha &amp; Co. Chartered Accountants"/>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT DETAILS (DESKTOP) -->
+                    <div class="header-main-content">
+                        <div class="header-info">
+                            <img src="images/phone.webp" alt="Phone"/>
+                            <div class="header-info-text">
+                                <h4>+91 9407000157</h4>
+                                <span>Call for Consultation</span>
+                            </div>
+                        </div>
+                        <div class="header-info">
+                            <img src="images/message.webp" alt="Email"/>
+                            <div class="header-info-text">
+                                <h4>canatasha.com</h4>
+                                <span>ISO 9001:2015 Certified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HEADER ACTIONS (DESKTOP & MOBILE) -->
+                    <div class="mobile-header-actions">
+                        <div class="quote-btn">
+                            <a href="contact-us.html" class="text-decoration-none">
+                                <button type="button">Get a Quote</button>
+                            </a>
+                        </div>
+                        <button class="mobile-menu-btn d-lg-none ml-2" type="button" id="mobile-toggle-btn" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESKTOP NAVBAR MENU (DIRECT CLICKABLE LINKS) -->
+        <div class="mainmenu-area d-none d-lg-block">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="navbar-nav mr-auto">
+                            
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class=""><a href="about-us.html">About Us</a></li>
+        <li class=""><a href="services.html">Services</a></li>
+        <li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
+        <li class=""><a href="career.html">Career</a></li>
+        <li class=""><a href="blog.html">Blog</a></li>
+        <li class=""><a href="contact-us.html">Contact Us</a></li>
+    
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- MOBILE SLIDING NAVIGATION DRAWER -->
+        <div id="mobile-menu-drawer" class="d-lg-none">
+            <div class="container">
+                <ul>
+                    
+        <li class="active"><a href="index.html">Home</a></li>
+        <li class=""><a href="about-us.html">About Us</a></li>
+        <li class=""><a href="services.html">Services</a></li>
+        <li class=""><a href="knowledge-base.html">Knowledge Base</a></li>
+        <li class=""><a href="career.html">Career</a></li>
+        <li class=""><a href="blog.html">Blog</a></li>
+        <li class=""><a href="contact-us.html">Contact Us</a></li>
+    
+                </ul>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold">
+                        <i class="fa fa-phone mr-1"></i> +91 9407000157
+                    </a>
+                    <a href="https://wa.me/919407000157" target="_blank" class="btn btn-sm btn-success font-weight-bold">
+                        <i class="fa fa-whatsapp mr-1"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- 100% STATIC BACKGROUND HERO WITH RICH DARK PIC & IN-PLACE ZOOM -->
+    <section class="static-hero-area" id="home">
+        <div class="hero-zoom-slider">
+            <!-- SLIDE 1: CA NATASHA RAJVAIDYA (PRIMARY BRAND SLIDE) -->
+            <div class="zoom-slide active">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
+                                    <h1 class="title">CA NATASHA RAJVAIDYA</h1>
+                                    <p class="description">Empowering businesses, startups, and MSMEs across India with proactive income tax structuring, GST litigation defense, and statutory audit representations.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="about-us.html">About Firm</a>
+                                        <a class="theme-btn" href="contact-us.html">Consult CA</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: FOR YOUR BUSINESS -->
+            <div class="zoom-slide">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">WE PROVIDE BEST FINANCIAL SOLUTIONS</h3>
+                                    <h1 class="title">FOR YOUR BUSINESS</h1>
+                                    <p class="description">We have over 8+ years of dedicated professional experience in Tax, Audits, and Corporate Financial Management in Bhopal so we can make your business compliant and successful you can trust us.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="services.html">View Services</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: NATASHA & COMPANY -->
+            <div class="zoom-slide">
+                <div class="container h-100 position-relative" style="z-index: 5;">
+                    <div class="row h-100">
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <div class="text-slide-item">
+                                <div class="text-content text-left">
+                                    <h3 class="sub-title">ISO 9001:2015 CERTIFIED FIRM</h3>
+                                    <h1 class="title">NATASHA &amp; COMPANY</h1>
+                                    <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
+                                    <div class="btn-box">
+                                        <a class="theme-btn" href="contact-us.html">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN EDGE NAVIGATION BUTTONS -->
+            <button class="zoom-nav prev" id="zoom-prev" aria-label="Previous Slide"><i class="fa fa-angle-left"></i></button>
+            <button class="zoom-nav next" id="zoom-next" aria-label="Next Slide"><i class="fa fa-angle-right"></i></button>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS WITH CINEMATIC SCROLL SCALE/FADE REVEAL -->
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                    <div class="text-center mb-40 reveal-on-scroll">
+                        <span class="service-badge">Practice Areas</span>
+                        <h2 class="font-weight-bold" style="color: #002e5b;">Our Specialized Services</h2>
+                        <p class="text-muted">Comprehensive suite of professional financial, legal, and compliance services to accelerate businesses, startups, and individuals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
+                    <div class="single-item">
+                        <img src="images/hand.webp" class="img-blur-reveal" alt="Accounting"/>
+                        <h4>Accounting &amp; Bookkeeping</h4>
+                        <p class="text-muted">End-to-end accounting setup, ledger maintenance, MIS reporting, and balance sheet finalization under Indian Accounting Standards.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
+                    <div class="single-item">
+                        <img src="images/cash.webp" class="img-blur-reveal" alt="Direct Tax"/>
+                        <h4>Direct Taxation &amp; ITR</h4>
+                        <p class="text-muted">Proactive tax planning for individuals &amp; corporates, Advance Tax calculation, TDS filing, and representation before assessing officers.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
+                    <div class="single-item">
+                        <img src="images/plan.webp" class="img-blur-reveal" alt="GST"/>
+                        <h4>GST Advisory &amp; Litigation</h4>
+                        <p class="text-muted">GST registration, monthly return filing, Input Tax Credit (ITC) optimization, ISD mechanism, and defense against show cause notices.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
+                    <div class="single-item">
+                        <img src="images/brif.webp" class="img-blur-reveal" alt="Audit"/>
+                        <h4>Auditing &amp; Assurance</h4>
+                        <p class="text-muted">Statutory Audits under Companies Act 2013, Tax Audits under Section 44AB, Internal Audits, Stock Audits, and Forensic Verification.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-5">
+                    <div class="single-item">
+                        <img src="images/commo.webp" class="img-blur-reveal" alt="Company Incorporation"/>
+                        <h4>Company &amp; LLP Formation</h4>
+                        <p class="text-muted">Private Limited, OPC, and LLP incorporation in Bhopal. Digital Signatures, DIN, MOA/AOA drafting, and annual MCA ROC filings.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-6">
+                    <div class="single-item">
+                        <img src="images/reti.webp" class="img-blur-reveal" alt="NGO & Trust"/>
+                        <h4>Societies, Trust &amp; NGO Laws</h4>
+                        <p class="text-muted">Registration of Charitable Trusts and Societies, Section 12A &amp; 80G tax exemptions, CSR compliance, and FCRA representations.</p>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT NATASHA & COMPANY WITH SCROLL SCALE REVEAL -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 reveal-on-scroll">
+                    <span class="service-badge">About Firm</span>
+                    <h2 class="font-weight-bold mb-3" style="color: #002e5b;">Leading Chartered Accountancy Firm in Bhopal</h2>
+                    <p class="text-muted"><strong>Natasha &amp; Company</strong> is an <strong>ISO 9001:2015 Certified</strong> Chartered Accountancy firm registered under MSME Udyam (<strong>UDYAM-MP-10-0002966</strong>). Headquartered in MP Nagar Bhopal, we provide end-to-end strategic tax, audit, and legal consulting to clients across India.</p>
+                    <div class="row mt-4">
+                        <div class="col-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-check-circle fa-2x text-success mr-2"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0">ISO 9001:2015</h6>
+                                    <small class="text-muted">Quality Certified</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-shield fa-2x text-success mr-2"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0">ICAI Compliant</h6>
+                                    <small class="text-muted">Ethical Standards</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2" style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
+                    <div class="p-4 bg-light rounded shadow-sm border leader-card">
+                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya" class="rounded-circle mb-3 shadow img-blur-reveal" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" onerror="this.src='images/team-1.webp'"/>
+                        <h4 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h4>
+                        <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Fellow Chartered Accountant (FCA) &bull; Founder</span>
+                        <p class="text-muted small px-3">Expert in Direct Tax planning, Corporate Audits, GST Litigation, and Business Advisory with over 8 years of dedicated practice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM SECTION WITH STAGGERED SCROLL REVEAL -->
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-5 reveal-on-scroll">
+                    <span class="service-badge">Meet the Experts</span>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">Our Team</h2>
+                    <p class="text-muted">A distinguished team of Chartered Accountants, Senior Tax Consultants, and Corporate Advisors committed to your financial excellence.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- 1. CA Natasha -->
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/natasha.jpg" class="img-blur-reveal" alt="CA Natasha Rajvaidya" onerror="this.src='images/team-1.webp'"/>
+                        </div>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-success px-2 py-1" style="background-color: #006B63; font-size: 11px;">FCA &bull; Principal Partner</span>
+                        </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Direct Tax Specialist &bull; Statutory Audits &bull; Startup Mentor</p>
+                        
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult%20with%20you." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="team-connect-btn">
+                            <i class="fa fa-comments mr-1"></i> Connect / Consult
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Senior Partner -->
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-2.webp" class="img-blur-reveal" alt="Senior Partner"/>
+                        </div>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-primary px-2 py-1" style="font-size: 11px;">Senior Partner &bull; Audit Lead</span>
+                        </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Company Law &bull; Ind AS Compliance &bull; Forensic Audit</p>
+                        
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Auditing%20Services." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Lead
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Tax Advisor -->
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-3.webp" class="img-blur-reveal" alt="GST Specialist"/>
+                        </div>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-warning text-dark px-2 py-1 font-weight-bold" style="font-size: 11px;">GST &amp; Litigation Lead</span>
+                        </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Indirect Taxes &bull; Show Cause Notice Defense &bull; ITC Audit</p>
+                        
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20GST%20Litigation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Advisor
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Corporate Law -->
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
+                        <div class="team-img-box mb-3 rounded">
+                            <img src="images/team-4.webp" class="img-blur-reveal" alt="Corporate Law"/>
+                        </div>
+                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
+                        <div class="mb-2">
+                            <span class="badge badge-info px-2 py-1" style="font-size: 11px;">ROC &amp; Startup Advisor</span>
+                        </div>
+                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">LLP &amp; Pvt Ltd Formations &bull; NGO/Trust 12A 80G Filings</p>
+                        
+                        <div class="d-flex justify-content-center align-items-center mb-2">
+                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Company%20Formation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                        </div>
+                        <a href="contact-us.html" class="team-connect-btn">
+                            <i class="fa fa-envelope mr-1"></i> Connect with Legal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINANCIAL CALCULATORS SECTION WITH SCROLL REVEAL -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4 reveal-on-scroll">
+                    <span class="service-badge">Financial Tools</span>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 34px;">Live Financial &amp; Tax Calculators</h2>
+                    <p class="text-muted">Instant calculation tools for Income Tax planning and monthly loan installments.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4 reveal-on-scroll reveal-delay-1">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-calculator text-success mr-2"></i> Income Tax Calculator (FY 2024-25)</h4>
+                        <p class="text-muted small">Compare estimated tax payable under the New vs Old Tax Regime.</p>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Annual Taxable Income (₹)</label>
+                            <input type="number" class="form-control" id="calc-income" placeholder="e.g. 1200000" value="1200000"/>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Deductions (80C, 80D, HRA under Old Regime)</label>
+                            <input type="number" class="form-control" id="calc-deductions" placeholder="e.g. 150000" value="150000"/>
+                        </div>
+                        <button type="button" class="btn btn-block font-weight-bold text-white py-2" style="background: #006B63;" onclick="calculateTax()">Calculate Tax Comparison</button>
+                        
+                        <div class="mt-4 p-3 bg-light rounded border" id="tax-result">
+                            <div class="row text-center">
+                                <div class="col-6 border-right">
+                                    <small class="text-muted font-weight-bold">New Tax Regime</small>
+                                    <h5 class="text-success font-weight-bold mb-0" id="res-new">₹82,500</h5>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted font-weight-bold">Old Tax Regime</small>
+                                    <h5 class="text-primary font-weight-bold mb-0" id="res-old">₹1,32,600</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 reveal-on-scroll reveal-delay-2">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                        <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-percent text-success mr-2"></i> Business / Home Loan EMI Calculator</h4>
+                        <p class="text-muted small">Calculate monthly EMI and total interest outflow.</p>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold small text-dark">Loan Amount (₹)</label>
+                            <input type="number" class="form-control" id="emi-amount" placeholder="e.g. 2500000" value="2500000"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 form-group mb-3">
+                                <label class="font-weight-bold small text-dark">Interest Rate (% p.a.)</label>
+                                <input type="number" class="form-control" id="emi-rate" placeholder="e.g. 8.5" value="8.5" step="0.1"/>
+                            </div>
+                            <div class="col-6 form-group mb-3">
+                                <label class="font-weight-bold small text-dark">Tenure (Years)</label>
+                                <input type="number" class="form-control" id="emi-tenure" placeholder="e.g. 10" value="10"/>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-block font-weight-bold text-white py-2" style="background: #006B63;" onclick="calculateEMI()">Calculate Monthly EMI</button>
+                        
+                        <div class="mt-4 p-3 bg-light rounded border" id="emi-result">
+                            <div class="row text-center">
+                                <div class="col-6 border-right">
+                                    <small class="text-muted font-weight-bold">Monthly EMI</small>
+                                    <h5 class="text-success font-weight-bold mb-0" id="res-emi">₹31,005</h5>
+                                </div>
+                                <div class="col-6">
+                                    <small class="text-muted font-weight-bold">Total Interest</small>
+                                    <h5 class="text-dark font-weight-bold mb-0" id="res-interest">₹12,20,560</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE RUNNING COUNTER / STATISTICS -->
+    <section class="py-5" id="trusted-stats-section" style="background: linear-gradient(135deg, #002e5b 0%, #006B63 100%); color: #ffffff;">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12 mb-4 reveal-on-scroll">
+                    <span class="badge badge-warning px-3 py-1 text-dark font-weight-bold text-uppercase" style="letter-spacing: 1px;">Proven Track Record</span>
+                    <h2 class="font-weight-bold text-white mt-2">Trusted by Clients Across India</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-1">
+                    <div class="stat-counter-box">
+                        <i class="fa fa-users fa-2x text-warning mb-2"></i>
+                        <div>
+                            <span class="counter-num counter-val" data-target="4000" data-suffix="+">0+</span>
+                        </div>
+                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Happy Clients</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-2">
+                    <div class="stat-counter-box">
+                        <i class="fa fa-rocket fa-2x text-warning mb-2"></i>
+                        <div>
+                            <span class="counter-num counter-val" data-target="50" data-suffix="+">0+</span>
+                        </div>
+                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Startup Companies</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-3">
+                    <div class="stat-counter-box">
+                        <i class="fa fa-map-marker fa-2x text-warning mb-2"></i>
+                        <div>
+                            <span class="counter-num counter-val" data-target="40" data-suffix="+">0+</span>
+                        </div>
+                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Cities Served</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-4">
+                    <div class="stat-counter-box">
+                        <i class="fa fa-briefcase fa-2x text-warning mb-2"></i>
+                        <div>
+                            <span class="counter-num counter-val" data-target="50" data-suffix="+">0+</span>
+                        </div>
+                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Employers / Corporates</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERFECT AUTO-SLIDING GOOGLE REVIEWS SECTION -->
+    <section class="py-5" style="background-color: #f8fafc; overflow: hidden;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4 reveal-on-scroll">
+                    <span class="service-badge">Client Testimonials</span>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">See what our customers said !</h2>
+                    <p class="text-muted">Real feedback and 5-star ratings from verified business clients and individuals on Google.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-stretch">
+                <div class="col-lg-4 col-md-5 mb-4 mb-md-0 reveal-on-scroll reveal-delay-1">
+                    <div class="google-badge-box">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/brand-logo.png" alt="Natasha &amp; Co." style="height: 38px; width: auto; object-fit: contain; margin-right: 12px;"/>
+                            <div>
+                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14.5px; line-height: 1.3;">Natasha &amp; Co.</h6>
+                                <small class="text-muted" style="font-size: 11.5px;">Chartered Accountants (Bhopal)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="text-warning mb-1" style="font-size: 20px;">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-dark mb-0">141 Google reviews</h4>
+                            <small class="text-success font-weight-bold"><i class="fa fa-check-circle mr-1"></i> Verified Google Business</small>
+                        </div>
+
+                        <div class="mt-2">
+                            <a href="https://search.google.com/local/writereview?placeid=ChIJ8_T3bmdCfDkRsIwuR8aLNxw" target="_blank" class="btn btn-outline-dark btn-block py-2 font-weight-bold shadow-sm" style="border-radius: 6px; font-size: 13.5px;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 16px; margin-right: 6px; margin-top: -3px;" alt="G"/>
+                                Write a review
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-7 reveal-on-scroll reveal-delay-2">
+                    <div class="owl-carousel reviews-carousel">
+                        <div class="item">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUl1uwDDbTsgIfe7A8WKxXyd-hna0X5qIkYqiU54I4EN1A=w40-h40-c-rp-mo-br100" class="reviewer-avatar mr-2" alt="Sohan"/>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Sohan Shukla</h6>
+                                                <small class="text-muted" style="font-size: 11px;">3 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Excellent services providing friendly as and when needs from them. Always accessible for tax matters and prompt advice."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://lh3.googleusercontent.com/a-/ALV-UjX4FRWg_YUUJEXDIFKhyxpGbhzqO6_bX3wCETp98JJ_m0w=w40-h40-c-rp-mo-br100" class="reviewer-avatar mr-2" alt="Manish"/>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Manish Kumar Vishwakarma</h6>
+                                                <small class="text-muted" style="font-size: 11px;">3 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Very Responsive humble and professional. File my ITR in time. Thanks to Natasha and Company for seamless compliance."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/team-1.webp" class="reviewer-avatar mr-2" alt="Dr. Priya"/>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Dr. Priya Saxena</h6>
+                                                <small class="text-muted" style="font-size: 11px;">2 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Outstanding support for medical professionals tax planning and trust registrations. Extremely knowledgeable and trustworthy."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <img src="images/team-2.webp" class="reviewer-avatar mr-2" alt="Rahul"/>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Rahul Sharma</h6>
+                                                <small class="text-muted" style="font-size: 11px;">1 year ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Best CA in Bhopal for startup registration and GST notice resolution. Resolved our pending refund smoothly!"
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-right mt-3">
+                <span class="badge badge-light text-muted small px-3 py-1 font-weight-normal border">Showing only 4-5 star verified reviews &bull; Auto-sliding</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE NEWS & DUE DATE REMINDERS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                    <div class="text-center mb-40 reveal-on-scroll">
+                        <span class="service-badge">Stay Updated</span>
+                        <h2 class="font-weight-bold" style="color: #002e5b;">Tax Updates &amp; Statutory Due Dates</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4 reveal-on-scroll reveal-delay-1">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100">
+                        <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3"><i class="fa fa-newspaper-o text-success"></i> Latest Tax News</h4>
+                        <marquee direction="up" height="230" scrollamount="2" scrolldelay="30" onmouseover="this.stop();" onmouseout="this.start();">
+                            <div class="mb-3 border-bottom pb-2">
+                                <span class="badge badge-danger">Important</span> <small class="text-muted">Income Tax</small>
+                                <p class="font-weight-bold mb-1 mt-1">E-filing of Income Tax Returns for AY 2026-27 is open.</p>
+                            </div>
+                            <div class="mb-3 border-bottom pb-2">
+                                <span class="badge badge-primary">GST</span> <small class="text-muted">Notification</small>
+                                <p class="font-weight-bold mb-1 mt-1">Updated E-Invoicing and GSTR-1 mandatory reconciliation guidelines issued by CBIC.</p>
+                            </div>
+                            <div class="mb-3 border-bottom pb-2">
+                                <span class="badge badge-success">MCA</span> <small class="text-muted">Company Law</small>
+                                <p class="font-weight-bold mb-1 mt-1">Annual Filing for Private Limited Companies &amp; LLPs compliance reminders.</p>
+                            </div>
+                        </marquee>
+                    </div>
+                </div>
+                <div class="col-md-8 mb-4 reveal-on-scroll reveal-delay-2">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100">
+                        <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3"><i class="fa fa-calendar-check-o text-success"></i> Monthly Statutory Compliance Calendar</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped mb-0 small">
+                                <thead style="background-color: #006B63; color: #fff;">
+                                    <tr>
+                                        <th>Due Date</th>
+                                        <th>Statutory Compliance</th>
+                                        <th>Authority</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>07th Monthly</strong></td>
+                                        <td>TDS / TCS Deposit for previous month</td>
+                                        <td>Income Tax</td>
+                                        <td><span class="badge badge-warning">Deposit Challan 281</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>11th Monthly</strong></td>
+                                        <td>GSTR-1 Monthly Outward Supplies Filing</td>
+                                        <td>GST Portal</td>
+                                        <td><span class="badge badge-primary">Form GSTR-1</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>20th Monthly</strong></td>
+                                        <td>GSTR-3B Monthly Return &amp; Tax Payment</td>
+                                        <td>GST Portal</td>
+                                        <td><span class="badge badge-success">Form GSTR-3B</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>31st Quarterly</strong></td>
+                                        <td>TDS Quarterly Return (Form 24Q, 26Q, 27Q)</td>
+                                        <td>Income Tax</td>
+                                        <td><span class="badge badge-info">Quarterly Filing</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GET IN TOUCH CONSULTATION FORM WITH SCROLL REVEAL -->
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="p-4 p-md-5 bg-white rounded shadow-sm border reveal-on-scroll">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <span class="service-badge">Send a Message</span>
+                        <h2 class="font-weight-bold mb-3" style="color: #002e5b; font-size: 36px;">Get in Touch</h2>
+                        <p class="text-muted mb-4">Have questions regarding Income Tax, GST, Statutory Audit, or Company Registration? Our certified Chartered Accountants are here to assist you.</p>
+                        
+                        <form onsubmit="alert('Thank you! Your message has been sent to CA Natasha & Company desk.'); return false;">
+                            <div class="form-group mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email ID" required/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <input type="tel" class="form-control" placeholder="Your Number" required/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Type Your Message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-ca-primary px-5 py-2 font-weight-bold" style="background: #006B63; color: #ffffff; border-radius: 4px;">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
+                        <div class="p-4 bg-light rounded border text-center">
+                            <i class="fa fa-headphones fa-4x text-success mb-3"></i>
+                            <h4 class="font-weight-bold" style="color: #002e5b;">Need Direct Assistance?</h4>
+                            <p class="text-muted small mb-4">Contact our Bhopal headquarters directly for instant corporate &amp; individual advisory.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="tel:+919407000157" class="btn btn-outline-success font-weight-bold mr-2"><i class="fa fa-phone mr-1"></i> +91 9407000157</a>
+                                <a href="https://wa.me/919407000157" target="_blank" class="btn btn-success font-weight-bold"><i class="fa fa-whatsapp mr-1"></i> WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer pt-5 mt-5">
+        <div class="container pb-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll">
+                    <div class="footer-logo-badge">
+                        <img src="images/brand-logo.png" alt="Natasha &amp; Co." style="height: 38px; width: auto;"/>
+                    </div>
+                    <p class="small text-muted">Natasha &amp; Company is an ISO 9001:2015 Certified Chartered Accountancy firm in Bhopal established under the leadership of CA Natasha Rajvaidya (FCA) offering Audit, Tax, Corporate Law, and Business Advisory services.</p>
+                    <div class="social-icons-top mt-3">
+                        <a href="https://www.facebook.com/canatasharaj/" target="_blank" class="btn btn-sm btn-outline-light rounded-circle mr-1"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank" class="btn btn-sm btn-outline-light rounded-circle mr-1"><i class="fa fa-instagram"></i></a>
+                        <a href="https://twitter.com/canatasharaj" target="_blank" class="btn btn-sm btn-outline-light rounded-circle mr-1"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="btn btn-sm btn-outline-light rounded-circle mr-1"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
+                    <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled foot-ul-link small">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Our Services</a></li>
+                        <li class="mb-2"><a href="knowledge-base.html">Knowledge Base</a></li>
+                        <li class="mb-2"><a href="career.html">Career</a></li>
+                        <li class="mb-2"><a href="blog.html">Blog &amp; Insights</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
+                    <h5 class="text-white font-weight-bold mb-3">Our Practice</h5>
+                    <ul class="list-unstyled foot-ul-link small">
+                        <li class="mb-2"><a href="services.html">Income Tax &amp; TDS Filing</a></li>
+                        <li class="mb-2"><a href="services.html">GST Registration &amp; Returns</a></li>
+                        <li class="mb-2"><a href="services.html">Statutory &amp; Tax Audits</a></li>
+                        <li class="mb-2"><a href="services.html">Company &amp; LLP Formation</a></li>
+                        <li class="mb-2"><a href="services.html">Societies, Trust &amp; NGO Laws</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
+                    <h5 class="text-white font-weight-bold mb-3">Offices in Bhopal</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2 d-flex">
+                            <i class="fa fa-building text-success mr-2 mt-1"></i>
+                            <span><strong>Corp:</strong> 195-A, 2nd Floor, Zone-1 M.P. Nagar, In front of DB Mall, Bhopal - 462011</span>
+                        </li>
+                        <li class="mb-2 d-flex">
+                            <i class="fa fa-map-marker text-success mr-2 mt-1"></i>
+                            <span><strong>Reg:</strong> 28 C, Samrat Colony, Ashoka Garden, Bhopal - 462023</span>
+                        </li>
+                        <li class="mb-2 d-flex">
+                            <i class="fa fa-phone text-success mr-2 mt-1"></i>
+                            <a href="tel:+919407000157" class="text-white font-weight-bold">+91 9407000157</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="copy-right py-3 border-top" style="background: #091017; border-color: rgba(255,255,255,0.06) !important;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-7 text-center text-md-left">
+                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted">Terms &amp; Conditions</a></p>
+                    </div>
+                    <div class="col-md-5 text-center text-md-right mt-2 mt-md-0">
+                        <p class="mb-0 text-muted small">Designed for <strong>CA Natasha &amp; Co.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20visited%20your%20website%20and%20need%20assistance." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1. Mobile Menu Drawer Toggle
+            $('#mobile-toggle-btn').on('click', function(e){
+                e.preventDefault();
+                $('#mobile-menu-drawer').toggleClass('open');
+            });
+
+            // 2. SCROLL PROGRESS INDICATOR
+            window.addEventListener('scroll', function() {
+                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var scrolled = (winScroll / height) * 100;
+                var bar = document.getElementById("scroll-progress-bar");
+                if (bar) {
+                    bar.style.width = scrolled + "%";
+                }
+            }, { passive: true });
+
+            // 3. PURE IN-PLACE ABSOLUTE ZOOM SLIDER (ZERO HORIZONTAL SLIDING)
+            (function initPureZoomSlider() {
+                var $slides = $('.hero-zoom-slider .zoom-slide');
+                if (!$slides.length) return;
+                
+                var currentIndex = 0;
+                var totalSlides = $slides.length;
+                var zoomTimer = null;
+                var autoInterval = 5500;
+                
+                function goToSlide(nextIndex) {
+                    if (nextIndex === currentIndex) return;
+                    
+                    var $current = $slides.eq(currentIndex);
+                    var $next = $slides.eq(nextIndex);
+                    
+                    $current.addClass('leaving').removeClass('active');
+                    
+                    setTimeout(function(){
+                        $current.removeClass('leaving');
+                    }, 500);
+                    
+                    $next.addClass('active');
+                    currentIndex = nextIndex;
+                }
+                
+                function slideNext() {
+                    var next = (currentIndex + 1) % totalSlides;
+                    goToSlide(next);
+                }
+                
+                function slidePrev() {
+                    var prev = (currentIndex - 1 + totalSlides) % totalSlides;
+                    goToSlide(prev);
+                }
+                
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    zoomTimer = setInterval(slideNext, autoInterval);
+                }
+                
+                function stopAutoPlay() {
+                    if (zoomTimer) clearInterval(zoomTimer);
+                }
+                
+                $('#zoom-next').on('click', function(e){
+                    e.preventDefault();
+                    slideNext();
+                    startAutoPlay();
+                });
+                
+                $('#zoom-prev').on('click', function(e){
+                    e.preventDefault();
+                    slidePrev();
+                    startAutoPlay();
+                });
+                
+                // Mobile Touch Swipe Handling
+                var touchStartX = 0;
+                var touchEndX = 0;
+                var sliderEl = document.querySelector('.hero-zoom-slider');
+                if (sliderEl) {
+                    sliderEl.addEventListener('touchstart', function(e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                        stopAutoPlay();
+                    }, { passive: true });
+                    
+                    sliderEl.addEventListener('touchend', function(e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        if (touchStartX - touchEndX > 40) {
+                            slideNext();
+                        } else if (touchEndX - touchStartX > 40) {
+                            slidePrev();
+                        }
+                        startAutoPlay();
+                    }, { passive: true });
+                }
+                
+                startAutoPlay();
+            })();
+
+            // 4. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
+            if ($(".reviews-carousel").length) {
+                $(".reviews-carousel").owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    autoplay: true,
+                    autoplayTimeout: 3500,
+                    autoplayHoverPause: true,
+                    smartSpeed: 700,
+                    responsive: {
+                        0: { items: 1 },
+                        768: { items: 1 },
+                        992: { items: 2 }
+                    },
+                    dots: true,
+                    nav: false,
+                    touchDrag: true,
+                    mouseDrag: true
+                });
+            }
+
+            // 5. Sticky Header
+            window.onscroll = function () {
+                var header = document.getElementById("header");
+                if (window.pageYOffset > 120) {
+                    header.classList.add("fixedhead");
+                } else {
+                    header.classList.remove("fixedhead");
+                }
+            };
+
+            // 6. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
+            if ('IntersectionObserver' in window) {
+                var revealObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, {
+                    rootMargin: '0px 0px -40px 0px',
+                    threshold: 0.1
+                });
+
+                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+                    revealObserver.observe(el);
+                });
+            } else {
+                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+                    el.classList.add('is-visible');
+                });
+            }
+
+            // 7. SUBTLE 3D CARD TILT ON DESKTOP HOVER
+            if (window.innerWidth > 992) {
+                document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
+                    card.addEventListener('mousemove', function(e) {
+                        var rect = card.getBoundingClientRect();
+                        var x = e.clientX - rect.left - rect.width / 2;
+                        var y = e.clientY - rect.top - rect.height / 2;
+                        var tiltX = (y / rect.height) * -8;
+                        var tiltY = (x / rect.width) * 8;
+                        card.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-6px) scale(1.02)';
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        card.style.transform = '';
+                    });
+                });
+            }
+
+            // 8. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
+            function animateValue(obj, start, end, duration, suffix) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const current = Math.floor(progress * (end - start) + start);
+                    obj.innerHTML = current + suffix;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            let animated = false;
+            function checkCounters() {
+                const statsSec = document.getElementById('trusted-stats-section');
+                if (statsSec && !animated) {
+                    const rect = statsSec.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        animated = true;
+                        document.querySelectorAll('.counter-val').forEach(el => {
+                            const target = parseInt(el.getAttribute('data-target'));
+                            const suffix = el.getAttribute('data-suffix') || '';
+                            animateValue(el, 0, target, 2000, suffix);
+                        });
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkCounters);
+            checkCounters();
+        });
+
+        // Tax Calculation Functions (Global)
+        function calculateTax() {
+            var inc = parseFloat(document.getElementById('calc-income').value) || 0;
+            var ded = parseFloat(document.getElementById('calc-deductions').value) || 0;
+            
+            var newTax = 0;
+            var netNew = Math.max(0, inc - 75000);
+            if (netNew <= 300000) newTax = 0;
+            else if (netNew <= 700000) newTax = (netNew - 300000) * 0.05;
+            else if (netNew <= 1000000) newTax = 20000 + (netNew - 700000) * 0.10;
+            else if (netNew <= 1200000) newTax = 50000 + (netNew - 1000000) * 0.15;
+            else if (netNew <= 1500000) newTax = 80000 + (netNew - 1200000) * 0.20;
+            else newTax = 140000 + (netNew - 1500000) * 0.30;
+            if (netNew <= 700000) newTax = 0;
+            newTax = Math.round(newTax * 1.04);
+
+            var netOld = Math.max(0, inc - 50000 - ded);
+            var oldTax = 0;
+            if (netOld <= 250000) oldTax = 0;
+            else if (netOld <= 500000) oldTax = (netOld - 250000) * 0.05;
+            else if (netOld <= 1000000) oldTax = 12500 + (netOld - 500000) * 0.20;
+            else oldTax = 112500 + (netOld - 1000000) * 0.30;
+            if (netOld <= 500000) oldTax = 0;
+            oldTax = Math.round(oldTax * 1.04);
+
+            var elNew = document.getElementById('res-new');
+            var elOld = document.getElementById('res-old');
+            if (elNew) elNew.innerText = '₹' + newTax.toLocaleString('en-IN');
+            if (elOld) elOld.innerText = '₹' + oldTax.toLocaleString('en-IN');
+        }
+
+        function calculateEMI() {
+            var P = parseFloat(document.getElementById('emi-amount').value) || 0;
+            var annualRate = parseFloat(document.getElementById('emi-rate').value) || 0;
+            var tenureYears = parseFloat(document.getElementById('emi-tenure').value) || 0;
+            
+            var r = (annualRate / 12) / 100;
+            var n = tenureYears * 12;
+            
+            if (P > 0 && r > 0 && n > 0) {
+                var emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                var totalPayment = emi * n;
+                var totalInterest = totalPayment - P;
+                
+                var elEmi = document.getElementById('res-emi');
+                var elInt = document.getElementById('res-interest');
+                if (elEmi) elEmi.innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
+                if (elInt) elInt.innerText = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+            }
+        }
+    </script>
+</body>
+</html>
