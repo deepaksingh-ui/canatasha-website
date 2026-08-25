@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=24000"/>
+    <link rel="stylesheet" href="css/style.css?v=25000"/>
 
     <style id="master-inlined-css">
 
@@ -40,17 +40,17 @@ body {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     opacity: 1;
-    transition: opacity 0.3s var(--ca-easing);
+    transition: opacity 0.28s var(--ca-easing);
 }
 
 body.page-transitioning {
-    opacity: 0.15;
+    opacity: 0.2;
     pointer-events: none;
 }
 
 /* ==========================================================================
    1. SCROLL PROGRESS BAR (TOP OF SCREEN)
-   ========================================================================= */
+   ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -289,7 +289,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: DARK & CRISP CONTRAST BACKGROUND (EXACT TEMPLATE-89 STYLE)
+   3. HERO BANNER: 100% CRYSTAL HD SHARP PICTURE (ZERO BLUR, ZERO WHITE FOG)
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -299,7 +299,9 @@ body.page-transitioning {
     background-position: center right;
     background-repeat: no-repeat;
     overflow: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
+/* SUBTLE CLEAN LEFT SCRIM SO PEOPLE REMAIN 100% CRISP AND DARK */
 .static-hero-area:before {
     content: "";
     position: absolute;
@@ -307,7 +309,7 @@ body.page-transitioning {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 42%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.50) 38%, rgba(255,255,255,0.0) 70%);
     z-index: 1;
 }
 
@@ -447,10 +449,8 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   4. 10-POINT LUXURY MOBILE NAVIGATION ANIMATION SYSTEM
+   4. 10-POINT LUXURY MOBILE NAVIGATION SYSTEM
    ========================================================================== */
-
-/* 1. Hamburger → X Morph Button */
 .hamburger-morph-btn {
     width: 40px;
     height: 40px;
@@ -494,7 +494,6 @@ body.page-transitioning {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* 6 & 8. Menu Background Reveal (Clip-path + Glass Blur Backdrop) */
 #mobile-menu-drawer {
     display: none;
     background: rgba(255, 255, 255, 0.96);
@@ -515,7 +514,6 @@ body.page-transitioning {
     padding: 16px 15px;
 }
 
-/* 2 & 5. Staggered Menu Reveal + Text Slide (from left) + Fade-in */
 #mobile-menu-drawer ul {
     list-style: none;
     padding: 0;
@@ -550,7 +548,6 @@ body.page-transitioning {
     transform: translateY(16px);
 }
 
-/* 3, 4, 7 & 9. Sliding Active Indicator, Morph Background, Scale & Touch Ripple */
 #mobile-menu-drawer ul li a {
     display: flex;
     align-items: center;
@@ -583,7 +580,6 @@ body.page-transitioning {
     padding-left: 20px;
 }
 
-/* Touch Ripple on Menu Links */
 .ripple-wave {
     position: absolute;
     border-radius: 50%;
@@ -950,7 +946,7 @@ body.page-transitioning {
         background-position: center right !important;
     }
     .static-hero-area:before {
-        background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,0.10) 100%) !important;
+        background: linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.0) 85%) !important;
     }
     
     .text-slide-item {
@@ -1104,7 +1100,7 @@ body.page-transitioning {
                                 <button type="button">Get a Quote</button>
                             </a>
                         </div>
-                        <!-- 1. MORPHING HAMBURGER BUTTON (3 LINES TO X) -->
+                        <!-- MORPHING HAMBURGER BUTTON (3 LINES TO X) -->
                         <button class="hamburger-morph-btn d-lg-none" type="button" id="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
                             <span class="bar bar-1"></span>
                             <span class="bar bar-2"></span>
@@ -1161,19 +1157,19 @@ body.page-transitioning {
     </header>
 
     
-    <!-- 100% STATIC BACKGROUND HERO WITH RICH DARK PIC & IN-PLACE ZOOM -->
+    <!-- 100% STATIC BACKGROUND HERO WITH 100% CRYSTAL HD PIC & IN-PLACE ZOOM -->
     <section class="static-hero-area" id="home">
         <div class="hero-zoom-slider">
-            <!-- SLIDE 1: CA NATASHA RAJVAIDYA (PRIMARY BRAND SLIDE) -->
+            <!-- SLIDE 1: WELCOME TO NATASHA & COMPANY (PRIMARY WELCOME BRAND SLIDE) -->
             <div class="zoom-slide active">
                 <div class="container h-100 position-relative" style="z-index: 5;">
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
                                 <div class="text-content text-left">
-                                    <h3 class="sub-title">STRATEGIC TAX &amp; COMPLIANCE ADVISORY</h3>
+                                    <h3 class="sub-title">WELCOME TO NATASHA &amp; COMPANY</h3>
                                     <h1 class="title">CA NATASHA RAJVAIDYA</h1>
-                                    <p class="description">Empowering businesses, startups, and MSMEs across India with proactive income tax structuring, GST litigation defense, and statutory audit representations.</p>
+                                    <p class="description">Welcome to Natasha &amp; Company – Leading ISO 9001:2015 certified Chartered Accountancy firm in Bhopal offering strategic Tax Planning, Statutory Audits, GST Litigation, and Corporate Advisory.</p>
                                     <div class="btn-box">
                                         <a class="theme-btn nav-transition-link" href="about-us.html">About Firm</a>
                                         <a class="theme-btn nav-transition-link" href="contact-us.html">Consult CA</a>
@@ -1661,7 +1657,7 @@ body.page-transitioning {
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
                                     </div>
                                     <div class="text-warning mb-2" style="font-size: 13px;">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                                     </div>
                                     <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
                                         "Very Responsive humble and professional. File my ITR in time. Thanks to Natasha and Company for seamless compliance."
