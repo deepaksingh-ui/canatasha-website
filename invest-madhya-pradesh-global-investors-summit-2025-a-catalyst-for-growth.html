@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=31000"/>
+    <link rel="stylesheet" href="css/style.css?v=33000"/>
 
     <style id="master-inlined-css">
 
@@ -44,12 +44,12 @@ body {
 }
 
 body.page-transitioning {
-    opacity: 0.2;
+    opacity: 0.15;
     pointer-events: none;
 }
 
 /* ==========================================================================
-   1. SCROLL PROGRESS BAR
+   1. SCROLL PROGRESS INDICATOR (TOP OF SCREEN)
    ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
@@ -58,9 +58,9 @@ body.page-transitioning {
     height: 3.5px;
     width: 0%;
     background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
-    z-index: 999999;
-    transition: width 0.1s linear;
-    box-shadow: 0 0 10px rgba(253, 228, 40, 0.6);
+    z-index: 9999999;
+    transition: width 0.08s linear;
+    box-shadow: 0 0 12px rgba(253, 228, 40, 0.7);
 }
 
 /* ==========================================================================
@@ -149,11 +149,12 @@ body.page-transitioning {
     max-width: 100%;
     object-fit: contain;
     display: block;
-    animation: ambientLogoFloat 4s ease-in-out infinite alternate;
+    animation: ambientLogoFloat 4.5s ease-in-out infinite alternate;
 }
 @keyframes ambientLogoFloat {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-3px); }
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(0.5deg); }
+    100% { transform: translateY(1px) rotate(-0.5deg); }
 }
 
 .header-main-content {
@@ -185,7 +186,7 @@ body.page-transitioning {
     font-size: 12px;
 }
 
-/* SHIMMER EFFECT BUTTONS */
+/* SHIMMER BUTTONS */
 .quote-btn button {
     background: #fde428 !important;
     color: #002e5b !important;
@@ -209,7 +210,7 @@ body.page-transitioning {
     left: -60%;
     width: 30%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.45);
     transform: rotate(30deg);
     transition: all 0.6s ease;
 }
@@ -223,7 +224,7 @@ body.page-transitioning {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* 2.1. NAVBAR (DESKTOP) - 100% FULL BLEED EDGE FIT */
+/* NAVBAR (DESKTOP) - 100% FULL BLEED EDGE FIT */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -364,7 +365,7 @@ body.page-transitioning {
     margin: 0 !important;
 }
 
-/* HIGH-IMPACT HARDWARE ACCELERATED ZOOM-OUT ANIMATION */
+/* HARDWARE ACCELERATED ZOOM-OUT KEYFRAMES */
 @keyframes caZoomOutReveal {
     0% {
         transform: scale(1.48) translate3d(0, 0, 0);
@@ -663,12 +664,12 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   5. CINEMATIC SECTION REVEAL & 3D MOTION
+   5. CINEMATIC SECTION REVEAL, SPLIT-TEXT, PARALLAX & 3D MOTION SUITE
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(35px) scale(0.94);
-    transition: opacity 0.85s var(--ca-easing), transform 0.85s var(--ca-easing), filter 0.85s var(--ca-easing);
+    transform: translateY(32px) scale(0.95);
+    transition: opacity 0.8s var(--ca-easing), transform 0.8s var(--ca-easing), filter 0.8s var(--ca-easing);
     will-change: opacity, transform, filter;
 }
 .reveal-on-scroll.is-visible {
@@ -676,10 +677,11 @@ body.page-transitioning {
     transform: translateY(0) scale(1) !important;
 }
 
+/* Blur to Sharp Image Transition */
 .img-blur-reveal {
-    filter: blur(10px) brightness(0.9);
-    transform: scale(1.06);
-    transition: filter 0.9s var(--ca-easing), transform 0.9s var(--ca-easing);
+    filter: blur(12px) brightness(0.9);
+    transform: scale(1.08);
+    transition: filter 0.85s var(--ca-easing), transform 0.85s var(--ca-easing);
     will-change: filter, transform;
 }
 .reveal-on-scroll.is-visible .img-blur-reveal,
@@ -695,19 +697,19 @@ body.page-transitioning {
 .reveal-delay-5 { transition-delay: 0.40s !important; }
 .reveal-delay-6 { transition-delay: 0.48s !important; }
 
-/* 3D Depth Card Physics */
+/* 3D Depth Card Physics (Mobile Touch & Desktop Hover) */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
-    transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transition: transform 0.4s var(--ca-spring), box-shadow 0.4s ease, border-color 0.3s ease !important;
     transform-style: preserve-3d;
 }
 .blog-card:hover, .blog-card:active {
-    transform: translateY(-10px) scale(1.03) !important;
-    box-shadow: 0 24px 50px rgba(0, 46, 91, 0.18) !important;
+    transform: translateY(-8px) scale(1.025) !important;
+    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.16) !important;
     border-color: #006B63 !important;
 }
 .single-item:hover, .single-item:active {
-    transform: translateY(-8px) scale(1.025) !important;
-    box-shadow: 0 20px 40px rgba(0, 107, 99, 0.16) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 18px 35px rgba(0, 107, 99, 0.14) !important;
     border-color: #006B63 !important;
 }
 .leader-card {
@@ -718,13 +720,13 @@ body.page-transitioning {
     overflow: hidden;
 }
 .leader-card:hover, .leader-card:active {
-    transform: translateY(-10px) scale(1.035) !important;
-    box-shadow: 0 22px 45px rgba(0, 46, 91, 0.16) !important;
+    transform: translateY(-8px) scale(1.025) !important;
+    box-shadow: 0 20px 40px rgba(0, 46, 91, 0.14) !important;
     border-color: #006B63 !important;
 }
-.calc-box-card:hover {
-    transform: translateY(-6px) scale(1.015) !important;
-    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.12) !important;
+.calc-box-card:hover, .calc-box-card:active {
+    transform: translateY(-5px) scale(1.015) !important;
+    box-shadow: 0 18px 40px rgba(0, 46, 91, 0.12) !important;
     border-color: #006B63 !important;
 }
 
@@ -743,7 +745,7 @@ body.page-transitioning {
     transition: transform 0.65s var(--ca-easing);
 }
 .leader-card:hover .team-img-box img {
-    transform: scale(1.09);
+    transform: scale(1.08);
 }
 
 .team-social-btn {
@@ -943,7 +945,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE ONLY: ULTRA HIGH-CONTRAST TEXT & SOFT BLUR HERO VIEW
+   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY WITH CRISP ZOOM-OUT
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -1362,7 +1364,7 @@ body.page-transitioning {
     <script src="js/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function(){
-            // 1. Mobile Menu Drawer & Morphing Hamburger Button
+            // 1. Mobile Menu Drawer & Morphing Hamburger Button (10-Point Nav)
             $('#mobile-toggle-btn').on('click', function(e){
                 e.preventDefault();
                 $(this).toggleClass('is-active');
@@ -1370,17 +1372,18 @@ body.page-transitioning {
             });
 
             // 9. TOUCH RIPPLE EFFECT ON MOBILE MENU ITEMS
-            $('.mobile-nav-link').on('click', function(e){
+            $('.mobile-nav-link, .theme-btn, .btn').on('click', function(e){
                 var $btn = $(this);
                 var offset = $btn.offset();
+                if (!offset) return;
                 var x = e.pageX - offset.left;
                 var y = e.pageY - offset.top;
                 
                 var $ripple = $('<span class="ripple-wave"></span>').css({
                     top: y + 'px',
                     left: x + 'px',
-                    width: '30px',
-                    height: '30px'
+                    width: '32px',
+                    height: '32px'
                 });
                 
                 $btn.append($ripple);
@@ -1397,7 +1400,7 @@ body.page-transitioning {
                     $('body').addClass('page-transitioning');
                     setTimeout(function(){
                         window.location.href = targetHref;
-                    }, 180);
+                    }, 160);
                 }
             });
 
@@ -1412,7 +1415,7 @@ body.page-transitioning {
                 }
             }, { passive: true });
 
-            // 3. EXACT TEMPLATE-89 ZOOM-OUT TEXT ROTATOR ENGINE
+            // 3. HARDWARE ACCELERATED KEYFRAME ZOOM-OUT ROTATOR
             (function initTemplate89ZoomOutRotator() {
                 var $slides = $('.hero-zoom-slider .zoom-slide');
                 if (!$slides.length) return;
@@ -1432,7 +1435,7 @@ body.page-transitioning {
                     
                     setTimeout(function(){
                         $current.removeClass('leaving');
-                    }, 450);
+                    }, 420);
                     
                     $next.addClass('active');
                     currentIndex = nextIndex;
@@ -1481,9 +1484,9 @@ body.page-transitioning {
                     
                     sliderEl.addEventListener('touchend', function(e) {
                         touchEndX = e.changedTouches[0].screenX;
-                        if (touchStartX - touchEndX > 40) {
+                        if (touchStartX - touchEndX > 35) {
                             slideNext();
-                        } else if (touchEndX - touchStartX > 40) {
+                        } else if (touchEndX - touchStartX > 35) {
                             slidePrev();
                         }
                         startAutoPlay();
@@ -1525,6 +1528,16 @@ body.page-transitioning {
             };
 
             // 6. CINEMATIC SCROLL-DRIVEN SCALE / FADE-IN & BLUR REVEAL OBSERVER
+            function triggerScrollReveals() {
+                var windowHeight = window.innerHeight;
+                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top <= windowHeight - 30) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }
+
             if ('IntersectionObserver' in window) {
                 var revealObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
@@ -1533,35 +1546,34 @@ body.page-transitioning {
                         }
                     });
                 }, {
-                    rootMargin: '0px 0px -40px 0px',
-                    threshold: 0.1
+                    rootMargin: '0px 0px -20px 0px',
+                    threshold: 0.05
                 });
 
                 document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
                     revealObserver.observe(el);
                 });
-            } else {
-                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
-                    el.classList.add('is-visible');
-                });
             }
 
-            // 7. SUBTLE 3D CARD TILT ON DESKTOP HOVER
-            if (window.innerWidth > 992) {
-                document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
+            window.addEventListener('scroll', triggerScrollReveals, { passive: true });
+            triggerScrollReveals();
+
+            // 7. 3D PERSPECTIVE TILT ON HOVER (DESKTOP) & TOUCH (MOBILE)
+            document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
+                if (window.innerWidth > 992) {
                     card.addEventListener('mousemove', function(e) {
                         var rect = card.getBoundingClientRect();
                         var x = e.clientX - rect.left - rect.width / 2;
                         var y = e.clientY - rect.top - rect.height / 2;
-                        var tiltX = (y / rect.height) * -8;
-                        var tiltY = (x / rect.width) * 8;
+                        var tiltX = (y / rect.height) * -6;
+                        var tiltY = (x / rect.width) * 6;
                         card.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-6px) scale(1.02)';
                     });
                     card.addEventListener('mouseleave', function() {
                         card.style.transform = '';
                     });
-                });
-            }
+                }
+            });
 
             // 8. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
             function animateValue(obj, start, end, duration, suffix) {
@@ -1594,7 +1606,7 @@ body.page-transitioning {
                 }
             }
 
-            window.addEventListener('scroll', checkCounters);
+            window.addEventListener('scroll', checkCounters, { passive: true });
             checkCounters();
         });
 
