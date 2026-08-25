@@ -737,7 +737,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. HERO BANNER: DESKTOP & MOBILE ZOOM-OUT ENGINE
+   3. HERO BANNER: 100% TRANSPARENT RAW TEMPLATE-89 ZOOM-OUT TEXT ROTATOR
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -783,6 +783,17 @@ body.page-transitioning {
     padding-top: 50px;
 }
 
+/* PURE TRANSPARENT TEXT CONTENT (ZERO BOX, ZERO CONTAINER CARD) */
+.text-content {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 /* EXACT TEMPLATE-89 ZOOM-OUT (SCALE 1.35 -> SCALE 1.0) ANIMATION MECHANISM */
 .zoom-slide .text-content h3.sub-title,
 .zoom-slide .text-content h1.title,
@@ -824,7 +835,7 @@ body.page-transitioning {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* 110% GRAND TYPOGRAPHY ON DESKTOP */
+/* 110% GRAND TYPOGRAPHY */
 .text-content h3.sub-title {
     color: #002e5b !important;
     font-size: 21px !important;
@@ -1345,7 +1356,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. SMART RESPONSIVE MOBILE HERO CARD (100% READABILITY + SHARP PICTURE)
+   6. MOBILE RESPONSIVE (EXACT TEMPLATE-89: ZERO WHITE BOX, ZERO WASH)
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -1397,73 +1408,73 @@ body.page-transitioning {
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
     
-    /* MOBILE HERO: LUXURY FROSTED GLASS CONTAINER FOR 100% TEXT READABILITY */
+    /* MOBILE HERO: EXACT TEMPLATE-89 CLEAN FULL BANNER (ZERO BOX, 100% TRANSPARENT) */
     .static-hero-area, .hero-zoom-slider {
-        height: auto !important;
-        min-height: 530px !important;
+        height: 480px !important;
         background-image: url('images/banner-1.webp') !important;
         background-size: cover !important;
-        background-position: 80% center !important;
+        background-position: center center !important;
         background-repeat: no-repeat !important;
-        padding-bottom: 15px !important;
     }
     
     .text-slide-item {
-        height: auto !important;
-        min-height: 530px !important;
-        padding: 20px 10px !important;
+        height: 480px !important;
+        padding: 20px 15px !important;
         justify-content: center !important;
     }
     
-    /* FROSTED GLASS CARD: Text sits cleanly with zero clash on background faces */
+    /* 100% TRANSPARENT: NO WHITE BOX, NO BACKGROUND, NO BORDER */
     .text-content {
-        text-align: left !important;
+        text-align: center !important;
         margin: 0 auto !important;
         width: 100% !important;
         max-width: 100% !important;
-        background: rgba(255, 255, 255, 0.93) !important;
-        backdrop-filter: blur(14px) !important;
-        -webkit-backdrop-filter: blur(14px) !important;
-        padding: 22px 16px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 12px 30px rgba(0, 46, 91, 0.14) !important;
-        border: 1px solid rgba(0, 107, 99, 0.2) !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
     }
     
     .text-content h3.sub-title {
-        font-size: 12px !important;
-        margin-bottom: 5px !important;
+        font-size: 13.5px !important;
+        margin-bottom: 6px !important;
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
+        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content h1.title {
-        font-size: 25px !important;
+        font-size: 30px !important;
         line-height: 1.15 !important;
-        margin-bottom: 8px !important;
+        margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
+        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     .text-content p.description {
-        font-size: 12.5px !important;
-        line-height: 1.50 !important;
-        margin-bottom: 16px !important;
-        color: #334155 !important;
-        font-weight: 500 !important;
+        font-size: 13px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 18px !important;
+        color: #1e293b !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
     
     .banner-btn, .theme-btn {
         border: 2px solid #002e5b !important;
-        background: #002e5b !important;
-        color: #ffffff !important;
-        padding: 0 16px !important;
-        font-size: 11.5px !important;
-        line-height: 36px !important;
-        border-radius: 4px !important;
+        background: transparent !important;
+        color: #002e5b !important;
+        padding: 0 20px !important;
+        font-size: 12px !important;
+        line-height: 38px !important;
+        border-radius: 3px !important;
         display: inline-block !important;
-        margin-right: 8px !important;
-        margin-bottom: 5px !important;
-        box-shadow: 0 4px 10px rgba(0,46,91,0.2) !important;
+        margin: 0 4px !important;
+        box-shadow: none !important;
+        font-weight: 700 !important;
     }
     
     .zoom-nav {
