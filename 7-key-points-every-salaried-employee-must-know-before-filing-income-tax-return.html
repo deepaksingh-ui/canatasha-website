@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=28000"/>
+    <link rel="stylesheet" href="css/style.css?v=29000"/>
 
     <style id="master-inlined-css">
 
@@ -289,7 +289,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   3. EXACT TEMPLATE-89 ZOOM-OUT TEXT ROTATION ENGINE
+   3. HERO BANNER: 100% SAME RAW DARK PICTURE (DESKTOP & MOBILE) WITH ZOOM-OUT
    ========================================================================== */
 .static-hero-area {
     position: relative;
@@ -897,7 +897,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE RESPONSIVE
+   6. MOBILE RESPONSIVE (EXACT SAME RAW DARK PIC & HIGH CONTRAST)
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
@@ -949,45 +949,48 @@ body.page-transitioning {
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
     
-    /* STATIC HERO ON MOBILE */
+    /* EXACT SAME HERO PICTURE ON MOBILE (NO WHITE BOX, NO CUT OFF) */
     .static-hero-area, .hero-zoom-slider {
-        height: 480px !important;
-        background-position: center right !important;
+        height: 520px !important;
+        background-image: url('images/banner-1.webp') !important;
+        background-size: cover !important;
+        background-position: 78% center !important;
+        background-repeat: no-repeat !important;
     }
     
     .text-slide-item {
-        height: 480px !important;
-        padding: 20px 15px !important;
+        height: 520px !important;
+        padding: 25px 15px !important;
         justify-content: center !important;
     }
     
     .text-content {
         text-align: left !important;
         margin: 0 !important;
-        max-width: 100% !important;
+        max-width: 88% !important;
     }
     
     .text-content h3.sub-title {
-        font-size: 13px !important;
-        margin-bottom: 4px !important;
+        font-size: 13.5px !important;
+        margin-bottom: 6px !important;
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
     }
     .text-content h1.title {
-        font-size: 30px !important;
+        font-size: 32px !important;
         line-height: 1.15 !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 12px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
     }
     .text-content p.description {
-        font-size: 12.5px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 18px !important;
+        font-size: 13px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 20px !important;
         color: #1e293b !important;
         font-weight: 500 !important;
-        max-width: 90% !important;
+        max-width: 95% !important;
     }
     
     .banner-btn, .theme-btn {
@@ -996,7 +999,7 @@ body.page-transitioning {
         color: #002e5b !important;
         padding: 0 18px !important;
         font-size: 12px !important;
-        line-height: 36px !important;
+        line-height: 38px !important;
         border-radius: 3px !important;
         display: inline-block !important;
         margin: 0 !important;
