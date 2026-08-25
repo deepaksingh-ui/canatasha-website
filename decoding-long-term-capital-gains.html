@@ -492,12 +492,12 @@ body {
 }
 
 body.page-transitioning {
-    opacity: 0.2;
+    opacity: 0.15;
     pointer-events: none;
 }
 
 /* ==========================================================================
-   1. SCROLL PROGRESS BAR
+   1. SCROLL PROGRESS INDICATOR
    ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
@@ -506,13 +506,13 @@ body.page-transitioning {
     height: 3.5px;
     width: 0%;
     background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
-    z-index: 999999;
-    transition: width 0.1s linear;
-    box-shadow: 0 0 10px rgba(253, 228, 40, 0.6);
+    z-index: 9999999;
+    transition: width 0.08s linear;
+    box-shadow: 0 0 12px rgba(253, 228, 40, 0.7);
 }
 
 /* ==========================================================================
-   2. TOP BAR & BRAND HEADER
+   2. TOP BAR & BRAND HEADER (UNIFIED LEFT GRID ALIGNMENT)
    ========================================================================== */
 .top-bar-custom {
     background: #111a24;
@@ -597,11 +597,12 @@ body.page-transitioning {
     max-width: 100%;
     object-fit: contain;
     display: block;
-    animation: ambientLogoFloat 4s ease-in-out infinite alternate;
+    animation: ambientLogoFloat 4.5s ease-in-out infinite alternate;
 }
 @keyframes ambientLogoFloat {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-3px); }
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(0.5deg); }
+    100% { transform: translateY(1px) rotate(-0.5deg); }
 }
 
 .header-main-content {
@@ -633,7 +634,7 @@ body.page-transitioning {
     font-size: 12px;
 }
 
-/* SHIMMER EFFECT BUTTONS */
+/* SHIMMER BUTTONS */
 .quote-btn button {
     background: #fde428 !important;
     color: #002e5b !important;
@@ -657,7 +658,7 @@ body.page-transitioning {
     left: -60%;
     width: 30%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.45);
     transform: rotate(30deg);
     transition: all 0.6s ease;
 }
@@ -671,7 +672,9 @@ body.page-transitioning {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* 2.1. NAVBAR (DESKTOP) - 100% FULL BLEED EDGE FIT */
+/* ==========================================================================
+   2.1. NAVBAR (DESKTOP) - PERFECT LEFT ALIGNMENT WITH LOGO & TOP BAR
+   ========================================================================== */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -687,12 +690,6 @@ body.page-transitioning {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.mainmenu-area .container {
-    max-width: 100% !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-}
-
 .navbar {
     padding: 0;
     background: transparent !important;
@@ -700,18 +697,18 @@ body.page-transitioning {
 }
 
 .navbar-nav {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-nav > li > a {
     color: #002e5b;
-    font-size: 15.5px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 0 26px;
-    line-height: 54px;
+    padding: 0 22px;
+    line-height: 52px;
     display: block;
     transition: 0.25s ease;
     text-decoration: none;
@@ -719,17 +716,27 @@ body.page-transitioning {
     letter-spacing: 0.2px;
 }
 
+/* EXACT MILLIMETER ALIGNMENT: FIRST LINK 'HOME' FLUSH WITH LOGO & TOP BAR LEFT EDGE */
+.navbar-nav > li:first-child > a {
+    padding-left: 0 !important;
+}
+
 .navbar-nav > li > a:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 26px;
-    right: 26px;
+    left: 22px;
+    right: 22px;
     height: 3.5px;
     background: #006B63;
     transform: scaleX(0);
     transition: transform 0.25s var(--ca-easing);
 }
+.navbar-nav > li:first-child > a:after {
+    left: 0 !important;
+    right: 22px !important;
+}
+
 .navbar-nav > li:hover > a:after,
 .navbar-nav > li.active > a:after {
     transform: scaleX(1);
@@ -737,7 +744,7 @@ body.page-transitioning {
 .navbar-nav > li:hover > a,
 .navbar-nav > li.active > a {
     color: #006B63 !important;
-    background: rgba(255, 255, 255, 0.65);
+    background: transparent;
 }
 
 /* Sticky Header */
@@ -812,7 +819,7 @@ body.page-transitioning {
     margin: 0 !important;
 }
 
-/* HIGH-IMPACT HARDWARE ACCELERATED ZOOM-OUT ANIMATION */
+/* HARDWARE ACCELERATED ZOOM-OUT KEYFRAMES */
 @keyframes caZoomOutReveal {
     0% {
         transform: scale(1.48) translate3d(0, 0, 0);
@@ -1111,12 +1118,12 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   5. CINEMATIC SECTION REVEAL & 3D MOTION
+   5. CINEMATIC SECTION REVEAL, SPLIT-TEXT, PARALLAX & 3D MOTION SUITE
    ========================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(35px) scale(0.94);
-    transition: opacity 0.85s var(--ca-easing), transform 0.85s var(--ca-easing), filter 0.85s var(--ca-easing);
+    transform: translateY(32px) scale(0.95);
+    transition: opacity 0.8s var(--ca-easing), transform 0.8s var(--ca-easing), filter 0.8s var(--ca-easing);
     will-change: opacity, transform, filter;
 }
 .reveal-on-scroll.is-visible {
@@ -1124,10 +1131,11 @@ body.page-transitioning {
     transform: translateY(0) scale(1) !important;
 }
 
+/* Blur to Sharp Image Transition */
 .img-blur-reveal {
-    filter: blur(10px) brightness(0.9);
-    transform: scale(1.06);
-    transition: filter 0.9s var(--ca-easing), transform 0.9s var(--ca-easing);
+    filter: blur(12px) brightness(0.9);
+    transform: scale(1.08);
+    transition: filter 0.85s var(--ca-easing), transform 0.85s var(--ca-easing);
     will-change: filter, transform;
 }
 .reveal-on-scroll.is-visible .img-blur-reveal,
@@ -1143,19 +1151,19 @@ body.page-transitioning {
 .reveal-delay-5 { transition-delay: 0.40s !important; }
 .reveal-delay-6 { transition-delay: 0.48s !important; }
 
-/* 3D Depth Card Physics */
+/* 3D Depth Card Physics (Mobile Touch & Desktop Hover) */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
-    transition: transform 0.45s var(--ca-spring), box-shadow 0.45s ease, border-color 0.3s ease !important;
+    transition: transform 0.4s var(--ca-spring), box-shadow 0.4s ease, border-color 0.3s ease !important;
     transform-style: preserve-3d;
 }
 .blog-card:hover, .blog-card:active {
-    transform: translateY(-10px) scale(1.03) !important;
-    box-shadow: 0 24px 50px rgba(0, 46, 91, 0.18) !important;
+    transform: translateY(-8px) scale(1.025) !important;
+    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.16) !important;
     border-color: #006B63 !important;
 }
 .single-item:hover, .single-item:active {
-    transform: translateY(-8px) scale(1.025) !important;
-    box-shadow: 0 20px 40px rgba(0, 107, 99, 0.16) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 18px 35px rgba(0, 107, 99, 0.14) !important;
     border-color: #006B63 !important;
 }
 .leader-card {
@@ -1166,13 +1174,13 @@ body.page-transitioning {
     overflow: hidden;
 }
 .leader-card:hover, .leader-card:active {
-    transform: translateY(-10px) scale(1.035) !important;
-    box-shadow: 0 22px 45px rgba(0, 46, 91, 0.16) !important;
+    transform: translateY(-8px) scale(1.025) !important;
+    box-shadow: 0 20px 40px rgba(0, 46, 91, 0.14) !important;
     border-color: #006B63 !important;
 }
-.calc-box-card:hover {
-    transform: translateY(-6px) scale(1.015) !important;
-    box-shadow: 0 20px 45px rgba(0, 46, 91, 0.12) !important;
+.calc-box-card:hover, .calc-box-card:active {
+    transform: translateY(-5px) scale(1.015) !important;
+    box-shadow: 0 18px 40px rgba(0, 46, 91, 0.12) !important;
     border-color: #006B63 !important;
 }
 
@@ -1191,7 +1199,7 @@ body.page-transitioning {
     transition: transform 0.65s var(--ca-easing);
 }
 .leader-card:hover .team-img-box img {
-    transform: scale(1.09);
+    transform: scale(1.08);
 }
 
 .team-social-btn {
@@ -1391,7 +1399,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   6. MOBILE ONLY: ULTRA HIGH-CONTRAST TEXT & SOFT BLUR HERO VIEW
+   6. MOBILE ONLY: SOFT WHITE BLUR OVERLAY WITH CRISP ZOOM-OUT
    ========================================================================== */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }

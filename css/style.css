@@ -32,7 +32,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   1. SCROLL PROGRESS INDICATOR (TOP OF SCREEN)
+   1. SCROLL PROGRESS INDICATOR
    ========================================================================== */
 #scroll-progress-bar {
     position: fixed;
@@ -47,7 +47,7 @@ body.page-transitioning {
 }
 
 /* ==========================================================================
-   2. TOP BAR & BRAND HEADER
+   2. TOP BAR & BRAND HEADER (UNIFIED LEFT GRID ALIGNMENT)
    ========================================================================== */
 .top-bar-custom {
     background: #111a24;
@@ -207,7 +207,9 @@ body.page-transitioning {
     box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
 }
 
-/* NAVBAR (DESKTOP) - 100% FULL BLEED EDGE FIT */
+/* ==========================================================================
+   2.1. NAVBAR (DESKTOP) - PERFECT LEFT ALIGNMENT WITH LOGO & TOP BAR
+   ========================================================================== */
 .mainmenu-area {
     position: absolute;
     top: 100%;
@@ -223,12 +225,6 @@ body.page-transitioning {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
-.mainmenu-area .container {
-    max-width: 100% !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-}
-
 .navbar {
     padding: 0;
     background: transparent !important;
@@ -236,18 +232,18 @@ body.page-transitioning {
 }
 
 .navbar-nav {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar-nav > li > a {
     color: #002e5b;
-    font-size: 15.5px;
+    font-size: 15px;
     font-weight: 700;
-    padding: 0 26px;
-    line-height: 54px;
+    padding: 0 22px;
+    line-height: 52px;
     display: block;
     transition: 0.25s ease;
     text-decoration: none;
@@ -255,17 +251,27 @@ body.page-transitioning {
     letter-spacing: 0.2px;
 }
 
+/* EXACT MILLIMETER ALIGNMENT: FIRST LINK 'HOME' FLUSH WITH LOGO & TOP BAR LEFT EDGE */
+.navbar-nav > li:first-child > a {
+    padding-left: 0 !important;
+}
+
 .navbar-nav > li > a:after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 26px;
-    right: 26px;
+    left: 22px;
+    right: 22px;
     height: 3.5px;
     background: #006B63;
     transform: scaleX(0);
     transition: transform 0.25s var(--ca-easing);
 }
+.navbar-nav > li:first-child > a:after {
+    left: 0 !important;
+    right: 22px !important;
+}
+
 .navbar-nav > li:hover > a:after,
 .navbar-nav > li.active > a:after {
     transform: scaleX(1);
@@ -273,7 +279,7 @@ body.page-transitioning {
 .navbar-nav > li:hover > a,
 .navbar-nav > li.active > a {
     color: #006B63 !important;
-    background: rgba(255, 255, 255, 0.65);
+    background: transparent;
 }
 
 /* Sticky Header */
