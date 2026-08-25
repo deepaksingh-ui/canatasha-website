@@ -12,28 +12,17 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=10000"/>
+    <link rel="stylesheet" href="css/style.css?v=11000"/>
 
     <style id="master-inlined-css">
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800;900&display=swap');
-
-:root {
-    --primary-navy: #002e5b;
-    --primary-green: #006B63;
-    --accent-emerald: #00a896;
-    --accent-gold: #fde428;
-    --dark-slate: #0f172a;
-    --light-bg: #f8fafc;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
     color: #334155;
     background: #ffffff;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    touch-action: pan-y;
 }
 
 /* TOP BAR */
@@ -163,7 +152,7 @@ body {
     padding: 0 22px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-radius: 4px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
@@ -240,222 +229,161 @@ body {
 }
 
 /* ==========================================================================
-   ULTRA-MODERN HERO SECTION: STATIC PHOTO + 3D ROTATING TEXT MORPHER
+   EXACT TEMPLATE-89 HERO SLIDER & WORD ENTRANCE ANIMATION
    ========================================================================== */
-.hero-master-section {
+.slider-area {
+    height: 600px;
     position: relative;
-    min-height: 620px;
-    background-image: url('images/banner-1.webp');
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
     overflow: hidden;
 }
-
-/* Ambient glow blobs (sample-8a4a8 signature style) */
-.hero-glow-blob-1 {
-    position: absolute;
-    top: 10%;
-    left: 5%;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background: rgba(0, 107, 99, 0.08);
-    filter: blur(90px);
-    pointer-events: none;
-    z-index: 1;
+.slider-wrapper {
+    position: relative;
 }
-.hero-glow-blob-2 {
-    position: absolute;
-    bottom: 5%;
-    right: 15%;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: rgba(0, 46, 91, 0.08);
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 1;
+.single-slide {
+    height: 600px;
+    background-size: cover;
+    background-position: center right;
+    position: relative;
 }
-
-.hero-master-overlay {
+.single-slide:before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 50%, rgba(255,255,255,0.2) 100%);
-    z-index: 1;
+    background: linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.10) 100%);
 }
 
-.hero-master-content {
+.banner-content {
     position: relative;
-    z-index: 3;
-    padding: 85px 0 60px 0;
-}
-
-/* Trust Pill Badge with Live Pulse Dot */
-.hero-trust-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border-radius: 50px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0, 46, 91, 0.06);
-    margin-bottom: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #002e5b;
-}
-.live-pulse-dot {
-    width: 9px;
-    height: 9px;
-    background-color: #00a896;
-    border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 0 rgba(0, 168, 150, 0.7);
-    animation: livePulse 1.8s infinite;
-}
-@keyframes livePulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.7); }
-    70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(0, 168, 150, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 150, 0); }
-}
-
-.hero-main-title {
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1.15;
-    color: #002e5b;
-    letter-spacing: -0.8px;
-    margin-bottom: 18px;
-}
-
-/* DYNAMIC ROTATING WORD WITH CURTAIN LIFT & GRADIENT */
-.rotating-word-container {
-    display: block;
-    height: 64px;
-    overflow: hidden;
-    position: relative;
-    margin-top: 4px;
-}
-.rotating-word-item {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    z-index: 2;
     height: 100%;
-    font-weight: 900;
-    background: linear-gradient(135deg, #006B63 0%, #00a896 50%, #002e5b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease;
 }
-.rotating-word-item.active {
-    opacity: 1;
-    transform: translateY(0%);
-}
-.rotating-word-item.leaving {
-    opacity: 0;
-    transform: translateY(-100%);
-}
-
-.hero-brand-line {
-    font-size: 20px;
-    font-weight: 800;
-    color: #006B63;
-    margin-bottom: 12px;
+.text-content-wrapper {
     display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.hero-desc-text {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #475569;
-    max-width: 600px;
-    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: center;
+    height: 600px;
+    padding-top: 60px;
 }
 
-/* Interactive Action Buttons */
-.hero-action-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-}
-.btn-hero-primary {
-    background: #006B63;
-    color: #ffffff !important;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 13px 32px;
-    border-radius: 6px;
-    text-decoration: none !important;
-    box-shadow: 0 8px 25px rgba(0, 107, 99, 0.35);
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    position: relative;
-    overflow: hidden;
-}
-.btn-hero-primary:hover {
-    background: #002e5b;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 14px 30px rgba(0, 46, 91, 0.4);
-}
-.btn-hero-primary:after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 30%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(30deg);
-    transition: all 0.6s ease;
-}
-.btn-hero-primary:hover:after {
-    left: 130%;
-}
-
-.btn-hero-outline {
-    background: #ffffff;
+/* EXACT TEMPLATE-89 TYPOGRAPHY */
+.text-content h3.title1 {
     color: #002e5b !important;
-    border: 2px solid #cbd5e1;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 11px 28px;
-    border-radius: 6px;
-    text-decoration: none !important;
-    transition: all 0.3s ease;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    opacity: 0;
 }
-.btn-hero-outline:hover {
-    border-color: #006B63;
+.text-content h1.title2 {
     color: #006B63 !important;
-    background: #f0fdf4;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    font-size: 58px !important;
+    font-weight: 900 !important;
+    line-height: 1.12 !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.5px !important;
+    text-transform: uppercase !important;
+    opacity: 0;
+}
+.text-content p {
+    color: #334155 !important;
+    font-size: 15.5px !important;
+    line-height: 1.65 !important;
+    max-width: 580px;
+    margin-bottom: 28px !important;
+    opacity: 0;
+}
+.text-content .banner-readmore {
+    opacity: 0;
 }
 
-/* Quick Floating Indicator Cards for Experience */
-.hero-floating-badge {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-radius: 10px;
-    padding: 12px 18px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 25px rgba(0, 46, 91, 0.08);
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 15px;
+/* EXACT TEMPLATE-89 VIEW SERVICES BUTTON */
+.banner-btn {
+    border: 2px solid #002e5b !important;
+    border-radius: 3px !important;
+    color: #002e5b !important;
+    display: inline-block !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 42px !important;
+    padding: 0 28px !important;
+    margin-right: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
+.banner-btn:hover {
+    background: #002e5b !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
+}
+
+/* EXACT TEMPLATE-89 KEYFRAME ANIMATIONS */
+.animated {
+    animation-duration: 0.85s;
+    animation-fill-mode: both;
+}
+.slideInDown {
+    animation-name: slideInDown;
+}
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* EXACT TEMPLATE-89 LEFT & RIGHT BOX NAVIGATION ARROWS */
+.slider-wrapper .owl-nav {
+    display: block;
+}
+.slider-wrapper .owl-prev, .slider-wrapper .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 72px;
+    background: #002e5b !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    transition: all 0.3s ease !important;
+    z-index: 10;
+    opacity: 0.9;
+}
+.slider-wrapper .owl-prev:hover, .slider-wrapper .owl-next:hover {
+    background: #006B63 !important;
+    opacity: 1;
+}
+.slider-wrapper .owl-prev { left: 0; border-radius: 0 4px 4px 0 !important; }
+.slider-wrapper .owl-next { right: 0; border-radius: 4px 0 0 4px !important; }
 
 /* Subpage Banner */
 .page-banner {
@@ -479,7 +407,7 @@ body {
     margin-bottom: 0;
 }
 
-/* 3D Interactive Cards & Animations */
+/* 3D Cards & Animations */
 .blog-card, .single-item, .leader-card, .stat-counter-box, .calc-box-card {
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease !important;
 }
@@ -582,7 +510,7 @@ body {
 .single-item {
     background: #ffffff;
     padding: 30px 25px;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
     margin-bottom: 30px;
     border: 1px solid #edf2f7;
@@ -777,9 +705,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* ==========================================================================
-   MOBILE HIGH-DPI & SHARP VIEWPORT RESPONSIVENESS
-   ========================================================================== */
+/* RESPONSIVE */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
     
@@ -842,42 +768,14 @@ body {
         justify-content: center !important;
     }
     
-    .hero-master-section { min-height: 540px !important; }
-    .hero-master-overlay {
-        background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 65%, rgba(255,255,255,0.45) 100%) !important;
-    }
-    .hero-master-content { padding: 35px 0 35px 0 !important; }
+    .slider-area, .single-slide { height: 440px !important; }
+    .text-content-wrapper { height: 440px !important; padding-top: 20px !important; }
+    .text-content h3.title1 { font-size: 13.5px !important; margin-bottom: 4px !important; }
+    .text-content h1.title2 { font-size: 32px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
+    .text-content p { font-size: 13px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+    .banner-btn { padding: 0 16px !important; font-size: 11.5px !important; line-height: 34px !important; margin-right: 6px !important; margin-bottom: 6px !important; }
     
-    .hero-main-title {
-        font-size: 32px !important;
-        line-height: 1.18 !important;
-        margin-bottom: 12px !important;
-    }
-    .rotating-word-container {
-        height: 40px !important;
-    }
-    .hero-brand-line {
-        font-size: 16px !important;
-        margin-bottom: 10px !important;
-    }
-    .hero-desc-text {
-        font-size: 13.5px !important;
-        line-height: 1.6 !important;
-        margin-bottom: 22px !important;
-        color: #1e293b !important;
-    }
-    .btn-hero-primary {
-        padding: 10px 22px !important;
-        font-size: 13.5px !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-    .btn-hero-outline {
-        padding: 10px 22px !important;
-        font-size: 13.5px !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
+    .slider-wrapper .owl-prev, .slider-wrapper .owl-next { width: 32px !important; height: 50px !important; font-size: 16px !important; }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
     .page-banner h1 { font-size: 24px !important; }
@@ -1101,22 +999,60 @@ body {
                 $('#mobile-menu-drawer').toggleClass('open');
             });
 
-            // DYNAMIC 3D ROTATING TEXT MORPHER (Runs reliably on every Mobile & Desktop browser)
-            var $words = $('.rotating-word-item');
-            if ($words.length) {
-                var currentIndex = 0;
-                setInterval(function() {
-                    var $current = $words.eq(currentIndex);
-                    $current.removeClass('active').addClass('leaving');
-                    
-                    currentIndex = (currentIndex + 1) % $words.length;
-                    var $next = $words.eq(currentIndex);
-                    $next.removeClass('leaving').addClass('active');
+            // EXACT TEMPLATE-89 HERO SLIDER WITH PROVEN KEYFRAME WORD ENTRANCE
+            var $heroSlider = $(".slider-wrapper");
+            if ($heroSlider.length) {
+                function doAnimation(elems) {
+                    var animEndEv = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                    elems.each(function () {
+                        var $this = $(this);
+                        var $animationType = $this.data('animation');
+                        var $animationDelay = $this.data('delay') || '0s';
+                        $this.css({
+                            'animation-delay': $animationDelay,
+                            '-webkit-animation-delay': $animationDelay
+                        }).addClass($animationType).one(animEndEv, function () {
+                            $this.removeClass($animationType);
+                        });
+                    });
+                }
 
-                    setTimeout(function() {
-                        $current.removeClass('leaving');
-                    }, 700);
-                }, 2800);
+                $heroSlider.on('init.owl.carousel translated.owl.carousel', function (e) {
+                    var $elem = $(e.target).find(".owl-item.active");
+                    var $animateElem = $elem.find("[data-animation]");
+                    
+                    // Reset all
+                    $('.slider-wrapper').find("[data-animation]").removeClass('animated slideInDown fadeInUp').css('opacity', '0');
+                    
+                    // Animate active slide elements
+                    $elem.find("h3.title1").addClass('animated slideInDown').css('opacity', '1');
+                    $elem.find("h1.title2").css('animation-delay', '0.2s').addClass('animated fadeInUp').css('opacity', '1');
+                    $elem.find("p").css('animation-delay', '0.4s').addClass('animated fadeInUp').css('opacity', '1');
+                    $elem.find(".banner-readmore").css('animation-delay', '0.6s').addClass('animated fadeInUp').css('opacity', '1');
+                });
+
+                $heroSlider.owlCarousel({
+                    items: 1,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 5500,
+                    autoplayHoverPause: true,
+                    smartSpeed: 800,
+                    nav: true,
+                    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+                    dots: false,
+                    touchDrag: true,
+                    mouseDrag: true
+                });
+
+                // Trigger first slide entrance immediately on load
+                setTimeout(function(){
+                    var $elem = $(".slider-wrapper .owl-item.active");
+                    $elem.find("h3.title1").addClass('animated slideInDown').css('opacity', '1');
+                    $elem.find("h1.title2").css('animation-delay', '0.2s').addClass('animated fadeInUp').css('opacity', '1');
+                    $elem.find("p").css('animation-delay', '0.4s').addClass('animated fadeInUp').css('opacity', '1');
+                    $elem.find(".banner-readmore").css('animation-delay', '0.6s').addClass('animated fadeInUp').css('opacity', '1');
+                }, 150);
             }
 
             // REVIEWS CAROUSEL SLIDER (CONTINUOUS SMOOTH ROTATION)
