@@ -1841,9 +1841,9 @@ body.drawer-open {
     <div class="modal fade" id="consultationModal" tabindex="-1" role="dialog" aria-labelledby="consultModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 12px; overflow: hidden;">
-                <div class="modal-header text-white" style="background: var(--ca-primary, #006B63); border: none;">
-                    <h5 class="modal-title font-weight-bold" id="consultModalLabel"><i class="fa fa-calendar-check-o mr-2"></i> Book CA Consultation</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity: 0.9;">
+                <div class="modal-header text-white d-flex justify-content-between align-items-center" style="background: var(--ca-primary, #006B63); border: none; padding: 14px 20px;">
+                    <h5 class="modal-title font-weight-bold mb-0" id="consultModalLabel"><i class="fa fa-calendar-check-o mr-2"></i> Book CA Consultation</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" onclick="$('#consultationModal').modal('hide');" aria-label="Close" style="opacity: 1; cursor: pointer !important; font-size: 30px; font-weight: 300; background: transparent; border: none; outline: none; padding: 4px 8px; line-height: 1; position: relative; z-index: 999999; pointer-events: auto !important;">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -1992,6 +1992,11 @@ body.drawer-open {
             $(document).on('click', '.consult-btn, [data-target="#consultationModal"]', function(e){
                 e.preventDefault();
                 $('#consultationModal').modal('show');
+            });
+
+            $(document).on('click', '[data-dismiss="modal"], #consultationModal .close', function(e){
+                e.preventDefault();
+                $('#consultationModal').modal('hide');
             });
 
             // REAL-TIME SCROLL-DRIVEN CINEMATIC SCENE CONTROLLER (60FPS GPU ENGINE)
