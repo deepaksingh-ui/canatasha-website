@@ -1143,6 +1143,100 @@ body.drawer-open {
     background: var(--ca-primary, #006B63);
 }
 
+/* ==========================================================================
+   CINEMATIC SCENE PROGRESSIVE REVEAL SYSTEM (SMOOTH MOVIE-LIKE SCROLL ANIMATIONS)
+   ========================================================================== */
+.cinematic-scene {
+    opacity: 0;
+    transform: translateY(36px) scale(0.97);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.cinematic-scene.is-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+}
+
+/* STAGGERED REVEAL FOR HEADINGS, BADGES, AND CARDS */
+.cinematic-scene .service-badge,
+.cinematic-scene h2,
+.cinematic-scene p.text-muted,
+.cinematic-scene .single-item,
+.cinematic-scene .team-card-unified,
+.cinematic-scene .impact-card,
+.cinematic-scene .blog-card,
+.cinematic-scene .google-badge-box,
+.cinematic-scene .review-card-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinematic-scene.is-revealed .service-badge {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0.06s;
+}
+
+.cinematic-scene.is-revealed h2 {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0.12s;
+}
+
+.cinematic-scene.is-revealed p.text-muted {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0.18s;
+}
+
+.cinematic-scene.is-revealed .single-item,
+.cinematic-scene.is-revealed .team-card-unified,
+.cinematic-scene.is-revealed .impact-card,
+.cinematic-scene.is-revealed .blog-card,
+.cinematic-scene.is-revealed .google-badge-box,
+.cinematic-scene.is-revealed .review-card-item {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Child stagger animation */
+.cinematic-scene.is-revealed .col-lg-4:nth-child(1) .single-item,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(1) .team-card-unified,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(1) .impact-card,
+.cinematic-scene.is-revealed .col-lg-4:nth-child(1) .blog-card {
+    transition-delay: 0.16s;
+}
+
+.cinematic-scene.is-revealed .col-lg-4:nth-child(2) .single-item,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(2) .team-card-unified,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(2) .impact-card,
+.cinematic-scene.is-revealed .col-lg-4:nth-child(2) .blog-card {
+    transition-delay: 0.28s;
+}
+
+.cinematic-scene.is-revealed .col-lg-4:nth-child(3) .single-item,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(3) .team-card-unified,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(3) .impact-card,
+.cinematic-scene.is-revealed .col-lg-4:nth-child(3) .blog-card {
+    transition-delay: 0.40s;
+}
+
+.cinematic-scene.is-revealed .col-lg-4:nth-child(4) .single-item,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(4) .team-card-unified,
+.cinematic-scene.is-revealed .col-lg-3:nth-child(4) .impact-card {
+    transition-delay: 0.52s;
+}
+
+.cinematic-scene.is-revealed .col-lg-4:nth-child(5) .single-item {
+    transition-delay: 0.64s;
+}
+
+.cinematic-scene.is-revealed .col-lg-4:nth-child(6) .single-item {
+    transition-delay: 0.76s;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;
@@ -2084,6 +2178,48 @@ body.drawer-open {
                 }
             }
             window.addEventListener('scroll', checkSticky, { passive: true });
+
+            // CINEMATIC SCENE PROGRESSIVE REVEAL CONTROLLER (FADE-IN & ZOOM-IN ON SCROLL)
+            function initCinematicScroll() {
+                var scenes = document.querySelectorAll('.cinematic-scene');
+                if (!scenes.length) return;
+
+                function checkReveal() {
+                    var triggerPoint = (window.innerHeight || document.documentElement.clientHeight) * 0.90;
+                    scenes.forEach(function(scene) {
+                        var rect = scene.getBoundingClientRect();
+                        if (rect.top < triggerPoint && rect.bottom > 40) {
+                            scene.classList.add('is-revealed');
+                        }
+                    });
+                }
+
+                if ('IntersectionObserver' in window) {
+                    var sceneObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-revealed');
+                            }
+                        });
+                    }, {
+                        threshold: 0.08,
+                        rootMargin: '0px 0px -40px 0px'
+                    });
+
+                    scenes.forEach(function(s) {
+                        sceneObserver.observe(s);
+                    });
+                }
+
+                window.addEventListener('scroll', checkReveal, { passive: true });
+                window.addEventListener('touchmove', checkReveal, { passive: true });
+                checkReveal();
+                
+                // Immediately reveal first two scenes
+                if (scenes.length > 0) scenes[0].classList.add('is-revealed');
+                if (scenes.length > 1) setTimeout(function(){ scenes[1].classList.add('is-revealed'); }, 120);
+            }
+            initCinematicScroll();
 
             // ROBUST COUNT-UP ANIMATION FOR TRUSTED BY SECTION (DESKTOP & MOBILE)
             function initCounterAnimation() {
