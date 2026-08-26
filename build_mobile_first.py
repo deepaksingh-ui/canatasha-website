@@ -248,13 +248,6 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    opacity: 1;
-    transition: opacity 0.25s var(--ca-easing);
-}
-
-body.page-transitioning {
-    opacity: 0.15;
-    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -880,13 +873,6 @@ body.page-transitioning {
     }
 }
 
-.img-blur-reveal {
-    filter: blur(10px);
-    transition: filter 0.6s ease;
-}
-.img-blur-reveal.loaded {
-    filter: blur(0px);
-}
 
 .reveal-on-scroll {
     opacity: 0;
@@ -1179,7 +1165,7 @@ home_body = """
                                     <h1 class="title">CA NATASHA RAJVAIDYA</h1>
                                     <p class="description">Leading ISO 9001:2015 certified Chartered Accountancy firm in Bhopal offering strategic Tax Planning, Statutory Audits, GST Litigation, and Corporate Advisory.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn nav-transition-link" href="about-us.html">About Firm</a>
+                                        <a class="theme-btn " href="about-us.html">About Firm</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Consult CA</a>
                                     </div>
                                 </div>
@@ -1205,7 +1191,7 @@ home_body = """
                                     <h1 class="title">FOR YOUR BUSINESS</h1>
                                     <p class="description">Natasha &amp; Company is an ISO 9001:2015 Certified Chartered Accountant firm delivering Strategic Tax Planning, Audits, GST, and Corporate Advisory services.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn nav-transition-link" href="services.html">View Services</a>
+                                        <a class="theme-btn " href="services.html">View Services</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Get a Quote</a>
                                     </div>
                                 </div>
@@ -1231,7 +1217,7 @@ home_body = """
                                     <h1 class="title">NATASHA &amp; COMPANY</h1>
                                     <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn nav-transition-link" href="contact-us.html">Contact Us</a>
+                                        <a class="theme-btn " href="contact-us.html">Contact Us</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Book Consultation</a>
                                     </div>
                                 </div>
@@ -1259,50 +1245,50 @@ home_body = """
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <div class="single-item">
-                        <img src="images/hand.webp" class="img-blur-reveal" alt="Accounting & Bookkeeping Services Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/hand.webp" class="" alt="Accounting & Bookkeeping Services Bhopal" loading="lazy" decoding="async"/>
                         <h4>Accounting &amp; Bookkeeping</h4>
                         <p class="text-muted">End-to-end accounting setup, ledger maintenance, MIS reporting, and balance sheet finalization under Indian Accounting Standards.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <div class="single-item">
-                        <img src="images/cash.webp" class="img-blur-reveal" alt="Direct Tax & ITR Filing Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/cash.webp" class="" alt="Direct Tax & ITR Filing Bhopal" loading="lazy" decoding="async"/>
                         <h4>Direct Taxation &amp; ITR</h4>
                         <p class="text-muted">Proactive tax planning for individuals &amp; corporates, Advance Tax calculation, TDS filing, and representation before assessing officers.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
                     <div class="single-item">
-                        <img src="images/plan.webp" class="img-blur-reveal" alt="GST Registration & Notice Litigation MP Nagar Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/plan.webp" class="" alt="GST Registration & Notice Litigation MP Nagar Bhopal" loading="lazy" decoding="async"/>
                         <h4>GST Advisory &amp; Litigation</h4>
                         <p class="text-muted">GST registration, monthly return filing, Input Tax Credit (ITC) optimization, ISD mechanism, and defense against show cause notices.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
                     <div class="single-item">
-                        <img src="images/brif.webp" class="img-blur-reveal" alt="Statutory & Tax Audit Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/brif.webp" class="" alt="Statutory & Tax Audit Bhopal" loading="lazy" decoding="async"/>
                         <h4>Auditing &amp; Assurance</h4>
                         <p class="text-muted">Statutory Audits under Companies Act 2013, Tax Audits under Section 44AB, Internal Audits, Stock Audits, and Forensic Verification.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-5">
                     <div class="single-item">
-                        <img src="images/commo.webp" class="img-blur-reveal" alt="Company & LLP Registration MP Nagar Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/commo.webp" class="" alt="Company & LLP Registration MP Nagar Bhopal" loading="lazy" decoding="async"/>
                         <h4>Company &amp; LLP Formation</h4>
                         <p class="text-muted">Private Limited, OPC, and LLP incorporation in Bhopal. Digital Signatures, DIN, MOA/AOA drafting, and annual MCA ROC filings.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-6">
                     <div class="single-item">
-                        <img src="images/reti.webp" class="img-blur-reveal" alt="Trust NGO 12A 80G Registration Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/reti.webp" class="" alt="Trust NGO 12A 80G Registration Bhopal" loading="lazy" decoding="async"/>
                         <h4>Societies, Trust &amp; NGO Laws</h4>
                         <p class="text-muted">Registration of Charitable Trusts and Societies, Section 12A &amp; 80G tax exemptions, CSR compliance, and FCRA representations.</p>
-                        <a href="services.html" class="text-success font-weight-bold nav-transition-link">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -1338,12 +1324,12 @@ home_body = """
                         </div>
                     </div>
                     <div class="mt-3">
-                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2 nav-transition-link" style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
+                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2 " style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
                     <div class="p-4 bg-light rounded shadow-sm border leader-card">
-                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya FCA - Best CA in Bhopal" class="rounded-circle mb-3 shadow img-blur-reveal" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya FCA - Best CA in Bhopal" class="rounded-circle mb-3 shadow " style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                         <h4 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h4>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Fellow Chartered Accountant (FCA) &bull; Founder</span>
                         <p class="text-muted small px-3">Expert in Direct Tax planning, Corporate Audits, GST Litigation, and Business Advisory with over 8 years of dedicated practice in Bhopal.</p>
@@ -1369,7 +1355,7 @@ home_body = """
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/natasha.jpg" class="img-blur-reveal" alt="CA Natasha Rajvaidya - Chartered Accountant Bhopal" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                            <img src="images/natasha.jpg" class="" alt="CA Natasha Rajvaidya - Chartered Accountant Bhopal" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
                         <div class="mb-2">
@@ -1393,7 +1379,7 @@ home_body = """
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-2.webp" class="img-blur-reveal" alt="Ashish & Associates - Senior Partner" loading="lazy" decoding="async"/>
+                            <img src="images/team-2.webp" class="" alt="Ashish & Associates - Senior Partner" loading="lazy" decoding="async"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
                         <div class="mb-2">
@@ -1407,7 +1393,7 @@ home_body = """
                             <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Auditing%20Services." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
                             <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
                         </div>
-                        <a href="contact-us.html" class="team-connect-btn nav-transition-link">
+                        <a href="contact-us.html" class="team-connect-btn ">
                             <i class="fa fa-envelope mr-1"></i> Connect with Lead
                         </a>
                     </div>
@@ -1417,7 +1403,7 @@ home_body = """
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-3.webp" class="img-blur-reveal" alt="GST Specialist Bhopal" loading="lazy" decoding="async"/>
+                            <img src="images/team-3.webp" class="" alt="GST Specialist Bhopal" loading="lazy" decoding="async"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
                         <div class="mb-2">
@@ -1431,7 +1417,7 @@ home_body = """
                             <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20GST%20Litigation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
                             <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
                         </div>
-                        <a href="contact-us.html" class="team-connect-btn nav-transition-link">
+                        <a href="contact-us.html" class="team-connect-btn ">
                             <i class="fa fa-envelope mr-1"></i> Connect with Advisor
                         </a>
                     </div>
@@ -1441,7 +1427,7 @@ home_body = """
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
                         <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-4.webp" class="img-blur-reveal" alt="Corporate Law Advisor Bhopal" loading="lazy" decoding="async"/>
+                            <img src="images/team-4.webp" class="" alt="Corporate Law Advisor Bhopal" loading="lazy" decoding="async"/>
                         </div>
                         <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
                         <div class="mb-2">
@@ -1455,7 +1441,7 @@ home_body = """
                             <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Company%20Formation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
                             <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
                         </div>
-                        <a href="contact-us.html" class="team-connect-btn nav-transition-link">
+                        <a href="contact-us.html" class="team-connect-btn ">
                             <i class="fa fa-envelope mr-1"></i> Connect with Legal
                         </a>
                     </div>
@@ -1593,64 +1579,6 @@ home_body = """
         </div>
     </section>
 
-    <!-- 4.8 GOOGLE REVIEWS SECTION WITH AUTO-SLIDING CAROUSEL -->
-    <section class="py-5" style="background-color: #ffffff;">
-        <div class="container">
-            <div class="row align-items-center mb-4">
-                <div class="col-md-7 reveal-on-scroll">
-                    <span class="service-badge">Client Trust</span>
-                    <h2 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 34px;">Google Verified Client Reviews</h2>
-                    <p class="text-muted small">Real feedback from business owners and professionals in Bhopal.</p>
-                </div>
-                <div class="col-md-5 text-md-right reveal-on-scroll reveal-delay-1">
-                    <div class="d-inline-flex align-items-center p-2 px-3 bg-light rounded border">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 24px;" class="mr-2" alt="Google"/>
-                        <div class="text-left">
-                            <span class="font-weight-bold d-block" style="font-size: 14px; line-height: 1.2;">4.8 / 5.0 Rating</span>
-                            <small class="text-muted"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i> (50+ Reviews)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-carousel reviews-carousel">
-                        <!-- Review 1 -->
-                        <div class="item p-2">
-                            <div class="p-4 bg-white rounded shadow-sm border h-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <div class="d-flex align-items-center">
-                                            <img src="images/team-2.webp" class="reviewer-avatar mr-2" alt="Rahul" loading="lazy" decoding="async"/>
-                                            <div>
-                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Rahul Sharma</h6>
-                                                <small class="text-muted" style="font-size: 11px;">1 year ago</small>
-                                            </div>
-                                        </div>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google" loading="lazy" decoding="async"/>
-                                    </div>
-                                    <div class="text-warning mb-2" style="font-size: 13px;">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    </div>
-                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
-                                        "Best CA in Bhopal for startup registration and GST notice resolution. Resolved our pending refund smoothly!"
-                                    </p>
-                                </div>
-                                <div class="mt-2 text-right">
-                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-right mt-3">
-                <span class="badge badge-light text-muted small px-3 py-1 font-weight-normal border">Showing only 4-5 star verified reviews &bull; Auto-sliding</span>
-            </div>
-        </div>
-    </section>
 
     <!-- LIVE NEWS & DUE DATE REMINDERS -->
     <section class="py-5">
@@ -1791,9 +1719,9 @@ blog_cards_html = ""
 for idx, p in enumerate(curated_posts):
     blog_cards_html += f"""
     <div class="col-lg-6 col-md-6 mb-4 blog-item reveal-on-scroll reveal-delay-{(idx%4)+1}">
-        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card nav-transition-link" onclick="window.location.href='{p['slug']}.html'">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card " onclick="window.location.href='{p['slug']}.html'">
             <div class="card-img-wrapper">
-                <img src="{p['img']}" class="card-img-top w-100 h-100 img-blur-reveal" alt="{p['title']}" style="object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
+                <img src="{p['img']}" class="card-img-top w-100 h-100 " alt="{p['title']}" style="object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
                 <div style="position: absolute; top: 12px; left: 12px;">
                     <span class="badge badge-{p['badge_color']} px-3 py-1 font-weight-bold shadow-sm">{p['category']}</span>
                 </div>
@@ -1806,7 +1734,7 @@ for idx, p in enumerate(curated_posts):
                         <span><i class="fa fa-calendar text-muted mr-1"></i> {p['date']}</span>
                     </div>
                     <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
-                        <a href="{p['slug']}.html" class="text-decoration-none nav-transition-link" style="color: #002e5b;">{p['title']}</a>
+                        <a href="{p['slug']}.html" class="text-decoration-none " style="color: #002e5b;">{p['title']}</a>
                     </h5>
                     <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">{p['excerpt']}</p>
                 </div>
@@ -1825,9 +1753,9 @@ recent_sidebar_html = "<ul class='list-unstyled mb-0'>"
 for p in curated_posts[:5]:
     recent_sidebar_html += f"""
     <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
-        <img src="{p['img']}" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3 img-blur-reveal" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
+        <img src="{p['img']}" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3 " loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
         <div>
-            <a href="{p['slug']}.html" class="font-weight-bold text-dark text-decoration-none small d-block nav-transition-link" style="line-height: 1.3;">{p['title']}</a>
+            <a href="{p['slug']}.html" class="font-weight-bold text-dark text-decoration-none small d-block " style="line-height: 1.3;">{p['title']}</a>
             <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> {p['date']}</small>
         </div>
     </li>
@@ -2041,7 +1969,7 @@ __MASTER_CSS__
                     <!-- CLEAN UNIFIED BRAND LOGO -->
                     <div class="logo-wrapper">
                         <div class="logo">
-                            <a href="index.html" class="nav-transition-link">
+                            <a href="index.html" class="">
                                 <img src="images/brand-logo.png" alt="Natasha &amp; Co. Chartered Accountants" loading="lazy" decoding="async"/>
                             </a>
                         </div>
@@ -2136,25 +2064,25 @@ __BODY_CONTENT__
                 <div class="col-lg-2 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="index.html" class="nav-transition-link">Home</a></li>
-                        <li class="mb-2"><a href="about-us.html" class="nav-transition-link">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Our Services</a></li>
-                        <li class="mb-2"><a href="knowledge-base.html" class="nav-transition-link">Knowledge Base</a></li>
-                        <li class="mb-2"><a href="career.html" class="nav-transition-link">Career</a></li>
-                        <li class="mb-2"><a href="blog.html" class="nav-transition-link">Blog &amp; Insights</a></li>
-                        <li class="mb-2"><a href="contact-us.html" class="nav-transition-link">Contact Us</a></li>
-                        <li class="mb-2"><a href="privacy-policy.html" class="nav-transition-link">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="index.html" class="">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html" class="">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Our Services</a></li>
+                        <li class="mb-2"><a href="knowledge-base.html" class="">Knowledge Base</a></li>
+                        <li class="mb-2"><a href="career.html" class="">Career</a></li>
+                        <li class="mb-2"><a href="blog.html" class="">Blog &amp; Insights</a></li>
+                        <li class="mb-2"><a href="contact-us.html" class="">Contact Us</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html" class="">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <h5 class="text-white font-weight-bold mb-3">Our Practice</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Income Tax &amp; TDS Filing</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">GST Registration &amp; Returns</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Statutory &amp; Tax Audits</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Company &amp; LLP Formation</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Societies, Trust &amp; NGO Laws</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Income Tax &amp; TDS Filing</a></li>
+                        <li class="mb-2"><a href="services.html" class="">GST Registration &amp; Returns</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Statutory &amp; Tax Audits</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Company &amp; LLP Formation</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Societies, Trust &amp; NGO Laws</a></li>
                     </ul>
                 </div>
 
@@ -2182,7 +2110,7 @@ __BODY_CONTENT__
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7 text-center text-md-left">
-                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted nav-transition-link">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted nav-transition-link">Terms &amp; Conditions</a></p>
+                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted ">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted ">Terms &amp; Conditions</a></p>
                     </div>
                     <div class="col-md-5 text-center text-md-right mt-2 mt-md-0">
                         <p class="mb-0 text-muted small">Designed for <strong>CA Natasha &amp; Co.</strong></p>
@@ -2372,17 +2300,7 @@ __BODY_CONTENT__
                 }, 600);
             });
 
-            // 10. SMOOTH PAGE TRANSITION
-            $('.nav-transition-link').on('click', function(e){
-                var targetHref = $(this).attr('href');
-                if (targetHref && targetHref.indexOf('.html') !== -1 && targetHref.indexOf('#') === -1 && !$(this).attr('target')) {
-                    e.preventDefault();
-                    $('body').addClass('page-transitioning');
-                    setTimeout(function(){
-                        window.location.href = targetHref;
-                    }, 150);
-                }
-            });
+
 
             // 2. SCROLL PROGRESS INDICATOR (FLUID ON MOBILE & LAPTOP)
             function updateScrollProgress() {
@@ -2485,26 +2403,6 @@ __BODY_CONTENT__
                 startAutoPlay();
             })();
 
-            // 4. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
-            if ($(".reviews-carousel").length) {
-                $(".reviews-carousel").owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    autoplay: true,
-                    autoplayTimeout: 3500,
-                    autoplayHoverPause: true,
-                    smartSpeed: 650,
-                    responsive: {
-                        0: { items: 1 },
-                        768: { items: 1 },
-                        992: { items: 2 }
-                    },
-                    dots: true,
-                    nav: false,
-                    touchDrag: true,
-                    mouseDrag: true
-                });
-            }
 
             // 5. Sticky Header
             function checkSticky() {
@@ -2623,8 +2521,8 @@ def master_layout(page_title, active_key, body_content, custom_meta=None):
     for key, url, label in nav_items:
         is_active = (active_key == key)
         active_cls = 'active' if is_active else ''
-        desktop_nav_html += f'<li class="{active_cls}"><a href="{url}" class="nav-transition-link">{label}</a></li>\n'
-        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link nav-transition-link"><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
+        desktop_nav_html += f'<li class="{active_cls}"><a href="{url}" class="">{label}</a></li>\n'
+        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link "><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
 
     meta = custom_meta or seo_meta.get(active_key, {
         "title": f"{page_title} | Natasha & Company – Chartered Accountants",
@@ -2688,7 +2586,7 @@ for p in curated_posts:
                 <div class="col-lg-8">
                     <div class="bg-white p-4 p-md-5 rounded shadow-sm border mb-4 reveal-on-scroll">
                         <div class="mb-4 text-center overflow-hidden rounded">
-                            <img src="{p['img']}" class="img-fluid rounded shadow-sm w-100 img-blur-reveal" style="max-height: 440px; object-fit: cover;" alt="{p['title']}" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
+                            <img src="{p['img']}" class="img-fluid rounded shadow-sm w-100 " style="max-height: 440px; object-fit: cover;" alt="{p['title']}" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
                         </div>
                         
                         <div class="article-content" style="font-size: 16px; line-height: 1.85; color: #334155;">
@@ -2719,7 +2617,7 @@ for p in curated_posts:
                             <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20read%20your%20article%20'{p['title'][:35]}'%20and%20would%20like%20to%20consult." target="_blank" class="btn btn-success px-4 py-2 font-weight-bold shadow">
                                 <i class="fa fa-whatsapp mr-1"></i> Consult CA Natasha on this Topic
                             </a>
-                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2 nav-transition-link">
+                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2 ">
                                 <i class="fa fa-th-large mr-1"></i> Back to All Blogs
                             </a>
                         </div>
@@ -2728,11 +2626,11 @@ for p in curated_posts:
 
                 <div class="col-lg-4">
                     <div class="bg-white p-4 rounded shadow-sm border mb-4 text-center reveal-on-scroll reveal-delay-1">
-                        <img src="images/natasha.jpg" alt="CA Natasha" class="leader-img img-blur-reveal" style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                        <img src="images/natasha.jpg" alt="CA Natasha" class="leader-img " style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                         <h5 class="font-weight-bold mb-1 mt-2" style="color: #002e5b;">CA Natasha Rajvaidya</h5>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Founder &amp; Principal Partner</span>
                         <p class="text-muted small mt-2">Expert in Direct Tax planning, Statutory Audits, Corporate Law, and Startup Advisory in Bhopal.</p>
-                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3 nav-transition-link">Contact Firm</a>
+                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3 ">Contact Firm</a>
                     </div>
                 </div>
             </div>

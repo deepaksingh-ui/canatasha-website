@@ -229,13 +229,6 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    opacity: 1;
-    transition: opacity 0.25s var(--ca-easing);
-}
-
-body.page-transitioning {
-    opacity: 0.15;
-    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -861,13 +854,6 @@ body.page-transitioning {
     }
 }
 
-.img-blur-reveal {
-    filter: blur(10px);
-    transition: filter 0.6s ease;
-}
-.img-blur-reveal.loaded {
-    filter: blur(0px);
-}
 
 .reveal-on-scroll {
     opacity: 0;

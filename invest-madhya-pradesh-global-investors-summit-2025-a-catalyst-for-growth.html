@@ -394,13 +394,6 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    opacity: 1;
-    transition: opacity 0.25s var(--ca-easing);
-}
-
-body.page-transitioning {
-    opacity: 0.15;
-    pointer-events: none;
 }
 
 /* ==========================================================================
@@ -1026,13 +1019,6 @@ body.page-transitioning {
     }
 }
 
-.img-blur-reveal {
-    filter: blur(10px);
-    transition: filter 0.6s ease;
-}
-.img-blur-reveal.loaded {
-    filter: blur(0px);
-}
 
 .reveal-on-scroll {
     opacity: 0;
@@ -1333,7 +1319,7 @@ body.page-transitioning {
                     <!-- CLEAN UNIFIED BRAND LOGO -->
                     <div class="logo-wrapper">
                         <div class="logo">
-                            <a href="index.html" class="nav-transition-link">
+                            <a href="index.html" class="">
                                 <img src="images/brand-logo.png" alt="Natasha &amp; Co. Chartered Accountants" loading="lazy" decoding="async"/>
                             </a>
                         </div>
@@ -1381,13 +1367,13 @@ body.page-transitioning {
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="collapse navbar-collapse" id="navbar-collapse">
                         <ul class="navbar-nav mr-auto">
-<li class=""><a href="index.html" class="nav-transition-link">Home</a></li>
-<li class=""><a href="about-us.html" class="nav-transition-link">About Us</a></li>
-<li class=""><a href="services.html" class="nav-transition-link">Services</a></li>
-<li class=""><a href="knowledge-base.html" class="nav-transition-link">Knowledge Base</a></li>
-<li class=""><a href="career.html" class="nav-transition-link">Career</a></li>
-<li class="active"><a href="blog.html" class="nav-transition-link">Blog</a></li>
-<li class=""><a href="contact-us.html" class="nav-transition-link">Contact Us</a></li>
+<li class=""><a href="index.html" class="">Home</a></li>
+<li class=""><a href="about-us.html" class="">About Us</a></li>
+<li class=""><a href="services.html" class="">Services</a></li>
+<li class=""><a href="knowledge-base.html" class="">Knowledge Base</a></li>
+<li class=""><a href="career.html" class="">Career</a></li>
+<li class="active"><a href="blog.html" class="">Blog</a></li>
+<li class=""><a href="contact-us.html" class="">Contact Us</a></li>
 
                         </ul>
                     </div>
@@ -1399,13 +1385,13 @@ body.page-transitioning {
         <div id="mobile-menu-drawer" class="d-lg-none">
             <div class="container px-0">
                 <ul>
-<li class=""><a href="index.html" class="mobile-nav-link nav-transition-link"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="about-us.html" class="mobile-nav-link nav-transition-link"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="services.html" class="mobile-nav-link nav-transition-link"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="knowledge-base.html" class="mobile-nav-link nav-transition-link"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="career.html" class="mobile-nav-link nav-transition-link"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class="active"><a href="blog.html" class="mobile-nav-link nav-transition-link"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="contact-us.html" class="mobile-nav-link nav-transition-link"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="index.html" class="mobile-nav-link "><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="about-us.html" class="mobile-nav-link "><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="services.html" class="mobile-nav-link "><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="knowledge-base.html" class="mobile-nav-link "><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="career.html" class="mobile-nav-link "><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class="active"><a href="blog.html" class="mobile-nav-link "><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="contact-us.html" class="mobile-nav-link "><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
 
                 </ul>
                 <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
@@ -1435,7 +1421,7 @@ body.page-transitioning {
                 <div class="col-lg-8">
                     <div class="bg-white p-4 p-md-5 rounded shadow-sm border mb-4 reveal-on-scroll">
                         <div class="mb-4 text-center overflow-hidden rounded">
-                            <img src="images/invest-MP.jpg" class="img-fluid rounded shadow-sm w-100 img-blur-reveal" style="max-height: 440px; object-fit: cover;" alt="Invest Madhya Pradesh – Global Investors Summit 2025: A Catalyst for Growth" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
+                            <img src="images/invest-MP.jpg" class="img-fluid rounded shadow-sm w-100 " style="max-height: 440px; object-fit: cover;" alt="Invest Madhya Pradesh – Global Investors Summit 2025: A Catalyst for Growth" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
                         </div>
                         
                         <div class="article-content" style="font-size: 16px; line-height: 1.85; color: #334155;">
@@ -1466,7 +1452,7 @@ body.page-transitioning {
                             <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20read%20your%20article%20'Invest Madhya Pradesh – Global Inve'%20and%20would%20like%20to%20consult." target="_blank" class="btn btn-success px-4 py-2 font-weight-bold shadow">
                                 <i class="fa fa-whatsapp mr-1"></i> Consult CA Natasha on this Topic
                             </a>
-                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2 nav-transition-link">
+                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2 ">
                                 <i class="fa fa-th-large mr-1"></i> Back to All Blogs
                             </a>
                         </div>
@@ -1475,11 +1461,11 @@ body.page-transitioning {
 
                 <div class="col-lg-4">
                     <div class="bg-white p-4 rounded shadow-sm border mb-4 text-center reveal-on-scroll reveal-delay-1">
-                        <img src="images/natasha.jpg" alt="CA Natasha" class="leader-img img-blur-reveal" style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                        <img src="images/natasha.jpg" alt="CA Natasha" class="leader-img " style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                         <h5 class="font-weight-bold mb-1 mt-2" style="color: #002e5b;">CA Natasha Rajvaidya</h5>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Founder &amp; Principal Partner</span>
                         <p class="text-muted small mt-2">Expert in Direct Tax planning, Statutory Audits, Corporate Law, and Startup Advisory in Bhopal.</p>
-                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3 nav-transition-link">Contact Firm</a>
+                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3 ">Contact Firm</a>
                     </div>
                 </div>
             </div>
@@ -1507,25 +1493,25 @@ body.page-transitioning {
                 <div class="col-lg-2 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
                     <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="index.html" class="nav-transition-link">Home</a></li>
-                        <li class="mb-2"><a href="about-us.html" class="nav-transition-link">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Our Services</a></li>
-                        <li class="mb-2"><a href="knowledge-base.html" class="nav-transition-link">Knowledge Base</a></li>
-                        <li class="mb-2"><a href="career.html" class="nav-transition-link">Career</a></li>
-                        <li class="mb-2"><a href="blog.html" class="nav-transition-link">Blog &amp; Insights</a></li>
-                        <li class="mb-2"><a href="contact-us.html" class="nav-transition-link">Contact Us</a></li>
-                        <li class="mb-2"><a href="privacy-policy.html" class="nav-transition-link">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="index.html" class="">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html" class="">About Us</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Our Services</a></li>
+                        <li class="mb-2"><a href="knowledge-base.html" class="">Knowledge Base</a></li>
+                        <li class="mb-2"><a href="career.html" class="">Career</a></li>
+                        <li class="mb-2"><a href="blog.html" class="">Blog &amp; Insights</a></li>
+                        <li class="mb-2"><a href="contact-us.html" class="">Contact Us</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html" class="">Privacy Policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
                     <h5 class="text-white font-weight-bold mb-3">Our Practice</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Income Tax &amp; TDS Filing</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">GST Registration &amp; Returns</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Statutory &amp; Tax Audits</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Company &amp; LLP Formation</a></li>
-                        <li class="mb-2"><a href="services.html" class="nav-transition-link">Societies, Trust &amp; NGO Laws</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Income Tax &amp; TDS Filing</a></li>
+                        <li class="mb-2"><a href="services.html" class="">GST Registration &amp; Returns</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Statutory &amp; Tax Audits</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Company &amp; LLP Formation</a></li>
+                        <li class="mb-2"><a href="services.html" class="">Societies, Trust &amp; NGO Laws</a></li>
                     </ul>
                 </div>
 
@@ -1553,7 +1539,7 @@ body.page-transitioning {
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7 text-center text-md-left">
-                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted nav-transition-link">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted nav-transition-link">Terms &amp; Conditions</a></p>
+                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted ">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted ">Terms &amp; Conditions</a></p>
                     </div>
                     <div class="col-md-5 text-center text-md-right mt-2 mt-md-0">
                         <p class="mb-0 text-muted small">Designed for <strong>CA Natasha &amp; Co.</strong></p>
@@ -1743,17 +1729,7 @@ body.page-transitioning {
                 }, 600);
             });
 
-            // 10. SMOOTH PAGE TRANSITION
-            $('.nav-transition-link').on('click', function(e){
-                var targetHref = $(this).attr('href');
-                if (targetHref && targetHref.indexOf('.html') !== -1 && targetHref.indexOf('#') === -1 && !$(this).attr('target')) {
-                    e.preventDefault();
-                    $('body').addClass('page-transitioning');
-                    setTimeout(function(){
-                        window.location.href = targetHref;
-                    }, 150);
-                }
-            });
+
 
             // 2. SCROLL PROGRESS INDICATOR (FLUID ON MOBILE & LAPTOP)
             function updateScrollProgress() {
@@ -1856,26 +1832,6 @@ body.page-transitioning {
                 startAutoPlay();
             })();
 
-            // 4. REVIEWS CAROUSEL SLIDER (TOUCH & SWIPE RESPONSIVE)
-            if ($(".reviews-carousel").length) {
-                $(".reviews-carousel").owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    autoplay: true,
-                    autoplayTimeout: 3500,
-                    autoplayHoverPause: true,
-                    smartSpeed: 650,
-                    responsive: {
-                        0: { items: 1 },
-                        768: { items: 1 },
-                        992: { items: 2 }
-                    },
-                    dots: true,
-                    nav: false,
-                    touchDrag: true,
-                    mouseDrag: true
-                });
-            }
 
             // 5. Sticky Header
             function checkSticky() {
