@@ -2501,7 +2501,6 @@ __BODY_CONTENT__
             });
 
             // Mobile Menu Drawer Toggle with Backdrop and Scroll Lock
-            var menuBusy = false;
             function openMobileMenu() {
                 $('#mobile-toggle-btn').addClass('is-active');
                 $('#mobile-menu-drawer').addClass('open');
@@ -2514,34 +2513,34 @@ __BODY_CONTENT__
                 $('#mobile-backdrop').removeClass('open');
                 $('body').removeClass('drawer-open');
             }
-            function toggleMobileMenu(e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                if (menuBusy) return;
-                menuBusy = true;
-                setTimeout(function(){ menuBusy = false; }, 250);
 
+            $(document).on('click', '#mobile-toggle-btn', function(e){
+                e.preventDefault();
+                e.stopPropagation();
                 if ($('#mobile-menu-drawer').hasClass('open')) {
                     closeMobileMenu();
                 } else {
                     openMobileMenu();
                 }
-            }
+            });
 
-            // Single click event handler
-            $(document).on('click', '#mobile-toggle-btn', toggleMobileMenu);
-            $(document).on('click', '#mobile-backdrop', function(e){
+            $(document).on('click', '.mobile-drawer-close-btn, #mobile-backdrop', function(e){
                 e.preventDefault();
                 closeMobileMenu();
             });
-            $(document).on('click', '.mobile-drawer-close-btn', function(e){
-                e.preventDefault();
-                closeMobileMenu();
+
+            $(document).on('click', '#mobile-menu-drawer ul li a', function(e){
+                var href = $(this).attr('href');
+                if (href && href !== '#' && !href.startsWith('javascript:')) {
+                    closeMobileMenu();
+                }
             });
-            $(document).on('click', '#mobile-menu-drawer ul li a', function(){
-                closeMobileMenu();
+
+            $(document).on('click', '.theme-switch-btn', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                var theme = $(this).attr('data-theme');
+                applyTheme(theme);
             });
 
             // CINEMATIC 60FPS SCROLL REVEALS
@@ -2668,14 +2667,14 @@ __BODY_CONTENT__
                 startAutoPlay();
             })();
 
-            // REVIEWS CAROUSEL SLIDER
+            // REVIEWS CAROUSEL SLIDER (CONTINUOUS ROTATION ON TOUCH & DESKTOP)
             if ($(".reviews-carousel").length) {
-                $(".reviews-carousel").owlCarousel({
+                var $revCarousel = $(".reviews-carousel").owlCarousel({
                     loop: true,
                     margin: 15,
                     autoplay: true,
                     autoplayTimeout: 3500,
-                    autoplayHoverPause: true,
+                    autoplayHoverPause: false,
                     smartSpeed: 650,
                     responsive: {
                         0: { items: 1 },
@@ -2687,6 +2686,13 @@ __BODY_CONTENT__
                     touchDrag: true,
                     mouseDrag: true
                 });
+
+                // Dedicated continuous ticker
+                setInterval(function(){
+                    if ($revCarousel.length) {
+                        $revCarousel.trigger('next.owl.carousel', [650]);
+                    }
+                }, 3500);
             }
 
             // Sticky Header
