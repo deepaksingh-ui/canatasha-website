@@ -1053,27 +1053,33 @@ body.drawer-open {
 #mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.25s; }
 #mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.29s; }
 
-#mobile-menu-drawer ul li a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px 10px;
-    color: #002e5b;
-    font-weight: 700;
-    font-size: 15.5px;
-    text-decoration: none;
+#mobile-menu-drawer ul li a,
+.mobile-nav-link {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 13px 10px !important;
+    color: #002e5b !important;
+    font-weight: 700 !important;
+    font-size: 15.5px !important;
+    text-decoration: none !important;
     border-radius: 6px;
     transition: all 0.2s ease;
     cursor: pointer !important;
-    position: relative;
-    z-index: 5;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
     touch-action: manipulation;
+}
+#mobile-menu-drawer ul li a *,
+.mobile-nav-link * {
+    pointer-events: none !important;
 }
 #mobile-menu-drawer ul li a:hover,
 #mobile-menu-drawer ul li.active a {
-    color: #006B63;
-    background: rgba(0, 107, 99, 0.08);
-    padding-left: 14px;
+    color: #006B63 !important;
+    background: rgba(0, 107, 99, 0.08) !important;
+    padding-left: 14px !important;
 }
 #mobile-menu-drawer ul li a .nav-arrow {
     transition: transform 0.25s ease;
@@ -1447,13 +1453,13 @@ body.drawer-open {
                 </div>
             </div>
             <ul>
-<li class="active"><a href="index.html" class="mobile-nav-link"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="about-us.html" class="mobile-nav-link"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="services.html" class="mobile-nav-link"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="knowledge-base.html" class="mobile-nav-link"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="career.html" class="mobile-nav-link"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="blog.html" class="mobile-nav-link"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
-<li class=""><a href="contact-us.html" class="mobile-nav-link"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class="active"><a href="index.html" class="mobile-nav-link" onclick="window.location.href='index.html'; return true;"><span>Home</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="about-us.html" class="mobile-nav-link" onclick="window.location.href='about-us.html'; return true;"><span>About Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="services.html" class="mobile-nav-link" onclick="window.location.href='services.html'; return true;"><span>Services</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="knowledge-base.html" class="mobile-nav-link" onclick="window.location.href='knowledge-base.html'; return true;"><span>Knowledge Base</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="career.html" class="mobile-nav-link" onclick="window.location.href='career.html'; return true;"><span>Career</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="blog.html" class="mobile-nav-link" onclick="window.location.href='blog.html'; return true;"><span>Blog</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
+<li class=""><a href="contact-us.html" class="mobile-nav-link" onclick="window.location.href='contact-us.html'; return true;"><span>Contact Us</span><i class="fa fa-angle-right nav-arrow"></i></a></li>
 
             </ul>
             <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
@@ -2519,11 +2525,10 @@ body.drawer-open {
                 }
             });
 
-            $(document).on('click', '#mobile-menu-drawer ul li a', function(e){
+            $(document).on('click touchend', '#mobile-menu-drawer ul li a', function(e){
                 var href = $(this).attr('href');
                 if (href && href !== '#' && !href.startsWith('javascript:')) {
-                    closeMobileMenu();
-                    window.location.href = href;
+                    window.location.assign(href);
                 }
             });
 

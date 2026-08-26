@@ -905,27 +905,33 @@ body.drawer-open {
 #mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.25s; }
 #mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.29s; }
 
-#mobile-menu-drawer ul li a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px 10px;
-    color: #002e5b;
-    font-weight: 700;
-    font-size: 15.5px;
-    text-decoration: none;
+#mobile-menu-drawer ul li a,
+.mobile-nav-link {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 13px 10px !important;
+    color: #002e5b !important;
+    font-weight: 700 !important;
+    font-size: 15.5px !important;
+    text-decoration: none !important;
     border-radius: 6px;
     transition: all 0.2s ease;
     cursor: pointer !important;
-    position: relative;
-    z-index: 5;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
     touch-action: manipulation;
+}
+#mobile-menu-drawer ul li a *,
+.mobile-nav-link * {
+    pointer-events: none !important;
 }
 #mobile-menu-drawer ul li a:hover,
 #mobile-menu-drawer ul li.active a {
-    color: #006B63;
-    background: rgba(0, 107, 99, 0.08);
-    padding-left: 14px;
+    color: #006B63 !important;
+    background: rgba(0, 107, 99, 0.08) !important;
+    padding-left: 14px !important;
 }
 #mobile-menu-drawer ul li a .nav-arrow {
     transition: transform 0.25s ease;
@@ -2595,11 +2601,10 @@ __BODY_CONTENT__
                 }
             });
 
-            $(document).on('click', '#mobile-menu-drawer ul li a', function(e){
+            $(document).on('click touchend', '#mobile-menu-drawer ul li a', function(e){
                 var href = $(this).attr('href');
                 if (href && href !== '#' && !href.startsWith('javascript:')) {
-                    closeMobileMenu();
-                    window.location.href = href;
+                    window.location.assign(href);
                 }
             });
 
@@ -2894,7 +2899,7 @@ def master_layout(page_title, active_key, body_content, custom_meta=None):
         is_active = (active_key == key)
         active_cls = 'active' if is_active else ''
         desktop_nav_html += f'<li class="{active_cls}"><a href="{url}">{label}</a></li>\n'
-        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link"><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
+        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link" onclick="window.location.href=\'{url}\'; return true;"><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
 
     meta = custom_meta or seo_meta.get(active_key, {
         "title": f"{page_title} | Natasha & Company – Chartered Accountants",
