@@ -36,6 +36,14 @@ master_css = """
     -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #334155;
@@ -324,7 +332,11 @@ body.page-transitioning {
    ========================================================================== */
 .static-hero-area {
     position: relative;
-    height: 600px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 620px;
     background-image: url('images/banner-1.webp');
     background-size: cover;
     background-position: center right;
@@ -332,10 +344,18 @@ body.page-transitioning {
     overflow: hidden;
 }
 
+.static-hero-area .container-fluid {
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
 .hero-zoom-slider {
     position: relative;
-    height: 600px;
+    height: 620px;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .zoom-slide {
@@ -344,6 +364,8 @@ body.page-transitioning {
     left: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -477,34 +499,7 @@ body.page-transitioning {
 }
 
 .zoom-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 78px;
-    background: #002e5b;
-    color: #ffffff;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 100;
-    opacity: 0.9;
-    transition: background 0.3s, opacity 0.3s, transform 0.2s;
-}
-.zoom-nav:hover {
-    background: #006B63;
-    opacity: 1;
-}
-.zoom-nav.prev {
-    left: 0;
-    border-radius: 0 4px 4px 0;
-}
-.zoom-nav.next {
-    right: 0;
-    border-radius: 4px 0 0 4px;
+    display: none !important;
 }
 
 /* ==========================================================================
@@ -996,13 +991,33 @@ body.page-transitioning {
     }
     
     /* MOBILE ONLY SOFT WHITE BLUR OVERLAY (NO BOX, FULL BANNER WASH) */
-    .static-hero-area, .hero-zoom-slider {
+    .static-hero-area {
         height: 520px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
         background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('images/banner-1.webp') !important;
         background-size: cover !important;
         background-position: center top !important;
         background-repeat: no-repeat !important;
         touch-action: pan-y;
+        overflow: hidden !important;
+    }
+    
+    .static-hero-area .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .hero-zoom-slider {
+        height: 520px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        touch-action: pan-y;
+        overflow: hidden !important;
     }
     
     .text-slide-item {
@@ -1059,10 +1074,7 @@ body.page-transitioning {
     }
     
     .zoom-nav {
-        width: 32px !important;
-        height: 52px !important;
-        font-size: 18px !important;
-        opacity: 0.8 !important;
+        display: none !important;
     }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
@@ -1161,9 +1173,6 @@ home_body = """
                 </div>
             </div>
 
-            <!-- SCREEN EDGE NAVIGATION BUTTONS -->
-            <button class="zoom-nav prev" id="zoom-prev" aria-label="Previous Slide"><i class="fa fa-angle-left"></i></button>
-            <button class="zoom-nav next" id="zoom-next" aria-label="Next Slide"><i class="fa fa-angle-right"></i></button>
         </div>
     </section>
 
@@ -2213,20 +2222,32 @@ def master_layout(title, active_key, body_content):
                 
                 // Touch Swipe on mobile with instant feedback
                 var touchStartX = 0;
+                var touchStartY = 0;
                 var touchEndX = 0;
-                var sliderEl = document.querySelector('.hero-zoom-slider');
+                var touchEndY = 0;
+                var sliderEl = document.querySelector('.hero-zoom-slider') || document.querySelector('.static-hero-area');
                 if (sliderEl) {
                     sliderEl.addEventListener('touchstart', function(e) {
-                        touchStartX = e.changedTouches[0].screenX;
+                        if (e.touches && e.touches[0]) {
+                            touchStartX = e.touches[0].clientX;
+                            touchStartY = e.touches[0].clientY;
+                        }
                         stopAutoPlay();
                     }, { passive: true });
                     
                     sliderEl.addEventListener('touchend', function(e) {
-                        touchEndX = e.changedTouches[0].screenX;
-                        if (touchStartX - touchEndX > 30) {
-                            slideNext();
-                        } else if (touchEndX - touchStartX > 30) {
-                            slidePrev();
+                        if (e.changedTouches && e.changedTouches[0]) {
+                            touchEndX = e.changedTouches[0].clientX;
+                            touchEndY = e.changedTouches[0].clientY;
+                        }
+                        var diffX = touchStartX - touchEndX;
+                        var diffY = touchStartY - touchEndY;
+                        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+                            if (diffX > 0) {
+                                slideNext();
+                            } else {
+                                slidePrev();
+                            }
                         }
                         startAutoPlay();
                     }, { passive: true });

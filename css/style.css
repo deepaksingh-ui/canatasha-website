@@ -16,6 +16,14 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: #334155;
@@ -318,8 +326,12 @@ body.page-transitioning {
    ========================================================================== */
 .static-hero-area {
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     height: 620px;
-    background-image: url('images/banner-1.webp');
+    background-image: url('../images/banner-1.webp');
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
@@ -335,6 +347,9 @@ body.page-transitioning {
     position: relative;
     height: 620px;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .zoom-slide {
@@ -343,6 +358,8 @@ body.page-transitioning {
     left: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -476,34 +493,7 @@ body.page-transitioning {
 }
 
 .zoom-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 80px;
-    background: #002e5b;
-    color: #ffffff;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 100;
-    opacity: 0.9;
-    transition: background 0.3s, opacity 0.3s, transform 0.2s;
-}
-.zoom-nav:hover {
-    background: #006B63;
-    opacity: 1;
-}
-.zoom-nav.prev {
-    left: 0;
-    border-radius: 0 4px 4px 0;
-}
-.zoom-nav.next {
-    right: 0;
-    border-radius: 4px 0 0 4px;
+    display: none !important;
 }
 
 /* ==========================================================================
@@ -962,46 +952,76 @@ body.page-transitioning {
     }
     .header-main.white:before, .header-main.white:after { display: none !important; }
     
+    .header-main .container-fluid {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    
     .header-main-wrapper {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
-        min-height: 50px !important;
-        padding: 0 10px !important;
+        min-height: 44px !important;
+        padding: 0 !important;
+        width: 100% !important;
     }
     
-    .logo-wrapper { width: auto !important; max-width: 58% !important; }
+    .logo-wrapper { width: auto !important; max-width: 52% !important; }
     .logo { padding: 0 !important; }
-    .logo img { height: 38px !important; max-height: 38px !important; width: auto !important; display: block !important; }
+    .logo img { height: 34px !important; max-height: 34px !important; width: auto !important; max-width: 100% !important; display: block !important; }
     
     .header-main-content { display: none !important; }
     
     .mobile-header-actions {
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
     .quote-btn { display: inline-block !important; }
     .quote-btn button {
         background: #fde428 !important;
         color: #002e5b !important;
-        font-size: 11px !important;
+        font-size: 10.5px !important;
         font-weight: 800 !important;
-        line-height: 32px !important;
-        padding: 0 12px !important;
+        line-height: 30px !important;
+        padding: 0 10px !important;
         border-radius: 4px !important;
         box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
+    .hamburger-morph-btn {
+        width: 36px !important;
+        height: 36px !important;
+    }
     
     /* MOBILE ONLY SOFT WHITE BLUR OVERLAY (NO BOX, FULL BANNER WASH) */
-    .static-hero-area, .hero-zoom-slider {
+    .static-hero-area {
         height: 520px !important;
-        background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('images/banner-1.webp') !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('../images/banner-1.webp') !important;
         background-size: cover !important;
         background-position: center top !important;
         background-repeat: no-repeat !important;
         touch-action: pan-y;
+        overflow: hidden !important;
+    }
+    
+    .static-hero-area .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .hero-zoom-slider {
+        height: 520px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        touch-action: pan-y;
+        overflow: hidden !important;
     }
     
     .text-slide-item {
@@ -1022,18 +1042,19 @@ body.page-transitioning {
     }
     
     .text-content h3.sub-title {
-        font-size: 14px !important;
+        font-size: 13.5px !important;
         margin-bottom: 6px !important;
         color: #002e5b !important;
         font-weight: 800 !important;
         letter-spacing: 0.5px !important;
     }
     .text-content h1.title {
-        font-size: 32px !important;
+        font-size: 28px !important;
         line-height: 1.15 !important;
         margin-bottom: 10px !important;
         color: #006B63 !important;
         font-weight: 900 !important;
+        word-break: break-word !important;
     }
     .text-content p.description {
         font-size: 13.5px !important;
@@ -1058,10 +1079,7 @@ body.page-transitioning {
     }
     
     .zoom-nav {
-        width: 32px !important;
-        height: 52px !important;
-        font-size: 18px !important;
-        opacity: 0.8 !important;
+        display: none !important;
     }
     
     .page-banner { padding: 40px 15px 25px 15px !important; }
