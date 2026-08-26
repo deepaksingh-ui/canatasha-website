@@ -933,6 +933,51 @@ body.drawer-open {
     touch-action: manipulation;
 }
 
+/* OWL CAROUSEL AUTO ZOOM & SLIDE DYNAMICS */
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+.owl-carousel .owl-item {
+    display: flex;
+    transition: transform 0.4s var(--ca-easing), opacity 0.4s ease;
+}
+.owl-carousel .owl-item .single-item,
+.owl-carousel .owl-item .team-card-unified,
+.owl-carousel .owl-item .impact-card,
+.owl-carousel .owl-item .blog-card {
+    width: 100%;
+    margin-bottom: 0 !important;
+    transition: transform 0.35s var(--ca-spring), box-shadow 0.35s ease;
+}
+.owl-carousel .owl-item .single-item:hover,
+.owl-carousel .owl-item .team-card-unified:hover,
+.owl-carousel .owl-item .impact-card:hover,
+.owl-carousel .owl-item .blog-card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+.owl-dots {
+    text-align: center;
+    margin-top: 18px;
+}
+.owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+}
+.owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 4px 5px;
+    background: #cbd5e1;
+    display: block;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.owl-dots .owl-dot.active span {
+    width: 28px;
+    background: var(--ca-primary, #006B63);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;

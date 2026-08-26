@@ -950,6 +950,51 @@ body.drawer-open {
     touch-action: manipulation;
 }
 
+/* OWL CAROUSEL AUTO ZOOM & SLIDE DYNAMICS */
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+.owl-carousel .owl-item {
+    display: flex;
+    transition: transform 0.4s var(--ca-easing), opacity 0.4s ease;
+}
+.owl-carousel .owl-item .single-item,
+.owl-carousel .owl-item .team-card-unified,
+.owl-carousel .owl-item .impact-card,
+.owl-carousel .owl-item .blog-card {
+    width: 100%;
+    margin-bottom: 0 !important;
+    transition: transform 0.35s var(--ca-spring), box-shadow 0.35s ease;
+}
+.owl-carousel .owl-item .single-item:hover,
+.owl-carousel .owl-item .team-card-unified:hover,
+.owl-carousel .owl-item .impact-card:hover,
+.owl-carousel .owl-item .blog-card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+.owl-dots {
+    text-align: center;
+    margin-top: 18px;
+}
+.owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+}
+.owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 4px 5px;
+    background: #cbd5e1;
+    display: block;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.owl-dots .owl-dot.active span {
+    width: 28px;
+    background: var(--ca-primary, #006B63);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;
@@ -1338,8 +1383,8 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- PRACTICE AREAS -->
-    <section class="py-5 cinematic-scene" style="background-color: #f8fafc;">
+    <!-- PRACTICE AREAS (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -1350,8 +1395,9 @@ home_body = f"""
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
+            
+            <div class="owl-carousel services-auto-carousel">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/hand.webp" alt="Accounting & Bookkeeping Services Bhopal"/>
                         <h4>Accounting &amp; Bookkeeping</h4>
@@ -1359,7 +1405,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/cash.webp" alt="Direct Tax & ITR Filing Bhopal"/>
                         <h4>Direct Taxation &amp; ITR</h4>
@@ -1367,7 +1413,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/plan.webp" alt="GST Registration & Notice Litigation MP Nagar Bhopal"/>
                         <h4>GST Advisory &amp; Litigation</h4>
@@ -1375,7 +1421,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/brif.webp" alt="Statutory & Tax Audit Bhopal"/>
                         <h4>Auditing &amp; Assurance</h4>
@@ -1383,7 +1429,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/commo.webp" alt="Company & LLP Registration MP Nagar Bhopal"/>
                         <h4>Company &amp; LLP Formation</h4>
@@ -1391,7 +1437,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="single-item">
                         <img src="images/reti.webp" alt="Trust NGO 12A 80G Registration Bhopal"/>
                         <h4>Societies, Trust &amp; NGO Laws</h4>
@@ -1423,16 +1469,31 @@ home_body = f"""
                         </div>
                         <div class="col-6 mb-3">
                             <div class="d-flex align-items-center">
-                                <i class="fa fa-shield fa-2x text-success mr-2"></i>
+                                <i class="fa fa-shield fa-2x text-primary mr-2"></i>
                                 <div>
-                                    <h6 class="font-weight-bold mb-0">ICAI Compliant</h6>
-                                    <small class="text-muted">Ethical Standards</small>
+                                    <h6 class="font-weight-bold mb-0">Govt Registered</h6>
+                                    <small class="text-muted">MSME Udyam Verified</small>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-3">
-                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2" style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
+                        <div class="col-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-gavel fa-2x text-warning mr-2"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0">ICAI Compliant</h6>
+                                    <small class="text-muted">Strict Ethical Standards</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fa fa-lock fa-2x text-danger mr-2"></i>
+                                <div>
+                                    <h6 class="font-weight-bold mb-0">100% Confidential</h6>
+                                    <small class="text-muted">Encrypted Data Vault</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
@@ -1447,8 +1508,8 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- OUR TEAM SECTION (PERFECT 4-CARD BALANCED GRID) -->
-    <section class="py-5 cinematic-scene" style="background-color: #f8fafc;">
+    <!-- OUR TEAM SECTION (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-5">
@@ -1458,10 +1519,10 @@ home_body = f"""
                 </div>
             </div>
 
-            <div class="row">
+            <div class="owl-carousel team-auto-carousel">
                 <!-- 1. CA Natasha -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="team-card-unified p-3 text-center">
+                <div class="item p-2">
+                    <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
                                 <img src="images/team-1.webp" alt="CA Natasha Rajvaidya - Principal Partner" onerror="this.src='images/team-1.webp'"/>
@@ -1487,8 +1548,8 @@ home_body = f"""
                 </div>
 
                 <!-- 2. Senior Partner -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="team-card-unified p-3 text-center">
+                <div class="item p-2">
+                    <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
                                 <img src="images/team-2.webp" alt="Ashish & Associates - Senior Partner"/>
@@ -1514,8 +1575,8 @@ home_body = f"""
                 </div>
 
                 <!-- 3. Tax Advisor -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="team-card-unified p-3 text-center">
+                <div class="item p-2">
+                    <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
                                 <img src="images/team-3.webp" alt="Senior Tax Advisor"/>
@@ -1541,8 +1602,8 @@ home_body = f"""
                 </div>
 
                 <!-- 4. Corporate Law -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="team-card-unified p-3 text-center">
+                <div class="item p-2">
+                    <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
                                 <img src="images/team-4.webp" alt="Corporate Law Head"/>
@@ -1649,50 +1710,68 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- PROVEN TRACK RECORD -->
-    <section class="py-5 cinematic-scene" id="trusted-stats-section" style="background: linear-gradient(135deg, #002e5b 0%, #006B63 100%); color: #ffffff;">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-12 mb-4">
-                    <span class="badge badge-warning px-3 py-1 text-dark font-weight-bold text-uppercase" style="letter-spacing: 1px;">Proven Track Record</span>
-                    <h2 class="font-weight-bold text-white mt-2">Trusted by Clients Across India</h2>
-                </div>
+    <!-- STRATEGIC GROWTH & INDUSTRY IMPACT (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <section class="py-5 cinematic-scene" id="trusted-stats-section" style="background: #0B132B; color: #ffffff; overflow: hidden;">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge px-3 py-1 text-warning font-weight-bold" style="background: rgba(253, 228, 40, 0.12); border: 1px solid #fde428; border-radius: 20px; font-size: 11.5px; letter-spacing: 1px;">OUR PROVEN TRACK RECORD</span>
+                <h2 class="font-weight-bold text-white mt-2" style="font-size: 32px;">Strategic Growth &amp; Industry Impact</h2>
             </div>
-            <div class="row text-center">
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                    <div class="stat-counter-box">
-                        <i class="fa fa-users fa-2x text-warning mb-2"></i>
+            
+            <div class="owl-carousel track-record-auto-carousel">
+                <!-- 1. Tax Optimization & Defense -->
+                <div class="item p-2">
+                    <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="counter-num counter-val" data-target="4000" data-suffix="+">0+</span>
+                            <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa fa-line-chart text-white" style="font-size: 22px;"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-white mb-2" style="font-size: 18px;">Tax Optimization &amp; Defense</h4>
+                            <p class="text-white-50 small mb-4" style="line-height: 1.6;">Saved over ₹15+ Crores in legitimate tax deductions and resolved 150+ high-stakes Income Tax &amp; GST appellate notices with zero penalties for our corporate clients.</p>
                         </div>
-                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Happy Clients</span>
+                        <h4 class="font-weight-bold mb-0" style="color: #f97316; font-size: 20px;">₹ 15Cr+ Optimized</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                    <div class="stat-counter-box">
-                        <i class="fa fa-rocket fa-2x text-warning mb-2"></i>
+
+                <!-- 2. Startup Incorporation -->
+                <div class="item p-2">
+                    <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="counter-num counter-val" data-target="50" data-suffix="+">0+</span>
+                            <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa fa-rocket text-white" style="font-size: 22px;"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-white mb-2" style="font-size: 18px;">Startup Incorporation</h4>
+                            <p class="text-white-50 small mb-4" style="line-height: 1.6;">Helped 200+ emerging startups register their legal entities, structure founder equity, register trademarks, and maintain 100% statutory adherence from Day 1.</p>
                         </div>
-                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Startup Companies</span>
+                        <h4 class="font-weight-bold mb-0" style="color: #f97316; font-size: 20px;">200+ Startups Built</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                    <div class="stat-counter-box">
-                        <i class="fa fa-map-marker fa-2x text-warning mb-2"></i>
+
+                <!-- 3. Multi-City Corporate Reach -->
+                <div class="item p-2">
+                    <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="counter-num counter-val" data-target="15" data-suffix="+">0+</span>
+                            <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa fa-globe text-white" style="font-size: 22px;"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-white mb-2" style="font-size: 18px;">Multi-City Corporate Reach</h4>
+                            <p class="text-white-50 small mb-4" style="line-height: 1.6;">Providing seamless cloud-driven accounting and compliance audits across Bhopal, Indore, Jabalpur, Gwalior, Delhi NCR, and 25+ cities in Central India.</p>
                         </div>
-                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">States Served</span>
+                        <h4 class="font-weight-bold mb-0" style="color: #f97316; font-size: 20px;">25+ Cities Covered</h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
-                    <div class="stat-counter-box">
-                        <i class="fa fa-award fa-2x text-warning mb-2"></i>
+
+                <!-- 4. 100% On-Time Guarantee -->
+                <div class="item p-2">
+                    <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
-                            <span class="counter-num counter-val" data-target="12" data-suffix="+">0+</span>
+                            <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa fa-check-square-o text-white" style="font-size: 22px;"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-white mb-2" style="font-size: 18px;">100% On-Time Guarantee</h4>
+                            <p class="text-white-50 small mb-4" style="line-height: 1.6;">Zero late filing defaults across Income Tax, GST, ROC, and EPFO calendars through our automated compliance monitoring system with dedicated chartered accountants.</p>
                         </div>
-                        <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Years Excellence</span>
+                        <h4 class="font-weight-bold mb-0" style="color: #f97316; font-size: 20px;">100% Flawless Record</h4>
                     </div>
                 </div>
             </div>
@@ -1873,9 +1952,9 @@ home_body = f"""
                 </div>
             </div>
 
-            <div class="row mobile-horizontal-scroll">
+            <div class="owl-carousel blogs-auto-carousel">
                 <!-- Blog 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-1.webp" class="card-img-top w-100 h-100" alt="Income Tax Guide" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -1897,7 +1976,7 @@ home_body = f"""
                 </div>
 
                 <!-- Blog 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-2.webp" class="card-img-top w-100 h-100" alt="GST Input Service Distributor" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -1919,7 +1998,7 @@ home_body = f"""
                 </div>
 
                 <!-- Blog 3 -->
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="item p-2">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-3.webp" class="card-img-top w-100 h-100" alt="Corporate Law & Investment" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -1939,12 +2018,6 @@ home_body = f"""
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="d-md-none text-center mt-2">
-                <div style="height: 3px; width: 100px; background: rgba(0,0,0,0.1); border-radius: 2px; margin: 0 auto;">
-                    <div style="height: 100%; width: 45%; background: #006B63; border-radius: 2px;"></div>
-                </div>
-                <small class="text-muted mt-1 d-block font-weight-bold" style="font-size: 11px;">&larr; Swipe to read articles &rarr;</small>
             </div>
         </div>
     </section>
@@ -2829,33 +2902,43 @@ __BODY_CONTENT__
                 startAutoPlay();
             })();
 
-            // REVIEWS CAROUSEL SLIDER (CONTINUOUS ROTATION ON TOUCH & DESKTOP)
-            if ($(".reviews-carousel").length) {
-                var $revCarousel = $(".reviews-carousel").owlCarousel({
-                    loop: true,
-                    margin: 15,
-                    autoplay: true,
-                    autoplayTimeout: 3500,
-                    autoplayHoverPause: false,
-                    smartSpeed: 650,
-                    responsive: {
-                        0: { items: 1 },
-                        768: { items: 1 },
-                        992: { items: 2 }
-                    },
-                    dots: true,
-                    nav: false,
-                    touchDrag: true,
-                    mouseDrag: true
-                });
+            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (SERVICES, TEAM, TRACK RECORD, BLOGS, REVIEWS)
+            var carouselsConfig = [
+                { selector: '.services-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3200 },
+                { selector: '.team-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3400 },
+                { selector: '.track-record-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3300 },
+                { selector: '.blogs-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3500 },
+                { selector: '.reviews-carousel', itemsSm: 1, itemsMd: 1, itemsLg: 2, interval: 3500 }
+            ];
 
-                // Dedicated continuous ticker
-                setInterval(function(){
-                    if ($revCarousel.length) {
-                        $revCarousel.trigger('next.owl.carousel', [650]);
-                    }
-                }, 3500);
-            }
+            carouselsConfig.forEach(function(cfg) {
+                var $c = $(cfg.selector);
+                if ($c.length) {
+                    $c.owlCarousel({
+                        loop: true,
+                        margin: 16,
+                        autoplay: true,
+                        autoplayTimeout: cfg.interval,
+                        autoplayHoverPause: false,
+                        smartSpeed: 650,
+                        responsive: {
+                            0: { items: cfg.itemsSm },
+                            768: { items: cfg.itemsMd },
+                            992: { items: cfg.itemsLg }
+                        },
+                        dots: true,
+                        nav: false,
+                        touchDrag: true,
+                        mouseDrag: true
+                    });
+
+                    setInterval(function(){
+                        if ($c.length) {
+                            $c.trigger('next.owl.carousel', [650]);
+                        }
+                    }, cfg.interval);
+                }
+            });
 
             // Sticky Header
             function checkSticky() {

@@ -1098,6 +1098,51 @@ body.drawer-open {
     touch-action: manipulation;
 }
 
+/* OWL CAROUSEL AUTO ZOOM & SLIDE DYNAMICS */
+.owl-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+.owl-carousel .owl-item {
+    display: flex;
+    transition: transform 0.4s var(--ca-easing), opacity 0.4s ease;
+}
+.owl-carousel .owl-item .single-item,
+.owl-carousel .owl-item .team-card-unified,
+.owl-carousel .owl-item .impact-card,
+.owl-carousel .owl-item .blog-card {
+    width: 100%;
+    margin-bottom: 0 !important;
+    transition: transform 0.35s var(--ca-spring), box-shadow 0.35s ease;
+}
+.owl-carousel .owl-item .single-item:hover,
+.owl-carousel .owl-item .team-card-unified:hover,
+.owl-carousel .owl-item .impact-card:hover,
+.owl-carousel .owl-item .blog-card:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+.owl-dots {
+    text-align: center;
+    margin-top: 18px;
+}
+.owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+}
+.owl-dots .owl-dot span {
+    width: 10px;
+    height: 10px;
+    margin: 4px 5px;
+    background: #cbd5e1;
+    display: block;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.owl-dots .owl-dot.active span {
+    width: 28px;
+    background: var(--ca-primary, #006B63);
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
         animation-duration: 0.01ms !important;
@@ -1960,33 +2005,43 @@ body.drawer-open {
                 startAutoPlay();
             })();
 
-            // REVIEWS CAROUSEL SLIDER (CONTINUOUS ROTATION ON TOUCH & DESKTOP)
-            if ($(".reviews-carousel").length) {
-                var $revCarousel = $(".reviews-carousel").owlCarousel({
-                    loop: true,
-                    margin: 15,
-                    autoplay: true,
-                    autoplayTimeout: 3500,
-                    autoplayHoverPause: false,
-                    smartSpeed: 650,
-                    responsive: {
-                        0: { items: 1 },
-                        768: { items: 1 },
-                        992: { items: 2 }
-                    },
-                    dots: true,
-                    nav: false,
-                    touchDrag: true,
-                    mouseDrag: true
-                });
+            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (SERVICES, TEAM, TRACK RECORD, BLOGS, REVIEWS)
+            var carouselsConfig = [
+                { selector: '.services-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3200 },
+                { selector: '.team-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3400 },
+                { selector: '.track-record-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3300 },
+                { selector: '.blogs-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3500 },
+                { selector: '.reviews-carousel', itemsSm: 1, itemsMd: 1, itemsLg: 2, interval: 3500 }
+            ];
 
-                // Dedicated continuous ticker
-                setInterval(function(){
-                    if ($revCarousel.length) {
-                        $revCarousel.trigger('next.owl.carousel', [650]);
-                    }
-                }, 3500);
-            }
+            carouselsConfig.forEach(function(cfg) {
+                var $c = $(cfg.selector);
+                if ($c.length) {
+                    $c.owlCarousel({
+                        loop: true,
+                        margin: 16,
+                        autoplay: true,
+                        autoplayTimeout: cfg.interval,
+                        autoplayHoverPause: false,
+                        smartSpeed: 650,
+                        responsive: {
+                            0: { items: cfg.itemsSm },
+                            768: { items: cfg.itemsMd },
+                            992: { items: cfg.itemsLg }
+                        },
+                        dots: true,
+                        nav: false,
+                        touchDrag: true,
+                        mouseDrag: true
+                    });
+
+                    setInterval(function(){
+                        if ($c.length) {
+                            $c.trigger('next.owl.carousel', [650]);
+                        }
+                    }, cfg.interval);
+                }
+            });
 
             // Sticky Header
             function checkSticky() {
