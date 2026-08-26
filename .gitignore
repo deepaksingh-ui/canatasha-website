@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+scratch/
+recovered_pages/
+backup_full.py
+ea00f5c_utf8.py
+scratch_ea00f5c.py
+scratch_f8b0739.py
+.DS_Store
+Thumbs.db

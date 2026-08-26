@@ -3,9 +3,7 @@ import os
 import sys
 import io
 import shutil
-import re
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 dest_dir = r"C:\Users\deepa\Downloads\Canatasha_Modern_Website"
 
 orig_sag = os.path.join(dest_dir, 'images', 'banner-orig-sag.webp')
@@ -16,9 +14,8 @@ if os.path.exists(orig_sag):
 with open(os.path.join(dest_dir, "blogs_curated.json"), "r", encoding="utf-8") as f:
     curated_posts = json.load(f)
 
-# Master Stylesheet with Themes, Cinematic Effects & 10-Point Mobile Nav Suite
+# Master Stylesheet with Themes, Responsive Team Grid, Google Reviews, and Zero Blur
 master_css = """
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -58,7 +55,7 @@ body.theme-bw #scroll-progress-bar { background: linear-gradient(90deg, #18181b 
 body.theme-bw #trusted-stats-section { background: linear-gradient(135deg, #09090b 0%, #27272a 100%) !important; }
 body.theme-bw .btn-ca-primary, body.theme-bw .theme-btn:hover { background: #18181b !important; border-color: #18181b !important; color: #ffffff !important; }
 body.theme-bw .badge-success { background-color: #18181b !important; }
-body.theme-bw .text-success { color: #27272a !important; }
+body.theme-bw .text-success { color: #18181b !important; }
 body.theme-bw .page-banner { background: linear-gradient(135deg, #09090b 0%, #27272a 100%) !important; }
 body.theme-bw .modal-header { background: #18181b !important; }
 body.theme-bw .sticky-action-btn.consult-btn { background: #18181b !important; }
@@ -96,69 +93,38 @@ body.theme-grey .sticky-action-btn.consult-btn { background: #334155 !important;
 body.theme-grey table thead { background-color: #334155 !important; }
 body.theme-grey .footer { background: #0f172a !important; }
 
-/* ==========================================================================
-   FLOATING CLIENT THEME PREVIEWER WIDGET
-   ========================================================================== */
-.ca-theme-switcher {
-    position: fixed;
-    bottom: 24px;
-    left: 20px;
-    z-index: 999999;
-    background: rgba(15, 23, 42, 0.92);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 5px 8px;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.18);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: all 0.3s ease;
-}
-.theme-switch-label {
-    color: #94a3b8;
-    font-size: 10.5px;
-    font-weight: 700;
-    padding: 0 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.theme-switch-btn {
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    padding: 4px 10px;
-    color: #f1f5f9;
-    font-size: 11.5px;
-    font-weight: 600;
-    cursor: pointer;
+/* THEME SWITCHER CONTROLS */
+.theme-switcher-top {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    padding: 2px 6px;
+    border-radius: 20px;
+    margin-left: 12px;
 }
-.theme-switch-btn:hover {
-    background: rgba(255,255,255,0.14);
+.theme-switch-btn {
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
 .theme-switch-btn.active {
-    background: #ffffff;
-    color: #0f172a;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    background: #002e5b !important;
+    color: #ffffff !important;
+    border-color: #002e5b !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18) !important;
 }
-.theme-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    display: inline-block;
+body.theme-bw .theme-switch-btn.active {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
 }
-.dot-emerald { background: #006B63; }
-.dot-bw { background: #111827; border: 1px solid #d4af37; }
-.dot-grey { background: #64748b; }
+body.theme-grey .theme-switch-btn.active {
+    background: #1e293b !important;
+    color: #ffffff !important;
+    border-color: #1e293b !important;
+}
 
-/* ==========================================================================
-   STICKY MOBILE BOTTOM ACTION BAR
-   ========================================================================== */
+/* STICKY MOBILE BOTTOM ACTION BAR */
 .mobile-sticky-action-bar {
     position: fixed;
     bottom: 0;
@@ -169,9 +135,9 @@ body.theme-grey .footer { background: #0f172a !important; }
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 7px 10px;
+    padding: 6px 8px;
     z-index: 99998;
-    box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 -3px 12px rgba(0,0,0,0.08);
 }
 .sticky-action-btn {
     flex: 1;
@@ -180,21 +146,19 @@ body.theme-grey .footer { background: #0f172a !important; }
     align-items: center;
     justify-content: center;
     text-decoration: none !important;
-    font-size: 10.5px;
+    font-size: 11px;
     font-weight: 700;
-    padding: 4px 0;
+    padding: 5px 0;
     border-radius: 6px;
     margin: 0 3px;
     transition: 0.2s ease;
 }
-.sticky-action-btn i { font-size: 15px; margin-bottom: 2px; }
+.sticky-action-btn i { font-size: 16px; margin-bottom: 2px; }
 .sticky-action-btn.call-btn { color: #002e5b; background: #f1f5f9; }
 .sticky-action-btn.wa-btn { color: #ffffff; background: #25D366; }
 .sticky-action-btn.consult-btn { color: #ffffff; background: var(--ca-primary, #006B63); }
 
-/* ==========================================================================
-   TRUST BADGES & LOCAL AUTHORITY TAGS
-   ========================================================================== */
+/* TRUST BADGES */
 .trust-badge-pill {
     display: inline-flex;
     align-items: center;
@@ -206,26 +170,6 @@ body.theme-grey .footer { background: #0f172a !important; }
     padding: 2px 10px;
     border-radius: 20px;
     margin-right: 8px;
-    backdrop-filter: blur(4px);
-}
-.hero-trust-bar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-}
-.hero-trust-item {
-    display: inline-flex;
-    align-items: center;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #002e5b;
 }
 
 * {
@@ -250,9 +194,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ==========================================================================
-   1. SCROLL PROGRESS INDICATOR (SCREEN TOP)
-   ========================================================================== */
+@media (max-width: 767px) {
+    body {
+        padding-bottom: 60px;
+    }
+}
+
+/* SCROLL PROGRESS BAR */
 #scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -262,12 +210,9 @@ body {
     background: linear-gradient(90deg, #006B63 0%, #fde428 50%, #002e5b 100%);
     z-index: 9999999;
     transition: width 0.08s linear;
-    box-shadow: 0 0 12px rgba(253, 228, 40, 0.7);
 }
 
-/* ==========================================================================
-   2. TOP BAR & BRAND HEADER (UNIFIED GRID ALIGNMENT)
-   ========================================================================== */
+/* TOP BAR */
 .top-bar-custom {
     background: #111a24;
     color: #d1e3ff;
@@ -285,7 +230,7 @@ body {
 }
 .social-icons-top a {
     color: #d1e3ff;
-    margin-left: 10px;
+    margin-left: 8px;
     font-size: 13.5px;
     transition: 0.3s;
 }
@@ -293,6 +238,7 @@ body {
     color: #00a896;
 }
 
+/* HEADER */
 .header {
     position: relative;
     z-index: 101;
@@ -325,12 +271,10 @@ body {
     width: 70px;
     z-index: 1;
 }
-
 .header-main .container-fluid {
     padding-left: 45px;
     padding-right: 45px;
 }
-
 .header-main-wrapper {
     display: flex;
     align-items: center;
@@ -356,14 +300,7 @@ body {
     max-width: 100%;
     object-fit: contain;
     display: block;
-    animation: ambientLogoFloat 4.5s ease-in-out infinite alternate;
 }
-@keyframes ambientLogoFloat {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-3px) rotate(0.5deg); }
-    100% { transform: translateY(1px) rotate(-0.5deg); }
-}
-
 .header-main-content {
     display: flex;
     align-items: center;
@@ -393,7 +330,7 @@ body {
     font-size: 12px;
 }
 
-/* SHIMMER BUTTONS */
+/* QUOTE BUTTON */
 .quote-btn button {
     background: #fde428 !important;
     color: #002e5b !important;
@@ -406,62 +343,39 @@ body {
     letter-spacing: 0.5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: all 0.35s var(--ca-spring);
-    position: relative;
-    overflow: hidden;
-}
-.quote-btn button:after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 30%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.45);
-    transform: rotate(30deg);
-    transition: all 0.6s ease;
-}
-.quote-btn button:hover:after {
-    left: 130%;
+    transition: all 0.3s ease;
 }
 .quote-btn button:hover {
     background: #ffffff !important;
     color: #006B63 !important;
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 8px 20px rgba(253, 228, 40, 0.5);
+    box-shadow: 0 6px 18px rgba(253, 228, 40, 0.4);
 }
 
-/* ==========================================================================
-   2.1. NAVBAR (DESKTOP) - PERFECT GRID ALIGNMENT
-   ========================================================================== */
+/* NAVBAR */
 .mainmenu-area {
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     width: 100%;
-    background: rgba(245, 245, 245, 0.88);
+    background: rgba(245, 245, 245, 0.94);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 99;
     display: block;
     border-bottom: 1px solid rgba(0, 46, 91, 0.12);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
-
 .navbar {
     padding: 0;
     background: transparent !important;
     width: 100%;
 }
-
 .navbar-nav {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
 }
-
 .navbar-nav > li > a {
     color: #002e5b;
     font-size: 15px;
@@ -472,13 +386,10 @@ body {
     transition: 0.25s ease;
     text-decoration: none;
     position: relative;
-    letter-spacing: 0.2px;
 }
-
 .navbar-nav > li:first-child > a {
     padding-left: 0 !important;
 }
-
 .navbar-nav > li > a:after {
     content: '';
     position: absolute;
@@ -494,7 +405,6 @@ body {
     left: 0 !important;
     right: 22px !important;
 }
-
 .navbar-nav > li:hover > a:after,
 .navbar-nav > li.active > a:after {
     transform: scaleX(1);
@@ -505,7 +415,7 @@ body {
     background: transparent;
 }
 
-/* Sticky Header */
+/* STICKY HEADER */
 .fixedhead {
     position: fixed !important;
     top: 0;
@@ -522,9 +432,7 @@ body {
     background: #ffffff;
 }
 
-/* ==========================================================================
-   3. HERO BANNER: HIGH-IMPACT HARDWARE ACCELERATED ZOOM-OUT ENGINE
-   ========================================================================== */
+/* HERO SLIDER */
 .static-hero-area {
     position: relative;
     width: 100%;
@@ -538,12 +446,10 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
 }
-
 .static-hero-area .container-fluid {
     padding-left: 45px;
     padding-right: 45px;
 }
-
 .hero-zoom-slider {
     position: relative;
     height: 620px;
@@ -552,29 +458,22 @@ body {
     padding: 0;
     overflow: hidden;
 }
-
 .zoom-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
     transition: opacity 0.35s ease, visibility 0.35s ease;
     z-index: 1;
 }
-
 .zoom-slide.active {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
     z-index: 2;
 }
-
 .text-slide-item {
     height: 600px;
     display: flex;
@@ -582,37 +481,20 @@ body {
     justify-content: center;
     padding-top: 50px;
 }
-
 .text-content {
     background: transparent !important;
     border: none !important;
-    box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
 }
-
 @keyframes caZoomOutReveal {
-    0% {
-        transform: scale(1.45) translateY(-8px);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1.0) translateY(0);
-        opacity: 1;
-    }
+    0% { transform: scale(1.45) translateY(-8px); opacity: 0; }
+    100% { transform: scale(1.0) translateY(0); opacity: 1; }
 }
-
 @keyframes caZoomOutDismiss {
-    0% {
-        transform: scale(1.0) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.85) translateY(6px);
-        opacity: 0;
-    }
+    0% { transform: scale(1.0) translateY(0); opacity: 1; }
+    100% { transform: scale(0.85) translateY(6px); opacity: 0; }
 }
-
 .zoom-slide .text-content h3.sub-title,
 .zoom-slide .text-content h1.title,
 .zoom-slide .text-content p.description,
@@ -621,19 +503,10 @@ body {
     transform: scale(1.45);
     will-change: transform, opacity;
 }
-
-.zoom-slide.active .text-content h3.sub-title {
-    animation: caZoomOutReveal 0.62s var(--ca-easing) 0.04s both;
-}
-.zoom-slide.active .text-content h1.title {
-    animation: caZoomOutReveal 0.70s var(--ca-easing) 0.15s both;
-}
-.zoom-slide.active .text-content p.description {
-    animation: caZoomOutReveal 0.78s var(--ca-easing) 0.26s both;
-}
-.zoom-slide.active .text-content .btn-box {
-    animation: caZoomOutReveal 0.85s var(--ca-easing) 0.38s both;
-}
+.zoom-slide.active .text-content h3.sub-title { animation: caZoomOutReveal 0.62s var(--ca-easing) 0.04s both; }
+.zoom-slide.active .text-content h1.title { animation: caZoomOutReveal 0.70s var(--ca-easing) 0.15s both; }
+.zoom-slide.active .text-content p.description { animation: caZoomOutReveal 0.78s var(--ca-easing) 0.26s both; }
+.zoom-slide.active .text-content .btn-box { animation: caZoomOutReveal 0.85s var(--ca-easing) 0.38s both; }
 
 .zoom-slide.leaving .text-content h3.sub-title,
 .zoom-slide.leaving .text-content h1.title,
@@ -667,7 +540,6 @@ body {
     margin-bottom: 30px !important;
     font-weight: 500 !important;
 }
-
 .banner-btn, .theme-btn {
     border: 2px solid #002e5b !important;
     border-radius: 3px !important;
@@ -687,17 +559,11 @@ body {
 .banner-btn:hover, .theme-btn:hover {
     background: #002e5b !important;
     color: #ffffff !important;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 46, 91, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 46, 91, 0.25);
 }
 
-.zoom-nav {
-    display: none !important;
-}
-
-/* ==========================================================================
-   4. SERVICES, CARDS & REVEAL SYSTEM
-   ========================================================================== */
+/* PRACTICE AREAS */
 .service-badge {
     background: #e6f7f5;
     color: #006B63;
@@ -711,7 +577,6 @@ body {
     letter-spacing: 1px;
     border: 1px solid #b2ece6;
 }
-
 .single-item {
     background: #ffffff;
     padding: 35px 25px;
@@ -723,12 +588,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-    overflow: hidden;
 }
 .single-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 16px 32px rgba(0, 107, 99, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 107, 99, 0.1);
     border-color: #006B63;
 }
 .single-item img {
@@ -736,10 +599,6 @@ body {
     width: 52px;
     margin-bottom: 20px;
     object-fit: contain;
-    transition: transform 0.4s var(--ca-spring);
-}
-.single-item:hover img {
-    transform: scale(1.18) rotate(4deg);
 }
 .single-item h4 {
     color: #002e5b;
@@ -754,37 +613,118 @@ body {
     margin-bottom: 20px;
 }
 
-.leader-card {
-    transition: all 0.35s var(--ca-spring);
+/* TEAM CARDS (PERFECT ASPECT RATIO & FIT) */
+.team-card-unified {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.leader-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 16px 36px rgba(0, 46, 91, 0.12) !important;
-}
-
-.calc-box-card {
-    transition: all 0.3s ease;
-}
-.calc-box-card:hover {
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08) !important;
-}
-
-.blog-card {
-    transition: all 0.35s var(--ca-spring);
-    cursor: pointer;
-}
-.blog-card:hover {
+.team-card-unified:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 14px 30px rgba(0, 46, 91, 0.12);
 }
-.blog-card:hover .read-more-link {
-    color: #002e5b !important;
-    text-decoration: underline;
+.team-img-box {
+    height: 240px;
+    width: 100%;
+    background: #f1f5f9;
+    overflow: hidden;
+    position: relative;
+}
+.team-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.team-card-unified:hover .team-img-box img {
+    transform: scale(1.05);
+}
+.team-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #002e5b;
+    margin: 0 2px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    text-decoration: none !important;
+}
+.team-social-btn:hover {
+    background: #006B63;
+    color: #ffffff;
+}
+.team-connect-btn {
+    display: block;
+    width: 100%;
+    padding: 7px 12px;
+    background: #006B63;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 12.5px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+.team-connect-btn:hover {
+    background: #002e5b;
 }
 
-/* ==========================================================================
-   5. LUXURY 10-POINT MOBILE DRAWER & TOUCH INTERACTION
-   ========================================================================== */
+/* GOOGLE REVIEWS SECTION */
+.google-badge-box {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.review-card-item {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.reviewer-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* STATS COUNTER */
+.stat-counter-box {
+    padding: 20px 10px;
+}
+.counter-num {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+/* MOBILE MENU DRAWER */
 .hamburger-morph-btn {
     background: transparent;
     border: none;
@@ -817,22 +757,79 @@ body {
     background: #006B63;
 }
 
+/* CINEMATIC SCROLL REVEAL ENGINE */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s var(--ca-easing), transform 0.65s var(--ca-easing);
+    will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.06s; }
+.reveal-delay-2 { transition-delay: 0.12s; }
+.reveal-delay-3 { transition-delay: 0.18s; }
+.reveal-delay-4 { transition-delay: 0.24s; }
+.reveal-delay-5 { transition-delay: 0.30s; }
+
+/* TACTILE MICRO-INTERACTIONS */
+.btn, .theme-btn, .banner-btn, .quote-btn button, .team-connect-btn, .sticky-action-btn {
+    transition: transform 0.2s var(--ca-easing), box-shadow 0.2s ease, background 0.2s ease !important;
+}
+.btn:active, .theme-btn:active, .banner-btn:active, .quote-btn button:active, .team-connect-btn:active, .sticky-action-btn:active {
+    transform: scale(0.96) !important;
+}
+.card, .single-item, .team-card-unified, .calc-box-card, .review-card-item, .blog-card {
+    transition: transform 0.35s var(--ca-easing), box-shadow 0.35s ease, border-color 0.25s ease;
+}
+.card:active, .single-item:active, .team-card-unified:active, .calc-box-card:active, .review-card-item:active, .blog-card:active {
+    transform: scale(0.985);
+}
+
+/* BODY DRAWER OPEN LOCK */
+body.drawer-open {
+    overflow: hidden !important;
+}
+
+/* MOBILE BACKDROP OVERLAY */
+#mobile-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+#mobile-backdrop.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* APP-LIKE MOBILE DRAWER */
 #mobile-menu-drawer {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 82%;
+    width: 85%;
     max-width: 340px;
     height: 100vh;
     background: #ffffff;
-    box-shadow: -6px 0 25px rgba(0,0,0,0.15);
+    box-shadow: -8px 0 30px rgba(0,0,0,0.25);
     z-index: 100000;
-    transition: right 0.38s var(--ca-easing);
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
-    padding: 80px 24px 30px;
+    padding: 24px 20px 30px;
 }
 #mobile-menu-drawer.open {
-    right: 0;
+    right: 0 !important;
 }
 #mobile-menu-drawer ul {
     list-style: none;
@@ -841,57 +838,59 @@ body {
 }
 #mobile-menu-drawer ul li {
     border-bottom: 1px solid #f1f5f9;
+    opacity: 0;
+    transform: translateX(18px);
+    transition: transform 0.35s var(--ca-easing), opacity 0.35s ease;
 }
+#mobile-menu-drawer.open ul li {
+    opacity: 1;
+    transform: translateX(0);
+}
+#mobile-menu-drawer.open ul li:nth-child(1) { transition-delay: 0.05s; }
+#mobile-menu-drawer.open ul li:nth-child(2) { transition-delay: 0.09s; }
+#mobile-menu-drawer.open ul li:nth-child(3) { transition-delay: 0.13s; }
+#mobile-menu-drawer.open ul li:nth-child(4) { transition-delay: 0.17s; }
+#mobile-menu-drawer.open ul li:nth-child(5) { transition-delay: 0.21s; }
+#mobile-menu-drawer.open ul li:nth-child(6) { transition-delay: 0.25s; }
+#mobile-menu-drawer.open ul li:nth-child(7) { transition-delay: 0.29s; }
+
 #mobile-menu-drawer ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 0;
+    padding: 13px 10px;
     color: #002e5b;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 15.5px;
     text-decoration: none;
-    transition: color 0.2s;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 #mobile-menu-drawer ul li a:hover,
 #mobile-menu-drawer ul li.active a {
     color: #006B63;
+    background: rgba(0, 107, 99, 0.08);
+    padding-left: 14px;
+}
+#mobile-menu-drawer ul li a .nav-arrow {
+    transition: transform 0.25s ease;
+}
+#mobile-menu-drawer ul li a:hover .nav-arrow,
+#mobile-menu-drawer ul li.active a .nav-arrow {
+    transform: translateX(4px);
+    color: #006B63;
 }
 
-.ripple-wave {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(0, 107, 99, 0.25);
-    transform: scale(0);
-    animation: rippleAnim 0.6s linear;
-    pointer-events: none;
-}
-@keyframes rippleAnim {
-    to {
-        transform: scale(4);
-        opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
-
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-}
-.reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.08s; }
-.reveal-delay-2 { transition-delay: 0.16s; }
-.reveal-delay-3 { transition-delay: 0.24s; }
-.reveal-delay-4 { transition-delay: 0.32s; }
-.reveal-delay-5 { transition-delay: 0.40s; }
-.reveal-delay-6 { transition-delay: 0.48s; }
-
-/* Floating WhatsApp Button */
+/* FLOATING WHATSAPP */
 .whatsapp-float {
     position: fixed;
     bottom: 24px;
@@ -903,40 +902,38 @@ body {
     font-size: 28px;
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
     z-index: 99999;
-    height: 56px;
-    width: 56px;
+    height: 54px;
+    width: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s var(--ca-spring);
     text-decoration: none !important;
+    transition: all 0.25s ease;
 }
 .whatsapp-float:hover {
-    transform: scale(1.12) translateY(-4px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.6);
+    transform: scale(1.1);
 }
 
-/* Page Banner (Subpages) */
+/* PAGE BANNER */
 .page-banner {
     background: linear-gradient(135deg, #002e5b 0%, #006B63 100%);
-    padding: 65px 0 45px;
+    padding: 60px 0 40px;
     color: #ffffff;
     text-align: center;
-    position: relative;
 }
 .page-banner h1 {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 8px;
 }
 .page-banner p {
-    font-size: 16px;
+    font-size: 15px;
     color: #f1f5f9;
     margin-bottom: 0;
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
     background: #0f172a;
     color: #94a3b8;
@@ -960,12 +957,19 @@ body {
     margin-bottom: 15px;
 }
 
-/* ==========================================================================
-   6. MOBILE ONLY: ULTRA FLUID TOUCH & SOFT BLUR HERO VIEW
-   ========================================================================== */
+/* BLOG CARD */
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1) !important;
+}
+
+/* RESPONSIVE OVERRIDES */
 @media (max-width: 991px) {
     .top-bar-custom { display: none !important; }
-    
     .header {
         position: sticky !important;
         top: 0;
@@ -980,34 +984,13 @@ body {
         min-height: 56px !important;
     }
     .header-main.white:before, .header-main.white:after { display: none !important; }
-    
-    .header-main .container-fluid {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-    
-    .header-main-wrapper {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        min-height: 44px !important;
-        padding: 0 !important;
-        width: 100% !important;
-    }
-    
+    .header-main .container-fluid { padding-left: 12px !important; padding-right: 12px !important; }
+    .header-main-wrapper { min-height: 44px !important; padding: 0 !important; }
     .logo-wrapper { width: auto !important; max-width: 52% !important; }
     .logo { padding: 0 !important; }
-    .logo img { height: 34px !important; max-height: 34px !important; width: auto !important; max-width: 100% !important; display: block !important; }
-    
+    .logo img { height: 34px !important; max-height: 34px !important; width: auto !important; }
     .header-main-content { display: none !important; }
-    
-    .mobile-header-actions {
-        display: flex !important;
-        align-items: center !important;
-        gap: 6px !important;
-    }
-    .quote-btn { display: inline-block !important; }
+    .mobile-header-actions { display: flex !important; align-items: center !important; gap: 6px !important; }
     .quote-btn button {
         background: #fde428 !important;
         color: #002e5b !important;
@@ -1016,139 +999,149 @@ body {
         line-height: 30px !important;
         padding: 0 10px !important;
         border-radius: 4px !important;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
     }
-    .hamburger-morph-btn {
-        width: 36px !important;
-        height: 36px !important;
-    }
-    
-    /* MOBILE ONLY SOFT WHITE BLUR OVERLAY (NO BOX, FULL BANNER WASH) */
     .static-hero-area {
         height: 520px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background-image: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0.95) 100%), url('images/banner-1.webp') !important;
+        background-image: linear-gradient(90deg, rgba(0, 32, 65, 0.92) 0%, rgba(0, 32, 65, 0.68) 55%, rgba(0, 32, 65, 0.08) 100%), url('images/banner-1.webp') !important;
         background-size: cover !important;
-        background-position: center top !important;
-        background-repeat: no-repeat !important;
-        touch-action: pan-y;
-        overflow: hidden !important;
+        background-position: 85% center !important;
     }
-    
     .static-hero-area .container-fluid {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
     }
-    
-    .hero-zoom-slider {
-        height: 520px !important;
-        width: 100% !important;
+    .hero-zoom-slider { height: 520px !important; }
+    .text-slide-item { 
+        height: 520px !important; 
+        padding: 30px 0 20px 0 !important; 
+        justify-content: center !important; 
+        align-items: flex-start !important;
+    }
+    .text-content { 
+        text-align: left !important; 
+        max-width: 295px !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: transparent !important;
-        touch-action: pan-y;
-        overflow: hidden !important;
     }
-    
-    .text-slide-item {
-        height: 520px !important;
-        padding: 25px 15px !important;
-        justify-content: center !important;
+    .text-content h3.sub-title { 
+        font-size: 13.5px !important; 
+        color: #fde428 !important; 
+        margin-bottom: 6px !important; 
+        text-align: left !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.6) !important;
     }
-    
-    .text-content {
-        text-align: center !important;
-        margin: 0 auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
+    .text-content h1.title { 
+        font-size: 27px !important; 
+        color: #ffffff !important; 
+        line-height: 1.15 !important; 
+        margin-bottom: 10px !important; 
+        text-align: left !important;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
     }
-    
-    .text-content h3.sub-title {
-        font-size: 13.5px !important;
-        margin-bottom: 6px !important;
-        color: #002e5b !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.5px !important;
+    .text-content p.description { 
+        font-size: 13.5px !important; 
+        color: rgba(255,255,255,0.92) !important; 
+        line-height: 1.55 !important; 
+        margin-bottom: 18px !important; 
+        text-align: left !important;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.6) !important;
     }
-    .text-content h1.title {
-        font-size: 28px !important;
-        line-height: 1.15 !important;
-        margin-bottom: 10px !important;
-        color: #006B63 !important;
-        font-weight: 900 !important;
-        word-break: break-word !important;
+    .text-content .btn-box {
+        text-align: left !important;
     }
-    .text-content p.description {
-        font-size: 13.5px !important;
-        line-height: 1.55 !important;
-        margin-bottom: 18px !important;
-        color: #1e293b !important;
-        font-weight: 500 !important;
-    }
-    
     .banner-btn, .theme-btn {
-        border: 2px solid #002e5b !important;
-        background: #002e5b !important;
-        color: #ffffff !important;
+        border: 2px solid #fde428 !important;
+        background: #fde428 !important;
+        color: #002e5b !important;
         padding: 0 16px !important;
         font-size: 11.5px !important;
+        font-weight: 800 !important;
         line-height: 36px !important;
         border-radius: 4px !important;
         display: inline-block !important;
-        margin: 0 3px !important;
-        box-shadow: 0 4px 10px rgba(0,46,91,0.2) !important;
-        font-weight: 700 !important;
+        margin: 0 6px 6px 0 !important;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3) !important;
     }
-    
-    .zoom-nav {
-        display: none !important;
-    }
-    
     .page-banner { padding: 40px 15px 25px 15px !important; }
     .page-banner h1 { font-size: 24px !important; }
     .page-banner p { font-size: 13.5px !important; }
-    
-    .stat-counter-box { padding: 18px 10px !important; margin-bottom: 12px !important; }
-    .counter-num { font-size: 32px !important; }
-    
-    .whatsapp-float { bottom: 64px !important; right: 16px !important; width: 46px !important; height: 46px !important; font-size: 22px !important; }
-    .ca-theme-switcher { bottom: 62px !important; left: 12px !important; padding: 4px 6px !important; }
-    .theme-switch-btn { padding: 3px 7px !important; font-size: 10.5px !important; }
+    .whatsapp-float { bottom: 68px !important; right: 16px !important; width: 46px !important; height: 46px !important; font-size: 22px !important; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    .reveal-on-scroll {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-}
-
 """
 
 with open(os.path.join(dest_dir, "css", "style.css"), "w", encoding="utf-8") as f:
     f.write(master_css)
 
-# Update HTML files with Master Layout and All Event Handlers
-home_body = """
-    <!-- HERO SECTION: DESKTOP RAW DARK CONTRAST | MOBILE SOFT BLUR OVERLAY WITH ZOOM-OUT -->
+# Load full extracted subpage bodies
+from extracted_bodies import (
+    about_us_body,
+    services_body,
+    knowledge_base_body,
+    career_body,
+    blog_body,
+    contact_us_body,
+    privacy_policy_body,
+    terms_and_conditions_body
+)
+
+# Resolve blog cards in blog_body
+blog_cards_html = ""
+for idx, p in enumerate(curated_posts):
+    blog_cards_html += f"""
+    <div class="col-lg-6 col-md-6 mb-4 blog-item">
+        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='{p['slug']}.html'">
+            <div class="card-img-wrapper position-relative" style="height: 220px; overflow: hidden;">
+                <img src="{p['img']}" class="card-img-top w-100 h-100" alt="{p['title']}" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                <div style="position: absolute; top: 12px; left: 12px;">
+                    <span class="badge badge-{p['badge_color']} px-3 py-1 font-weight-bold shadow-sm">{p['category']}</span>
+                </div>
+            </div>
+            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
+                <div>
+                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
+                        <span><i class="fa fa-user-circle text-success mr-1"></i> {p['author']}</span>
+                        <span class="mx-2">&bull;</span>
+                        <span><i class="fa fa-calendar text-muted mr-1"></i> {p['date']}</span>
+                    </div>
+                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
+                        <a href="{p['slug']}.html" class="text-decoration-none" style="color: #002e5b;">{p['title']}</a>
+                    </h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">{p['excerpt']}</p>
+                </div>
+                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                    <span class="font-weight-bold text-success small read-more-link">
+                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
+                    </span>
+                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> {p['read_time']}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    """
+
+recent_sidebar_html = "<ul class='list-unstyled mb-0'>"
+for p in curated_posts[:5]:
+    recent_sidebar_html += f"""
+    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
+        <img src="{p['img']}" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3" onerror="this.src='images/banner-1.webp'"/>
+        <div>
+            <a href="{p['slug']}.html" class="font-weight-bold text-dark text-decoration-none small d-block" style="line-height: 1.3;">{p['title']}</a>
+            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> {p['date']}</small>
+        </div>
+    </li>
+    """
+recent_sidebar_html += "</ul>"
+
+blog_body_resolved = blog_body.replace('{blog_cards_html}', blog_cards_html).replace('{recent_sidebar_html}', recent_sidebar_html).replace('{len(curated_posts)}', str(len(curated_posts)))
+
+# Homepage body with perfect team cards, Google reviews, and latest blogs
+home_body = f"""
+    <!-- HERO SECTION -->
     <section class="static-hero-area" id="home">
         <div class="hero-zoom-slider">
             <!-- SLIDE 1: WELCOME TO NATASHA & COMPANY / CA NATASHA RAJVAIDYA -->
             <div class="zoom-slide active">
-                <div class="container h-100 position-relative" style="z-index: 5;">
+                <div class="container-fluid h-100 position-relative" style="z-index: 5;">
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
@@ -1165,7 +1158,7 @@ home_body = """
                                     <h1 class="title">CA NATASHA RAJVAIDYA</h1>
                                     <p class="description">Leading ISO 9001:2015 certified Chartered Accountancy firm in Bhopal offering strategic Tax Planning, Statutory Audits, GST Litigation, and Corporate Advisory.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn " href="about-us.html">About Firm</a>
+                                        <a class="theme-btn" href="about-us.html">About Firm</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Consult CA</a>
                                     </div>
                                 </div>
@@ -1177,7 +1170,7 @@ home_body = """
 
             <!-- SLIDE 2: FOR YOUR BUSINESS -->
             <div class="zoom-slide">
-                <div class="container h-100 position-relative" style="z-index: 5;">
+                <div class="container-fluid h-100 position-relative" style="z-index: 5;">
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
@@ -1191,7 +1184,7 @@ home_body = """
                                     <h1 class="title">FOR YOUR BUSINESS</h1>
                                     <p class="description">Natasha &amp; Company is an ISO 9001:2015 Certified Chartered Accountant firm delivering Strategic Tax Planning, Audits, GST, and Corporate Advisory services.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn " href="services.html">View Services</a>
+                                        <a class="theme-btn" href="services.html">View Services</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Get a Quote</a>
                                     </div>
                                 </div>
@@ -1203,7 +1196,7 @@ home_body = """
 
             <!-- SLIDE 3: NATASHA & COMPANY -->
             <div class="zoom-slide">
-                <div class="container h-100 position-relative" style="z-index: 5;">
+                <div class="container-fluid h-100 position-relative" style="z-index: 5;">
                     <div class="row h-100">
                         <div class="col-lg-7 col-md-9 col-12">
                             <div class="text-slide-item">
@@ -1217,7 +1210,7 @@ home_body = """
                                     <h1 class="title">NATASHA &amp; COMPANY</h1>
                                     <p class="description">Comprehensive startup registration, annual ROC filings, virtual CFO support, and society / trust legal compliances registered under UDYAM-MP-10-0002966.</p>
                                     <div class="btn-box">
-                                        <a class="theme-btn " href="contact-us.html">Contact Us</a>
+                                        <a class="theme-btn" href="contact-us.html">Contact Us</a>
                                         <a class="theme-btn" href="#" data-toggle="modal" data-target="#consultationModal">Book Consultation</a>
                                     </div>
                                 </div>
@@ -1226,16 +1219,15 @@ home_body = """
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- PRACTICE AREAS WITH CINEMATIC SCROLL SCALE/FADE REVEAL -->
+    <!-- PRACTICE AREAS -->
     <section class="py-5" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-                    <div class="text-center mb-40 reveal-on-scroll">
+                    <div class="text-center mb-40">
                         <span class="service-badge">Practice Areas</span>
                         <h2 class="font-weight-bold" style="color: #002e5b;">Our Specialized Services</h2>
                         <p class="text-muted">Comprehensive suite of professional financial, legal, and compliance services to accelerate businesses, startups, and individuals across Bhopal &amp; Pan-India.</p>
@@ -1243,63 +1235,63 @@ home_body = """
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/hand.webp" class="" alt="Accounting & Bookkeeping Services Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/hand.webp" alt="Accounting & Bookkeeping Services Bhopal"/>
                         <h4>Accounting &amp; Bookkeeping</h4>
                         <p class="text-muted">End-to-end accounting setup, ledger maintenance, MIS reporting, and balance sheet finalization under Indian Accounting Standards.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/cash.webp" class="" alt="Direct Tax & ITR Filing Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/cash.webp" alt="Direct Tax & ITR Filing Bhopal"/>
                         <h4>Direct Taxation &amp; ITR</h4>
                         <p class="text-muted">Proactive tax planning for individuals &amp; corporates, Advance Tax calculation, TDS filing, and representation before assessing officers.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/plan.webp" class="" alt="GST Registration & Notice Litigation MP Nagar Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/plan.webp" alt="GST Registration & Notice Litigation MP Nagar Bhopal"/>
                         <h4>GST Advisory &amp; Litigation</h4>
                         <p class="text-muted">GST registration, monthly return filing, Input Tax Credit (ITC) optimization, ISD mechanism, and defense against show cause notices.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/brif.webp" class="" alt="Statutory & Tax Audit Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/brif.webp" alt="Statutory & Tax Audit Bhopal"/>
                         <h4>Auditing &amp; Assurance</h4>
                         <p class="text-muted">Statutory Audits under Companies Act 2013, Tax Audits under Section 44AB, Internal Audits, Stock Audits, and Forensic Verification.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-5">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/commo.webp" class="" alt="Company & LLP Registration MP Nagar Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/commo.webp" alt="Company & LLP Registration MP Nagar Bhopal"/>
                         <h4>Company &amp; LLP Formation</h4>
                         <p class="text-muted">Private Limited, OPC, and LLP incorporation in Bhopal. Digital Signatures, DIN, MOA/AOA drafting, and annual MCA ROC filings.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll reveal-delay-6">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
-                        <img src="images/reti.webp" class="" alt="Trust NGO 12A 80G Registration Bhopal" loading="lazy" decoding="async"/>
+                        <img src="images/reti.webp" alt="Trust NGO 12A 80G Registration Bhopal"/>
                         <h4>Societies, Trust &amp; NGO Laws</h4>
                         <p class="text-muted">Registration of Charitable Trusts and Societies, Section 12A &amp; 80G tax exemptions, CSR compliance, and FCRA representations.</p>
-                        <a href="services.html" class="text-success font-weight-bold ">Learn More &rarr;</a>
+                        <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT NATASHA & COMPANY WITH SCROLL SCALE REVEAL -->
+    <!-- ABOUT NATASHA & COMPANY -->
     <section class="py-5" style="background-color: #ffffff;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0 reveal-on-scroll">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <span class="service-badge">About Firm</span>
                     <h2 class="font-weight-bold mb-3" style="color: #002e5b;">Leading Chartered Accountancy Firm in Bhopal</h2>
                     <p class="text-muted"><strong>Natasha &amp; Company</strong> is an <strong>ISO 9001:2015 Certified</strong> Chartered Accountancy firm registered under MSME Udyam (<strong>UDYAM-MP-10-0002966</strong>). Headquartered in MP Nagar Bhopal, we provide end-to-end strategic tax, audit, and legal consulting to clients across India.</p>
@@ -1324,12 +1316,12 @@ home_body = """
                         </div>
                     </div>
                     <div class="mt-3">
-                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2 " style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
+                        <a href="about-us.html" class="btn btn-ca-primary font-weight-bold px-4 py-2" style="background: #006B63; color: #fff; border-radius: 4px;">Discover More &rarr;</a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
-                    <div class="p-4 bg-light rounded shadow-sm border leader-card">
-                        <img src="images/natasha.jpg" alt="CA Natasha Rajvaidya FCA - Best CA in Bhopal" class="rounded-circle mb-3 shadow " style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                <div class="col-lg-6 text-center">
+                    <div class="p-4 bg-light rounded shadow-sm border">
+                        <img src="images/team-1.webp" alt="CA Natasha Rajvaidya FCA - Best CA in Bhopal" class="rounded-circle mb-3 shadow" style="width: 160px; height: 160px; object-fit: cover; border: 4px solid #006B63;" onerror="this.src='images/team-1.webp'"/>
                         <h4 class="font-weight-bold mb-1" style="color: #002e5b;">CA Natasha Rajvaidya</h4>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Fellow Chartered Accountant (FCA) &bull; Founder</span>
                         <p class="text-muted small px-3">Expert in Direct Tax planning, Corporate Audits, GST Litigation, and Business Advisory with over 8 years of dedicated practice in Bhopal.</p>
@@ -1339,11 +1331,11 @@ home_body = """
         </div>
     </section>
 
-    <!-- OUR TEAM SECTION WITH STAGGERED SCROLL REVEAL -->
+    <!-- OUR TEAM SECTION (PERFECT 4-CARD BALANCED GRID) -->
     <section class="py-5" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-5 reveal-on-scroll">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-5">
                     <span class="service-badge">Meet the Experts</span>
                     <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">Our Team</h2>
                     <p class="text-muted">A distinguished team of Chartered Accountants, Senior Tax Consultants, and Corporate Advisors committed to your financial excellence.</p>
@@ -1352,109 +1344,121 @@ home_body = """
 
             <div class="row">
                 <!-- 1. CA Natasha -->
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
-                        <div class="team-img-box mb-3 rounded">
-                            <img src="images/natasha.jpg" class="" alt="CA Natasha Rajvaidya - Chartered Accountant Bhopal" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-card-unified p-3 text-center">
+                        <div>
+                            <div class="team-img-box mb-3 rounded">
+                                <img src="images/team-1.webp" alt="CA Natasha Rajvaidya - Principal Partner" onerror="this.src='images/team-1.webp'"/>
+                            </div>
+                            <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
+                            <div class="mb-2">
+                                <span class="badge badge-success px-2 py-1" style="background-color: #006B63; font-size: 11px;">FCA &bull; Principal Partner</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Direct Tax Specialist &bull; Statutory Audits &bull; Startup Mentor</p>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">CA Natasha Rajvaidya</h5>
-                        <div class="mb-2">
-                            <span class="badge badge-success px-2 py-1" style="background-color: #006B63; font-size: 11px;">FCA &bull; Principal Partner</span>
+                        <div>
+                            <div class="d-flex justify-content-center align-items-center mb-2">
+                                <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult%20with%20you." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                                <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                            </div>
+                            <a href="#" data-toggle="modal" data-target="#consultationModal" class="team-connect-btn">
+                                <i class="fa fa-comments mr-1"></i> Connect / Consult
+                            </a>
                         </div>
-                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Direct Tax Specialist &bull; Statutory Audits &bull; Startup Mentor</p>
-                        
-                        <div class="d-flex justify-content-center align-items-center mb-2">
-                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20would%20like%20to%20consult%20with%20you." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
-                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
-                        </div>
-                        <a href="#" data-toggle="modal" data-target="#consultationModal" class="team-connect-btn">
-                            <i class="fa fa-comments mr-1"></i> Connect / Consult
-                        </a>
                     </div>
                 </div>
 
                 <!-- 2. Senior Partner -->
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
-                        <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-2.webp" class="" alt="Ashish & Associates - Senior Partner" loading="lazy" decoding="async"/>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-card-unified p-3 text-center">
+                        <div>
+                            <div class="team-img-box mb-3 rounded">
+                                <img src="images/team-2.webp" alt="Ashish & Associates - Senior Partner"/>
+                            </div>
+                            <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
+                            <div class="mb-2">
+                                <span class="badge badge-primary px-2 py-1" style="font-size: 11px;">Senior Partner &bull; Audit Lead</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Company Law &bull; Ind AS Compliance &bull; Forensic Audit</p>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Ashish &amp; Associates</h5>
-                        <div class="mb-2">
-                            <span class="badge badge-primary px-2 py-1" style="font-size: 11px;">Senior Partner &bull; Audit Lead</span>
+                        <div>
+                            <div class="d-flex justify-content-center align-items-center mb-2">
+                                <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Auditing%20Services." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                                <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                            </div>
+                            <a href="contact-us.html" class="team-connect-btn">
+                                <i class="fa fa-envelope mr-1"></i> Connect with Lead
+                            </a>
                         </div>
-                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Company Law &bull; Ind AS Compliance &bull; Forensic Audit</p>
-                        
-                        <div class="d-flex justify-content-center align-items-center mb-2">
-                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Auditing%20Services." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
-                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
-                        </div>
-                        <a href="contact-us.html" class="team-connect-btn ">
-                            <i class="fa fa-envelope mr-1"></i> Connect with Lead
-                        </a>
                     </div>
                 </div>
 
                 <!-- 3. Tax Advisor -->
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
-                        <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-3.webp" class="" alt="GST Specialist Bhopal" loading="lazy" decoding="async"/>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-card-unified p-3 text-center">
+                        <div>
+                            <div class="team-img-box mb-3 rounded">
+                                <img src="images/team-3.webp" alt="Senior Tax Advisor"/>
+                            </div>
+                            <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
+                            <div class="mb-2">
+                                <span class="badge badge-warning text-dark px-2 py-1 font-weight-bold" style="font-size: 11px;">GST &amp; Litigation Lead</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Indirect Taxes &bull; Show Cause Notice Defense &bull; ITC Audit</p>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Senior Tax Advisor</h5>
-                        <div class="mb-2">
-                            <span class="badge badge-warning text-dark px-2 py-1 font-weight-bold" style="font-size: 11px;">GST &amp; Litigation Lead</span>
+                        <div>
+                            <div class="d-flex justify-content-center align-items-center mb-2">
+                                <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20GST%20Litigation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                                <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                            </div>
+                            <a href="contact-us.html" class="team-connect-btn">
+                                <i class="fa fa-envelope mr-1"></i> Connect with Advisor
+                            </a>
                         </div>
-                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">Indirect Taxes &bull; Show Cause Notice Defense &bull; ITC Audit</p>
-                        
-                        <div class="d-flex justify-content-center align-items-center mb-2">
-                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20GST%20Litigation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
-                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
-                        </div>
-                        <a href="contact-us.html" class="team-connect-btn ">
-                            <i class="fa fa-envelope mr-1"></i> Connect with Advisor
-                        </a>
                     </div>
                 </div>
 
                 <!-- 4. Corporate Law -->
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-4">
-                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden leader-card p-3 text-center">
-                        <div class="team-img-box mb-3 rounded">
-                            <img src="images/team-4.webp" class="" alt="Corporate Law Advisor Bhopal" loading="lazy" decoding="async"/>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="team-card-unified p-3 text-center">
+                        <div>
+                            <div class="team-img-box mb-3 rounded">
+                                <img src="images/team-4.webp" alt="Corporate Law Head"/>
+                            </div>
+                            <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
+                            <div class="mb-2">
+                                <span class="badge badge-info px-2 py-1" style="font-size: 11px;">ROC &amp; Startup Advisor</span>
+                            </div>
+                            <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">LLP &amp; Pvt Ltd Formations &bull; NGO/Trust 12A 80G Filings</p>
                         </div>
-                        <h5 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 17px;">Corporate Law Head</h5>
-                        <div class="mb-2">
-                            <span class="badge badge-info px-2 py-1" style="font-size: 11px;">ROC &amp; Startup Advisor</span>
+                        <div>
+                            <div class="d-flex justify-content-center align-items-center mb-2">
+                                <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Company%20Formation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
+                                <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
+                            </div>
+                            <a href="contact-us.html" class="team-connect-btn">
+                                <i class="fa fa-envelope mr-1"></i> Connect with Legal
+                            </a>
                         </div>
-                        <p class="text-muted small mb-3" style="font-size: 12.5px; line-height: 1.4;">LLP &amp; Pvt Ltd Formations &bull; NGO/Trust 12A 80G Filings</p>
-                        
-                        <div class="d-flex justify-content-center align-items-center mb-2">
-                            <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" class="team-social-btn" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                            <a href="https://twitter.com/canatasharaj" target="_blank" class="team-social-btn" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="https://wa.me/919407000157?text=Hello%2C%20I%20need%20assistance%20with%20Company%20Formation." target="_blank" class="team-social-btn" title="WhatsApp"><i class="fa fa-whatsapp text-success"></i></a>
-                            <a href="tel:+919407000157" class="team-social-btn" title="Call"><i class="fa fa-phone text-primary"></i></a>
-                        </div>
-                        <a href="contact-us.html" class="team-connect-btn ">
-                            <i class="fa fa-envelope mr-1"></i> Connect with Legal
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FINANCIAL CALCULATORS SECTION WITH SCROLL REVEAL -->
+    <!-- FINANCIAL CALCULATORS SECTION -->
     <section class="py-5" style="background-color: #ffffff;">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4 reveal-on-scroll">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
                     <span class="service-badge">Financial Tools</span>
                     <h2 class="font-weight-bold" style="color: #002e5b; font-size: 34px;">Live Financial &amp; Tax Calculators</h2>
                     <p class="text-muted">Instant calculation tools for Income Tax planning and monthly loan installments.</p>
@@ -1462,8 +1466,8 @@ home_body = """
             </div>
 
             <div class="row">
-                <div class="col-lg-6 mb-4 reveal-on-scroll reveal-delay-1">
-                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100">
                         <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-calculator text-success mr-2"></i> Income Tax Calculator (FY 2024-25)</h4>
                         <p class="text-muted small">Compare estimated tax payable under the New vs Old Tax Regime.</p>
                         <div class="form-group mb-3">
@@ -1491,8 +1495,8 @@ home_body = """
                     </div>
                 </div>
 
-                <div class="col-lg-6 mb-4 reveal-on-scroll reveal-delay-2">
-                    <div class="p-4 bg-white rounded shadow-sm border h-100 calc-box-card">
+                <div class="col-lg-6 mb-4">
+                    <div class="p-4 bg-white rounded shadow-sm border h-100">
                         <h4 class="font-weight-bold mb-3" style="color: #002e5b;"><i class="fa fa-percent text-success mr-2"></i> Business / Home Loan EMI Calculator</h4>
                         <p class="text-muted small">Calculate monthly EMI and total interest outflow.</p>
                         <div class="form-group mb-3">
@@ -1529,17 +1533,17 @@ home_body = """
         </div>
     </section>
 
-    <!-- LIVE RUNNING COUNTER / STATISTICS -->
+    <!-- PROVEN TRACK RECORD -->
     <section class="py-5" id="trusted-stats-section" style="background: linear-gradient(135deg, #002e5b 0%, #006B63 100%); color: #ffffff;">
         <div class="container text-center">
             <div class="row">
-                <div class="col-12 mb-4 reveal-on-scroll">
+                <div class="col-12 mb-4">
                     <span class="badge badge-warning px-3 py-1 text-dark font-weight-bold text-uppercase" style="letter-spacing: 1px;">Proven Track Record</span>
                     <h2 class="font-weight-bold text-white mt-2">Trusted by Clients Across India</h2>
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-1">
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
                     <div class="stat-counter-box">
                         <i class="fa fa-users fa-2x text-warning mb-2"></i>
                         <div>
@@ -1548,7 +1552,7 @@ home_body = """
                         <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Happy Clients</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-2">
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
                     <div class="stat-counter-box">
                         <i class="fa fa-rocket fa-2x text-warning mb-2"></i>
                         <div>
@@ -1557,7 +1561,7 @@ home_body = """
                         <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">Startup Companies</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-3">
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
                     <div class="stat-counter-box">
                         <i class="fa fa-map-marker fa-2x text-warning mb-2"></i>
                         <div>
@@ -1566,7 +1570,7 @@ home_body = """
                         <span class="text-uppercase small font-weight-bold text-white-50" style="letter-spacing: 1px;">States Served</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6 mb-4 mb-lg-0 reveal-on-scroll reveal-delay-4">
+                <div class="col-lg-3 col-6 mb-4 mb-lg-0">
                     <div class="stat-counter-box">
                         <i class="fa fa-award fa-2x text-warning mb-2"></i>
                         <div>
@@ -1579,20 +1583,263 @@ home_body = """
         </div>
     </section>
 
+    <!-- PERFECT AUTO-SLIDING GOOGLE REVIEWS SECTION -->
+    <section class="py-5" style="background-color: #f8fafc; overflow: hidden;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
+                    <span class="service-badge">Client Testimonials</span>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">See What Our Clients Say</h2>
+                    <p class="text-muted">Real feedback and 5-star ratings from verified business clients and individuals on Google.</p>
+                </div>
+            </div>
+
+            <div class="row align-items-stretch">
+                <div class="col-lg-4 col-md-5 mb-4 mb-md-0">
+                    <div class="google-badge-box">
+                        <div class="mb-3">
+                            <img src="images/brand-logo.png" alt="Natasha &amp; Co." style="height: 42px; width: auto; object-fit: contain; margin-bottom: 8px;"/>
+                            <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 15px;">Natasha &amp; Co.</h6>
+                            <small class="text-muted" style="font-size: 12px;">Chartered Accountants &bull; Bhopal</small>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="text-warning mb-1" style="font-size: 22px;">
+                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            </div>
+                            <h4 class="font-weight-bold text-dark mb-0">141 Google reviews</h4>
+                            <small class="text-success font-weight-bold"><i class="fa fa-check-circle mr-1"></i> Verified Google Business</small>
+                        </div>
+
+                        <div class="mt-2">
+                            <a href="https://search.google.com/local/writereview?placeid=ChIJ8_T3bmdCfDkRsIwuR8aLNxw" target="_blank" class="btn btn-outline-dark btn-block py-2 font-weight-bold shadow-sm" style="border-radius: 6px; font-size: 13.5px;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 16px; margin-right: 6px; margin-top: -3px;" alt="G"/>
+                                Write a review
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-7">
+                    <div class="owl-carousel reviews-carousel">
+                        <!-- Review 1 -->
+                        <div class="item p-1">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center mr-2 text-white font-weight-bold" style="width: 40px; height: 40px; background: #002e5b; font-size: 14px;">
+                                                RS
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Rahul Sharma</h6>
+                                                <small class="text-muted" style="font-size: 11px;">1 year ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Best CA in Bhopal for startup registration and GST notice resolution. Resolved our pending refund smoothly!"
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="item p-1">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center mr-2 text-white font-weight-bold" style="width: 40px; height: 40px; background: #006B63; font-size: 14px;">
+                                                SS
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Sohan Shukla</h6>
+                                                <small class="text-muted" style="font-size: 11px;">3 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Excellent services providing friendly as and when needs from them. Always accessible for tax matters and prompt advice."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="item p-1">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center mr-2 text-white font-weight-bold" style="width: 40px; height: 40px; background: #c05621; font-size: 14px;">
+                                                PS
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Dr. Priya Saxena</h6>
+                                                <small class="text-muted" style="font-size: 11px;">2 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Outstanding support for medical professionals tax planning and trust registrations. Extremely knowledgeable and trustworthy."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 4 -->
+                        <div class="item p-1">
+                            <div class="review-card-item">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="rounded-circle d-flex align-items-center justify-content-center mr-2 text-white font-weight-bold" style="width: 40px; height: 40px; background: #2b6cb0; font-size: 14px;">
+                                                MV
+                                            </div>
+                                            <div>
+                                                <h6 class="font-weight-bold mb-0 text-dark" style="font-size: 14px;">Manish Kumar Vishwakarma</h6>
+                                                <small class="text-muted" style="font-size: 11px;">3 years ago</small>
+                                            </div>
+                                        </div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" style="height: 18px;" alt="Google"/>
+                                    </div>
+                                    <div class="text-warning mb-2" style="font-size: 13px;">
+                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                                    </div>
+                                    <p class="text-muted small mb-0" style="line-height: 1.55; font-size: 13px;">
+                                        "Very Responsive humble and professional. File my ITR in time. Thanks to Natasha and Company for seamless compliance."
+                                    </p>
+                                </div>
+                                <div class="mt-2 text-right">
+                                    <small class="text-muted" style="font-size: 10.5px;"><i class="fa fa-check text-success mr-1"></i> Verified Client</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST BLOGS & INSIGHTS (HOMEPAGE SECTION) -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-8">
+                    <span class="service-badge">Insights &amp; Articles</span>
+                    <h2 class="font-weight-bold mb-1" style="color: #002e5b; font-size: 34px;">Latest Financial &amp; Tax Insights</h2>
+                    <p class="text-muted">Stay informed with expert analysis, regulatory updates, and strategic tax advice.</p>
+                </div>
+                <div class="col-md-4 text-md-right">
+                    <a href="blog.html" class="btn btn-outline-dark font-weight-bold px-4 py-2" style="border-radius: 4px;">View All Insights &rarr;</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Blog 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html'">
+                        <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
+                            <img src="images/blog-1.webp" class="card-img-top w-100 h-100" alt="Income Tax Guide" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                            <div style="position: absolute; top: 12px; left: 12px;">
+                                <span class="badge badge-primary px-3 py-1 font-weight-bold shadow-sm">Income Tax</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <small class="text-muted d-block mb-2"><i class="fa fa-calendar text-success mr-1"></i> May 2026</small>
+                                <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 16.5px; line-height: 1.4;">7 Key Points Every Salaried Employee Must Know Before Filing ITR</h5>
+                                <p class="text-muted small mb-0" style="line-height: 1.55;">Essential tax-saving insights, deduction checks under Section 80C, 80D, and AIS reconciliation tips.</p>
+                            </div>
+                            <div class="mt-3 pt-3 border-top text-right">
+                                <span class="text-success font-weight-bold small">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html'">
+                        <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
+                            <img src="images/blog-2.webp" class="card-img-top w-100 h-100" alt="GST Input Service Distributor" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                            <div style="position: absolute; top: 12px; left: 12px;">
+                                <span class="badge badge-warning text-dark px-3 py-1 font-weight-bold shadow-sm">GST Advisory</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <small class="text-muted d-block mb-2"><i class="fa fa-calendar text-success mr-1"></i> April 2026</small>
+                                <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 16.5px; line-height: 1.4;">ISD Registration Now Mandatory: Don't Lose Your GST Credit</h5>
+                                <p class="text-muted small mb-0" style="line-height: 1.55;">Understanding the new mandatory Input Service Distributor mechanism for multi-branch businesses.</p>
+                            </div>
+                            <div class="mt-3 pt-3 border-top text-right">
+                                <span class="text-success font-weight-bold small">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html'">
+                        <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
+                            <img src="images/blog-3.webp" class="card-img-top w-100 h-100" alt="Corporate Law & Investment" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
+                            <div style="position: absolute; top: 12px; left: 12px;">
+                                <span class="badge badge-info px-3 py-1 font-weight-bold shadow-sm">Corporate Growth</span>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <div>
+                                <small class="text-muted d-block mb-2"><i class="fa fa-calendar text-success mr-1"></i> March 2026</small>
+                                <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 16.5px; line-height: 1.4;">Invest Madhya Pradesh: Industrial Growth &amp; MSME Opportunities</h5>
+                                <p class="text-muted small mb-0" style="line-height: 1.55;">Opportunities, tax incentives, and policy subsidies for new enterprises setting up base in Bhopal.</p>
+                            </div>
+                            <div class="mt-3 pt-3 border-top text-right">
+                                <span class="text-success font-weight-bold small">Read More &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- LIVE NEWS & DUE DATE REMINDERS -->
-    <section class="py-5">
+    <section class="py-5" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-                    <div class="text-center mb-40 reveal-on-scroll">
+                    <div class="text-center mb-40">
                         <span class="service-badge">Stay Updated</span>
                         <h2 class="font-weight-bold" style="color: #002e5b;">Tax Updates &amp; Statutory Due Dates</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-4 reveal-on-scroll reveal-delay-1">
+                <div class="col-md-4 mb-4">
                     <div class="p-4 bg-white rounded shadow-sm border h-100">
                         <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3"><i class="fa fa-newspaper-o text-success"></i> Latest Tax News</h4>
                         <marquee direction="up" height="230" scrollamount="2" scrolldelay="30" onmouseover="this.stop();" onmouseout="this.start();">
@@ -1611,7 +1858,7 @@ home_body = """
                         </marquee>
                     </div>
                 </div>
-                <div class="col-md-8 mb-4 reveal-on-scroll reveal-delay-2">
+                <div class="col-md-8 mb-4">
                     <div class="p-4 bg-white rounded shadow-sm border h-100">
                         <h4 class="font-weight-bold text-dark border-bottom pb-2 mb-3"><i class="fa fa-calendar-check-o text-success"></i> Monthly Statutory Compliance Calendar</h4>
                         <div class="table-responsive">
@@ -1658,10 +1905,10 @@ home_body = """
         </div>
     </section>
 
-    <!-- GET IN TOUCH CONSULTATION FORM WITH SCROLL REVEAL -->
-    <section class="py-5" style="background-color: #f8fafc;">
+    <!-- GET IN TOUCH CONSULTATION FORM -->
+    <section class="py-5" style="background-color: #ffffff;">
         <div class="container">
-            <div class="p-4 p-md-5 bg-white rounded shadow-sm border reveal-on-scroll">
+            <div class="p-4 p-md-5 bg-white rounded shadow-sm border">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
                         <span class="service-badge">Send a Message</span>
@@ -1684,7 +1931,7 @@ home_body = """
                             <button type="submit" class="btn btn-ca-primary px-5 py-2 font-weight-bold" style="background: #006B63; color: #ffffff; border-radius: 4px;">Send Message</button>
                         </form>
                     </div>
-                    <div class="col-lg-6 text-center reveal-on-scroll reveal-delay-2">
+                    <div class="col-lg-6 text-center">
                         <div class="p-4 bg-light rounded border text-center">
                             <i class="fa fa-headphones fa-4x text-success mb-3"></i>
                             <h4 class="font-weight-bold" style="color: #002e5b;">Need Direct Assistance?</h4>
@@ -1700,69 +1947,6 @@ home_body = """
         </div>
     </section>
 """
-
-# Re-use subpage bodies
-with open(os.path.join(r"C:\Users\deepa\.gemini\antigravity\brain\1ba05719-3d30-470e-878e-66a5c763c29c\scratch", "build_reveal_mask_mobile_system.py"), "r", encoding="utf-8") as f:
-    orig = f.read()
-
-about_body = re.search(r'about_body = """(.*?)"""', orig, re.S).group(1)
-services_body = re.search(r'services_body = """(.*?)"""', orig, re.S).group(1)
-knowledge_body = re.search(r'knowledge_body = """(.*?)"""', orig, re.S).group(1)
-career_body = re.search(r'career_body = """(.*?)"""', orig, re.S).group(1)
-blog_body = re.search(r'blog_body = f"""(.*?)"""', orig, re.S).group(1)
-contact_body = re.search(r'contact_body = """(.*?)"""', orig, re.S).group(1)
-privacy_body = re.search(r'privacy_body = """(.*?)"""', orig, re.S).group(1)
-terms_body = re.search(r'terms_body = """(.*?)"""', orig, re.S).group(1)
-
-# Blog Cards HTML for blog.html
-blog_cards_html = ""
-for idx, p in enumerate(curated_posts):
-    blog_cards_html += f"""
-    <div class="col-lg-6 col-md-6 mb-4 blog-item reveal-on-scroll reveal-delay-{(idx%4)+1}">
-        <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card " onclick="window.location.href='{p['slug']}.html'">
-            <div class="card-img-wrapper">
-                <img src="{p['img']}" class="card-img-top w-100 h-100 " alt="{p['title']}" style="object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
-                <div style="position: absolute; top: 12px; left: 12px;">
-                    <span class="badge badge-{p['badge_color']} px-3 py-1 font-weight-bold shadow-sm">{p['category']}</span>
-                </div>
-            </div>
-            <div class="card-body p-4 d-flex flex-column justify-content-between bg-white">
-                <div>
-                    <div class="d-flex align-items-center text-muted small mb-2" style="font-size: 12px;">
-                        <span><i class="fa fa-user-circle text-success mr-1"></i> {p['author']}</span>
-                        <span class="mx-2">&bull;</span>
-                        <span><i class="fa fa-calendar text-muted mr-1"></i> {p['date']}</span>
-                    </div>
-                    <h5 class="font-weight-bold mb-2" style="color: #002e5b; font-size: 17.5px; line-height: 1.4;">
-                        <a href="{p['slug']}.html" class="text-decoration-none " style="color: #002e5b;">{p['title']}</a>
-                    </h5>
-                    <p class="text-muted small mb-0" style="line-height: 1.6; font-size: 13.5px;">{p['excerpt']}</p>
-                </div>
-                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                    <span class="font-weight-bold text-success small read-more-link">
-                        Read Full Article <i class="fa fa-arrow-right ml-1"></i>
-                    </span>
-                    <span class="badge badge-light text-muted small px-2 py-1"><i class="fa fa-clock-o mr-1"></i> {p['read_time']}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    """
-
-recent_sidebar_html = "<ul class='list-unstyled mb-0'>"
-for p in curated_posts[:5]:
-    recent_sidebar_html += f"""
-    <li class="mb-3 pb-3 border-bottom d-flex align-items-center">
-        <img src="{p['img']}" style="width: 58px; height: 58px; object-fit: cover; border-radius: 6px;" class="mr-3 " loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
-        <div>
-            <a href="{p['slug']}.html" class="font-weight-bold text-dark text-decoration-none small d-block " style="line-height: 1.3;">{p['title']}</a>
-            <small class="text-muted" style="font-size: 11px;"><i class="fa fa-calendar text-success mr-1"></i> {p['date']}</small>
-        </div>
-    </li>
-    """
-recent_sidebar_html += "</ul>"
-
-blog_body_resolved = blog_body.replace('{blog_cards_html}', blog_cards_html).replace('{recent_sidebar_html}', recent_sidebar_html).replace('{len(curated_posts)}', str(len(curated_posts)))
 
 # Unified SEO Metadata Directory
 seo_meta = {
@@ -1810,14 +1994,14 @@ seo_meta = {
     },
     "privacy": {
         "title": "Privacy Policy | Natasha & Company – Chartered Accountants Bhopal",
-        "description": "Privacy policy and client data protection practices for Natasha & Company Chartered Accountants Bhopal.",
-        "keywords": "Privacy Policy, Natasha & Company, Data Protection",
+        "description": "Read the official privacy policy and client data confidentiality standards maintained by Natasha & Company Chartered Accountants in Bhopal.",
+        "keywords": "Privacy Policy, Natasha & Company, Client Data Protection CA Bhopal",
         "url": "https://canatasha-website.vercel.app/privacy-policy.html"
     },
     "terms": {
         "title": "Terms & Conditions | Natasha & Company – Chartered Accountants Bhopal",
-        "description": "Terms and conditions of engagement with Natasha & Company Chartered Accountants.",
-        "keywords": "Terms and Conditions, Natasha & Company",
+        "description": "Read the official terms and conditions of professional engagement, ICAI ethical compliance guidelines, and advisory standards by Natasha & Company.",
+        "keywords": "Terms and Conditions, Natasha & Company, Client Engagement Terms Bhopal",
         "url": "https://canatasha-website.vercel.app/terms-and-conditions.html"
     }
 }
@@ -1929,33 +2113,43 @@ __SCHEMA_JSON__
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/owl.carousel.css"/>
-    <link rel="stylesheet" href="css/style.css?v=37000"/>
+    <link rel="stylesheet" href="css/style.css?v=38000"/>
 
     <style id="master-inlined-css">
 __MASTER_CSS__
     </style>
 </head>
 <body>
-    <!-- 1. SLEEK SCROLL PROGRESS INDICATOR -->
+    <!-- MOBILE BACKDROP OVERLAY -->
+    <div id="mobile-backdrop" class="d-lg-none"></div>
+
+    <!-- SLEEK SCROLL PROGRESS INDICATOR -->
     <div id="scroll-progress-bar"></div>
 
-    <!-- TOP HEADER (DESKTOP) WITH TRUST CREDENTIALS -->
+    <!-- TOP HEADER (DESKTOP) WITH TRUST CREDENTIALS & THEME SWITCHER -->
     <div class="top-bar-custom d-none d-md-block">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-lg-8 col-md-7">
+                <div class="col-lg-7 col-md-6">
                     <span><i class="fa fa-phone" style="color: #00a896;"></i> <a href="tel:+919407000157">+91 9407000157</a></span>
                     <span><i class="fa fa-envelope" style="color: #00a896;"></i> <a href="mailto:info@canatasha.com">info@canatasha.com</a></span>
-                    <span><i class="fa fa-clock-o" style="color: #00a896;"></i> Mon - Sat: 9:30 AM - 7:30 PM</span>
                     <span class="trust-badge-pill d-none d-xl-inline"><i class="fa fa-certificate text-warning mr-1"></i> ISO 9001:2015</span>
                     <span class="trust-badge-pill d-none d-xl-inline"><i class="fa fa-shield text-info mr-1"></i> UDYAM-MP-10-0002966</span>
                 </div>
-                <div class="col-lg-4 col-md-5 text-right social-icons-top">
-                    <span class="mr-2 text-muted small">Follow Us:</span>
-                    <a href="https://www.facebook.com/canatasharaj/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
-                    <a href="https://twitter.com/canatasharaj" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <div class="col-lg-5 col-md-6 text-right d-flex align-items-center justify-content-end">
+                    <div class="social-icons-top mr-2">
+                        <a href="https://www.facebook.com/canatasharaj/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="https://twitter.com/canatasharaj" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                    <!-- CLEAN IN-HEADER THEME SWITCHER -->
+                    <div class="theme-switcher-top">
+                        <span class="small font-weight-bold mr-1 text-white-50"><i class="fa fa-paint-brush text-warning mr-1"></i>Theme:</span>
+                        <button type="button" class="theme-switch-btn active" data-theme="emerald">Emerald</button>
+                        <button type="button" class="theme-switch-btn" data-theme="bw">B&amp;W</button>
+                        <button type="button" class="theme-switch-btn" data-theme="grey">Slate</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1969,7 +2163,7 @@ __MASTER_CSS__
                     <!-- CLEAN UNIFIED BRAND LOGO -->
                     <div class="logo-wrapper">
                         <div class="logo">
-                            <a href="index.html" class="">
+                            <a href="index.html">
                                 <img src="images/brand-logo.png" alt="Natasha &amp; Co. Chartered Accountants" loading="lazy" decoding="async"/>
                             </a>
                         </div>
@@ -2027,6 +2221,29 @@ __DESKTOP_NAV__
         <!-- 10-POINT LUXURY MOBILE DRAWER -->
         <div id="mobile-menu-drawer" class="d-lg-none">
             <div class="container px-0">
+                <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                    <span class="font-weight-bold text-dark" style="font-size: 15px;"><i class="fa fa-bars text-success mr-1"></i> Navigation Menu</span>
+                    <button type="button" class="btn btn-sm btn-light rounded-circle mobile-drawer-close-btn" style="width: 32px; height: 32px; padding: 0; line-height: 30px; border: 1px solid #e2e8f0;" aria-label="Close Menu">
+                        <i class="fa fa-times text-dark"></i>
+                    </button>
+                </div>
+                <!-- THEME SWITCHER CONTROLS -->
+                <div class="mb-3 p-2 rounded" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="font-weight-bold text-dark small"><i class="fa fa-paint-brush text-success mr-1"></i> Choose Theme:</span>
+                    </div>
+                    <div class="d-flex justify-content-between" style="gap: 5px;">
+                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="emerald" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                            <span style="display:inline-block; width:9px; height:9px; background:#006B63; border-radius:50%; margin-right:3px;"></span>Emerald
+                        </button>
+                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="bw" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                            <span style="display:inline-block; width:9px; height:9px; background:#18181b; border-radius:50%; margin-right:3px;"></span>B&amp;W
+                        </button>
+                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="grey" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                            <span style="display:inline-block; width:9px; height:9px; background:#475569; border-radius:50%; margin-right:3px;"></span>Slate
+                        </button>
+                    </div>
+                </div>
                 <ul>
 __MOBILE_NAV__
                 </ul>
@@ -2048,7 +2265,7 @@ __BODY_CONTENT__
     <footer class="footer pt-5 mt-5">
         <div class="container pb-4">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 reveal-on-scroll">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-logo-badge">
                         <img src="images/brand-logo.png" alt="Natasha &amp; Co." style="height: 38px; width: auto;" loading="lazy" decoding="async"/>
                     </div>
@@ -2061,32 +2278,32 @@ __BODY_CONTENT__
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6 mb-4 reveal-on-scroll reveal-delay-1">
+                <div class="col-lg-2 col-md-6 mb-4">
                     <h5 class="text-white font-weight-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="index.html" class="">Home</a></li>
-                        <li class="mb-2"><a href="about-us.html" class="">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="">Our Services</a></li>
-                        <li class="mb-2"><a href="knowledge-base.html" class="">Knowledge Base</a></li>
-                        <li class="mb-2"><a href="career.html" class="">Career</a></li>
-                        <li class="mb-2"><a href="blog.html" class="">Blog &amp; Insights</a></li>
-                        <li class="mb-2"><a href="contact-us.html" class="">Contact Us</a></li>
-                        <li class="mb-2"><a href="privacy-policy.html" class="">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about-us.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Our Services</a></li>
+                        <li class="mb-2"><a href="knowledge-base.html">Knowledge Base</a></li>
+                        <li class="mb-2"><a href="career.html">Career</a></li>
+                        <li class="mb-2"><a href="blog.html">Blog &amp; Insights</a></li>
+                        <li class="mb-2"><a href="contact-us.html">Contact Us</a></li>
+                        <li class="mb-2"><a href="privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white font-weight-bold mb-3">Our Practice</h5>
                     <ul class="list-unstyled foot-ul-link small">
-                        <li class="mb-2"><a href="services.html" class="">Income Tax &amp; TDS Filing</a></li>
-                        <li class="mb-2"><a href="services.html" class="">GST Registration &amp; Returns</a></li>
-                        <li class="mb-2"><a href="services.html" class="">Statutory &amp; Tax Audits</a></li>
-                        <li class="mb-2"><a href="services.html" class="">Company &amp; LLP Formation</a></li>
-                        <li class="mb-2"><a href="services.html" class="">Societies, Trust &amp; NGO Laws</a></li>
+                        <li class="mb-2"><a href="services.html">Income Tax &amp; TDS Filing</a></li>
+                        <li class="mb-2"><a href="services.html">GST Registration &amp; Returns</a></li>
+                        <li class="mb-2"><a href="services.html">Statutory &amp; Tax Audits</a></li>
+                        <li class="mb-2"><a href="services.html">Company &amp; LLP Formation</a></li>
+                        <li class="mb-2"><a href="services.html">Societies, Trust &amp; NGO Laws</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mb-4 reveal-on-scroll reveal-delay-3">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white font-weight-bold mb-3">Offices in Bhopal</h5>
                     <ul class="list-unstyled text-muted small">
                         <li class="mb-2 d-flex">
@@ -2110,7 +2327,7 @@ __BODY_CONTENT__
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-7 text-center text-md-left">
-                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted ">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted ">Terms &amp; Conditions</a></p>
+                        <p class="mb-0 text-muted small">&copy; 2026 <strong>Natasha &amp; Company</strong>. All Rights Reserved. | <a href="privacy-policy.html" class="text-muted">Privacy Policy</a> • <a href="terms-and-conditions.html" class="text-muted">Terms &amp; Conditions</a></p>
                     </div>
                     <div class="col-md-5 text-center text-md-right mt-2 mt-md-0">
                         <p class="mb-0 text-muted small">Designed for <strong>CA Natasha &amp; Co.</strong></p>
@@ -2119,20 +2336,6 @@ __BODY_CONTENT__
             </div>
         </div>
     </footer>
-
-    <!-- INTERACTIVE FLOATING THEME PREVIEWER WIDGET -->
-    <div id="ca-theme-switcher" class="ca-theme-switcher" title="Theme Previewer for Client Review">
-        <span class="theme-switch-label d-none d-md-inline"><i class="fa fa-paint-brush mr-1"></i> Theme:</span>
-        <button type="button" class="theme-switch-btn active" data-theme="emerald" title="Classic Emerald Green">
-            <span class="theme-dot dot-emerald"></span><span>Emerald</span>
-        </button>
-        <button type="button" class="theme-switch-btn" data-theme="bw" title="Executive Black & White">
-            <span class="theme-dot dot-bw"></span><span>B&amp;W</span>
-        </button>
-        <button type="button" class="theme-switch-btn" data-theme="grey" title="Corporate Slate Grey">
-            <span class="theme-dot dot-grey"></span><span>Slate</span>
-        </button>
-    </div>
 
     <!-- FLOATING WHATSAPP -->
     <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20visited%20your%20website%20and%20need%20assistance." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
@@ -2240,7 +2443,7 @@ __BODY_CONTENT__
         }
 
         $(document).ready(function(){
-            // Load saved theme (supports direct URL parameter: ?theme=bw, ?theme=grey, ?theme=emerald)
+            // Load saved theme
             var savedTheme = 'emerald';
             try {
                 var urlParams = new URLSearchParams(window.location.search);
@@ -2259,50 +2462,76 @@ __BODY_CONTENT__
                 applyTheme(theme);
             });
 
-            // 1. Mobile Menu Drawer & Morphing Hamburger Button (Instant Touch & Click)
-            function toggleMobileMenu(e) {
-                if (e) e.preventDefault();
-                $('#mobile-toggle-btn').toggleClass('is-active');
-                $('#mobile-menu-drawer').toggleClass('open');
+            // Mobile Menu Drawer Toggle with Backdrop and Scroll Lock
+            var menuBusy = false;
+            function openMobileMenu() {
+                $('#mobile-toggle-btn').addClass('is-active');
+                $('#mobile-menu-drawer').addClass('open');
+                $('#mobile-backdrop').addClass('open');
+                $('body').addClass('drawer-open');
             }
-            $('#mobile-toggle-btn').on('click pointerdown', function(e){
-                e.stopPropagation();
-                toggleMobileMenu(e);
-            });
-
-            // Close mobile menu on clicking any navigation link
-            $('#mobile-menu-drawer a').on('click', function(){
+            function closeMobileMenu() {
                 $('#mobile-toggle-btn').removeClass('is-active');
                 $('#mobile-menu-drawer').removeClass('open');
+                $('#mobile-backdrop').removeClass('open');
+                $('body').removeClass('drawer-open');
+            }
+            function toggleMobileMenu(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                if (menuBusy) return;
+                menuBusy = true;
+                setTimeout(function(){ menuBusy = false; }, 250);
+
+                if ($('#mobile-menu-drawer').hasClass('open')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
+
+            // Single click event handler
+            $(document).on('click', '#mobile-toggle-btn', toggleMobileMenu);
+            $(document).on('click', '#mobile-backdrop', function(e){
+                e.preventDefault();
+                closeMobileMenu();
+            });
+            $(document).on('click', '.mobile-drawer-close-btn', function(e){
+                e.preventDefault();
+                closeMobileMenu();
+            });
+            $(document).on('click', '#mobile-menu-drawer ul li a', function(){
+                closeMobileMenu();
             });
 
-            // 9. TOUCH RIPPLE EFFECT ON MOBILE MENU ITEMS & BUTTONS
-            $('.mobile-nav-link, .theme-btn, .btn').on('click pointerdown', function(e){
-                var $btn = $(this);
-                var offset = $btn.offset();
-                if (!offset) return;
-                var pageX = e.pageX || (e.originalEvent && e.originalEvent.touches && e.originalEvent.touches[0].pageX);
-                var pageY = e.pageY || (e.originalEvent && e.originalEvent.touches && e.originalEvent.touches[0].pageY);
-                if (!pageX || !pageY) return;
-                var x = pageX - offset.left;
-                var y = pageY - offset.top;
-                
-                var $ripple = $('<span class="ripple-wave"></span>').css({
-                    top: y + 'px',
-                    left: x + 'px',
-                    width: '32px',
-                    height: '32px'
+            // CINEMATIC 60FPS SCROLL REVEALS
+            function triggerScrollReveals() {
+                var winH = window.innerHeight || document.documentElement.clientHeight;
+                document.querySelectorAll('.reveal-on-scroll').forEach(function(el){
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top <= winH * 0.92) {
+                        el.classList.add('is-visible');
+                    }
                 });
-                
-                $btn.append($ripple);
-                setTimeout(function(){
-                    $ripple.remove();
-                }, 600);
-            });
+            }
+            window.addEventListener('scroll', triggerScrollReveals, { passive: true });
+            window.addEventListener('touchmove', triggerScrollReveals, { passive: true });
+            setTimeout(triggerScrollReveals, 100);
 
+            // SUBTLE LUXURY PARALLAX ON HERO
+            var heroEl = document.querySelector('.static-hero-area');
+            if (heroEl) {
+                window.addEventListener('scroll', function(){
+                    var scrolled = window.pageYOffset;
+                    if (scrolled < 650) {
+                        heroEl.style.backgroundPositionY = 'calc(50% + ' + (scrolled * 0.22) + 'px)';
+                    }
+                }, { passive: true });
+            }
 
-
-            // 2. SCROLL PROGRESS INDICATOR (FLUID ON MOBILE & LAPTOP)
+            // SCROLL PROGRESS INDICATOR
             function updateScrollProgress() {
                 var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
                 var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2315,7 +2544,7 @@ __BODY_CONTENT__
             window.addEventListener('scroll', updateScrollProgress, { passive: true });
             window.addEventListener('touchmove', updateScrollProgress, { passive: true });
 
-            // 3. HARDWARE ACCELERATED KEYFRAME ZOOM-OUT ROTATOR (IMMEDIATE LOAD + TOUCH SWIPE)
+            // HERO ZOOM-OUT ROTATOR
             (function initTemplate89ZoomOutRotator() {
                 var $slides = $('.hero-zoom-slider .zoom-slide');
                 if (!$slides.length) return;
@@ -2323,7 +2552,7 @@ __BODY_CONTENT__
                 var currentIndex = 0;
                 var totalSlides = $slides.length;
                 var zoomTimer = null;
-                var autoInterval = 3800; // Snappy 3.8s rotation
+                var autoInterval = 3800;
                 
                 function goToSlide(nextIndex) {
                     if (nextIndex === currentIndex) return;
@@ -2360,7 +2589,6 @@ __BODY_CONTENT__
                     if (zoomTimer) clearInterval(zoomTimer);
                 }
                 
-                // Touch Swipe on mobile with instant feedback
                 var touchStartX = 0;
                 var touchStartY = 0;
                 var touchEndX = 0;
@@ -2393,18 +2621,37 @@ __BODY_CONTENT__
                     }, { passive: true });
                 }
                 
-                // Force immediate entry zoom animation on load
                 setTimeout(function(){
                     $slides.eq(0).removeClass('active');
-                    void $slides.eq(0)[0].offsetWidth; // reflow
+                    void $slides.eq(0)[0].offsetWidth;
                     $slides.eq(0).addClass('active');
                 }, 60);
 
                 startAutoPlay();
             })();
 
+            // REVIEWS CAROUSEL SLIDER
+            if ($(".reviews-carousel").length) {
+                $(".reviews-carousel").owlCarousel({
+                    loop: true,
+                    margin: 15,
+                    autoplay: true,
+                    autoplayTimeout: 3500,
+                    autoplayHoverPause: true,
+                    smartSpeed: 650,
+                    responsive: {
+                        0: { items: 1 },
+                        768: { items: 1 },
+                        992: { items: 2 }
+                    },
+                    dots: true,
+                    nav: false,
+                    touchDrag: true,
+                    mouseDrag: true
+                });
+            }
 
-            // 5. Sticky Header
+            // Sticky Header
             function checkSticky() {
                 var header = document.getElementById("header");
                 if (!header) return;
@@ -2416,56 +2663,7 @@ __BODY_CONTENT__
             }
             window.addEventListener('scroll', checkSticky, { passive: true });
 
-            // 6. CINEMATIC SCROLL REVEALS (ACTIVE ON MOBILE TOUCH & DESKTOP SCROLL)
-            function triggerScrollReveals() {
-                var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
-                    var rect = el.getBoundingClientRect();
-                    if (rect.top <= windowHeight * 0.94) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }
-
-            if ('IntersectionObserver' in window) {
-                var revealObserver = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                        }
-                    });
-                }, {
-                    rootMargin: '40px 0px -10px 0px',
-                    threshold: 0.02
-                });
-
-                document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
-                    revealObserver.observe(el);
-                });
-            }
-
-            window.addEventListener('scroll', triggerScrollReveals, { passive: true });
-            window.addEventListener('touchmove', triggerScrollReveals, { passive: true });
-            setTimeout(triggerScrollReveals, 100);
-
-            // 7. 3D PERSPECTIVE TILT (DESKTOP) & TOUCH ELEVATION (MOBILE)
-            document.querySelectorAll('.leader-card, .single-item, .calc-box-card').forEach(function(card) {
-                if (window.innerWidth > 992) {
-                    card.addEventListener('mousemove', function(e) {
-                        var rect = card.getBoundingClientRect();
-                        var x = e.clientX - rect.left - rect.width / 2;
-                        var y = e.clientY - rect.top - rect.height / 2;
-                        var tiltX = (y / rect.height) * -6;
-                        var tiltY = (x / rect.width) * 6;
-                        card.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) translateY(-6px) scale(1.02)';
-                    });
-                    card.addEventListener('mouseleave', function() {
-                        card.style.transform = '';
-                    });
-                }
-            });
-
-            // 8. LIVE NUMBER COUNT UP ANIMATION ON SCROLL
+            // Count up numbers
             function animateValue(obj, start, end, duration, suffix) {
                 let startTimestamp = null;
                 const step = (timestamp) => {
@@ -2495,9 +2693,7 @@ __BODY_CONTENT__
                     }
                 }
             }
-
             window.addEventListener('scroll', checkCounters, { passive: true });
-            window.addEventListener('touchmove', checkCounters, { passive: true });
             setTimeout(checkCounters, 200);
         });
     </script>
@@ -2521,8 +2717,8 @@ def master_layout(page_title, active_key, body_content, custom_meta=None):
     for key, url, label in nav_items:
         is_active = (active_key == key)
         active_cls = 'active' if is_active else ''
-        desktop_nav_html += f'<li class="{active_cls}"><a href="{url}" class="">{label}</a></li>\n'
-        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link "><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
+        desktop_nav_html += f'<li class="{active_cls}"><a href="{url}">{label}</a></li>\n'
+        mobile_nav_html += f'<li class="{active_cls}"><a href="{url}" class="mobile-nav-link"><span>{label}</span><i class="fa fa-angle-right nav-arrow"></i></a></li>\n'
 
     meta = custom_meta or seo_meta.get(active_key, {
         "title": f"{page_title} | Natasha & Company – Chartered Accountants",
@@ -2547,14 +2743,14 @@ def master_layout(page_title, active_key, body_content, custom_meta=None):
 # Write all 9 master pages
 pages = [
     ("index.html", "Home", "home", home_body),
-    ("about-us.html", "About Us", "about", about_body),
+    ("about-us.html", "About Us", "about", about_us_body),
     ("services.html", "Our Services", "services", services_body),
-    ("knowledge-base.html", "Knowledge Base & Calculators", "knowledge", knowledge_body),
+    ("knowledge-base.html", "Knowledge Base & Calculators", "knowledge", knowledge_base_body),
     ("career.html", "Career & Articleship", "career", career_body),
     ("blog.html", "Blog & Insights", "blog", blog_body_resolved),
-    ("contact-us.html", "Contact Us", "contact", contact_body),
-    ("privacy-policy.html", "Privacy Policy", "privacy", privacy_body),
-    ("terms-and-conditions.html", "Terms & Conditions", "terms", terms_body)
+    ("contact-us.html", "Contact Us", "contact", contact_us_body),
+    ("privacy-policy.html", "Privacy Policy", "privacy", privacy_policy_body),
+    ("terms-and-conditions.html", "Terms & Conditions", "terms", terms_and_conditions_body)
 ]
 
 for filename, title, key, body in pages:
@@ -2584,9 +2780,9 @@ for p in curated_posts:
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="bg-white p-4 p-md-5 rounded shadow-sm border mb-4 reveal-on-scroll">
+                    <div class="bg-white p-4 p-md-5 rounded shadow-sm border mb-4">
                         <div class="mb-4 text-center overflow-hidden rounded">
-                            <img src="{p['img']}" class="img-fluid rounded shadow-sm w-100 " style="max-height: 440px; object-fit: cover;" alt="{p['title']}" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
+                            <img src="{p['img']}" class="img-fluid rounded shadow-sm w-100" style="max-height: 440px; object-fit: cover;" alt="{p['title']}" loading="lazy" decoding="async" onerror="this.src='images/banner-1.webp'"/>
                         </div>
                         
                         <div class="article-content" style="font-size: 16px; line-height: 1.85; color: #334155;">
@@ -2605,7 +2801,7 @@ for p in curated_posts:
 
                         <div class="mt-5 p-4 rounded bg-light border">
                             <div class="d-flex align-items-center">
-                                <img src="images/natasha.jpg" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; border: 2px solid #006B63;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                                <img src="images/team-1.webp" class="rounded-circle mr-3" style="width: 70px; height: 70px; object-fit: cover; border: 2px solid #006B63;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                                 <div>
                                     <h6 class="font-weight-bold mb-1" style="color: #002e5b;">Published by CA Natasha &amp; Company</h6>
                                     <p class="small text-muted mb-0">ISO 9001:2015 Certified Chartered Accountant Firm in Bhopal | Tax, Audit, Compliances.</p>
@@ -2617,7 +2813,7 @@ for p in curated_posts:
                             <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20read%20your%20article%20'{p['title'][:35]}'%20and%20would%20like%20to%20consult." target="_blank" class="btn btn-success px-4 py-2 font-weight-bold shadow">
                                 <i class="fa fa-whatsapp mr-1"></i> Consult CA Natasha on this Topic
                             </a>
-                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2 ">
+                            <a href="blog.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold ml-2">
                                 <i class="fa fa-th-large mr-1"></i> Back to All Blogs
                             </a>
                         </div>
@@ -2625,12 +2821,12 @@ for p in curated_posts:
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="bg-white p-4 rounded shadow-sm border mb-4 text-center reveal-on-scroll reveal-delay-1">
-                        <img src="images/natasha.jpg" alt="CA Natasha" class="leader-img " style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
+                    <div class="bg-white p-4 rounded shadow-sm border mb-4 text-center">
+                        <img src="images/team-1.webp" alt="CA Natasha" style="width: 95px; height: 95px; border-radius: 50%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='images/team-1.webp'"/>
                         <h5 class="font-weight-bold mb-1 mt-2" style="color: #002e5b;">CA Natasha Rajvaidya</h5>
                         <span class="badge badge-success px-3 py-1 mb-2" style="background-color: #006B63;">Founder &amp; Principal Partner</span>
                         <p class="text-muted small mt-2">Expert in Direct Tax planning, Statutory Audits, Corporate Law, and Startup Advisory in Bhopal.</p>
-                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3 ">Contact Firm</a>
+                        <a href="contact-us.html" class="btn btn-sm btn-outline-dark font-weight-bold px-3">Contact Firm</a>
                     </div>
                 </div>
             </div>
@@ -2640,4 +2836,4 @@ for p in curated_posts:
     with open(os.path.join(dest_dir, f"{p['slug']}.html"), "w", encoding="utf-8") as fp:
         fp.write(master_layout(p['title'], 'blog', post_html, custom_meta=custom_blog_meta))
 
-print("Master cinematic animation suite built and deployed across all pages successfully!")
+print("Master site built successfully with full rich subpages, balanced team cards, and clean theme switcher!")

@@ -1,0 +1,6 @@
+# robots.txt for https://canatasha-website.vercel.app/
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://canatasha-website.vercel.app/sitemap.xml
