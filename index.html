@@ -2014,13 +2014,55 @@ body.drawer-open {
         </div>
     </section>
 
+    <!-- TRUSTED BY (ANIMATED COUNTERS SECTION MATCHING LIVE CANATASHA.COM) -->
+    <section class="py-5 cinematic-scene" id="trusted-stats-section" style="background-color: #ffffff;">
+        <div class="container">
+            <h2 class="text-center font-weight-bold mb-4" style="color: #64748b; font-size: 40px; letter-spacing: -0.5px;">Trusted By</h2>
+            <div class="p-4 p-md-5 rounded shadow-sm" style="background: #475569; color: #ffffff; border-radius: 12px;">
+                <div class="row text-center align-items-center">
+                    <!-- Stat 1 -->
+                    <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+                        <h1 class="font-weight-bold text-white mb-1" style="font-size: 48px; font-family: 'Poppins', sans-serif;">
+                            <span class="counter-val" data-target="4000" data-suffix="+">4000+</span>
+                        </h1>
+                        <p class="text-uppercase text-white font-weight-bold mb-0" style="letter-spacing: 1.5px; font-size: 13px; opacity: 0.95;">HAPPY CLIENTS</p>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+                        <h1 class="font-weight-bold text-white mb-1" style="font-size: 48px; font-family: 'Poppins', sans-serif;">
+                            <span class="counter-val" data-target="50" data-suffix="+">50+</span>
+                        </h1>
+                        <p class="text-uppercase text-white font-weight-bold mb-0" style="letter-spacing: 1.5px; font-size: 13px; opacity: 0.95;">STARTUP COMPANIES</p>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="col-lg-3 col-6">
+                        <h1 class="font-weight-bold text-white mb-1" style="font-size: 48px; font-family: 'Poppins', sans-serif;">
+                            <span class="counter-val" data-target="40" data-suffix="+">40+</span>
+                        </h1>
+                        <p class="text-uppercase text-white font-weight-bold mb-0" style="letter-spacing: 1.5px; font-size: 13px; opacity: 0.95;">CITIES</p>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="col-lg-3 col-6">
+                        <h1 class="font-weight-bold text-white mb-1" style="font-size: 48px; font-family: 'Poppins', sans-serif;">
+                            <span class="counter-val" data-target="50" data-suffix="+">50+</span>
+                        </h1>
+                        <p class="text-uppercase text-white font-weight-bold mb-0" style="letter-spacing: 1.5px; font-size: 13px; opacity: 0.95;">EMPLOYERS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PERFECT AUTO-SLIDING GOOGLE REVIEWS SECTION -->
     <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
                     <span class="service-badge">Client Testimonials</span>
-                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">See What Our Clients Say</h2>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">See what our customers said !</h2>
                     <p class="text-muted">Real feedback and 5-star ratings from verified business clients and individuals on Google.</p>
                 </div>
             </div>
@@ -2909,38 +2951,57 @@ body.drawer-open {
             }
             window.addEventListener('scroll', checkSticky, { passive: true });
 
-            // Count up numbers
-            function animateValue(obj, start, end, duration, suffix) {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const current = Math.floor(progress * (end - start) + start);
-                    obj.innerHTML = current + suffix;
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
+            // ROBUST COUNT-UP ANIMATION FOR TRUSTED BY SECTION (DESKTOP & MOBILE)
+            function initCounterAnimation() {
+                var statsSec = document.getElementById('trusted-stats-section');
+                if (!statsSec) return;
 
-            let animated = false;
-            function checkCounters() {
-                const statsSec = document.getElementById('trusted-stats-section');
-                if (statsSec && !animated) {
-                    const rect = statsSec.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                var counters = document.querySelectorAll('.counter-val');
+                var animated = false;
+
+                function runCountUp() {
+                    if (animated) return;
+                    var rect = statsSec.getBoundingClientRect();
+                    if (rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0) {
                         animated = true;
-                        document.querySelectorAll('.counter-val').forEach(el => {
-                            const target = parseInt(el.getAttribute('data-target'));
-                            const suffix = el.getAttribute('data-suffix') || '';
-                            animateValue(el, 0, target, 1800, suffix);
+                        counters.forEach(function(el) {
+                            var target = parseInt(el.getAttribute('data-target')) || 0;
+                            var suffix = el.getAttribute('data-suffix') || '';
+                            var startTime = null;
+                            var duration = 1800;
+
+                            function step(timestamp) {
+                                if (!startTime) startTime = timestamp;
+                                var progress = Math.min((timestamp - startTime) / duration, 1);
+                                var easeProgress = progress * (2 - progress);
+                                var current = Math.floor(easeProgress * target);
+                                el.innerText = current + suffix;
+                                if (progress < 1) {
+                                    window.requestAnimationFrame(step);
+                                } else {
+                                    el.innerText = target + suffix;
+                                }
+                            }
+                            window.requestAnimationFrame(step);
                         });
                     }
                 }
+
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting) {
+                            runCountUp();
+                        }
+                    }, { threshold: 0.15 });
+                    observer.observe(statsSec);
+                }
+
+                window.addEventListener('scroll', runCountUp, { passive: true });
+                window.addEventListener('touchmove', runCountUp, { passive: true });
+                runCountUp();
+                setTimeout(runCountUp, 400);
             }
-            window.addEventListener('scroll', checkCounters, { passive: true });
-            setTimeout(checkCounters, 200);
+            initCounterAnimation();
         });
     </script>
 </body>

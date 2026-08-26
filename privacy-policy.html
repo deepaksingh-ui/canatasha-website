@@ -2088,38 +2088,57 @@ body.drawer-open {
             }
             window.addEventListener('scroll', checkSticky, { passive: true });
 
-            // Count up numbers
-            function animateValue(obj, start, end, duration, suffix) {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const current = Math.floor(progress * (end - start) + start);
-                    obj.innerHTML = current + suffix;
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
+            // ROBUST COUNT-UP ANIMATION FOR TRUSTED BY SECTION (DESKTOP & MOBILE)
+            function initCounterAnimation() {
+                var statsSec = document.getElementById('trusted-stats-section');
+                if (!statsSec) return;
 
-            let animated = false;
-            function checkCounters() {
-                const statsSec = document.getElementById('trusted-stats-section');
-                if (statsSec && !animated) {
-                    const rect = statsSec.getBoundingClientRect();
-                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                var counters = document.querySelectorAll('.counter-val');
+                var animated = false;
+
+                function runCountUp() {
+                    if (animated) return;
+                    var rect = statsSec.getBoundingClientRect();
+                    if (rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom >= 0) {
                         animated = true;
-                        document.querySelectorAll('.counter-val').forEach(el => {
-                            const target = parseInt(el.getAttribute('data-target'));
-                            const suffix = el.getAttribute('data-suffix') || '';
-                            animateValue(el, 0, target, 1800, suffix);
+                        counters.forEach(function(el) {
+                            var target = parseInt(el.getAttribute('data-target')) || 0;
+                            var suffix = el.getAttribute('data-suffix') || '';
+                            var startTime = null;
+                            var duration = 1800;
+
+                            function step(timestamp) {
+                                if (!startTime) startTime = timestamp;
+                                var progress = Math.min((timestamp - startTime) / duration, 1);
+                                var easeProgress = progress * (2 - progress);
+                                var current = Math.floor(easeProgress * target);
+                                el.innerText = current + suffix;
+                                if (progress < 1) {
+                                    window.requestAnimationFrame(step);
+                                } else {
+                                    el.innerText = target + suffix;
+                                }
+                            }
+                            window.requestAnimationFrame(step);
                         });
                     }
                 }
+
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        if (entries[0].isIntersecting) {
+                            runCountUp();
+                        }
+                    }, { threshold: 0.15 });
+                    observer.observe(statsSec);
+                }
+
+                window.addEventListener('scroll', runCountUp, { passive: true });
+                window.addEventListener('touchmove', runCountUp, { passive: true });
+                runCountUp();
+                setTimeout(runCountUp, 400);
             }
-            window.addEventListener('scroll', checkCounters, { passive: true });
-            setTimeout(checkCounters, 200);
+            initCounterAnimation();
         });
     </script>
 </body>
