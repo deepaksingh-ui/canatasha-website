@@ -2277,6 +2277,108 @@ home_body = f"""
                                 </tbody>
                             </table>
                         </div>
+                        <div class="mt-3 pt-3 border-top d-flex flex-wrap justify-content-between align-items-center" style="gap: 10px;">
+                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%20%26%20Co.%2C%20Please%20send%20me%20the%20Complete%20FY%202024-25%20Tax%20Compliance%20Calendar%20PDF." target="_blank" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px;">
+                                <i class="fa fa-file-pdf-o mr-1"></i> Get Full Tax Due Date Calendar (PDF)
+                            </a>
+                            <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%20%26%20Co.%2C%20I%20want%20to%20submit%20my%20documents%20for%20ITR%20/%20GST%20Filing." target="_blank" class="btn btn-sm btn-success font-weight-bold text-white" style="border-radius: 6px;">
+                                <i class="fa fa-whatsapp mr-1"></i> Quick Document Submission
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION -->
+    <section class="py-5 cinematic-scene" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
+                    <span class="service-badge">Client FAQs</span>
+                    <h2 class="font-weight-bold" style="color: #002e5b; font-size: 36px;">Frequently Asked Questions</h2>
+                    <p class="text-muted">Clear answers to the most common questions regarding Income Tax, GST, Company Registration, and Audits.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="caFaqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="card mb-3 border rounded shadow-sm overflow-hidden">
+                            <div class="card-header bg-white p-0" id="faqHeading1">
+                                <button class="btn btn-block text-left font-weight-bold p-3 d-flex justify-content-between align-items-center" type="button" data-toggle="collapse" data-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1" style="color: #002e5b; font-size: 16px; text-decoration: none;">
+                                    <span><i class="fa fa-question-circle text-success mr-2"></i> How do I choose between Old vs New Tax Regime for FY 2024-25 / AY 2025-26?</span>
+                                    <i class="fa fa-chevron-down text-muted"></i>
+                                </button>
+                            </div>
+                            <div id="faqCollapse1" class="collapse show" aria-labelledby="faqHeading1" data-parent="#caFaqAccordion">
+                                <div class="card-body text-muted pt-2 pb-4 px-4" style="line-height: 1.7; font-size: 14.5px;">
+                                    The <strong>New Tax Regime</strong> offers lower slab rates and a higher rebate (income up to ₹7.75 Lakhs is effectively tax-free with standard deduction of ₹75,000). However, if you have significant deductions under Section 80C (PPF/ELSS), 80D (Health Insurance), and Housing Loan Interest (Section 24b up to ₹2 Lakhs), the <strong>Old Tax Regime</strong> may save you more. Our Chartered Accountants perform an automated side-by-side comparison to guarantee you pay the minimum tax.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="card mb-3 border rounded shadow-sm overflow-hidden">
+                            <div class="card-header bg-white p-0" id="faqHeading2">
+                                <button class="btn btn-block text-left font-weight-bold p-3 d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2" style="color: #002e5b; font-size: 16px; text-decoration: none;">
+                                    <span><i class="fa fa-question-circle text-success mr-2"></i> What documents are required for filing Income Tax Return (ITR)?</span>
+                                    <i class="fa fa-chevron-down text-muted"></i>
+                                </button>
+                            </div>
+                            <div id="faqCollapse2" class="collapse" aria-labelledby="faqHeading2" data-parent="#caFaqAccordion">
+                                <div class="card-body text-muted pt-2 pb-4 px-4" style="line-height: 1.7; font-size: 14.5px;">
+                                    For salaried individuals: <strong>PAN Card, Aadhaar Card, Form 16 from employer, Bank Statements for all active accounts, AIS (Annual Information Statement), and TIS (Taxpayer Information Summary)</strong>. For business owners and professionals: Profit &amp; Loss Statement, Balance Sheet, GST turnover details, and investment proofs are also needed.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="card mb-3 border rounded shadow-sm overflow-hidden">
+                            <div class="card-header bg-white p-0" id="faqHeading3">
+                                <button class="btn btn-block text-left font-weight-bold p-3 d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3" style="color: #002e5b; font-size: 16px; text-decoration: none;">
+                                    <span><i class="fa fa-question-circle text-success mr-2"></i> What should I do if I receive a GST Show Cause Notice (Section 73 or 74)?</span>
+                                    <i class="fa fa-chevron-down text-muted"></i>
+                                </button>
+                            </div>
+                            <div id="faqCollapse3" class="collapse" aria-labelledby="faqHeading3" data-parent="#caFaqAccordion">
+                                <div class="card-body text-muted pt-2 pb-4 px-4" style="line-height: 1.7; font-size: 14.5px;">
+                                    Do not panic or ignore statutory deadlines. Most GST notices arise from <strong>GSTR-2B vs GSTR-3B ITC mismatches or GSTR-1 vs GSTR-3B turnover differences</strong>. Natasha &amp; Co. conducts a thorough audit of your underlying invoices, drafts a legally sound written submission with case law references, and represents you before the GST adjudication authority to waive unfair penalties.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="card mb-3 border rounded shadow-sm overflow-hidden">
+                            <div class="card-header bg-white p-0" id="faqHeading4">
+                                <button class="btn btn-block text-left font-weight-bold p-3 d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4" style="color: #002e5b; font-size: 16px; text-decoration: none;">
+                                    <span><i class="fa fa-question-circle text-success mr-2"></i> How long does Private Limited Company or LLP Registration take in Bhopal?</span>
+                                    <i class="fa fa-chevron-down text-muted"></i>
+                                </button>
+                            </div>
+                            <div id="faqCollapse4" class="collapse" aria-labelledby="faqHeading4" data-parent="#caFaqAccordion">
+                                <div class="card-body text-muted pt-2 pb-4 px-4" style="line-height: 1.7; font-size: 14.5px;">
+                                    With complete documentation (PAN, Aadhaar, Electricity Bill/NOC, Digital Signatures DSC), company incorporation is completed within <strong>4 to 7 working days</strong> through the Ministry of Corporate Affairs (MCA SPICe+ system). This includes Certificate of Incorporation (COI), Company PAN, TAN, EPFO/ESIC registrations, and Bank Account opening assistance.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="card mb-3 border rounded shadow-sm overflow-hidden">
+                            <div class="card-header bg-white p-0" id="faqHeading5">
+                                <button class="btn btn-block text-left font-weight-bold p-3 d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5" style="color: #002e5b; font-size: 16px; text-decoration: none;">
+                                    <span><i class="fa fa-question-circle text-success mr-2"></i> Can Natasha &amp; Company serve clients outside Bhopal and across India?</span>
+                                    <i class="fa fa-chevron-down text-muted"></i>
+                                </button>
+                            </div>
+                            <div id="faqCollapse5" class="collapse" aria-labelledby="faqHeading5" data-parent="#caFaqAccordion">
+                                <div class="card-body text-muted pt-2 pb-4 px-4" style="line-height: 1.7; font-size: 14.5px;">
+                                    Yes! While our head office is located in <strong>Zone-1, MP Nagar, Bhopal</strong>, we serve corporate clients, startups, NRIs, and business enterprises across Indore, Jabalpur, Gwalior, Delhi NCR, Mumbai, Bengaluru, and internationally through secure cloud-based document sharing and video consultations.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3406,5 +3508,76 @@ for p in curated_posts:
     """
     with open(os.path.join(dest_dir, f"{p['slug']}.html"), "w", encoding="utf-8") as fp:
         fp.write(master_layout(p['title'], 'blog', post_html, custom_meta=custom_blog_meta))
+
+# Generate Custom Brand 404 Error Page
+error_404_body = """
+<div class="page-banner">
+    <div class="container">
+        <span class="badge badge-warning mb-2 px-3 py-1 text-dark font-weight-bold">Error 404</span>
+        <h1 style="font-size: 34px; margin-bottom: 8px;">Page Not Found</h1>
+        <p>The page you are looking for might have been moved or does not exist.</p>
+    </div>
+</div>
+
+<section class="py-5" style="background-color: #f8fafc; min-height: 50vh; display: flex; align-items: center;">
+    <div class="container text-center">
+        <div class="p-5 bg-white rounded shadow-sm border mx-auto" style="max-width: 650px;">
+            <h1 class="display-3 font-weight-bold mb-2" style="color: #006B63 !important;">404</h1>
+            <h4 class="font-weight-bold mb-3" style="color: #002e5b;">Looks like you took a wrong turn!</h4>
+            <p class="text-muted mb-4">Don't worry, our Chartered Accountants are experts in navigating complex paths. Let's get you back on track.</p>
+            <div class="d-flex flex-wrap justify-content-center" style="gap: 8px;">
+                <a href="index.html" class="btn btn-ca-primary px-4 py-2 font-weight-bold" style="background: #006B63; color: #ffffff; border-radius: 6px;">
+                    <i class="fa fa-home mr-1"></i> Go to Homepage
+                </a>
+                <a href="services.html" class="btn btn-outline-dark px-4 py-2 font-weight-bold" style="border-radius: 6px;">
+                    <i class="fa fa-briefcase mr-1"></i> Our Services
+                </a>
+                <a href="contact-us.html" class="btn btn-outline-success font-weight-bold px-4 py-2" style="border-radius: 6px;">
+                    <i class="fa fa-phone mr-1"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+"""
+with open(os.path.join(dest_dir, "404.html"), "w", encoding="utf-8") as fp:
+    fp.write(master_layout("Page Not Found (404)", "home", error_404_body))
+print("Generated page: 404.html")
+
+# Generate sitemap.xml
+sitemap_urls = [
+    "https://canatasha-website.vercel.app/",
+    "https://canatasha-website.vercel.app/about-us.html",
+    "https://canatasha-website.vercel.app/services.html",
+    "https://canatasha-website.vercel.app/knowledge-base.html",
+    "https://canatasha-website.vercel.app/career.html",
+    "https://canatasha-website.vercel.app/blog.html",
+    "https://canatasha-website.vercel.app/contact-us.html",
+    "https://canatasha-website.vercel.app/privacy-policy.html",
+    "https://canatasha-website.vercel.app/terms-and-conditions.html"
+]
+
+for p in curated_posts:
+    sitemap_urls.append(f"https://canatasha-website.vercel.app/{p['slug']}.html")
+
+sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for u in sitemap_urls:
+    priority = "1.0" if u == "https://canatasha-website.vercel.app/" else ("0.9" if "service" in u or "blog" in u else "0.8")
+    sitemap_xml += f'  <url>\n    <loc>{u}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>{priority}</priority>\n  </url>\n'
+sitemap_xml += '</urlset>\n'
+
+with open(os.path.join(dest_dir, "sitemap.xml"), "w", encoding="utf-8") as fp:
+    fp.write(sitemap_xml)
+print("Generated sitemap.xml")
+
+# Generate robots.txt
+robots_txt = """User-agent: *
+Allow: /
+
+Sitemap: https://canatasha-website.vercel.app/sitemap.xml
+"""
+with open(os.path.join(dest_dir, "robots.txt"), "w", encoding="utf-8") as fp:
+    fp.write(robots_txt)
+print("Generated robots.txt")
 
 print("Master site built successfully with full rich subpages, balanced team cards, and clean theme switcher!")

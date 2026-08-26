@@ -2,110 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://canatasha-website.vercel.app/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/about-us.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/services.html</loc>
-    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/knowledge-base.html</loc>
-    <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/career.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/blog.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/contact-us.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/privacy-policy.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/terms-and-conditions.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/why-your-gold-and-silver-just-got-more-precious-a-laymans-guide.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/a-family-that-plans-together-pays-less-tax-together.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/beyond-numbers-the-evolving-thought-process-of-a-ca-firm.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/taxability-of-long-term-capital-gains-under-section-112a.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://canatasha-website.vercel.app/understanding-section-73-and-section-74-of-the-cgst-act.html</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
