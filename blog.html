@@ -2349,43 +2349,76 @@ body.drawer-open {
                 startAutoPlay();
             })();
 
-            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (SERVICES, TEAM, TRACK RECORD, BLOGS, REVIEWS)
-            var carouselsConfig = [
-                { selector: '.services-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3200 },
-                { selector: '.team-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3400 },
-                { selector: '.track-record-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3300 },
-                { selector: '.blogs-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3500 },
-                { selector: '.reviews-carousel', itemsSm: 1, itemsMd: 1, itemsLg: 2, interval: 3500 }
-            ];
+            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (MOBILE ONLY < 992px)
+            function initMobileOnlyCarousels() {
+                var isMobile = $(window).width() < 992;
+                
+                var mobileCarousels = [
+                    { selector: '.services-auto-carousel', interval: 3200 },
+                    { selector: '.team-auto-carousel', interval: 3400 },
+                    { selector: '.track-record-auto-carousel', interval: 3300 },
+                    { selector: '.blogs-auto-carousel', interval: 3500 }
+                ];
 
-            carouselsConfig.forEach(function(cfg) {
-                var $c = $(cfg.selector);
-                if ($c.length) {
-                    $c.owlCarousel({
-                        loop: true,
-                        margin: 16,
-                        autoplay: true,
-                        autoplayTimeout: cfg.interval,
-                        autoplayHoverPause: false,
-                        smartSpeed: 650,
-                        responsive: {
-                            0: { items: cfg.itemsSm },
-                            768: { items: cfg.itemsMd },
-                            992: { items: cfg.itemsLg }
-                        },
-                        dots: true,
-                        nav: false,
-                        touchDrag: true,
-                        mouseDrag: true
-                    });
-
-                    setInterval(function(){
-                        if ($c.length) {
-                            $c.trigger('next.owl.carousel', [650]);
+                mobileCarousels.forEach(function(cfg) {
+                    var $el = $(cfg.selector);
+                    if ($el.length) {
+                        if (isMobile) {
+                            if (!$el.hasClass('owl-loaded')) {
+                                $el.addClass('owl-carousel').owlCarousel({
+                                    items: 1,
+                                    loop: true,
+                                    margin: 16,
+                                    autoplay: true,
+                                    autoplayTimeout: cfg.interval,
+                                    autoplayHoverPause: false,
+                                    smartSpeed: 650,
+                                    dots: true,
+                                    nav: false,
+                                    touchDrag: true,
+                                    mouseDrag: true
+                                });
+                            }
+                        } else {
+                            if ($el.hasClass('owl-loaded')) {
+                                $el.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+                            }
                         }
-                    }, cfg.interval);
-                }
+                    }
+                });
+            }
+
+            initMobileOnlyCarousels();
+            $(window).on('resize', function(){
+                initMobileOnlyCarousels();
             });
+
+            // REVIEWS CAROUSEL (ALWAYS ACTIVE ON BOTH MOBILE & DESKTOP)
+            if ($(".reviews-carousel").length) {
+                var $revCarousel = $(".reviews-carousel").owlCarousel({
+                    loop: true,
+                    margin: 16,
+                    autoplay: true,
+                    autoplayTimeout: 3500,
+                    autoplayHoverPause: false,
+                    smartSpeed: 650,
+                    responsive: {
+                        0: { items: 1 },
+                        768: { items: 1 },
+                        992: { items: 2 }
+                    },
+                    dots: true,
+                    nav: false,
+                    touchDrag: true,
+                    mouseDrag: true
+                });
+
+                setInterval(function(){
+                    if ($revCarousel.length) {
+                        $revCarousel.trigger('next.owl.carousel', [650]);
+                    }
+                }, 3500);
+            }
 
             // Sticky Header
             function checkSticky() {

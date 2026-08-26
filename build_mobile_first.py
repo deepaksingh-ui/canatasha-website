@@ -1383,7 +1383,7 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- PRACTICE AREAS (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <!-- PRACTICE AREAS -->
     <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
@@ -1396,8 +1396,8 @@ home_body = f"""
                 </div>
             </div>
             
-            <div class="owl-carousel services-auto-carousel">
-                <div class="item p-2">
+            <div class="row services-auto-carousel">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/hand.webp" alt="Accounting & Bookkeeping Services Bhopal"/>
                         <h4>Accounting &amp; Bookkeeping</h4>
@@ -1405,7 +1405,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/cash.webp" alt="Direct Tax & ITR Filing Bhopal"/>
                         <h4>Direct Taxation &amp; ITR</h4>
@@ -1413,7 +1413,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/plan.webp" alt="GST Registration & Notice Litigation MP Nagar Bhopal"/>
                         <h4>GST Advisory &amp; Litigation</h4>
@@ -1421,7 +1421,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/brif.webp" alt="Statutory & Tax Audit Bhopal"/>
                         <h4>Auditing &amp; Assurance</h4>
@@ -1429,7 +1429,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/commo.webp" alt="Company & LLP Registration MP Nagar Bhopal"/>
                         <h4>Company &amp; LLP Formation</h4>
@@ -1437,7 +1437,7 @@ home_body = f"""
                         <a href="services.html" class="text-success font-weight-bold">Learn More &rarr;</a>
                     </div>
                 </div>
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="single-item">
                         <img src="images/reti.webp" alt="Trust NGO 12A 80G Registration Bhopal"/>
                         <h4>Societies, Trust &amp; NGO Laws</h4>
@@ -1508,7 +1508,7 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- OUR TEAM SECTION (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <!-- OUR TEAM SECTION -->
     <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
@@ -1519,9 +1519,9 @@ home_body = f"""
                 </div>
             </div>
 
-            <div class="owl-carousel team-auto-carousel">
+            <div class="row team-auto-carousel">
                 <!-- 1. CA Natasha -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
@@ -1548,7 +1548,7 @@ home_body = f"""
                 </div>
 
                 <!-- 2. Senior Partner -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
@@ -1575,7 +1575,7 @@ home_body = f"""
                 </div>
 
                 <!-- 3. Tax Advisor -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
@@ -1602,7 +1602,7 @@ home_body = f"""
                 </div>
 
                 <!-- 4. Corporate Law -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="team-card-unified p-3 text-center h-100">
                         <div>
                             <div class="team-img-box mb-3 rounded">
@@ -1710,7 +1710,7 @@ home_body = f"""
         </div>
     </section>
 
-    <!-- STRATEGIC GROWTH & INDUSTRY IMPACT (AUTO ZOOM-SLIDE CAROUSEL) -->
+    <!-- STRATEGIC GROWTH & INDUSTRY IMPACT -->
     <section class="py-5 cinematic-scene" id="trusted-stats-section" style="background: #0B132B; color: #ffffff; overflow: hidden;">
         <div class="container">
             <div class="text-center mb-4">
@@ -1718,9 +1718,9 @@ home_body = f"""
                 <h2 class="font-weight-bold text-white mt-2" style="font-size: 32px;">Strategic Growth &amp; Industry Impact</h2>
             </div>
             
-            <div class="owl-carousel track-record-auto-carousel">
+            <div class="row track-record-auto-carousel">
                 <!-- 1. Tax Optimization & Defense -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
                             <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -1734,7 +1734,7 @@ home_body = f"""
                 </div>
 
                 <!-- 2. Startup Incorporation -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
                             <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -1748,7 +1748,7 @@ home_body = f"""
                 </div>
 
                 <!-- 3. Multi-City Corporate Reach -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
                             <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -1762,7 +1762,7 @@ home_body = f"""
                 </div>
 
                 <!-- 4. 100% On-Time Guarantee -->
-                <div class="item p-2">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <div class="impact-card p-4 rounded h-100" style="background: #111D3E; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px;">
                         <div>
                             <div class="impact-icon-box mb-3" style="width: 48px; height: 48px; background: #ea580c; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
@@ -1952,9 +1952,9 @@ home_body = f"""
                 </div>
             </div>
 
-            <div class="owl-carousel blogs-auto-carousel">
+            <div class="row blogs-auto-carousel">
                 <!-- Blog 1 -->
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-1.webp" class="card-img-top w-100 h-100" alt="Income Tax Guide" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -1976,7 +1976,7 @@ home_body = f"""
                 </div>
 
                 <!-- Blog 2 -->
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-2.webp" class="card-img-top w-100 h-100" alt="GST Input Service Distributor" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -1998,7 +1998,7 @@ home_body = f"""
                 </div>
 
                 <!-- Blog 3 -->
-                <div class="item p-2">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100 shadow-sm border-0 rounded overflow-hidden blog-card" onclick="window.location.href='invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html'">
                         <div class="card-img-wrapper position-relative" style="height: 200px; overflow: hidden;">
                             <img src="images/blog-3.webp" class="card-img-top w-100 h-100" alt="Corporate Law & Investment" style="object-fit: cover;" onerror="this.src='images/banner-1.webp'"/>
@@ -2902,43 +2902,76 @@ __BODY_CONTENT__
                 startAutoPlay();
             })();
 
-            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (SERVICES, TEAM, TRACK RECORD, BLOGS, REVIEWS)
-            var carouselsConfig = [
-                { selector: '.services-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3200 },
-                { selector: '.team-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3400 },
-                { selector: '.track-record-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 4, interval: 3300 },
-                { selector: '.blogs-auto-carousel', itemsSm: 1, itemsMd: 2, itemsLg: 3, interval: 3500 },
-                { selector: '.reviews-carousel', itemsSm: 1, itemsMd: 1, itemsLg: 2, interval: 3500 }
-            ];
+            // MULTI-SECTION AUTO ZOOM & SLIDE CAROUSEL ENGINE (MOBILE ONLY < 992px)
+            function initMobileOnlyCarousels() {
+                var isMobile = $(window).width() < 992;
+                
+                var mobileCarousels = [
+                    { selector: '.services-auto-carousel', interval: 3200 },
+                    { selector: '.team-auto-carousel', interval: 3400 },
+                    { selector: '.track-record-auto-carousel', interval: 3300 },
+                    { selector: '.blogs-auto-carousel', interval: 3500 }
+                ];
 
-            carouselsConfig.forEach(function(cfg) {
-                var $c = $(cfg.selector);
-                if ($c.length) {
-                    $c.owlCarousel({
-                        loop: true,
-                        margin: 16,
-                        autoplay: true,
-                        autoplayTimeout: cfg.interval,
-                        autoplayHoverPause: false,
-                        smartSpeed: 650,
-                        responsive: {
-                            0: { items: cfg.itemsSm },
-                            768: { items: cfg.itemsMd },
-                            992: { items: cfg.itemsLg }
-                        },
-                        dots: true,
-                        nav: false,
-                        touchDrag: true,
-                        mouseDrag: true
-                    });
-
-                    setInterval(function(){
-                        if ($c.length) {
-                            $c.trigger('next.owl.carousel', [650]);
+                mobileCarousels.forEach(function(cfg) {
+                    var $el = $(cfg.selector);
+                    if ($el.length) {
+                        if (isMobile) {
+                            if (!$el.hasClass('owl-loaded')) {
+                                $el.addClass('owl-carousel').owlCarousel({
+                                    items: 1,
+                                    loop: true,
+                                    margin: 16,
+                                    autoplay: true,
+                                    autoplayTimeout: cfg.interval,
+                                    autoplayHoverPause: false,
+                                    smartSpeed: 650,
+                                    dots: true,
+                                    nav: false,
+                                    touchDrag: true,
+                                    mouseDrag: true
+                                });
+                            }
+                        } else {
+                            if ($el.hasClass('owl-loaded')) {
+                                $el.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
+                            }
                         }
-                    }, cfg.interval);
-                }
+                    }
+                });
+            }
+
+            initMobileOnlyCarousels();
+            $(window).on('resize', function(){
+                initMobileOnlyCarousels();
             });
+
+            // REVIEWS CAROUSEL (ALWAYS ACTIVE ON BOTH MOBILE & DESKTOP)
+            if ($(".reviews-carousel").length) {
+                var $revCarousel = $(".reviews-carousel").owlCarousel({
+                    loop: true,
+                    margin: 16,
+                    autoplay: true,
+                    autoplayTimeout: 3500,
+                    autoplayHoverPause: false,
+                    smartSpeed: 650,
+                    responsive: {
+                        0: { items: 1 },
+                        768: { items: 1 },
+                        992: { items: 2 }
+                    },
+                    dots: true,
+                    nav: false,
+                    touchDrag: true,
+                    mouseDrag: true
+                });
+
+                setInterval(function(){
+                    if ($revCarousel.length) {
+                        $revCarousel.trigger('next.owl.carousel', [650]);
+                    }
+                }, 3500);
+            }
 
             // Sticky Header
             function checkSticky() {
