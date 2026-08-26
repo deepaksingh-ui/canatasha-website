@@ -801,9 +801,10 @@ body.drawer-open {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.55);
-    z-index: 99998;
+    z-index: 999990 !important;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -811,6 +812,7 @@ body.drawer-open {
 #mobile-backdrop.open {
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /* APP-LIKE MOBILE DRAWER (100% SOLID & CRISP) */
@@ -823,7 +825,8 @@ body.drawer-open {
     height: 100vh;
     background: #ffffff !important;
     box-shadow: -6px 0 25px rgba(0,0,0,0.25) !important;
-    z-index: 99999 !important;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
     padding: 24px 20px 30px;
@@ -868,6 +871,10 @@ body.drawer-open {
     text-decoration: none;
     border-radius: 6px;
     transition: all 0.2s ease;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 5;
+    touch-action: manipulation;
 }
 #mobile-menu-drawer ul li a:hover,
 #mobile-menu-drawer ul li.active a {
@@ -882,6 +889,12 @@ body.drawer-open {
 #mobile-menu-drawer ul li.active a .nav-arrow {
     transform: translateX(4px);
     color: #006B63;
+}
+.theme-switch-btn {
+    cursor: pointer !important;
+    position: relative;
+    z-index: 5;
+    touch-action: manipulation;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2253,49 +2266,48 @@ __DESKTOP_NAV__
                         </ul>
                     </div>
                 </nav>
-            </div>
-        </div>
-
-        <!-- 10-POINT LUXURY MOBILE DRAWER -->
-        <div id="mobile-menu-drawer" class="d-lg-none">
-            <div class="container px-0">
-                <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
-                    <span class="font-weight-bold text-dark" style="font-size: 15px;"><i class="fa fa-bars text-success mr-1"></i> Navigation Menu</span>
-                    <button type="button" class="btn btn-sm btn-light rounded-circle mobile-drawer-close-btn" style="width: 32px; height: 32px; padding: 0; line-height: 30px; border: 1px solid #e2e8f0;" aria-label="Close Menu">
-                        <i class="fa fa-times text-dark"></i>
-                    </button>
-                </div>
-                <!-- THEME SWITCHER CONTROLS -->
-                <div class="mb-3 p-2 rounded" style="background: #f8fafc; border: 1px solid #e2e8f0;">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="font-weight-bold text-dark small"><i class="fa fa-paint-brush text-success mr-1"></i> Choose Theme:</span>
-                    </div>
-                    <div class="d-flex justify-content-between" style="gap: 5px;">
-                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="emerald" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
-                            <span style="display:inline-block; width:9px; height:9px; background:#006B63; border-radius:50%; margin-right:3px;"></span>Emerald
-                        </button>
-                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="bw" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
-                            <span style="display:inline-block; width:9px; height:9px; background:#18181b; border-radius:50%; margin-right:3px;"></span>B&amp;W
-                        </button>
-                        <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="grey" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
-                            <span style="display:inline-block; width:9px; height:9px; background:#475569; border-radius:50%; margin-right:3px;"></span>Slate
-                        </button>
-                    </div>
-                </div>
-                <ul>
-__MOBILE_NAV__
-                </ul>
-                <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                    <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
-                        <i class="fa fa-phone mr-1"></i> +91 9407000157
-                    </a>
-                    <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20need%20assistance%20from%20your%20website." target="_blank" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
-                        <i class="fa fa-whatsapp mr-1"></i> WhatsApp
-                    </a>
-                </div>
-            </div>
         </div>
     </header>
+
+    <!-- 10-POINT LUXURY MOBILE DRAWER (ROOT LEVEL FOR INSTANT UNINTERRUPTED CLICKS) -->
+    <div id="mobile-menu-drawer" class="d-lg-none">
+        <div class="container px-0">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                <span class="font-weight-bold text-dark" style="font-size: 15px;"><i class="fa fa-bars text-success mr-1"></i> Navigation Menu</span>
+                <button type="button" class="btn btn-sm btn-light rounded-circle mobile-drawer-close-btn" style="width: 32px; height: 32px; padding: 0; line-height: 30px; border: 1px solid #e2e8f0;" aria-label="Close Menu">
+                    <i class="fa fa-times text-dark"></i>
+                </button>
+            </div>
+            <!-- THEME SWITCHER CONTROLS -->
+            <div class="mb-3 p-2 rounded" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="font-weight-bold text-dark small"><i class="fa fa-paint-brush text-success mr-1"></i> Choose Theme:</span>
+                </div>
+                <div class="d-flex justify-content-between" style="gap: 5px;">
+                    <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="emerald" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                        <span style="display:inline-block; width:9px; height:9px; background:#006B63; border-radius:50%; margin-right:3px;"></span>Emerald
+                    </button>
+                    <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="bw" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                        <span style="display:inline-block; width:9px; height:9px; background:#18181b; border-radius:50%; margin-right:3px;"></span>B&amp;W
+                    </button>
+                    <button type="button" class="btn btn-sm flex-fill theme-switch-btn py-1" data-theme="grey" style="border-radius: 6px; font-size: 11.5px; font-weight: 700; border: 1px solid #cbd5e1; background: #ffffff;">
+                        <span style="display:inline-block; width:9px; height:9px; background:#475569; border-radius:50%; margin-right:3px;"></span>Slate
+                    </button>
+                </div>
+            </div>
+            <ul>
+__MOBILE_NAV__
+            </ul>
+            <div class="mobile-drawer-bottom mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                <a href="tel:+919407000157" class="btn btn-sm btn-outline-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
+                    <i class="fa fa-phone mr-1"></i> +91 9407000157
+                </a>
+                <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20need%20assistance%20from%20your%20website." target="_blank" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 6px; padding: 7px 16px;">
+                    <i class="fa fa-whatsapp mr-1"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
 __BODY_CONTENT__
 
@@ -2529,18 +2541,21 @@ __BODY_CONTENT__
                 closeMobileMenu();
             });
 
+            $(document).on('click touchstart', '.theme-switch-btn', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                var theme = $(this).attr('data-theme');
+                if (theme) {
+                    applyTheme(theme);
+                }
+            });
+
             $(document).on('click', '#mobile-menu-drawer ul li a', function(e){
                 var href = $(this).attr('href');
                 if (href && href !== '#' && !href.startsWith('javascript:')) {
                     closeMobileMenu();
+                    window.location.href = href;
                 }
-            });
-
-            $(document).on('click', '.theme-switch-btn', function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                var theme = $(this).attr('data-theme');
-                applyTheme(theme);
             });
 
             // REAL-TIME SCROLL-DRIVEN CINEMATIC SCENE CONTROLLER (60FPS GPU ENGINE)
