@@ -905,22 +905,67 @@ body {
     background: #006B63;
 }
 
-/* CINEMATIC SCROLL REVEAL ENGINE */
-.reveal-on-scroll {
+/* CINEMATIC STORYTELLING REVEAL ENGINE */
+.cinematic-scene {
+    position: relative;
+    will-change: transform, opacity;
+}
+
+/* Base unrevealed state: elements start below with blur and scale */
+.cinematic-reveal,
+.single-item,
+.team-card-unified,
+.stat-counter-box,
+.review-card-item,
+.blog-card,
+.service-badge,
+.google-badge-box {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.65s var(--ca-easing), transform 0.65s var(--ca-easing);
-    will-change: opacity, transform;
+    transform: translateY(36px) scale(0.95);
+    filter: blur(4px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+                filter 0.55s ease;
+    will-change: opacity, transform, filter;
 }
-.reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+
+/* Active in-view revealed state */
+.cinematic-reveal.is-in-view,
+.single-item.is-in-view,
+.team-card-unified.is-in-view,
+.stat-counter-box.is-in-view,
+.review-card-item.is-in-view,
+.blog-card.is-in-view,
+.service-badge.is-in-view,
+.google-badge-box.is-in-view {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    filter: blur(0px) !important;
 }
-.reveal-delay-1 { transition-delay: 0.06s; }
-.reveal-delay-2 { transition-delay: 0.12s; }
-.reveal-delay-3 { transition-delay: 0.18s; }
-.reveal-delay-4 { transition-delay: 0.24s; }
-.reveal-delay-5 { transition-delay: 0.30s; }
+
+/* Staggered cascading entrance delays for cards in grids */
+.row > div:nth-child(1) .single-item,
+.row > div:nth-child(1) .team-card-unified,
+.row > div:nth-child(1) .stat-counter-box,
+.row > div:nth-child(1) .blog-card { transition-delay: 0.04s; }
+
+.row > div:nth-child(2) .single-item,
+.row > div:nth-child(2) .team-card-unified,
+.row > div:nth-child(2) .stat-counter-box,
+.row > div:nth-child(2) .blog-card { transition-delay: 0.14s; }
+
+.row > div:nth-child(3) .single-item,
+.row > div:nth-child(3) .team-card-unified,
+.row > div:nth-child(3) .stat-counter-box,
+.row > div:nth-child(3) .blog-card { transition-delay: 0.24s; }
+
+.row > div:nth-child(4) .single-item,
+.row > div:nth-child(4) .team-card-unified,
+.row > div:nth-child(4) .stat-counter-box,
+.row > div:nth-child(4) .blog-card { transition-delay: 0.34s; }
+
+.row > div:nth-child(5) .single-item { transition-delay: 0.44s; }
+.row > div:nth-child(6) .single-item { transition-delay: 0.54s; }
 
 /* TACTILE MICRO-INTERACTIONS */
 .btn, .theme-btn, .banner-btn, .quote-btn button, .team-connect-btn, .sticky-action-btn {
@@ -1794,6 +1839,46 @@ body.drawer-open {
                 window.addEventListener('scroll', onScroll, { passive: true });
                 window.addEventListener('touchmove', onScroll, { passive: true });
                 setTimeout(updateCinematicScenes, 80);
+            })();
+
+            // CINEMATIC STORYTELLING SCROLL REVEAL OBSERVER (MOVIE-LIKE ENTRANCES)
+            (function initCinematicStorytellingObserver() {
+                var revealElements = document.querySelectorAll(
+                    '.cinematic-reveal, .single-item, .team-card-unified, .stat-counter-box, .review-card-item, .blog-card, .service-badge, .google-badge-box, .p-4.bg-white, .p-4.bg-light'
+                );
+                
+                if (!revealElements.length) return;
+
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-in-view');
+                                
+                                var counters = entry.target.querySelectorAll('.counter-val');
+                                counters.forEach(function(c) {
+                                    if (!c.getAttribute('data-counted')) {
+                                        c.setAttribute('data-counted', 'true');
+                                        var target = parseInt(c.getAttribute('data-target') || '0', 10);
+                                        var suffix = c.getAttribute('data-suffix') || '';
+                                        animateValue(c, 0, target, 1800, suffix);
+                                    }
+                                });
+                            }
+                        });
+                    }, {
+                        threshold: 0.08,
+                        rootMargin: '0px 0px -20px 0px'
+                    });
+
+                    revealElements.forEach(function(el) {
+                        observer.observe(el);
+                    });
+                } else {
+                    revealElements.forEach(function(el) {
+                        el.classList.add('is-in-view');
+                    });
+                }
             })();
 
             // SCROLL PROGRESS INDICATOR
