@@ -1107,7 +1107,7 @@ body.drawer-open {
     }
 }
 
-/* FLOATING WHATSAPP */
+/* FLOATING WHATSAPP (DESKTOP ONLY - ON MOBILE WE HAVE STICKY BOTTOM BAR) */
 .whatsapp-float {
     position: fixed;
     bottom: 24px;
@@ -1129,6 +1129,18 @@ body.drawer-open {
 }
 .whatsapp-float:hover {
     transform: scale(1.1);
+}
+@media (max-width: 991px) {
+    .whatsapp-float {
+        display: none !important;
+    }
+}
+
+.modal {
+    z-index: 10000000 !important;
+}
+.modal-backdrop {
+    z-index: 9999999 !important;
 }
 
 /* PAGE BANNER */
@@ -1590,9 +1602,9 @@ body.drawer-open {
         <a href="https://wa.me/919407000157?text=Hello%20CA%20Natasha%2C%20I%20need%20assistance%20from%20your%20website." target="_blank" class="sticky-action-btn wa-btn">
             <i class="fa fa-whatsapp"></i><span>WhatsApp</span>
         </a>
-        <a href="#" data-toggle="modal" data-target="#consultationModal" class="sticky-action-btn consult-btn">
-            <i class="fa fa-calendar-check-o"></i><span>Book CA</span>
-        </a>
+        <button type="button" class="sticky-action-btn consult-btn border-0" onclick="$('#consultationModal').modal('show');" style="cursor: pointer; outline: none; background: var(--ca-primary, #006B63);">
+            <i class="fa fa-calendar-check-o" style="pointer-events: none;"></i><span style="pointer-events: none;">Book CA</span>
+        </button>
     </div>
 
     <!-- INTERACTIVE CONSULTATION BOOKING MODAL -->
@@ -1745,6 +1757,11 @@ body.drawer-open {
                 if (href && href !== '#' && !href.startsWith('javascript:')) {
                     window.location.assign(href);
                 }
+            });
+
+            $(document).on('click', '.consult-btn, [data-target="#consultationModal"]', function(e){
+                e.preventDefault();
+                $('#consultationModal').modal('show');
             });
 
             // REAL-TIME SCROLL-DRIVEN CINEMATIC SCENE CONTROLLER (60FPS GPU ENGINE)

@@ -942,7 +942,7 @@ body.drawer-open {
     }
 }
 
-/* FLOATING WHATSAPP */
+/* FLOATING WHATSAPP (DESKTOP ONLY - ON MOBILE WE HAVE STICKY BOTTOM BAR) */
 .whatsapp-float {
     position: fixed;
     bottom: 24px;
@@ -964,6 +964,18 @@ body.drawer-open {
 }
 .whatsapp-float:hover {
     transform: scale(1.1);
+}
+@media (max-width: 991px) {
+    .whatsapp-float {
+        display: none !important;
+    }
+}
+
+.modal {
+    z-index: 10000000 !important;
+}
+.modal-backdrop {
+    z-index: 9999999 !important;
 }
 
 /* PAGE BANNER */
