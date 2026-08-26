@@ -205,6 +205,10 @@ body.theme-bw #trusted-stats-section { background: linear-gradient(135deg, #0909
 body.theme-bw .btn-ca-primary, body.theme-bw .theme-btn:hover { background: #18181b !important; border-color: #18181b !important; color: #ffffff !important; }
 body.theme-bw .badge-success { background-color: #18181b !important; }
 body.theme-bw .text-success { color: #27272a !important; }
+body.theme-bw .page-banner { background: linear-gradient(135deg, #09090b 0%, #27272a 100%) !important; }
+body.theme-bw .modal-header { background: #18181b !important; }
+body.theme-bw .sticky-action-btn.consult-btn { background: #18181b !important; }
+body.theme-bw table thead { background-color: #18181b !important; }
 body.theme-bw .footer { background: #09090b !important; }
 
 body.theme-grey {
@@ -232,6 +236,10 @@ body.theme-grey #trusted-stats-section { background: linear-gradient(135deg, #1e
 body.theme-grey .btn-ca-primary, body.theme-grey .theme-btn:hover { background: #1e293b !important; border-color: #1e293b !important; color: #ffffff !important; }
 body.theme-grey .badge-success { background-color: #334155 !important; }
 body.theme-grey .text-success { color: #0284c7 !important; }
+body.theme-grey .page-banner { background: linear-gradient(135deg, #0f172a 0%, #334155 100%) !important; }
+body.theme-grey .modal-header { background: #334155 !important; }
+body.theme-grey .sticky-action-btn.consult-btn { background: #334155 !important; }
+body.theme-grey table thead { background-color: #334155 !important; }
 body.theme-grey .footer { background: #0f172a !important; }
 
 /* ==========================================================================
@@ -2225,9 +2233,17 @@ body.page-transitioning {
         }
 
         $(document).ready(function(){
-            // Load saved theme
+            // Load saved theme (supports direct URL parameter: ?theme=bw, ?theme=grey, ?theme=emerald)
             var savedTheme = 'emerald';
-            try { savedTheme = localStorage.getItem('canatasha_theme') || 'emerald'; } catch(e) {}
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var queryTheme = urlParams.get('theme');
+                if (queryTheme && (queryTheme === 'emerald' || queryTheme === 'bw' || queryTheme === 'grey')) {
+                    savedTheme = queryTheme;
+                } else {
+                    savedTheme = localStorage.getItem('canatasha_theme') || 'emerald';
+                }
+            } catch(e) {}
             applyTheme(savedTheme);
 
             $('.theme-switch-btn').on('click', function(e){
