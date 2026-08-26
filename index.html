@@ -1412,7 +1412,7 @@ body.drawer-open {
 
 
     <!-- HERO SECTION -->
-    <section class="static-hero-area" id="home">
+    <section class="static-hero-area cinematic-scene" id="home">
         <div class="hero-zoom-slider">
             <!-- SLIDE 1: WELCOME TO NATASHA & COMPANY / CA NATASHA RAJVAIDYA -->
             <div class="zoom-slide active">
@@ -1498,7 +1498,7 @@ body.drawer-open {
     </section>
 
     <!-- PRACTICE AREAS -->
-    <section class="py-5" style="background-color: #f8fafc;">
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -1563,7 +1563,7 @@ body.drawer-open {
     </section>
 
     <!-- ABOUT NATASHA & COMPANY -->
-    <section class="py-5" style="background-color: #ffffff;">
+    <section class="py-5 cinematic-scene" style="background-color: #ffffff;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -1607,7 +1607,7 @@ body.drawer-open {
     </section>
 
     <!-- OUR TEAM SECTION (PERFECT 4-CARD BALANCED GRID) -->
-    <section class="py-5" style="background-color: #f8fafc;">
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-5">
@@ -1730,7 +1730,7 @@ body.drawer-open {
     </section>
 
     <!-- FINANCIAL CALCULATORS SECTION -->
-    <section class="py-5" style="background-color: #ffffff;">
+    <section class="py-5 cinematic-scene" style="background-color: #ffffff;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
@@ -1809,7 +1809,7 @@ body.drawer-open {
     </section>
 
     <!-- PROVEN TRACK RECORD -->
-    <section class="py-5" id="trusted-stats-section" style="background: linear-gradient(135deg, #002e5b 0%, #006B63 100%); color: #ffffff;">
+    <section class="py-5 cinematic-scene" id="trusted-stats-section" style="background: linear-gradient(135deg, #002e5b 0%, #006B63 100%); color: #ffffff;">
         <div class="container text-center">
             <div class="row">
                 <div class="col-12 mb-4">
@@ -1859,7 +1859,7 @@ body.drawer-open {
     </section>
 
     <!-- PERFECT AUTO-SLIDING GOOGLE REVIEWS SECTION -->
-    <section class="py-5" style="background-color: #f8fafc; overflow: hidden;">
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc; overflow: hidden;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 text-center mb-4">
@@ -2019,7 +2019,7 @@ body.drawer-open {
     </section>
 
     <!-- LATEST BLOGS & INSIGHTS (HOMEPAGE SECTION) -->
-    <section class="py-5" style="background-color: #ffffff;">
+    <section class="py-5 cinematic-scene" style="background-color: #ffffff;">
         <div class="container">
             <div class="row align-items-center mb-4">
                 <div class="col-md-8">
@@ -2103,7 +2103,7 @@ body.drawer-open {
     </section>
 
     <!-- LIVE NEWS & DUE DATE REMINDERS -->
-    <section class="py-5" style="background-color: #f8fafc;">
+    <section class="py-5 cinematic-scene" style="background-color: #f8fafc;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -2181,7 +2181,7 @@ body.drawer-open {
     </section>
 
     <!-- GET IN TOUCH CONSULTATION FORM -->
-    <section class="py-5" style="background-color: #ffffff;">
+    <section class="py-5 cinematic-scene" style="background-color: #ffffff;">
         <div class="container">
             <div class="p-4 p-md-5 bg-white rounded shadow-sm border">
                 <div class="row align-items-center">
@@ -2467,30 +2467,62 @@ body.drawer-open {
                 applyTheme(theme);
             });
 
-            // CINEMATIC 60FPS SCROLL REVEALS
-            function triggerScrollReveals() {
-                var winH = window.innerHeight || document.documentElement.clientHeight;
-                document.querySelectorAll('.reveal-on-scroll').forEach(function(el){
-                    var rect = el.getBoundingClientRect();
-                    if (rect.top <= winH * 0.92) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }
-            window.addEventListener('scroll', triggerScrollReveals, { passive: true });
-            window.addEventListener('touchmove', triggerScrollReveals, { passive: true });
-            setTimeout(triggerScrollReveals, 100);
+            // REAL-TIME SCROLL-DRIVEN CINEMATIC SCENE CONTROLLER (60FPS GPU ENGINE)
+            (function initCinematicScrollController() {
+                var scenes = document.querySelectorAll('.cinematic-scene');
+                if (!scenes.length) return;
 
-            // SUBTLE LUXURY PARALLAX ON HERO
-            var heroEl = document.querySelector('.static-hero-area');
-            if (heroEl) {
-                window.addEventListener('scroll', function(){
-                    var scrolled = window.pageYOffset;
-                    if (scrolled < 650) {
-                        heroEl.style.backgroundPositionY = 'calc(50% + ' + (scrolled * 0.22) + 'px)';
+                var ticking = false;
+                function updateCinematicScenes() {
+                    var winH = window.innerHeight || document.documentElement.clientHeight;
+                    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+                    scenes.forEach(function(scene) {
+                        var rect = scene.getBoundingClientRect();
+                        
+                        // 1. Scene entering from bottom
+                        if (rect.top > 0 && rect.top < winH) {
+                            var enterProgress = 1 - (rect.top / winH);
+                            var scale = 1.05 - (enterProgress * 0.05); // 1.05 -> 1.00
+                            var translateY = (1 - enterProgress) * 20; // 20px -> 0px
+                            scene.style.transform = 'scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+                            scene.style.opacity = Math.min(1, 0.65 + enterProgress * 0.35).toFixed(2);
+                        }
+                        // 2. Scene leaving towards top
+                        else if (rect.top <= 0 && rect.bottom > 0) {
+                            var leaveProgress = Math.min(1, Math.abs(rect.top) / (rect.height || winH));
+                            var scale = 1.00 - (leaveProgress * 0.05); // 1.00 -> 0.95
+                            var translateY = leaveProgress * -12;
+                            scene.style.transform = 'scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+                            scene.style.opacity = Math.max(0.75, (1 - leaveProgress * 0.25)).toFixed(2);
+                        }
+                        // 3. Fully inside view
+                        else if (rect.top <= 0 && rect.bottom >= winH) {
+                            scene.style.transform = 'scale(1) translateY(0px)';
+                            scene.style.opacity = '1';
+                        }
+                    });
+
+                    // Background parallax for Hero
+                    var heroEl = document.querySelector('.static-hero-area');
+                    if (heroEl && scrollY < 750) {
+                        heroEl.style.backgroundPositionY = 'calc(50% + ' + (scrollY * 0.25) + 'px)';
                     }
-                }, { passive: true });
-            }
+
+                    ticking = false;
+                }
+
+                function onScroll() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateCinematicScenes);
+                        ticking = true;
+                    }
+                }
+
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('touchmove', onScroll, { passive: true });
+                setTimeout(updateCinematicScenes, 80);
+            })();
 
             // SCROLL PROGRESS INDICATOR
             function updateScrollProgress() {

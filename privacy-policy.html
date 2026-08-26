@@ -1680,30 +1680,62 @@ body.drawer-open {
                 applyTheme(theme);
             });
 
-            // CINEMATIC 60FPS SCROLL REVEALS
-            function triggerScrollReveals() {
-                var winH = window.innerHeight || document.documentElement.clientHeight;
-                document.querySelectorAll('.reveal-on-scroll').forEach(function(el){
-                    var rect = el.getBoundingClientRect();
-                    if (rect.top <= winH * 0.92) {
-                        el.classList.add('is-visible');
-                    }
-                });
-            }
-            window.addEventListener('scroll', triggerScrollReveals, { passive: true });
-            window.addEventListener('touchmove', triggerScrollReveals, { passive: true });
-            setTimeout(triggerScrollReveals, 100);
+            // REAL-TIME SCROLL-DRIVEN CINEMATIC SCENE CONTROLLER (60FPS GPU ENGINE)
+            (function initCinematicScrollController() {
+                var scenes = document.querySelectorAll('.cinematic-scene');
+                if (!scenes.length) return;
 
-            // SUBTLE LUXURY PARALLAX ON HERO
-            var heroEl = document.querySelector('.static-hero-area');
-            if (heroEl) {
-                window.addEventListener('scroll', function(){
-                    var scrolled = window.pageYOffset;
-                    if (scrolled < 650) {
-                        heroEl.style.backgroundPositionY = 'calc(50% + ' + (scrolled * 0.22) + 'px)';
+                var ticking = false;
+                function updateCinematicScenes() {
+                    var winH = window.innerHeight || document.documentElement.clientHeight;
+                    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+                    scenes.forEach(function(scene) {
+                        var rect = scene.getBoundingClientRect();
+                        
+                        // 1. Scene entering from bottom
+                        if (rect.top > 0 && rect.top < winH) {
+                            var enterProgress = 1 - (rect.top / winH);
+                            var scale = 1.05 - (enterProgress * 0.05); // 1.05 -> 1.00
+                            var translateY = (1 - enterProgress) * 20; // 20px -> 0px
+                            scene.style.transform = 'scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+                            scene.style.opacity = Math.min(1, 0.65 + enterProgress * 0.35).toFixed(2);
+                        }
+                        // 2. Scene leaving towards top
+                        else if (rect.top <= 0 && rect.bottom > 0) {
+                            var leaveProgress = Math.min(1, Math.abs(rect.top) / (rect.height || winH));
+                            var scale = 1.00 - (leaveProgress * 0.05); // 1.00 -> 0.95
+                            var translateY = leaveProgress * -12;
+                            scene.style.transform = 'scale(' + scale.toFixed(3) + ') translateY(' + translateY.toFixed(1) + 'px)';
+                            scene.style.opacity = Math.max(0.75, (1 - leaveProgress * 0.25)).toFixed(2);
+                        }
+                        // 3. Fully inside view
+                        else if (rect.top <= 0 && rect.bottom >= winH) {
+                            scene.style.transform = 'scale(1) translateY(0px)';
+                            scene.style.opacity = '1';
+                        }
+                    });
+
+                    // Background parallax for Hero
+                    var heroEl = document.querySelector('.static-hero-area');
+                    if (heroEl && scrollY < 750) {
+                        heroEl.style.backgroundPositionY = 'calc(50% + ' + (scrollY * 0.25) + 'px)';
                     }
-                }, { passive: true });
-            }
+
+                    ticking = false;
+                }
+
+                function onScroll() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(updateCinematicScenes);
+                        ticking = true;
+                    }
+                }
+
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('touchmove', onScroll, { passive: true });
+                setTimeout(updateCinematicScenes, 80);
+            })();
 
             // SCROLL PROGRESS INDICATOR
             function updateScrollProgress() {
