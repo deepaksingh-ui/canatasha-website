@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="adityaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0284c7"/>
+          <stop offset="100%" stop-color="#38bdf8"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="50" fill="url(#adityaGrad)"/>
+      <!-- Head & Hair -->
+      <circle cx="50" cy="38" r="18" fill="#ffe082"/>
+      <path d="M32 34 Q50 16 68 34 Q64 22 50 22 Q36 22 32 34 Z" fill="#3e2723"/>
+      <!-- Glasses -->
+      <rect x="36" y="34" width="11" height="8" rx="2" fill="none" stroke="#212121" stroke-width="2.5"/>
+      <rect x="53" y="34" width="11" height="8" rx="2" fill="none" stroke="#212121" stroke-width="2.5"/>
+      <line x1="47" y1="38" x2="53" y2="38" stroke="#212121" stroke-width="2.5"/>
+      <!-- Smile -->
+      <path d="M44 48 Q50 53 56 48" fill="none" stroke="#d84315" stroke-width="2"/>
+      <!-- Body -->
+      <path d="M20 90 Q20 62 50 62 Q80 62 80 90 Z" fill="#0369a1"/>
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#ffffff" stroke-width="3"/>
+    </svg>

@@ -1,0 +1,169 @@
+<!-- Page Banner -->
+    <section class="page-banner">
+        <div class="image-layer" style="background-image:url(images/background-6.webp)"></div>
+        <div class="auto-container">
+            <h2>Goods & Services Tax (GST) Calculator</h2>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li><li><a href="knowledge-base.html">Tools & Calc</a></li><li>GST Calculator</li>
+            </ul>
+        </div>
+    </section>
+<div class="content-area-wrapper py-5 bg-light">
+    <div class="auto-container">
+        <div class="row clearfix justify-content-center">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="card p-4 p-md-5 border-0 shadow-sm rounded-4 bg-white mb-4">
+                    <div class="sec-title mb-4">
+                        <div class="sub-title">Instant Tax Computation</div>
+                        <h2>GST Calculator (Inclusive / Exclusive)</h2>
+                        <div class="text">Compute exact GST amounts, net prices, CGST, SGST, and IGST splits across all official Indian statutory GST slabs.</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <label class="form-label fw-bold text-dark mb-0">Initial Amount (₹)</label>
+                            <span class="text-muted small">Live Synced Range Slider</span>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text bg-light fw-bold">₹</span>
+                            <input type="number" id="gstAmount" class="form-control form-control-lg fw-bold" value="10000" min="0" oninput="syncAmountToSlider(this.value)">
+                        </div>
+                        <input type="range" class="form-range" id="gstSlider" min="1000" max="1000000" step="500" value="10000" oninput="syncSliderToAmount(this.value)">
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>₹ 1,000</span>
+                            <span>₹ 5,00,000</span>
+                            <span>₹ 10,00,000</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-dark">Select Statutory GST Rate</label>
+                        <div class="d-flex flex-wrap gap-2" role="group" id="gstRateGroup">
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(0, this)">0%</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(0.25, this)">0.25%</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(3, this)">3%</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(5, this)">5%</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(12, this)">12%</button>
+                            <button type="button" class="btn btn-danger btn-sm active" onclick="setGSTRate(18, this)">18%</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="setGSTRate(28, this)">28%</button>
+                        </div>
+                        <div class="small text-muted mt-2" id="gstRateDesc">Standard rate for services and manufactured goods (18%)</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-dark">GST Calculation Mode</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gstType" id="gstExclusive" value="exclusive" checked onchange="calculateGST()">
+                                <label class="form-check-label fw-semibold" for="gstExclusive">GST Exclusive (Add GST to amount)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gstType" id="gstInclusive" value="inclusive" onchange="calculateGST()">
+                                <label class="form-check-label fw-semibold" for="gstInclusive">GST Inclusive (Remove GST from amount)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Box -->
+                    <div class="calc-result-box rounded-4 p-4 mt-4" style="background: #001226; color: #ffffff;">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="text-white-50 small">Net Base Amount</div>
+                                <div class="h4 fw-bold text-white mb-0" id="resBase">₹ 10,000</div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0 border-start border-end border-secondary">
+                                <div class="text-white-50 small">Total GST Amount</div>
+                                <div class="h4 fw-bold text-warning mb-0" id="resGST">₹ 1,800</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-white-50 small">Total Invoice Value</div>
+                                <div class="h4 fw-bold text-white mb-0" id="resTotal">₹ 11,800</div>
+                            </div>
+                        </div>
+                        <div class="row text-center mt-3 pt-3 border-top border-secondary small">
+                            <div class="col-6">
+                                <span class="text-white-50">CGST + SGST (Intra-state):</span> <strong class="text-white" id="resCgstSgst">₹ 900 + ₹ 900</strong>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-white-50">IGST (Inter-state):</span> <strong class="text-white" id="resIgst">₹ 1,800</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Segmented Bar -->
+                    <div class="mt-4 p-3 rounded-3" style="background: #0f172a; color: #ffffff;">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small fw-semibold text-white-50">Tax Composition Breakdown</span>
+                            <span class="small fw-bold text-white" id="gstSplitRatio">Base 84.7% | GST 15.3%</span>
+                        </div>
+                        <div class="progress" style="height: 18px; border-radius: 9px; overflow: hidden; background: rgba(255,255,255,0.15);">
+                            <div id="barBase" class="progress-bar bg-primary" role="progressbar" style="width: 84.7%;" title="Base Amount"></div>
+                            <div id="barCgst" class="progress-bar bg-warning" role="progressbar" style="width: 7.65%;" title="CGST"></div>
+                            <div id="barSgst" class="progress-bar bg-danger" role="progressbar" style="width: 7.65%;" title="SGST"></div>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-between small text-white-50 mt-2 gap-2">
+                            <span><span class="d-inline-block rounded-circle me-1" style="width:10px;height:10px;background:#0d6efd;"></span>Base: <strong class="text-white" id="legendBase">₹ 10,000</strong></span>
+                            <span><span class="d-inline-block rounded-circle me-1" style="width:10px;height:10px;background:#ffc107;"></span>CGST: <strong class="text-white" id="legendCgst">₹ 900</strong></span>
+                            <span><span class="d-inline-block rounded-circle me-1" style="width:10px;height:10px;background:#dc3545;"></span>SGST: <strong class="text-white" id="legendSgst">₹ 900</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- 4-Slab Comparison Table -->
+                    <div class="mt-4">
+                        <h3 class="fw-bold text-dark h6 mb-3">Side-by-Side 4-Slab Comparison Table</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-sm text-center align-middle mb-0" id="gstComparisonTable">
+                                <thead class="table-light small">
+                                    <tr>
+                                        <th>Statutory Slab</th>
+                                        <th>Net Base Amount</th>
+                                        <th>CGST + SGST Split</th>
+                                        <th>Total Invoice Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gstComparisonBody">
+                                    <!-- Populated dynamically by calculateGST() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Callout -->
+                    <div class="svc-callout mt-4">
+                        <strong>Facing GST Scrutiny or Demand Notice?</strong>
+                        Natasha &amp; Company handles ASMT-10 notices, DRC-01 show cause orders, and GST appeals with forensic precision.
+                        <a href="gst-notice-consultant-bhopal.html" class="fw-bold text-danger d-inline-block ms-1">Consult Our GST Litigators &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar" style="position: sticky; top: 100px;">
+                    <div class="svc-sidebar-card">
+                        <h3><i class="fas fa-file-invoice-dollar text-warning me-2"></i> Need GST Advisory?</h3>
+                        <p>Get your GST returns filed, input credit reconciled, and notices defended by qualified CAs.</p>
+                        <form onsubmit="handleSidebarLead(event)" data-lead="calc-gst">
+                            <input type="text" id="sbLeadName" class="form-control" placeholder="Your Full Name *" required>
+                            <input type="tel" id="sbLeadPhone" class="form-control" placeholder="10-Digit Mobile Number *" pattern="[0-9]{10}" required>
+                            <input type="hidden" id="sbLeadService" value="GST Consultation">
+                            <textarea id="sbLeadNotes" class="form-control" rows="2" placeholder="Briefly describe your GST requirement..."></textarea>
+                            <button type="submit" class="btn-submit-lead mt-1"><i class="fab fa-whatsapp me-1"></i> Request Callback</button>
+                        </form>
+                    </div>
+
+                    <div class="svc-quick-links-card">
+                        <h4>All Financial Calculators</h4>
+                        <ul>
+                            <li><a href="income-tax-calculator.html"><span>Income Tax Calculator</span> <i class="fas fa-chevron-right small text-danger"></i></a></li>
+                            <li><a href="hra-exemption-calculator.html"><span>HRA Exemption Calculator</span> <i class="fas fa-chevron-right small text-danger"></i></a></li>
+                            <li><a href="emi-loan-calculator.html"><span>EMI Loan Calculator</span> <i class="fas fa-chevron-right small text-danger"></i></a></li>
+                            <li><a href="gst-notice-consultant-bhopal.html"><span>GST Notice Consultant</span> <i class="fas fa-chevron-right small text-danger"></i></a></li>
+                            <li><a href="knowledge-base.html" class="fw-bold text-danger"><span>Browse Knowledge Base</span> <i class="fas fa-arrow-right small"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

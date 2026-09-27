@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta charset="utf-8">
+<title>Admin Dashboard – Update GST News & Due Dates</title>
+<meta name="description" content="Natasha & Company is Bhopal leading Chartered Accountancy firm founded by CA Natasha Rajvaidya (FCA). ISO 9001:2015 certified, delivering high-stakes Tax Audits, GST Notice Defense, and Corporate Advisory.">
+<meta name="keywords" content="Chartered Accountant Bhopal, CA Natasha Rajvaidya, Tax Consultant Bhopal, GST Notice Defense, Tax Audit 44AB, Company Registration Bhopal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<!-- CA-106 Core Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link href="css/color.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+
+<!-- FontAwesome & Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Core jQuery -->
+<script src="js/jquery.js"></script>
+
+
+
+<style>
+.loader-wrap, .preloader, .layer { display: none !important; }
+body { opacity: 1 !important; visibility: visible !important; color: #333333; font-family: 'Roboto', sans-serif; }
+
+/* Header Logo Sizing */
+.header-top .logo-box .logo img { max-height: 48px; width: auto; }
+.sticky-header .logo img { max-height: 38px; width: auto; }
+.mobile-menu .nav-logo img { max-height: 38px; width: auto; }
+
+/* Page Banner Styling */
+.page-banner { position: relative; color: #ffffff; text-align: center; padding: 160px 0px 80px; background-color: #001226; z-index: 2; }
+.page-banner .image-layer { position: absolute; left: 0px; top: 0; width: 100%; height: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover; opacity: 0.35; }
+.page-banner h1 { position: relative; font-size: 40px; line-height: 1.25em; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
+@media (max-width: 768px) { .page-banner h1 { font-size: 28px; } }
+.page-banner .bread-crumb { position: relative; margin: 0; padding: 0; }
+.page-banner .bread-crumb li { position: relative; display: inline-block; line-height: 30px; margin-left: 18px; color: #ffffff; font-size: 14px; font-weight: 500; }
+.page-banner .bread-crumb li:before { content: '/'; position: absolute; left: -12px; top: 0px; text-align: center; line-height: 30px; color: rgba(255,255,255,0.6); }
+.page-banner .bread-crumb li:first-child { margin-left: 0; }
+.page-banner .bread-crumb li:first-child:before { display: none; }
+.page-banner .bread-crumb li a { color: #f39c12; text-decoration: none; }
+.page-banner .bread-crumb li a:hover { color: #ffffff; }
+
+/* Content Typography & High-Contrast */
+.content-area-wrapper { padding: 70px 0; background-color: #ffffff; }
+.svc-body { font-size: 16px; line-height: 1.8; color: #2c3e50; }
+.svc-body h2 { font-size: 28px; font-weight: 700; color: #001226; margin-top: 35px; margin-bottom: 18px; border-left: 4px solid #c0392b; padding-left: 14px; }
+.svc-body h3 { font-size: 22px; font-weight: 700; color: #1e242b; margin-top: 28px; margin-bottom: 14px; }
+.svc-body h4 { font-size: 18px; font-weight: 600; color: #1e242b; margin-top: 22px; margin-bottom: 12px; }
+.svc-body p { margin-bottom: 18px; line-height: 1.8; color: #374151; }
+.svc-lead { font-size: 18px; font-weight: 500; line-height: 1.75; color: #1e293b; background: #f8fafc; padding: 20px 24px; border-radius: 8px; border-left: 4px solid #f39c12; margin-bottom: 30px; }
+
+/* Tables */
+.svc-table-wrap { overflow-x: auto; margin: 25px 0 35px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
+.svc-table { width: 100%; border-collapse: collapse; background: #ffffff; }
+.svc-table th { background: #001226; color: #ffffff; padding: 14px 18px; font-weight: 600; font-size: 15px; border: 1px solid #1a2c3f; text-align: left; }
+.svc-table td { padding: 14px 18px; border: 1px solid #e2e8f0; font-size: 14.5px; color: #334155; line-height: 1.6; }
+.svc-table tr:nth-child(even) { background-color: #f8fafc; }
+.svc-table tr:hover { background-color: #f1f5f9; }
+
+/* Callouts & Quotes */
+.svc-callout { background: #fff8f0; border-left: 4px solid #c0392b; padding: 22px 26px; border-radius: 8px; margin: 30px 0; font-size: 15.5px; line-height: 1.75; color: #1e242b; box-shadow: 0 2px 10px rgba(192, 57, 43, 0.06); }
+.svc-callout strong { color: #c0392b; }
+.svc-related { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 24px; margin: 35px 0; }
+.svc-related h3 { margin-top: 0; font-size: 19px; color: #001226; margin-bottom: 15px; }
+.svc-related ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+.svc-related ul li { padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
+.svc-related ul li:last-child { border-bottom: none; }
+.svc-related ul li a { color: #c0392b; font-weight: 600; text-decoration: none; }
+.svc-related ul li a:hover { text-decoration: underline; color: #962d22; }
+
+/* FAQ Accordion */
+.svc-faq .accordion-item { border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+.svc-faq .accordion-button { font-size: 16px; font-weight: 600; color: #001226; background: #f8fafc; padding: 16px 20px; box-shadow: none !important; }
+.svc-faq .accordion-button:not(.collapsed) { background: #ffffff; color: #c0392b; border-bottom: 1px solid #e2e8f0; }
+.svc-faq .accordion-body { padding: 20px; font-size: 15px; line-height: 1.7; color: #475569; background: #ffffff; }
+
+/* Sidebar Consultation Box */
+.svc-sidebar-card { background: #001226; color: #ffffff; border-radius: 12px; padding: 28px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 18, 38, 0.15); }
+.svc-sidebar-card h3 { color: #ffffff; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+.svc-sidebar-card p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 20px; line-height: 1.6; }
+.svc-sidebar-card .form-control, .svc-sidebar-card .form-select { background: #ffffff; border: 1px solid #ced4da; border-radius: 6px; padding: 10px 14px; font-size: 14px; margin-bottom: 12px; color: #333333; }
+.svc-sidebar-card .btn-submit-lead { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); color: #ffffff; border: none; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; border-radius: 6px; padding: 12px 20px; width: 100%; transition: all 0.3s ease; }
+.svc-sidebar-card .btn-submit-lead:hover { background: linear-gradient(135deg, #a93226 0%, #c0392b 100%); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(192, 57, 43, 0.35); }
+
+/* Quick Navigation Links in Sidebar */
+.svc-quick-links-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 30px; }
+.svc-quick-links-card h4 { font-size: 18px; font-weight: 700; color: #001226; margin-bottom: 16px; border-bottom: 2px solid #c0392b; padding-bottom: 8px; }
+.svc-quick-links-card ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+.svc-quick-links-card ul li { padding: 10px 0; border-bottom: 1px solid #e2e8f0; }
+.svc-quick-links-card ul li:last-child { border-bottom: none; }
+.svc-quick-links-card ul li a { color: #334155; text-decoration: none; font-weight: 500; font-size: 14px; display: flex; align-items: center; justify-content: space-between; }
+.svc-quick-links-card ul li a:hover { color: #c0392b; font-weight: 600; }
+
+/* Direct Contact Info Card */
+.svc-direct-contact { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.svc-direct-contact .icon { font-size: 36px; color: #c0392b; margin-bottom: 12px; }
+.svc-direct-contact h5 { font-weight: 700; color: #001226; margin-bottom: 6px; }
+.svc-direct-contact p { font-size: 13.5px; color: #64748b; margin-bottom: 14px; }
+.svc-direct-contact .phone-num { font-size: 18px; font-weight: 700; color: #c0392b; text-decoration: none; }
+
+/* Blog Single Post Styling */
+.single-blog-article { font-size: 16px; line-height: 1.8; color: #374151; }
+.single-blog-article h1 { font-size: 32px; font-weight: 700; color: #001226; margin-bottom: 15px; line-height: 1.3em; }
+.single-blog-article .post-meta { display: flex; flex-wrap: wrap; gap: 15px; font-size: 14px; color: #64748b; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+.single-blog-article .post-meta span { display: flex; align-items: center; gap: 5px; }
+.single-blog-article .featured-image img { border-radius: 10px; width: 100%; max-height: 440px; object-fit: cover; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.single-blog-article .article-content-body { font-size: 16px; line-height: 1.85; color: #2d3748; }
+.single-blog-article .article-content-body h2 { font-size: 26px; font-weight: 700; color: #001226; margin-top: 35px; margin-bottom: 16px; border-left: 4px solid #c0392b; padding-left: 12px; }
+.single-blog-article .article-content-body h3 { font-size: 20px; font-weight: 700; color: #1e242b; margin-top: 25px; margin-bottom: 12px; }
+.single-blog-article .article-content-body p { margin-bottom: 18px; color: #374151; }
+.single-blog-article .article-content-body ul, .single-blog-article .article-content-body ol { margin-bottom: 20px; padding-left: 25px; }
+.single-blog-article .article-content-body li { margin-bottom: 8px; }
+.single-blog-article .svc-inline-cta { background: #f8fafc; border-left: 4px solid #f39c12; padding: 18px 22px; border-radius: 8px; margin: 25px 0; }
+.single-blog-article .svc-inline-cta a { color: #c0392b; font-weight: 700; }
+
+/* Calculator Clean Styling */
+.calculator-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 35px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+.calculator-card h2 { font-size: 26px; font-weight: 700; color: #001226; margin-bottom: 24px; border-bottom: 2px solid #c0392b; padding-bottom: 12px; }
+.calc-result-box { background: #001226; color: #ffffff; border-radius: 10px; padding: 25px; margin-top: 25px; text-align: center; }
+.calc-result-box .val { font-size: 36px; font-weight: 800; color: #f39c12; margin: 10px 0; }
+
+
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+    <header class="main-header">
+        <div class="header-top">
+            <div class="auto-container">
+				<div class="inner">
+                    <div class="top-left">
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/brand/logo-horizontal-520.png" alt="Natasha &amp; Company"></a></div>
+                        </div>
+                    </div>
+
+                    <div class="top-middile">
+                        <div class="contact-info">
+                            <div class="single-info">
+                                <div class="icon-box"><i class="flaticon-call-1"></i></div>
+                                <div class="text">Helpline</div>
+                                <h4><a href="tel:+919407000157">+91 9407000157</a></h4>
+                            </div>
+                            <div class="single-info">
+                                <div class="icon-box"><i class="flaticon-email-4"></i></div>
+                                <div class="text">Official Email</div>
+                                <h4><a href="mailto:info@canatasha.com">info@canatasha.com</a></h4>
+                            </div>
+                            <div class="single-info d-none d-xl-block">
+                                <div class="icon-box"><i class="flaticon-location"></i></div>
+                                <div class="text">Corporate Office</div>
+                                <h4>Zone-1 M.P. Nagar, Bhopal</h4>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="top-right"><a href="contact-us.html" class="theme-btn btn-style-two" data-bs-toggle="modal" data-bs-target="#consultationModal"><span class="btn-title">Book Consultation</span></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="header-upper">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="nav-outer clearfix">
+                        <div class="mobile-nav-toggler"><span class="icon fal fa-bars"></span></div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class=""><a href="index.html">Home</a></li>
+                                    <li class="dropdown "><a href="about-us.html">About</a>
+                                      <ul>
+                                          <li><a href="about-us.html">About Firm</a></li>
+                                          <li><a href="about-us.html#founder">CA Natasha Rajvaidya (FCA)</a></li>
+                                          <li><a href="about-us.html#vision">Vision &amp; Mission</a></li>
+                                          <li><a href="about-us.html#quality">ISO 9001:2015 Standards</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="dropdown "><a href="services.html">Services</a>
+                                      <ul>
+                                          <li><a href="tax-audit-44ab-bhopal.html">Tax Audit u/s 44AB</a></li>
+                                          <li><a href="gst-notice-consultant-bhopal.html">GST Notice &amp; Litigation</a></li>
+                                          <li><a href="income-tax-notice-consultant-bhopal.html">Income Tax Notice Defense</a></li>
+                                          <li><a href="company-registration-bhopal.html">Company Registration &amp; ROC</a></li>
+                                          <li><a href="psara-pwd-contractor-registration-madhya-pradesh.html">PSARA &amp; PWD Contractor</a></li>
+                                          <li><a href="services.html">All 11 Practice Areas</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="dropdown "><a href="#">GST Portal</a>
+                                      <ul>
+                                          <li><a href="https://services.gst.gov.in/services/login" target="_blank" rel="noopener">GST Official Login</a></li>
+                                          <li><a href="gst-notice-consultant-bhopal.html">GST Notice Defense Bhopal</a></li>
+                                          <li><a href="isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html">ISD Registration Guide 2025</a></li>
+                                          <li><a href="overview-of-the-54th-gst-council-meeting-key-decisions-their-implications.html">54th GST Council Decisions</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="dropdown "><a href="knowledge-base.html">Tools &amp; Calc</a>
+                                      <ul>
+                                          <li><a href="income-tax-calculator.html">Income Tax Calculator</a></li>
+                                          <li><a href="hra-exemption-calculator.html">HRA Exemption Calculator</a></li>
+                                          <li><a href="emi-loan-calculator.html">EMI Loan Calculator</a></li>
+                                          <li><a href="decoding-long-term-capital-gains.html">LTCG Tax Guide</a></li>
+                                          <li><a href="knowledge-base.html">All Practice Tools</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class=""><a href="blog.html">Blog</a></li>
+                                    <li class=""><a href="career.html">Career</a></li>
+                                    <li class=""><a href="contact-us.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        
+                        <ul class="social-links clearfix">
+                            <li><a href="https://www.facebook.com/canatasharaj/" target="_blank"><span class="fab fa-facebook-f"></span></a></li>
+                            <li><a href="https://twitter.com/canatasharaj" target="_blank"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank"><span class="fab fa-linkedin-in"></span></a></li>
+                            <li><a href="https://wa.me/919407000157" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <div class="logo pull-left">
+                    <a href="index.html"><img src="images/brand/logo-horizontal-520.png" alt="Natasha &amp; Company"></a>
+                </div>
+                <div class="pull-right">
+                    <nav class="main-menu clearfix">
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-cancel"></span></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="images/brand/logo-horizontal-520.png" alt="Natasha &amp; Company"></a></div>
+                <div class="menu-outer"></div>
+				        <div class="social-links">
+					          <ul class="clearfix">
+						            <li><a href="https://twitter.com/canatasharaj" target="_blank"><span class="fab fa-twitter"></span></a></li>
+						            <li><a href="https://www.facebook.com/canatasharaj/" target="_blank"><span class="fab fa-facebook-square"></span></a></li>
+						            <li><a href="https://wa.me/919407000157" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
+						            <li><a href="https://www.instagram.com/natasharajvaidya/?hl=en" target="_blank"><span class="fab fa-instagram"></span></a></li>
+					          </ul>
+                </div>
+            </nav>
+        </div>
+    </header>    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="image-layer" style="background-image:url(images/background-6.jpg)"></div>
+        <div class="auto-container">
+            <h1>Admin Portal: News & Compliance Feeds</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li><li>Admin Dashboard</li>
+            </ul>
+        </div>
+    </section>
+    <div class="content-area-wrapper py-4 bg-light">
+        <div class="auto-container">
+            <div class="header-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div>
+        <span class="badge bg-warning text-dark px-3 py-1 fw-bold text-uppercase mb-1">Easy Client Dashboard</span>
+        <h3 class="fw-bold mb-0"><i class="bi bi-sliders text-warning me-2"></i> Update Tax News &amp; Compliance Dates</h3>
+      </div>
+      <a href="index.html" class="btn btn-outline-light"><i class="bi bi-globe me-1"></i> View Live Website</a>
+    </div>
+  </div>
+
+  <div class="container pb-5">
+    <div class="alert alert-info border-info d-flex align-items-center gap-3">
+      <i class="bi bi-info-circle-fill fs-3 text-info"></i>
+      <div>
+        <strong>Client Instructions:</strong> Yaha se aap asaani se nayi <strong>GST/Tax News</strong> aur <strong>Due Dates</strong> add ya edit kar sakte hain. Changes karne ke baad <strong>"Save / Download File"</strong> ya <strong>"Copy Code"</strong> dabayein aur <code>js/compliance-data.js</code> me paste kar dein!
+      </div>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- Section 1: Latest Tax & GST News -->
+      <div class="col-lg-6">
+        <div class="admin-card">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h3 class="fw-bold text-primary mb-0 h5"><i class="bi bi-newspaper me-2"></i> Latest Tax &amp; GST News</h3>
+            <button class="btn btn-sm btn-success fw-bold" onclick="addNewsRow()"><i class="bi bi-plus-lg me-1"></i> Add News</button>
+          </div>
+          
+          <div id="newsContainer"></div>
+        </div>
+      </div>
+
+      <!-- Section 2: Compliance Due Dates -->
+      <div class="col-lg-6">
+        <div class="admin-card">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h3 class="fw-bold text-success mb-0 h5"><i class="bi bi-calendar-check me-2"></i> Compliance Due Dates</h3>
+            <button class="btn btn-sm btn-success fw-bold" onclick="addDueRow()"><i class="bi bi-plus-lg me-1"></i> Add Due Date</button>
+          </div>
+
+          <div id="dueContainer"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Save & Export Bar -->
+    <div class="admin-card text-center mt-3">
+      <h3 class="fw-bold text-dark mb-3 h5">Save Changes</h3>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <button class="btn btn-warning btn-lg fw-bold px-4" onclick="downloadDataFile()"><i class="bi bi-download me-2"></i> Download Updated compliance-data.js</button>
+        <button class="btn btn-dark btn-lg fw-bold px-4" onclick="copyToClipboard()"><i class="bi bi-clipboard-check me-2"></i> Copy Code to Clipboard</button>
+      </div>
+      <div class="mt-3 text-muted small">File ko <strong>Canatasha_Modern_Website/js/compliance-data.js</strong> folder me save karein.</div>
+    </div>
+  </div>
+
+  <script src="js/compliance-data.js"></script>
+  <script>
+    var currentData = window.complianceData || { latest_news: [], due_dates: [] };
+
+    function renderNews() {
+      var cont = document.getElementById('newsContainer');
+      cont.innerHTML = '';
+      currentData.latest_news.forEach(function(item, idx) {
+        var div = document.createElement('div');
+        div.className = 'item-row';
+        div.innerHTML = `
+          <button class="btn btn-sm btn-danger btn-delete" onclick="removeNews(${idx})"><i class="bi bi-trash"></i></button>
+          <div class="mb-2">
+            <label class="form-label small fw-bold mb-1">Tag / Category:</label>
+            <input type="text" class="form-control form-control-sm" value="${item.tag || ''}" oninput="currentData.latest_news[${idx}].tag = this.value">
+          </div>
+          <div class="mb-2">
+            <label class="form-label small fw-bold mb-1">Tag Color:</label>
+            <select aria-label="Select an option" class="form-select form-select-sm" onchange="currentData.latest_news[${idx}].tag_class = this.value">
+              <option value="green" ${item.tag_class === 'green' ? 'selected' : ''}>Green (GST)</option>
+              <option value="red" ${item.tag_class === 'red' ? 'selected' : ''}>Red (Income Tax / Urgent)</option>
+              <option value="blue" ${item.tag_class === 'blue' ? 'selected' : ''}>Blue (MSME / Audit)</option>
+              <option value="purple" ${item.tag_class === 'purple' ? 'selected' : ''}>Purple (Labour / EPFO)</option>
+              <option value="orange" ${item.tag_class === 'orange' ? 'selected' : ''}>Orange (Wealth)</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label class="form-label small fw-bold mb-1">News Headline / Text:</label>
+            <textarea class="form-control form-control-sm" rows="2" oninput="currentData.latest_news[${idx}].title = this.value">${item.title || ''}</textarea>
+          </div>
+        `;
+        cont.appendChild(div);
+      });
+    }
+
+    function renderDues() {
+      var cont = document.getElementById('dueContainer');
+      cont.innerHTML = '';
+      currentData.due_dates.forEach(function(item, idx) {
+        var div = document.createElement('div');
+        div.className = 'item-row';
+        div.innerHTML = `
+          <button class="btn btn-sm btn-danger btn-delete" onclick="removeDue(${idx})"><i class="bi bi-trash"></i></button>
+          <div class="mb-2">
+            <label class="form-label small fw-bold mb-1">Compliance Name:</label>
+            <input type="text" class="form-control form-control-sm" value="${item.title || ''}" oninput="currentData.due_dates[${idx}].title = this.value">
+          </div>
+          <div class="mb-2">
+            <label class="form-label small fw-bold mb-1">Due Date / Schedule:</label>
+            <input type="text" class="form-control form-control-sm" value="${item.due || ''}" oninput="currentData.due_dates[${idx}].due = this.value">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="hl_${idx}" ${item.highlight ? 'checked' : ''} onchange="currentData.due_dates[${idx}].highlight = this.checked">
+            <label class="form-check-label small fw-bold text-danger" for="hl_${idx}">Highlight in Orange Badge (Urgent)</label>
+          </div>
+        `;
+        cont.appendChild(div);
+      });
+    }
+
+    function addNewsRow() {
+      currentData.latest_news.unshift({
+        tag: "New Regulatory Update",
+        tag_class: "green",
+        title: "Enter news headline here...",
+        link: "blog.html"
+      });
+      renderNews();
+    }
+
+    function removeNews(idx) {
+      currentData.latest_news.splice(idx, 1);
+      renderNews();
+    }
+
+    function addDueRow() {
+      currentData.due_dates.unshift({
+        title: "New Compliance Name",
+        due: "Due Date Here",
+        color: "primary",
+        highlight: false
+      });
+      renderDues();
+    }
+
+    function removeDue(idx) {
+      currentData.due_dates.splice(idx, 1);
+      renderDues();
+    }
+
+    function getGeneratedCode() {
+      return 'window.complianceData = ' + JSON.stringify(currentData, null, 2) + ';';
+    }
+
+    function downloadDataFile() {
+      var code = getGeneratedCode();
+      var blob = new Blob([code], { type: 'text/javascript' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'compliance-data.js';
+      a.click();
+      alert('✅ File Downloaded! Please place it inside the js/ folder (replace existing js/compliance-data.js).');
+    }
+
+    function copyToClipboard() {
+      var code = getGeneratedCode();
+      navigator.clipboard.writeText(code).then(function() {
+        alert('📋 Code copied to clipboard! Paste it inside js/compliance-data.js and save.');
+      });
+    }
+
+    // Init
+    renderNews();
+    renderDues();
+  </script>
+  <script src="js/lead-capture.js" defer></script>
+  <script src="assets/js/header-component.js?v=1"></script>
+        </div>
+    </div>
+        <!-- Main Footer -->
+    <footer class="main-footer">
+    	<div class="auto-container">
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                    <div class="column col-lg-4 col-md-6">
+						<div class="footer-widget logo-widget">
+                        	<div class="widget-content">
+                                <div class="footer-logo mb-3">
+                                    <a href="index.html"><img src="images/brand/logo-horizontal-520.png" alt="Natasha &amp; Company" style="max-height: 48px;" /></a>
+                                </div>
+                                <div class="text">Natasha &amp; Company is an ISO 9001:2015 certified Chartered Accountancy practice in MP Nagar, Bhopal. Committed to highest ICAI standards, transparency, and client satisfaction.</div>
+                                <ul class="social-links clearfix mt-3">
+                                    <li><a href="https://www.facebook.com/canatasharaj/" target="_blank"><span class="fab fa-facebook-f"></span></a></li>
+                                    <li><a href="https://twitter.com/canatasharaj" target="_blank"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="https://www.linkedin.com/in/ca-natasha-rajvaidya-5710b953/" target="_blank"><span class="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="https://wa.me/919407000157" target="_blank"><span class="fab fa-whatsapp"></span></a></li>
+                                </ul>
+                            </div>
+						</div>
+					</div>
+          <div class="column col-lg-2 col-md-6">
+						<div class="footer-widget links-widget">
+							<div class="widget-content">
+								<h3>Quick Links</h3>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about-us.html">About Us</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="blog.html">Blog &amp; News</a></li>
+                  <li><a href="career.html">Careers</a></li>
+                  <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+							</div>	
+						</div>
+					</div>
+					<div class="column col-lg-3 col-md-6">
+						<div class="footer-widget links-widget">
+							<div class="widget-content">
+								<h3>Key Practices</h3>
+                <ul>
+                  <li><a href="tax-audit-44ab-bhopal.html">Tax Audit u/s 44AB</a></li>
+                  <li><a href="gst-notice-consultant-bhopal.html">GST Notice Defense</a></li>
+                  <li><a href="income-tax-notice-consultant-bhopal.html">Income Tax Notice Consultant</a></li>
+                  <li><a href="company-registration-bhopal.html">Company Registration Bhopal</a></li>
+                  <li><a href="psara-pwd-contractor-registration-madhya-pradesh.html">PSARA &amp; PWD Registration</a></li>
+                  <li><a href="services.html">All 11 Practice Areas</a></li>
+                </ul>
+							</div>	
+						</div>
+					</div>
+          <div class="column col-lg-3 col-md-6">
+						<div class="footer-widget links-widget">
+							<div class="widget-content">
+								<h3>Bhopal Offices</h3>
+                <p class="text-white-50 small mb-2"><strong class="text-white">Corporate:</strong> 195-A, 2nd Floor, Zone-1 M.P. Nagar, In front of DB Mall, Bhopal 462011</p>
+                <p class="text-white-50 small mb-2"><strong class="text-white">Registered:</strong> 28 C, Samrat Colony, Ashoka Garden, Bhopal 462023</p>
+                <p class="text-white-50 small mb-1"><strong class="text-white">Phone:</strong> <a href="tel:+919407000157" class="text-white-50">+91 9407000157</a></p>
+                <p class="text-white-50 small"><strong class="text-white">Email:</strong> <a href="mailto:info@canatasha.com" class="text-white-50">info@canatasha.com</a></p>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="auto-container">				
+      <div class="footer-bottom">
+        <div class="copyright text-center">Copyright &copy; 2026 <a href="index.html">Natasha &amp; Company, Chartered Accountants</a>. All Rights Reserved.</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fal fa-arrow-circle-up"></span></div>
+
+<!-- Scripts -->
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="js/jquery.fancybox.js" type="text/javascript"></script>
+<script src="js/owl.js" type="text/javascript"></script>
+<script src="js/appear.js" type="text/javascript"></script>
+<script src="js/wow.js" type="text/javascript"></script>
+<script src="js/lazyload.js" type="text/javascript"></script>
+<script src="js/scrollbar.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+
+<!-- Consultation Modal -->
+<div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg border-0">
+      <div class="modal-header bg-danger text-white rounded-top-4" style="background: #c0392b !important;">
+        <h5 class="modal-title fw-bold" id="consultationModalLabel"><i class="fas fa-shield-alt me-2"></i> Book CA Consultation</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="modalLeadForm" onsubmit="handleModalLeadSubmit(event)">
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-dark">Full Name *</label>
+            <input type="text" id="modalLeadName" class="form-control" placeholder="Enter your full name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-dark">Phone Number *</label>
+            <input type="tel" id="modalLeadPhone" class="form-control" placeholder="+91 Mobile Number" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-bold text-dark">Select Service Required *</label>
+            <select id="modalLeadService" class="form-select">
+              <option value="GST Notice & Litigation">1. GST Notice &amp; Litigation Support</option>
+              <option value="Tax Audit (Section 44AB)">2. Tax Audit under Section 44AB</option>
+              <option value="Income Tax Notice & Scrutiny">3. Income Tax Notice Defense (148 / 143)</option>
+              <option value="Company Registration Bhopal">4. Company Registration (LLP / Pvt Ltd)</option>
+              <option value="PSARA & PWD Registration">5. PSARA License &amp; MP PWD Registration</option>
+              <option value="Accounting & Bookkeeping">6. Accounting &amp; Bookkeeping Services</option>
+              <option value="Virtual CFO / Advisory">7. Virtual CFO &amp; Corporate Advisory</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-danger w-100 py-2 fw-bold" style="background: #c0392b; border-color: #c0392b;">Confirm Booking &amp; Get Callback</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function caWhatsApp(text, alertMsg) {
+  var url = 'https://wa.me/919407000157?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+  if (alertMsg) alert(alertMsg);
+}
+
+function handleModalLeadSubmit(e) {
+  e.preventDefault();
+  var name = document.getElementById('modalLeadName').value.trim();
+  var phone = document.getElementById('modalLeadPhone').value.trim();
+  var service = document.getElementById('modalLeadService').value;
+  var text = "📋 *NEW CA CONSULTATION REQUEST*
+
+"
+           + "*Name:* " + name + "
+*Phone:* " + phone + "
+*Service:* " + service
+           + "
+
+_Sent via canatasha.com CA Consultation Modal_";
+  caWhatsApp(text, "Thank you, " + name + "! Your consultation request has been submitted. Our team will contact you shortly.");
+  var modalEl = document.getElementById('consultationModal');
+  var modal = bootstrap.Modal.getInstance(modalEl);
+  if (modal) modal.hide();
+}
+
+function handleSidebarLead(e) {
+  e.preventDefault();
+  var name = document.getElementById('sbLeadName').value.trim();
+  var phone = document.getElementById('sbLeadPhone').value.trim();
+  var service = document.getElementById('sbLeadService') ? document.getElementById('sbLeadService').value : 'CA Consultation';
+  var notes = document.getElementById('sbLeadNotes') ? document.getElementById('sbLeadNotes').value.trim() : '';
+  var text = "📋 *URGENT SERVICE ENQUIRY*
+
+"
+           + "*Name:* " + name + "
+*Mobile:* " + phone + "
+*Service:* " + service
+           + (notes ? ("
+*Notes:* " + notes) : "")
+           + "
+
+_Sent from canatasha.com page sidebar_";
+  caWhatsApp(text, "Thank you, " + name + "! Our CA expert will call you back shortly.");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Build inputs and history — never deploy these.
+# Without this, backup/ ships as crawlable duplicates of every page.
+backup/
+scripts/
+components/
+lib/
+*.py
+*.bak
+README.md
+LEAD-CAPTURE-SETUP.md

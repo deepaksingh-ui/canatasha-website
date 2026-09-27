@@ -1,0 +1,375 @@
+/* ==========================================================================
+   Bootstrap-utility compatibility layer — calculator pages only.
+
+   The calculators carry ~35KB of correct, current tax logic (FY 2025-26,
+   Finance Act 2025) bound to Bootstrap-classed markup. Rewriting that markup
+   would risk the arithmetic, so instead this maps the ~146 utility classes
+   those pages actually use onto the light corporate system. Roughly 6KB, versus
+   ~190KB for Bootstrap plus its icon fonts.
+   ========================================================================== */
+
+/* ---------- layout ---------- */
+.container, .auto-container, .content-container {
+  width: 100%; max-width: var(--nc-max);
+  margin-inline: auto; padding-inline: var(--nc-gut);
+}
+.max-w-700 { max-width: 700px }
+.row {
+  display: flex; flex-wrap: wrap;
+  margin-inline: -.75rem;
+}
+.row > [class*="col-"] { padding-inline: .75rem; width: 100% }
+.g-3 { gap: 0 }
+.g-3 > [class*="col-"] { margin-bottom: 1rem }
+.g-4 > [class*="col-"] { margin-bottom: 1.5rem }
+
+.col-12 { width: 100% }
+.col-6  { width: 50% }
+@media (min-width: 768px) {
+  .col-md-4  { width: 33.3333% }
+  .col-md-6  { width: 50% }
+  .col-md-12 { width: 100% }
+}
+@media (min-width: 992px) {
+  .col-lg-4 { width: 33.3333% }
+  .col-lg-5 { width: 41.6667% }
+  .col-lg-7 { width: 58.3333% }
+  .col-lg-8 { width: 66.6667% }
+}
+@media (min-width: 576px) { .col-sm-12 { width: 100% } }
+
+.d-flex { display: flex }
+.flex-wrap { flex-wrap: wrap !important }
+.flex-nowrap { flex-wrap: nowrap !important }
+.d-inline-block { display: inline-block }
+.flex-column { flex-direction: column }
+.align-items-center { align-items: center }
+.justify-content-between { justify-content: space-between }
+.justify-content-center { justify-content: center }
+.gap-2 { gap: .5rem }
+.gap-4 { gap: 1.5rem }
+.h-100 { height: 100% }
+.w-100 { width: 100% }
+.mx-auto { margin-inline: auto }
+.clearfix::after { content: ""; display: table; clear: both }
+.list-unstyled { list-style: none; padding-left: 0 }
+.list-unstyled li { list-style: none }
+
+/* ---------- spacing ---------- */
+.mb-0 { margin-bottom: 0 !important }
+.mb-1 { margin-bottom: .25rem }
+.mb-2 { margin-bottom: .5rem }
+.mb-3 { margin-bottom: 1rem }
+.mb-4 { margin-bottom: 1.5rem }
+.mt-1 { margin-top: .25rem }
+.mt-3 { margin-top: 1rem }
+.mt-4 { margin-top: 1.5rem }
+.mt-5 { margin-top: 3rem }
+.me-1 { margin-right: .25rem }
+.me-2 { margin-right: .5rem }
+.ms-1 { margin-left: .25rem }
+@media (min-width: 768px) { .mb-md-0 { margin-bottom: 0 } }
+.p-3 { padding: 1rem }
+.p-4 { padding: 1.5rem }
+@media (min-width: 768px) { .p-md-5 { padding: 3rem } }
+.px-3 { padding-inline: 1rem }
+.px-5 { padding-inline: 3rem }
+.py-2 { padding-block: .5rem }
+.py-3 { padding-block: 1rem }
+.py-5 { padding-block: 3rem }
+.pt-3 { padding-top: 1rem }
+.pb-5 { padding-bottom: 3rem }
+
+/* ---------- type ---------- */
+.fw-bold { font-weight: 700 }
+.fw-semibold { font-weight: 600 }
+.small { font-size: .875em }
+.fs-5 { font-size: 1.15rem }
+.fs-6 { font-size: 1rem }
+.text-center { text-align: center }
+.text-uppercase { text-transform: uppercase; letter-spacing: .06em }
+.lead { font-size: 1.14rem; line-height: 1.65 }
+.h4, .h5, .h6 {
+  font-family: var(--nc-display); color: var(--nc-ink);
+  line-height: 1.2; letter-spacing: -.015em; margin-bottom: .5rem;
+}
+.h4 { font-size: 1.4rem } .h5 { font-size: 1.15rem } .h6 { font-size: 1rem }
+
+/* Colour utilities remapped so nothing renders dark-on-dark. */
+.text-dark, .text-navy { color: var(--nc-ink) !important }
+.text-white { color: #FFF !important }
+.text-muted { color: var(--nc-ink-3) !important }
+.text-white-50 { color: rgba(255,255,255,.75) !important }
+.text-warning, .text-warning-emphasis { color: var(--nc-acc-dk) !important }
+.text-primary { color: var(--nc-pri) !important }
+.text-success { color: var(--nc-ok) !important }
+.text-danger { color: var(--nc-err) !important }
+
+/* ---------- surfaces ---------- */
+.card, .calc-box-card, .svc-sidebar-card, .svc-quick-links-card, .calc-result-box {
+  position: relative;
+  background: var(--nc-surface);
+  border: 1px solid var(--nc-line);
+  border-radius: var(--nc-r-lg);
+  box-shadow: var(--nc-sh-1);
+  color: var(--nc-ink-2);
+}
+.calc-box-card, .card { padding: clamp(1.35rem, 2.4vw, 2rem) }
+.calc-result-box {
+  padding: clamp(1.35rem, 2.4vw, 2rem);
+  border-color: var(--nc-line-pri);
+  background: var(--nc-bg-2);
+}
+.bg-white { background-color: var(--nc-surface) !important }
+.bg-light { background-color: var(--nc-bg-2) !important }
+.bg-primary { background-color: var(--nc-tint-2) !important; color: var(--nc-pri) !important }
+.bg-warning { background-color: var(--nc-tint-acc) !important; color: var(--nc-acc-dk) !important }
+.bg-success { background-color: rgba(28,140,86,.12) !important; color: var(--nc-ok) !important }
+.shadow, .shadow-sm { box-shadow: var(--nc-sh-2) }
+.rounded { border-radius: var(--nc-r-sm) }
+.rounded-3 { border-radius: var(--nc-r) }
+.rounded-4 { border-radius: var(--nc-r-lg) }
+.border { border: 1px solid var(--nc-line) }
+.border-0 { border: 0 !important }
+.border-top { border-top: 1px solid var(--nc-line) }
+.border-bottom { border-bottom: 1px solid var(--nc-line) }
+.border-start { border-left: 3px solid var(--nc-line) }
+.border-end { border-right: 1px solid var(--nc-line) }
+.border-primary { border-color: var(--nc-pri) !important }
+.border-warning { border-color: var(--nc-acc) !important }
+.border-success { border-color: var(--nc-ok) !important }
+.border-secondary { border-color: var(--nc-line-2) !important }
+
+.svc-callout {
+  padding: 1.2rem 1.4rem; margin-block: 1.5rem;
+  border: 1px solid var(--nc-line); border-left: 4px solid var(--nc-acc);
+  border-radius: var(--nc-r); background: var(--nc-bg-2);
+}
+
+.badge {
+  display: inline-block; padding: .32em .7em; border-radius: 100px;
+  font-size: .74rem; font-weight: 600; letter-spacing: .05em;
+  background: var(--nc-tint-acc); color: var(--nc-acc-dk);
+  border: 1px solid rgba(217,133,21,.3);
+}
+
+/* ---------- forms ---------- */
+.form-label {
+  display: block; margin-bottom: .4rem;
+  font-size: .79rem; font-weight: 600;
+  letter-spacing: .055em; text-transform: uppercase;
+  color: var(--nc-ink-3);
+}
+.form-control, .form-select {
+  width: 100%; padding: .82rem 1rem;
+  background: var(--nc-bg);
+  border: 1px solid var(--nc-line-2);
+  border-radius: var(--nc-r-sm);
+  color: var(--nc-ink); font-size: .95rem;
+  transition: border-color .25s var(--nc-ease), background .25s var(--nc-ease), box-shadow .25s var(--nc-ease);
+}
+.form-control::placeholder { color: var(--nc-ink-4) }
+.form-control:focus, .form-select:focus {
+  outline: none; border-color: var(--nc-pri);
+  box-shadow: 0 0 0 3px var(--nc-tint-2);
+}
+.form-control-sm { padding: .55rem .8rem; font-size: .88rem }
+.form-control-lg { padding: 1rem 1.15rem; font-size: 1.05rem }
+.form-select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F6F87' stroke-width='2.4' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right .95rem center; background-size: 15px;
+}
+.form-select option { background: var(--nc-surface); color: var(--nc-ink) }
+
+.input-group { display: flex; align-items: stretch; width: 100% }
+.input-group > .form-control, .input-group > .form-select { flex: 1 1 auto; width: 1% }
+.input-group-text {
+  display: flex; align-items: center; padding: .82rem 1rem;
+  background: var(--nc-tint-2);
+  border: 1px solid var(--nc-line-pri);
+  color: var(--nc-pri); font-size: .92rem; font-weight: 600;
+  white-space: nowrap;
+}
+.input-group > :first-child { border-radius: var(--nc-r-sm) 0 0 var(--nc-r-sm) }
+.input-group > :last-child  { border-radius: 0 var(--nc-r-sm) var(--nc-r-sm) 0 }
+.input-group > :not(:first-child) { margin-left: -1px }
+
+.form-check { display: flex; align-items: center; gap: .6rem; margin-bottom: .5rem }
+.form-check-input {
+  width: 18px; height: 18px; flex: 0 0 auto; margin: 0;
+  accent-color: var(--nc-pri); cursor: pointer;
+}
+.form-check-label { font-size: .93rem; color: var(--nc-ink-2); cursor: pointer }
+
+/* ---------- buttons ---------- */
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: .82em 1.7em;
+  font-family: var(--nc-body); font-size: .92rem; font-weight: 600;
+  color: var(--nc-on-pri); background: var(--nc-pri);
+  border: 1px solid var(--nc-pri); border-radius: 100px;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+  transition: transform .3s var(--nc-spring), box-shadow .3s var(--nc-ease),
+              background .25s var(--nc-ease), color .25s var(--nc-ease), border-color .25s var(--nc-ease);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--nc-sh-pri); color: var(--nc-on-pri) }
+.btn:active { transform: translateY(0) scale(.985) }
+.btn-sm { padding: .62em 1.25em; font-size: .84rem }
+.btn-warning, .btn-submit-lead { background: var(--nc-acc); border-color: var(--nc-acc); color: var(--nc-on-acc) }
+.btn-warning:hover, .btn-submit-lead:hover { color: var(--nc-on-acc) }
+.btn-danger { background: var(--nc-err); border-color: var(--nc-err); color: #fff }
+.btn-danger:hover { color: #fff }
+.btn-outline-danger {
+  background: transparent; border-color: var(--nc-line-2); color: var(--nc-ink); box-shadow: none;
+}
+.btn-outline-danger:hover, .btn-outline-danger.active {
+  background: var(--nc-tint-1); border-color: var(--nc-line-pri); color: var(--nc-pri);
+}
+.btn-group { display: inline-flex; gap: .5rem; flex-wrap: wrap }
+
+/* ---------- calculator page chrome ---------- */
+.calc-page-hero, .page-banner {
+  position: relative; overflow: hidden;
+  padding-block: clamp(8rem, 14vw, 11rem) clamp(3rem, 6vw, 4.5rem);
+  background:
+    radial-gradient(80% 120% at 85% -10%, var(--nc-tint-2), transparent 58%),
+    linear-gradient(180deg, var(--nc-bg-2), var(--nc-bg));
+  border-bottom: 1px solid var(--nc-line);
+}
+.calc-page-hero .image-layer, .page-banner .image-layer { display: none }
+.calc-page-hero h1, .page-banner h1 { margin-bottom: .5rem }
+.content-area-wrapper { padding-block: clamp(3rem, 6vw, 5rem) }
+.sec-title .sub-title {
+  display: inline-block; margin-bottom: .9rem;
+  font-size: .735rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--nc-acc);
+}
+.bread-crumb { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .8rem; margin-bottom: 1.25rem }
+.bread-crumb li { color: var(--nc-ink-4) }
+.bread-crumb li + li::before { content: "/"; margin-right: .5rem; color: var(--nc-ink-4) }
+.bread-crumb a { color: var(--nc-ink-3) }
+.bread-crumb a:hover { color: var(--nc-pri) }
+
+.sidebar { display: grid; gap: 1.25rem }
+@media (min-width: 1080px) { .sidebar { position: sticky; top: 100px } }
+
+/* The lead-capture overlay some calculators gate results behind. */
+.lead-gate-overlay {
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--nc-r-lg);
+}
+
+/* Icon-font glyphs no longer load; hide the empty shells rather than
+   leaving tofu boxes behind. */
+.bi, .fab, .fas, .far, .fa { font-style: normal }
+i.bi:empty, i.fab:empty, i.fas:empty, i.far:empty, i.fa:empty,
+span.bi:empty, span.fab:empty, span.fas:empty { display: none }
+
+/* Tables inside calculators */
+.calc-box-card table, .card table { width: 100%; border-collapse: collapse; font-size: .92rem }
+.calc-box-card th, .card th {
+  padding: .75rem .9rem; text-align: left;
+  background: var(--nc-pri); color: #FFF; font-size: .74rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  border-bottom: 1px solid var(--nc-line-2);
+}
+.calc-box-card td, .card td { padding: .7rem .9rem; border-bottom: 1px solid var(--nc-line) }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition-duration: .01ms !important }
+}
+
+/* Calculator buttons carry long uppercase labels ("Compute Tax & Compare
+   Regimes") with px-5 padding. On a 390px phone that ran 35px past the
+   viewport and scrolled the page sideways. Let the label wrap and the button
+   never exceed its container. */
+.btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere }
+@media (max-width: 480px) { .btn.px-5 { padding-left: 1.4rem !important; padding-right: 1.4rem !important } }
+
+/* Dynamic calculator interactive components */
+.progress {
+  display: flex; height: 1.15rem; overflow: hidden; font-size: .75rem;
+  background-color: var(--nc-bg-2, #e2e8f0); border-radius: 100px;
+}
+.progress-bar {
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden; color: #fff; text-align: center; white-space: nowrap;
+  transition: width .4s var(--nc-ease, ease);
+}
+.progress-bar.bg-primary { background-color: var(--nc-pri, #0E4B8C) !important }
+.progress-bar.bg-warning { background-color: var(--nc-acc, #d98515) !important }
+.progress-bar.bg-danger { background-color: var(--nc-err, #dc2626) !important }
+.progress-bar.bg-success { background-color: var(--nc-ok, #16a34a) !important }
+
+.form-range {
+  width: 100%; height: 1.4rem; padding: 0; background-color: transparent;
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+}
+.form-range:focus { outline: none }
+.form-range::-webkit-slider-runnable-track {
+  width: 100%; height: .5rem; cursor: pointer; background: var(--nc-line-2, #cbd5e1);
+  border-radius: 1rem;
+}
+.form-range::-webkit-slider-thumb {
+  height: 1.25rem; width: 1.25rem; border-radius: 50%;
+  background: var(--nc-pri, #0E4B8C); cursor: pointer; -webkit-appearance: none;
+  margin-top: -.375rem; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+  transition: transform .15s ease, background .15s ease;
+}
+.form-range::-webkit-slider-thumb:hover { transform: scale(1.15); background: var(--nc-acc, #d98515) }
+.form-range::-moz-range-track {
+  width: 100%; height: .5rem; cursor: pointer; background: var(--nc-line-2, #cbd5e1);
+  border-radius: 1rem;
+}
+.form-range::-moz-range-thumb {
+  height: 1.25rem; width: 1.25rem; border-radius: 50%; border: none;
+  background: var(--nc-pri, #0E4B8C); cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+
+.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100% }
+.table { width: 100%; margin-bottom: 1rem; vertical-align: top; border-collapse: collapse }
+.table-bordered { border: 1px solid var(--nc-line, #e2e8f0) }
+.table-bordered td, .table-bordered th { border: 1px solid var(--nc-line, #e2e8f0) }
+.table-sm td, .table-sm th { padding: .5rem .65rem; font-size: .88rem }
+.table-light { background-color: var(--nc-bg-2, #f8fafc); color: var(--nc-ink, #0f172a) }
+.table-active, .table-row-highlight { background-color: rgba(14, 75, 140, 0.08) !important; font-weight: 600 }
+.table thead th { font-weight: 600; text-transform: uppercase; font-size: .75rem; letter-spacing: .05em }
+
+.badge.bg-success { background-color: var(--nc-ok, #16a34a) !important; color: #fff !important; border-color: var(--nc-ok, #16a34a) !important }
+.badge.bg-danger { background-color: var(--nc-err, #dc2626) !important; color: #fff !important; border-color: var(--nc-err, #dc2626) !important }
+.badge.bg-primary { background-color: var(--nc-pri, #0E4B8C) !important; color: #fff !important; border-color: var(--nc-pri, #0E4B8C) !important }
+.badge.bg-secondary { background-color: #64748b !important; color: #fff !important; border-color: #64748b !important }
+.badge.bg-warning { background-color: var(--nc-acc, #d98515) !important; color: #fff !important; border-color: var(--nc-acc, #d98515) !important }
+.badge.bg-light { background-color: var(--nc-bg-2, #f1f5f9) !important; color: var(--nc-ink-2, #334155) !important; border: 1px solid var(--nc-line, #cbd5e1) }
+
+
+/* Quick Presets & Button Groups - Mobile Fix */
+#emiPresetsGroup, #gstRateGroup, .btn-group {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+#emiPresetsGroup .btn, #gstRateGroup .btn, .btn-group .btn {
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+}
+@media (max-width: 576px) {
+  #emiPresetsGroup .btn {
+    flex: 1 1 calc(50% - 0.5rem) !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+  #gstRateGroup .btn {
+    flex: 1 1 calc(25% - 0.5rem) !important;
+    min-width: 50px !important;
+    padding: 0.45rem 0.4rem !important;
+    font-size: 0.82rem !important;
+    justify-content: center !important;
+  }
+}

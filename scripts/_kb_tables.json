@@ -1,0 +1,221 @@
+{
+ "tds": [
+  [
+   "Section",
+   "Nature of Payment",
+   "Threshold Limit",
+   "TDS Rate (Ind / HUF)",
+   "TDS Rate (Others / Co.)"
+  ],
+  [
+   "192",
+   "Salary Payments",
+   "Basic Exemption Limit",
+   "Applicable Slab Rates",
+   "Applicable Slab Rates"
+  ],
+  [
+   "194A",
+   "Interest other than Securities (Banks/Post Office)",
+   "&#8377; 40,000 (&#8377; 50,000 for Seniors)",
+   "10%",
+   "10%"
+  ],
+  [
+   "194C",
+   "Contractor &amp; Sub-Contractor Payments",
+   "&#8377; 30,000 (Single) / &#8377; 1,00,000 (Annual)",
+   "1%",
+   "2%"
+  ],
+  [
+   "194H",
+   "Commission or Brokerage",
+   "&#8377; 15,000",
+   "2% (Budget 2024 revised)",
+   "2%"
+  ],
+  [
+   "194I (a)",
+   "Rent of Plant &amp; Machinery",
+   "&#8377; 2,40,000 p.a.",
+   "2%",
+   "2%"
+  ],
+  [
+   "194I (b)",
+   "Rent of Land, Building &amp; Furniture",
+   "&#8377; 2,40,000 p.a.",
+   "10%",
+   "10%"
+  ],
+  [
+   "194J (a)",
+   "Fees for Professional Services / Royalty",
+   "&#8377; 30,000",
+   "10%",
+   "10%"
+  ],
+  [
+   "194J (b)",
+   "Fees for Technical Services (FTS) / Call Center",
+   "&#8377; 30,000",
+   "2%",
+   "2%"
+  ],
+  [
+   "194Q",
+   "TDS on Purchase of Goods (&gt; &#8377; 50 Lakhs)",
+   "&#8377; 50,00,000 aggregate",
+   "0.1%",
+   "0.1%"
+  ],
+  [
+   "195",
+   "Payment to Non-Residents / Foreign Companies",
+   "Nil",
+   "Rates in Force / DTAA",
+   "Rates in Force / DTAA"
+  ],
+  [
+   "206AA",
+   "Higher Rate if PAN is not furnished / inoperative",
+   "Applicable on default",
+   "20% (or double normal rate)",
+   "20%"
+  ]
+ ],
+ "cii": [
+  [
+   "Financial Year (FY)",
+   "Assessment Year (AY)",
+   "Cost Inflation Index (CII)"
+  ],
+  [
+   "2025-26",
+   "2026-27",
+   "377 (Latest / Projected)"
+  ],
+  [
+   "2024-25",
+   "2025-26",
+   "363"
+  ],
+  [
+   "2023-24",
+   "2024-25",
+   "348"
+  ],
+  [
+   "2022-23",
+   "2023-24",
+   "331"
+  ],
+  [
+   "2021-22",
+   "2022-23",
+   "317"
+  ],
+  [
+   "2020-21",
+   "2021-22",
+   "301"
+  ],
+  [
+   "2019-20",
+   "2020-21",
+   "289"
+  ],
+  [
+   "2018-19",
+   "2019-20",
+   "280"
+  ],
+  [
+   "2017-18",
+   "2018-19",
+   "272"
+  ],
+  [
+   "2016-17",
+   "2017-18",
+   "264"
+  ],
+  [
+   "2015-16",
+   "2016-17",
+   "254"
+  ],
+  [
+   "2014-15",
+   "2015-16",
+   "240"
+  ],
+  [
+   "2013-14",
+   "2014-15",
+   "220"
+  ],
+  [
+   "2012-13",
+   "2013-14",
+   "200"
+  ],
+  [
+   "2011-12",
+   "2012-13",
+   "184"
+  ],
+  [
+   "2010-11",
+   "2011-12",
+   "167"
+  ],
+  [
+   "2009-10",
+   "2010-11",
+   "148"
+  ],
+  [
+   "2008-09",
+   "2009-10",
+   "137"
+  ],
+  [
+   "2007-08",
+   "2008-09",
+   "129"
+  ],
+  [
+   "2006-07",
+   "2007-08",
+   "122"
+  ],
+  [
+   "2005-06",
+   "2006-07",
+   "117"
+  ],
+  [
+   "2004-05",
+   "2005-06",
+   "113"
+  ],
+  [
+   "2003-04",
+   "2004-05",
+   "109"
+  ],
+  [
+   "2002-03",
+   "2003-04",
+   "105"
+  ],
+  [
+   "2001-02",
+   "2002-03",
+   "100 (Base Year)"
+  ]
+ ],
+ "formula": "Indexed Cost of Acquisition Formula: Indexed Cost = (Actual Cost of Acquisition &times; CII of Transfer Year) / CII of Acquisition Year Note: Under Budget 2024 amendments, taxpayers selling property acquired before 23 July 2024 can choose between 12.5% without indexation or 20% with indexation."
+}

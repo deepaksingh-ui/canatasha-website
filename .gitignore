@@ -1,11 +1,21 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-scratch/
-recovered_pages/
-backup_full.py
-ea00f5c_utf8.py
-scratch_ea00f5c.py
-scratch_f8b0739.py
+*.py[cod]
+*$py.class
+
+# Large distribution zips
+*.zip
+
+# Historical pre-redesign backups (kept locally, not in git repo)
+backup/
+
+# Operating System Files
 .DS_Store
 Thumbs.db
+ehthumbs.db
 
+# IDE and Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo

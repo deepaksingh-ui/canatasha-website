@@ -1,0 +1,137 @@
+<section class="calc-page-hero">
+    <div class="container">
+      <span class="badge bg-warning text-dark px-3 py-2 fw-bold text-uppercase mb-2">Finance Act 2025 &ndash; Updated Slabs</span>
+      <h2 class="fw-bold mb-2">Income Tax Calculator (FY 2025-26 / AY 2026-27)</h2>
+      <p class="text-white-50 max-w-700 mx-auto">Compare the Old and New Tax Regimes on the Finance Act 2025 slabs — ₹75,000 standard deduction and full Section 87A rebate up to ₹12,00,000 of taxable income.</p>
+    </div>
+  </section>
+
+  <div class="content-container pb-5">
+    <div class="calc-box-card">
+      <form id="standaloneItForm" onsubmit="calculateStandaloneIncomeTax(event)">
+        <div class="row g-4">
+          <div class="col-12 mb-2">
+            <label class="form-label fw-bold text-navy">Employment Status *</label>
+            <div class="d-flex flex-wrap gap-4">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stEmpType" id="stEmpSalaried" value="salaried" checked onchange="calculateStandaloneIncomeTax()">
+                <label class="form-check-label fw-semibold" for="stEmpSalaried">Salaried Individual (Standard Deduction Applies)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stEmpType" id="stEmpSelf" value="self" onchange="calculateStandaloneIncomeTax()">
+                <label class="form-check-label fw-semibold" for="stEmpSelf">Self-Employed / Business (No Standard Deduction)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy">Annual Gross Total Income (&#8377;) *</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light fw-bold">&#8377;</span>
+              <input type="number" id="stGrossIncome" class="form-control" placeholder="e.g. 1200000" value="1200000" required oninput="calculateStandaloneIncomeTax()">
+            </div>
+            <small class="text-muted">Include Salary, Business Income, Interest &amp; Other Sources</small>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy">Age Category *</label>
+            <select aria-label="Age category" id="stAgeCategory" class="form-select" onchange="calculateStandaloneIncomeTax()">
+              <option value="general">Individual (&lt; 60 years)</option>
+              <option value="senior">Senior Citizen (60 - 80 years)</option>
+              <option value="superSenior">Super Senior Citizen (&gt; 80 years)</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-bold text-navy">Section 80C Deductions (&#8377;)</label>
+            <input type="number" id="st80C" class="form-control" placeholder="Max 1,50,000" value="150000" oninput="calculateStandaloneIncomeTax()">
+            <small class="text-muted">EPF, PPF, ELSS, Life Insurance</small>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-bold text-navy">Section 80D Health Insurance (&#8377;)</label>
+            <input type="number" id="st80D" class="form-control" placeholder="Self / Parents" value="25000" oninput="calculateStandaloneIncomeTax()">
+            <small class="text-muted">Mediclaim Premiums</small>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label fw-bold text-navy">Other Deductions (HRA/Home Loan 24b) (&#8377;)</label>
+            <input type="number" id="stOtherDed" class="form-control" placeholder="e.g. 50000" value="0" oninput="calculateStandaloneIncomeTax()">
+            <small class="text-muted">Applicable under Old Regime</small>
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="button" onclick="calculateStandaloneIncomeTax()" class="btn btn-warning fw-bold px-5 py-3 text-uppercase shadow" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: #fff; border: none; border-radius: 30px; font-size: 15px;">
+              <i class="bi bi-calculator-fill me-2"></i> Compute Tax &amp; Compare Regimes
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Results Display Grid -->
+      <div id="standaloneTaxResult" class="mt-5 p-4 bg-light rounded-3 border">
+        <h3 class="fw-bold text-navy text-center mb-4 h4"><i class="bi bi-pie-chart-fill text-warning me-2"></i> Tax Liability &amp; Take-Home Comparison (FY 2025-26)</h3>
+        
+        <div class="row g-4">
+          <!-- New Regime Box -->
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded-3 border border-success h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="fw-bold text-success mb-0 h5"><i class="bi bi-lightning-charge-fill"></i> New Tax Regime (Default)</h3>
+                <span class="badge bg-success" id="badgeNewStd">₹75,000 Std Ded</span>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Taxable Income:</span> <strong id="stNewTaxable" class="text-dark">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Standard Deduction:</span> <strong class="text-success" id="stNewStdDed">₹ 75,000</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Rebate u/s 87A (Marginal Relief):</span> <strong id="stNewRebate" class="text-success">Applicable up to ₹12.70L</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Surcharge &amp; Health Cess (4%):</span> <strong id="stNewCess" class="text-dark">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-3 fs-5 border-bottom"><span>Total Annual Tax Payable:</span> <strong id="stNewTaxPayable" class="text-success">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-2 mt-2 bg-light p-2 rounded text-success fw-bold"><span>Monthly In-Hand Take-Home:</span> <strong id="stNewMonthlyTakeHome" class="fs-5">₹ 0</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Old Regime Box -->
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded-3 border border-primary h-100 shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="fw-bold text-primary mb-0 h5"><i class="bi bi-receipt"></i> Old Tax Regime</h3>
+                <span class="badge bg-primary">Itemized Deductions</span>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Taxable Income:</span> <strong id="stOldTaxable" class="text-dark">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Standard Deduction:</span> <strong class="text-dark" id="stOldStdDed">₹ 50,000</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Total 80C/80D/HRA Deductions:</span> <strong id="stOldTotalDed" class="text-primary">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-2 border-bottom"><span>Surcharge &amp; Health Cess (4%):</span> <strong id="stOldCess" class="text-dark">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-3 fs-5 border-bottom"><span>Total Annual Tax Payable:</span> <strong id="stOldTaxPayable" class="text-primary">₹ 0</strong></li>
+                <li class="d-flex justify-content-between py-2 mt-2 bg-light p-2 rounded text-primary fw-bold"><span>Monthly In-Hand Take-Home:</span> <strong id="stOldMonthlyTakeHome" class="fs-5">₹ 0</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="stTaxRecommendation" class="mt-4 p-3 rounded text-center fw-bold fs-6"></div>
+
+        <!-- Lead Gated Full Report Download / Callback -->
+        <div class="lead-gate-overlay">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-7">
+              <h3 class="fw-bold text-warning mb-1 h5"><i class="bi bi-file-earmark-pdf-fill me-2"></i> Want A Personalized CA Tax Saving Plan?</h3>
+              <p class="small text-white-50 mb-0">Enter your details to receive an itemized Tax Optimization Report with legally allowable exemptions verified by Chartered Accountants.</p>
+            </div>
+            <div class="col-lg-5">
+              <form class="d-flex flex-column gap-2" data-lead="calc-income-tax" onsubmit="handleCalculatorLead(event, 'Income Tax Calculator')">
+                <input type="text" id="calcLeadName" class="form-control form-control-sm" placeholder="Your Full Name *" required>
+                <input type="tel" id="calcLeadPhone" class="form-control form-control-sm" placeholder="10-Digit WhatsApp Number *" pattern="[0-9]{10}" required>
+                <button type="submit" class="btn btn-warning btn-sm fw-bold text-uppercase py-2" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: #fff; border: none;">
+                  <i class="fab fa-whatsapp me-1"></i> Send Detailed CA Report on WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>

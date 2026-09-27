@@ -1,0 +1,84 @@
+window.complianceData = {
+  "latest_news": [
+    {
+      "tag": "GST Update • Portal Release",
+      "tag_class": "green",
+      "title": "GSTN Clarification: Invoice Management System (IMS) & GSTR-2B Auto-Population.",
+      "link": "isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html"
+    },
+    {
+      "tag": "Income Tax • CBDT",
+      "tag_class": "red",
+      "title": "CBDT Circular: Big Relief on Higher 20% TDS Demands for Inoperative PAN Deductees.",
+      "link": "big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html"
+    },
+    {
+      "tag": "Labor Laws • EPFO / ESIC",
+      "tag_class": "purple",
+      "title": "Mandatory Electronic Challan cum Return (ECR) Due by 15th of Every Month.",
+      "link": "blog.html"
+    },
+    {
+      "tag": "MSME • Tax Audit",
+      "tag_class": "blue",
+      "title": "Presumptive Taxation Scheme u/s 44AD Limit Enhanced to ₹3 Crores for Small Businesses.",
+      "link": "blog.html"
+    },
+    {
+      "tag": "Precious Metals • Wealth",
+      "tag_class": "orange",
+      "title": "Why Your Gold & Silver Just Got More Precious: A Layman's Guide by CA Natasha.",
+      "link": "why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya.html"
+    }
+  ],
+  "due_dates": [
+    {
+      "title": "TDS / TCS Monthly Deposit",
+      "due": "07th Monthly",
+      "color": "primary",
+      "highlight": false
+    },
+    {
+      "title": "GSTR-1 Outward Return",
+      "due": "11th Monthly",
+      "color": "info",
+      "highlight": false
+    },
+    {
+      "title": "GSTR-1 IFF (QRMP Scheme)",
+      "due": "13th Monthly",
+      "color": "primary",
+      "highlight": false
+    },
+    {
+      "title": "EPFO & ESIC Monthly Contribution",
+      "due": "15th Monthly",
+      "color": "success",
+      "highlight": false
+    },
+    {
+      "title": "GSTR-3B Summary & Tax Payment",
+      "due": "20th Monthly",
+      "color": "danger",
+      "highlight": true
+    },
+    {
+      "title": "TDS Quarterly Return (24Q / 26Q)",
+      "due": "31st Quarterly",
+      "color": "warning",
+      "highlight": false
+    },
+    {
+      "title": "Income Tax Audit Filing (Sec 44AB)",
+      "due": "31st October",
+      "color": "danger",
+      "highlight": true
+    },
+    {
+      "title": "Corporate ITR Filing (Companies)",
+      "due": "31st October",
+      "color": "warning",
+      "highlight": false
+    }
+  ]
+};

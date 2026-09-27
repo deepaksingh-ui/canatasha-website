@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="abhinavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ea580c"/>
+          <stop offset="100%" stop-color="#f97316"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="50" fill="url(#abhinavGrad)"/>
+      <circle cx="50" cy="38" r="18" fill="#ffe082"/>
+      <path d="M34 32 Q50 20 66 32 Q62 25 50 25 Q38 25 34 32 Z" fill="#212121"/>
+      <path d="M20 90 Q20 62 50 62 Q80 62 80 90 Z" fill="#9a3412"/>
+      <circle cx="50" cy="50" r="48" fill="none" stroke="#ffffff" stroke-width="3"/>
+    </svg>

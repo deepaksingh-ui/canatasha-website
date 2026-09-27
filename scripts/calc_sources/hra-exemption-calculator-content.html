@@ -1,0 +1,165 @@
+<!-- Page Banner -->
+    <section class="page-banner">
+        <div class="image-layer" style="background-image:url(images/background-6.webp)"></div>
+        <div class="auto-container">
+            <h2>HRA Exemption Calculator (Section 10(13A))</h2>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li><li><a href="knowledge-base.html">Tools & Calc</a></li><li>HRA Exemption Calculator</li>
+            </ul>
+        </div>
+    </section>
+    <div class="content-area-wrapper py-5 bg-light">
+        <div class="auto-container">
+            <div class="content-container pb-5">
+    <div class="calc-box-card">
+      <form id="standaloneHraForm" onsubmit="calculateStandaloneHRA(event)">
+        <div class="row g-4">
+          <div class="col-12 mb-2">
+            <label class="form-label fw-bold text-navy">Calculation Mode</label>
+            <div class="d-flex flex-wrap gap-4">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hraFreq" id="freqAnnual" value="annual" checked onchange="handleHraFreqChange('annual')">
+                <label class="form-check-label fw-semibold" for="freqAnnual">Annual Input Mode</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="hraFreq" id="freqMonthly" value="monthly" onchange="handleHraFreqChange('monthly')">
+                <label class="form-check-label fw-semibold" for="freqMonthly">Monthly Input Mode</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy" id="lblHraBasic">Annual Basic Salary + Dearness Allowance (DA) (&#8377;) *</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light fw-bold">&#8377;</span>
+              <input type="number" id="stHraBasic" class="form-control" placeholder="e.g. 600000" value="600000" required oninput="calculateStandaloneHRA()">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy" id="lblHraReceived">Annual HRA Received from Employer (&#8377;) *</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light fw-bold">&#8377;</span>
+              <input type="number" id="stHraReceived" class="form-control" placeholder="e.g. 240000" value="240000" required oninput="calculateStandaloneHRA()">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy" id="lblHraRentPaid">Total Annual Rent Paid to Landlord (&#8377;) *</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light fw-bold">&#8377;</span>
+              <input type="number" id="stHraRentPaid" class="form-control" placeholder="e.g. 180000" value="180000" required oninput="calculateStandaloneHRA()">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-bold text-navy">City of Residence *</label>
+            <select aria-label="City type" id="stHraCityType" class="form-select" onchange="calculateStandaloneHRA()">
+              <option value="nonmetro" selected>Non-Metro City (Bhopal, Indore, Pune, etc. - 40%)</option>
+              <option value="metro">Metro City (Delhi, Mumbai, Kolkata, Chennai - 50%)</option>
+            </select>
+          </div>
+
+          <div class="col-12 text-center">
+            <button type="button" onclick="calculateStandaloneHRA()" class="btn btn-warning fw-bold px-5 py-3 text-uppercase shadow" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: #fff; border: none; border-radius: 30px; font-size: 15px;">
+              <i class="bi bi-house-check-fill me-2"></i> Compute HRA Exemption
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Results Display Grid -->
+      <div id="standaloneHraResult" class="mt-5 p-4 bg-light rounded-3 border">
+        <h3 class="fw-bold text-navy text-center mb-4 h4"><i class="bi bi-shield-check text-success me-2"></i> HRA Exemption Summary (Section 10(13A))</h3>
+        
+        <!-- Summary Cards: Tax-Free vs Taxable -->
+        <div class="row g-4 mb-4">
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded-3 border border-success h-100 shadow-sm text-center">
+              <span class="badge bg-success mb-2 px-3 py-2">Tax-Free Amount</span>
+              <h3 class="fw-bold text-success mb-1" id="stHraExempt">₹ 1,20,000</h3>
+              <p class="text-muted small mb-0">Total HRA Exempt from Income Tax</p>
+              <div class="text-success small fw-semibold mt-1" id="stHraExemptMonthly">₹ 10,000 / month</div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded-3 border border-warning h-100 shadow-sm text-center">
+              <span class="badge bg-warning text-dark mb-2 px-3 py-2">Taxable HRA</span>
+              <h3 class="fw-bold text-danger mb-1" id="stHraTaxable">₹ 1,20,000</h3>
+              <p class="text-muted small mb-0">Added to your Gross Salary Income</p>
+              <div class="text-danger small fw-semibold mt-1" id="stHraTaxableMonthly">₹ 10,000 / month</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Limbs Side-by-Side Comparison -->
+        <div class="mt-4">
+          <h4 class="fw-bold text-navy mb-3 h6"><i class="bi bi-columns-gap text-primary me-2"></i> Section 10(13A) 3-Limb Working (Least Limb is Binding)</h4>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="p-3 bg-white rounded-3 border h-100 position-relative" id="cardLimb1">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small fw-bold text-navy">Limb 1</span>
+                  <div id="badgeLimb1"></div>
+                </div>
+                <div class="text-muted small">Actual HRA Received:</div>
+                <div class="h4 fw-bold mb-1 text-dark" id="valLimb1">₹ 2,40,000</div>
+                <small class="text-muted" id="descLimb1">From employer form 16</small>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="p-3 bg-white rounded-3 border h-100 position-relative" id="cardLimb2">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small fw-bold text-navy">Limb 2</span>
+                  <div id="badgeLimb2"></div>
+                </div>
+                <div class="text-muted small">Rent Paid &minus; 10% Salary:</div>
+                <div class="h4 fw-bold mb-1 text-dark" id="valLimb2">₹ 1,20,000</div>
+                <small class="text-muted" id="descLimb2">Excess rent paid</small>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="p-3 bg-white rounded-3 border h-100 position-relative" id="cardLimb3">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small fw-bold text-navy">Limb 3</span>
+                  <div id="badgeLimb3"></div>
+                </div>
+                <div class="text-muted small" id="titleLimb3">40% of Basic Salary:</div>
+                <div class="h4 fw-bold mb-1 text-dark" id="valLimb3">₹ 2,40,000</div>
+                <small class="text-muted" id="descLimb3">Non-metro statutory limit</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compliance Notice Alerts -->
+        <div id="hraComplianceAlerts" class="mt-4">
+          <!-- Populated dynamically: Landlord PAN notice & Section 194-IB TDS notice -->
+        </div>
+
+        <!-- Lead Gated Download -->
+        <div class="lead-gate-overlay mt-4">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-7">
+              <h3 class="fw-bold text-warning mb-1 h5"><i class="bi bi-file-earmark-text-fill me-2"></i> Need Rent Receipt Generator &amp; CA Verification?</h3>
+              <p class="small text-white-50 mb-0">Enter your details to receive verified Rent Receipts and Landlord PAN declaration guidelines.</p>
+            </div>
+            <div class="col-lg-5">
+              <form class="d-flex flex-column gap-2" data-lead="calc-hra" onsubmit="handleHraLead(event)">
+                <input type="text" id="hraLeadName" class="form-control form-control-sm" placeholder="Your Full Name *" required>
+                <input type="tel" id="hraLeadPhone" class="form-control form-control-sm" placeholder="10-Digit WhatsApp Number *" pattern="[0-9]{10}" required>
+                <button type="submit" class="btn btn-warning btn-sm fw-bold text-uppercase py-2" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: #fff; border: none;">
+                  <i class="fab fa-whatsapp me-1"></i> Get Rent Receipts on WhatsApp
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>

@@ -1,19 +1,1175 @@
 {
   "version": 2,
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "canatasha.com"
+        }
+      ],
+      "destination": "https://www.canatasha.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-and-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms-and-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/taxability-of-long-term-capital-gains-under-section-112a.html",
+      "destination": "/decoding-long-term-capital-gains.html",
+      "permanent": true
+    },
+    {
+      "source": "/why-your-gold-and-silver-just-got-more-precious-a-laymans-guide.html",
+      "destination": "/why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya.html",
+      "permanent": true
+    },
+    {
+      "source": "/beyond-numbers-the-evolving-thought-process-of-a-ca-firm.html",
+      "destination": "/beyond-numbers-the-evolving-thought-process-of-a-chartered-accountant-firm.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-section-73-and-section-74-of-the-cgst-act.html",
+      "destination": "/understanding-section-73-of-cgst-act-key-to-tax-compliance.html",
+      "permanent": true
+    },
+    {
+      "source": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return.html",
+      "destination": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return-for-fy-2024-25.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-_e2_82_b926-61-lakh-crore-investment-inflow-from-gis-2025.html",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-%e2%82%b926-61-lakh-crore-investment-inflow-from-gis-2025.html",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-₹26-61-lakh-crore-investment-inflow-from-gis-2025.html",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel_f0_9f_95_89_ef_b8_8f.html",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel%f0%9f%95%89%ef%b8%8f.html",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel🕉️.html",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/unlocking-tax-savings-exploring-equity-linked-saving-schemes-elss",
+      "destination": "/unlocking-tax-savings-exploring-equity-linked-saving-schemes-elss.html",
+      "permanent": true
+    },
+    {
+      "source": "/unlocking-tax-savings-exploring-equity-linked-saving-schemes-elss/",
+      "destination": "/unlocking-tax-savings-exploring-equity-linked-saving-schemes-elss.html",
+      "permanent": true
+    },
+    {
+      "source": "/unveiling-transparency-supreme-courts-directive-on-disclosure-of-electoral-bond-details",
+      "destination": "/unveiling-transparency-supreme-courts-directive-on-disclosure-of-electoral-bond-details.html",
+      "permanent": true
+    },
+    {
+      "source": "/unveiling-transparency-supreme-courts-directive-on-disclosure-of-electoral-bond-details/",
+      "destination": "/unveiling-transparency-supreme-courts-directive-on-disclosure-of-electoral-bond-details.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-benefits-understanding-section-80g-donations",
+      "destination": "/maximizing-tax-benefits-understanding-section-80g-donations.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-benefits-understanding-section-80g-donations/",
+      "destination": "/maximizing-tax-benefits-understanding-section-80g-donations.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-benefits-understanding-section-24-deductions-from-house-property-income",
+      "destination": "/maximizing-tax-benefits-understanding-section-24-deductions-from-house-property-income.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-benefits-understanding-section-24-deductions-from-house-property-income/",
+      "destination": "/maximizing-tax-benefits-understanding-section-24-deductions-from-house-property-income.html",
+      "permanent": true
+    },
+    {
+      "source": "/unlock-the-secrets-of-nri-property-sales-in-india",
+      "destination": "/unlock-the-secrets-of-nri-property-sales-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/unlock-the-secrets-of-nri-property-sales-in-india/",
+      "destination": "/unlock-the-secrets-of-nri-property-sales-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/exploring-the-option-for-nris-to-opt-for-the-new-tax-regime-in-fy-2023-24-in-india",
+      "destination": "/exploring-the-option-for-nris-to-opt-for-the-new-tax-regime-in-fy-2023-24-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/exploring-the-option-for-nris-to-opt-for-the-new-tax-regime-in-fy-2023-24-in-india/",
+      "destination": "/exploring-the-option-for-nris-to-opt-for-the-new-tax-regime-in-fy-2023-24-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/demystifying-tcs-and-tds-understanding-the-differences",
+      "destination": "/demystifying-tcs-and-tds-understanding-the-differences.html",
+      "permanent": true
+    },
+    {
+      "source": "/demystifying-tcs-and-tds-understanding-the-differences/",
+      "destination": "/demystifying-tcs-and-tds-understanding-the-differences.html",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-itr-filing-deadlines-2024-your-comprehensive-guide",
+      "destination": "/mastering-itr-filing-deadlines-2024-your-comprehensive-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-itr-filing-deadlines-2024-your-comprehensive-guide/",
+      "destination": "/mastering-itr-filing-deadlines-2024-your-comprehensive-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-house-rent-allowance-hra-and-its-tax-exemption",
+      "destination": "/understanding-house-rent-allowance-hra-and-its-tax-exemption.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-house-rent-allowance-hra-and-its-tax-exemption/",
+      "destination": "/understanding-house-rent-allowance-hra-and-its-tax-exemption.html",
+      "permanent": true
+    },
+    {
+      "source": "/tax-saving-strategies-for-salaried-employees-in-the-old-regime",
+      "destination": "/tax-saving-strategies-for-salaried-employees-in-the-old-regime.html",
+      "permanent": true
+    },
+    {
+      "source": "/tax-saving-strategies-for-salaried-employees-in-the-old-regime/",
+      "destination": "/tax-saving-strategies-for-salaried-employees-in-the-old-regime.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-advance-tax-payment-and-the-need-to-file-itr",
+      "destination": "/understanding-advance-tax-payment-and-the-need-to-file-itr.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-advance-tax-payment-and-the-need-to-file-itr/",
+      "destination": "/understanding-advance-tax-payment-and-the-need-to-file-itr.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-the-rules-and-benefits-of-carrying-forward-losses-in-income-tax-returns",
+      "destination": "/understanding-the-rules-and-benefits-of-carrying-forward-losses-in-income-tax-returns.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-the-rules-and-benefits-of-carrying-forward-losses-in-income-tax-returns/",
+      "destination": "/understanding-the-rules-and-benefits-of-carrying-forward-losses-in-income-tax-returns.html",
+      "permanent": true
+    },
+    {
+      "source": "/demystifying-the-taxation-of-online-gaming-in-india",
+      "destination": "/demystifying-the-taxation-of-online-gaming-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/demystifying-the-taxation-of-online-gaming-in-india/",
+      "destination": "/demystifying-the-taxation-of-online-gaming-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/dont-get-caught-off-guard-high-value-cash-transactions-tax-notices-in-india",
+      "destination": "/dont-get-caught-off-guard-high-value-cash-transactions-tax-notices-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/dont-get-caught-off-guard-high-value-cash-transactions-tax-notices-in-india/",
+      "destination": "/dont-get-caught-off-guard-high-value-cash-transactions-tax-notices-in-india.html",
+      "permanent": true
+    },
+    {
+      "source": "/ensure-smooth-trade-update-your-iec-annually",
+      "destination": "/ensure-smooth-trade-update-your-iec-annually.html",
+      "permanent": true
+    },
+    {
+      "source": "/ensure-smooth-trade-update-your-iec-annually/",
+      "destination": "/ensure-smooth-trade-update-your-iec-annually.html",
+      "permanent": true
+    },
+    {
+      "source": "/major-tax-relief-alert-understand-the-new-section-128a-amnesty-scheme-in-budget-2024",
+      "destination": "/major-tax-relief-alert-understand-the-new-section-128a-amnesty-scheme-in-budget-2024.html",
+      "permanent": true
+    },
+    {
+      "source": "/major-tax-relief-alert-understand-the-new-section-128a-amnesty-scheme-in-budget-2024/",
+      "destination": "/major-tax-relief-alert-understand-the-new-section-128a-amnesty-scheme-in-budget-2024.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-tax-relief-for-real-estate-choose-your-ltcg-rate",
+      "destination": "/big-tax-relief-for-real-estate-choose-your-ltcg-rate.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-tax-relief-for-real-estate-choose-your-ltcg-rate/",
+      "destination": "/big-tax-relief-for-real-estate-choose-your-ltcg-rate.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-tds-rules-for-partners-in-firms-section-194t-explained",
+      "destination": "/new-tds-rules-for-partners-in-firms-section-194t-explained.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-tds-rules-for-partners-in-firms-section-194t-explained/",
+      "destination": "/new-tds-rules-for-partners-in-firms-section-194t-explained.html",
+      "permanent": true
+    },
+    {
+      "source": "/hindu-undivided-family-huf-a-strategic-way-to-save-income-tax",
+      "destination": "/hindu-undivided-family-huf-a-strategic-way-to-save-income-tax.html",
+      "permanent": true
+    },
+    {
+      "source": "/hindu-undivided-family-huf-a-strategic-way-to-save-income-tax/",
+      "destination": "/hindu-undivided-family-huf-a-strategic-way-to-save-income-tax.html",
+      "permanent": true
+    },
+    {
+      "source": "/buying-property-from-an-nri-avoid-costly-mistakes",
+      "destination": "/buying-property-from-an-nri-avoid-costly-mistakes.html",
+      "permanent": true
+    },
+    {
+      "source": "/buying-property-from-an-nri-avoid-costly-mistakes/",
+      "destination": "/buying-property-from-an-nri-avoid-costly-mistakes.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-section-73-of-cgst-act-key-to-tax-compliance",
+      "destination": "/understanding-section-73-of-cgst-act-key-to-tax-compliance.html",
+      "permanent": true
+    },
+    {
+      "source": "/understanding-section-73-of-cgst-act-key-to-tax-compliance/",
+      "destination": "/understanding-section-73-of-cgst-act-key-to-tax-compliance.html",
+      "permanent": true
+    },
+    {
+      "source": "/overview-of-the-54th-gst-council-meeting-key-decisions-their-implications",
+      "destination": "/overview-of-the-54th-gst-council-meeting-key-decisions-their-implications.html",
+      "permanent": true
+    },
+    {
+      "source": "/overview-of-the-54th-gst-council-meeting-key-decisions-their-implications/",
+      "destination": "/overview-of-the-54th-gst-council-meeting-key-decisions-their-implications.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-tds-rate-cuts-from-october-2024-what-you-need-to-know",
+      "destination": "/big-tds-rate-cuts-from-october-2024-what-you-need-to-know.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-tds-rate-cuts-from-october-2024-what-you-need-to-know/",
+      "destination": "/big-tds-rate-cuts-from-october-2024-what-you-need-to-know.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel%F0%9F%95%89%EF%B8%8F",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel%F0%9F%95%89%EF%B8%8F/",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel🕉️",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel🕉️/",
+      "destination": "/maha-kumbh-mela-2025-a-spiritual-and-economic-marvel.html",
+      "permanent": true
+    },
+    {
+      "source": "/decoding-long-term-capital-gains",
+      "destination": "/decoding-long-term-capital-gains.html",
+      "permanent": true
+    },
+    {
+      "source": "/decoding-long-term-capital-gains/",
+      "destination": "/decoding-long-term-capital-gains.html",
+      "permanent": true
+    },
+    {
+      "source": "/invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth",
+      "destination": "/invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html",
+      "permanent": true
+    },
+    {
+      "source": "/invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth/",
+      "destination": "/invest-madhya-pradesh-global-investors-summit-2025-a-catalyst-for-growth.html",
+      "permanent": true
+    },
+    {
+      "source": "/a-family-that-plans-together-pays-less-tax-together",
+      "destination": "/a-family-that-plans-together-pays-less-tax-together.html",
+      "permanent": true
+    },
+    {
+      "source": "/a-family-that-plans-together-pays-less-tax-together/",
+      "destination": "/a-family-that-plans-together-pays-less-tax-together.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradesh-global-investors-summit-2025-paving-the-way-for-a-viksit-bharat",
+      "destination": "/madhya-pradesh-global-investors-summit-2025-paving-the-way-for-a-viksit-bharat.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradesh-global-investors-summit-2025-paving-the-way-for-a-viksit-bharat/",
+      "destination": "/madhya-pradesh-global-investors-summit-2025-paving-the-way-for-a-viksit-bharat.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-%E2%82%B926-61-lakh-crore-investment-inflow-from-gis-2025",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-%E2%82%B926-61-lakh-crore-investment-inflow-from-gis-2025/",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-₹26-61-lakh-crore-investment-inflow-from-gis-2025",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/madhya-pradeshs-giant-leap-₹26-61-lakh-crore-investment-inflow-from-gis-2025/",
+      "destination": "/madhya-pradesh-26-61-lakh-crore-investment-inflow-gis-2025.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-dsc-rules-for-mp-tenders-signing-encryption-now-mandatory",
+      "destination": "/new-dsc-rules-for-mp-tenders-signing-encryption-now-mandatory.html",
+      "permanent": true
+    },
+    {
+      "source": "/new-dsc-rules-for-mp-tenders-signing-encryption-now-mandatory/",
+      "destination": "/new-dsc-rules-for-mp-tenders-signing-encryption-now-mandatory.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-savings-on-long-term-capital-gains-a-comprehensive-guide",
+      "destination": "/maximizing-tax-savings-on-long-term-capital-gains-a-comprehensive-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/maximizing-tax-savings-on-long-term-capital-gains-a-comprehensive-guide/",
+      "destination": "/maximizing-tax-savings-on-long-term-capital-gains-a-comprehensive-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/itr-filing-deadline-extended-to-september-15-2025-more-time-for-accurate-returns",
+      "destination": "/itr-filing-deadline-extended-to-september-15-2025-more-time-for-accurate-returns.html",
+      "permanent": true
+    },
+    {
+      "source": "/itr-filing-deadline-extended-to-september-15-2025-more-time-for-accurate-returns/",
+      "destination": "/itr-filing-deadline-extended-to-september-15-2025-more-time-for-accurate-returns.html",
+      "permanent": true
+    },
+    {
+      "source": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return-for-fy-2024-25",
+      "destination": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return-for-fy-2024-25.html",
+      "permanent": true
+    },
+    {
+      "source": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return-for-fy-2024-25/",
+      "destination": "/7-key-points-every-salaried-employee-must-know-before-filing-income-tax-return-for-fy-2024-25.html",
+      "permanent": true
+    },
+    {
+      "source": "/isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit",
+      "destination": "/isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html",
+      "permanent": true
+    },
+    {
+      "source": "/isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit/",
+      "destination": "/isd-registration-now-mandatory-from-april-2025-dont-lose-your-gst-credit.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking",
+      "destination": "/big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html",
+      "permanent": true
+    },
+    {
+      "source": "/big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking/",
+      "destination": "/big-relief-on-tds-demands-due-to-pan-aadhaar-non-linking.html",
+      "permanent": true
+    },
+    {
+      "source": "/beyond-numbers-the-evolving-thought-process-of-a-chartered-accountant-firm",
+      "destination": "/beyond-numbers-the-evolving-thought-process-of-a-chartered-accountant-firm.html",
+      "permanent": true
+    },
+    {
+      "source": "/beyond-numbers-the-evolving-thought-process-of-a-chartered-accountant-firm/",
+      "destination": "/beyond-numbers-the-evolving-thought-process-of-a-chartered-accountant-firm.html",
+      "permanent": true
+    },
+    {
+      "source": "/why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya",
+      "destination": "/why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya.html",
+      "permanent": true
+    },
+    {
+      "source": "/why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya/",
+      "destination": "/why-your-gold-silver-just-got-more-precious-a-laymans-guide-by-ca-natasha-rajvaidya.html",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/training",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/training/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/contact-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/financial-statement-audit",
+      "destination": "/financial-statement-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/financial-statement-audit/",
+      "destination": "/financial-statement-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/bank-audit",
+      "destination": "/bank-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/bank-audit/",
+      "destination": "/bank-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/concurrent-audit",
+      "destination": "/concurrent-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/concurrent-audit/",
+      "destination": "/concurrent-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/stock-audit",
+      "destination": "/stock-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/stock-audit/",
+      "destination": "/stock-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/statutory-audit",
+      "destination": "/statutory-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/statutory-audit/",
+      "destination": "/statutory-audit.html",
+      "permanent": true
+    },
+    {
+      "source": "/tax-audit",
+      "destination": "/tax-audit-44ab-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/tax-audit/",
+      "destination": "/tax-audit-44ab-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/trade-mark",
+      "destination": "/trade-mark.html",
+      "permanent": true
+    },
+    {
+      "source": "/trade-mark/",
+      "destination": "/trade-mark.html",
+      "permanent": true
+    },
+    {
+      "source": "/iso-certification",
+      "destination": "/iso-certification.html",
+      "permanent": true
+    },
+    {
+      "source": "/iso-certification/",
+      "destination": "/iso-certification.html",
+      "permanent": true
+    },
+    {
+      "source": "/pasara-security-license",
+      "destination": "/psara-pwd-contractor-registration-madhya-pradesh.html",
+      "permanent": true
+    },
+    {
+      "source": "/pasara-security-license/",
+      "destination": "/psara-pwd-contractor-registration-madhya-pradesh.html",
+      "permanent": true
+    },
+    {
+      "source": "/gst-appeals",
+      "destination": "/gst-notice-consultant-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/gst-appeals/",
+      "destination": "/gst-notice-consultant-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/pf-fund-appeals",
+      "destination": "/labour-law-compliances.html",
+      "permanent": true
+    },
+    {
+      "source": "/pf-fund-appeals/",
+      "destination": "/labour-law-compliances.html",
+      "permanent": true
+    },
+    {
+      "source": "/esic-appeals",
+      "destination": "/esic-appeals.html",
+      "permanent": true
+    },
+    {
+      "source": "/esic-appeals/",
+      "destination": "/esic-appeals.html",
+      "permanent": true
+    },
+    {
+      "source": "/professional-tax-ptrc-ptec",
+      "destination": "/professional-tax-ptrc-ptec.html",
+      "permanent": true
+    },
+    {
+      "source": "/professional-tax-ptrc-ptec/",
+      "destination": "/professional-tax-ptrc-ptec.html",
+      "permanent": true
+    },
+    {
+      "source": "/railway-tender-registration",
+      "destination": "/railway-tender-registration.html",
+      "permanent": true
+    },
+    {
+      "source": "/railway-tender-registration/",
+      "destination": "/railway-tender-registration.html",
+      "permanent": true
+    },
+    {
+      "source": "/food-license-fssai",
+      "destination": "/food-license-fssai.html",
+      "permanent": true
+    },
+    {
+      "source": "/food-license-fssai/",
+      "destination": "/food-license-fssai.html",
+      "permanent": true
+    },
+    {
+      "source": "/import-export-consultancy-iec-code",
+      "destination": "/import-export-consultancy-iec-code.html",
+      "permanent": true
+    },
+    {
+      "source": "/import-export-consultancy-iec-code/",
+      "destination": "/import-export-consultancy-iec-code.html",
+      "permanent": true
+    },
+    {
+      "source": "/trade-license",
+      "destination": "/trade-license.html",
+      "permanent": true
+    },
+    {
+      "source": "/trade-license/",
+      "destination": "/trade-license.html",
+      "permanent": true
+    },
+    {
+      "source": "/secured-loan-unsecured-loan",
+      "destination": "/secured-loan-unsecured-loan.html",
+      "permanent": true
+    },
+    {
+      "source": "/secured-loan-unsecured-loan/",
+      "destination": "/secured-loan-unsecured-loan.html",
+      "permanent": true
+    },
+    {
+      "source": "/labour-law-compliances",
+      "destination": "/labour-law-compliances.html",
+      "permanent": true
+    },
+    {
+      "source": "/labour-law-compliances/",
+      "destination": "/labour-law-compliances.html",
+      "permanent": true
+    },
+    {
+      "source": "/income-tax-appeals-tribunals",
+      "destination": "/income-tax-notice-consultant-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/income-tax-appeals-tribunals/",
+      "destination": "/income-tax-notice-consultant-bhopal.html",
+      "permanent": true
+    },
+    {
+      "source": "/mining-project-reports",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/mining-project-reports/",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-openings",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-openings/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/career",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/career/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms-and-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions/",
+      "destination": "/terms-and-conditions.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy-policy.html",
+      "permanent": true
+    },
+    {
+      "source": "/https-www-canatasha-com-career/ca-article-assistant",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/https-www-canatasha-com-career/ca-article-assistant/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/blog",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/blog/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/travel",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/travel/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/finance",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/finance/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/income-tax",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/income-tax/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/taxation",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/category/taxation/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/supreme-court",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/supreme-court/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/electrol-bond",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/electrol-bond/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/political-funding",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/political-funding/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-money",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-money/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/ca-in-bhopal",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/ca-in-bhopal/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/election-2024",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/election-2024/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/hra",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/hra/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-savings",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-savings/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/income-tax",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/income-tax/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/advance-tax-payment",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/advance-tax-payment/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/filing-itr",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/filing-itr/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-liability",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/tax-liability/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/carrying-forward-losses",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/carrying-forward-losses/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/income-tax-returns",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/tag/income-tax-returns/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-category/ca-article-assistant",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-category/ca-article-assistant/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-type/full-time",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-type/full-time/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-location/bhopal",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/job-location/bhopal/",
+      "destination": "/career.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/ashish",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/ashish/",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/rsvijaytiwari",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/rsvijaytiwari/",
+      "destination": "/about-us.html",
+      "permanent": true
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/wp-sitemap.xml/",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/feed/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/comments/feed",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/comments/feed/",
+      "destination": "/blog.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=(), payment=()"
+        }
       ]
     },
     {
-      "source": "/(images|css|js|fonts)/(.*)",
+      "source": "/admin-news-editor.html",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).(woff2|woff|ttf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).(woff2|woff|ttf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]

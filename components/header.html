@@ -1,0 +1,97 @@
+<header class="site-header">
+  <!-- Top Contact Bar (CA-106 Style) -->
+  <div class="header-top-bar d-none d-lg-block">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-4">
+          <span><i class="bi bi-telephone-fill"></i> <a href="tel:+919407000157">+91 9407000157</a></span>
+          <span><i class="bi bi-envelope-fill"></i> <a href="mailto:info@canatasha.com">info@canatasha.com</a></span>
+          <span><i class="bi bi-geo-alt-fill"></i> Zone-1 M.P. Nagar, Bhopal</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="badge bg-warning text-dark fw-bold px-2 py-1"><i class="bi bi-award-fill text-dark me-1"></i> ISO 9001:2015</span>
+          <span class="badge bg-info text-dark fw-bold px-2 py-1"><i class="bi bi-shield-check text-dark me-1"></i> UDYAM-MP-10-0002966</span>
+          <span class="text-muted">Mon - Sat: 10:00 AM - 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Row -->
+  <div class="auto-container w-100">
+    <div class="main-header-row">
+      <a href="index.html" class="brand-logo-pill text-decoration-none" aria-label="Natasha & Company Home">
+        <picture>
+          <source srcset="images/logo-original.webp" type="image/webp">
+          <img src="images/logo-original.png" alt="Natasha &amp; Company - Chartered Accountants" loading="eager" decoding="async" width="340" height="64" fetchpriority="high">
+        </picture>
+      </a>
+      <div class="d-flex align-items-center gap-4 ms-auto">
+        <nav class="d-none d-lg-block" aria-label="Primary Navigation">
+          <ul class="main-nav">
+            <li class="{{NAV_HOME_ACTIVE}}"><a href="index.html">Home</a></li>
+            <li class="{{NAV_ABOUT_ACTIVE}}">
+              <a href="about-us.html">About <i class="bi bi-chevron-down small"></i></a>
+              <ul class="dropdown-menu-custom">
+                <li><a href="about-us.html">About Firm Profile</a></li>
+                <li><a href="index.html#impact">Our Impact &amp; Milestones</a></li>
+                <li><a href="index.html#team">Our CA Team</a></li>
+                <li><a href="index.html#testimonials">Client Reviews</a></li>
+                <li><a href="contact-us.html#offices">Our Bhopal Offices</a></li>
+                <li><a href="about-us.html#stats">Firm Statistics</a></li>
+              </ul>
+            </li>
+            <li class="{{NAV_SERVICES_ACTIVE}}">
+              <a href="services.html">Services <i class="bi bi-chevron-down small"></i></a>
+              <ul class="dropdown-menu-custom">
+                <li><a href="services.html">All 11 Service Categories</a></li>
+                <li><a href="services.html#service-accounting">Accounting &amp; Bookkeeping</a></li>
+                <li><a href="services.html#service-taxation">Direct &amp; Indirect Tax</a></li>
+                <li><a href="services.html#service-audit">Audit &amp; Assurance (44AB)</a></li>
+                <li><a href="services.html#service-advisory">Business Advisory &amp; Valuation</a></li>
+                <li><a href="services.html#service-financial">Financial Planning &amp; CFO</a></li>
+                <li><a href="services.html#service-formation">Corporate Compliance</a></li>
+                <li><a href="services.html#service-registration">Company Formation (LLP/Pvt)</a></li>
+                <li><a href="services.html#service-specialized">Tax Appeals &amp; Notices</a></li>
+                <li><a href="services.html#service-industry">Industry Solutions</a></li>
+                <li><a href="services.html#service-technology">Cloud Accounting</a></li>
+                <li><a href="services.html#service-other">EPFO / ESIC / PWD / PSARA</a></li>
+              </ul>
+            </li>
+            <li class="{{NAV_GST_ACTIVE}}">
+              <a href="services.html#service-taxation">GST <i class="bi bi-chevron-down small"></i></a>
+              <ul class="dropdown-menu-custom">
+                <li><a href="https://services.gst.gov.in/services/login" target="_blank" rel="noopener">GST Portal Login <i class="bi bi-box-arrow-up-right small ms-1"></i></a></li>
+                <li><a href="knowledge-base.html#tools">HSN Code With Rate</a></li>
+                <li><a href="knowledge-base.html#tools">SAC Code Directory</a></li>
+                <li><a href="knowledge-base.html#tools">GST Acts &amp; Rules</a></li>
+              </ul>
+            </li>
+            <li class="{{NAV_KNOWLEDGE_ACTIVE}}">
+              <a href="knowledge-base.html">Knowledge Base <i class="bi bi-chevron-down small"></i></a>
+              <ul class="dropdown-menu-custom">
+                <li><a href="index.html#compliance">News &amp; Regulatory Feed</a></li>
+                <li><a href="knowledge-base.html#tools">Rates of Income Tax (FY 2025-26)</a></li>
+                <li><a href="knowledge-base.html#tools">TDS Rates u/s 195</a></li>
+                <li><a href="knowledge-base.html#tools">Rates of TDS</a></li>
+                <li><a href="knowledge-base.html#tools">Depreciation Rates</a></li>
+                <li><a href="knowledge-base.html#tools">Cost Inflation Index (CII)</a></li>
+                <li><a href="income-tax-calculator.html"><i class="bi bi-calculator text-warning me-1"></i> Income Tax Calculator</a></li>
+                <li><a href="gst-calculator.html"><i class="bi bi-percent text-warning me-1"></i> GST Calculator</a></li>
+              </ul>
+            </li>
+            <li class="{{NAV_BLOG_ACTIVE}}"><a href="blog.html">Blog</a></li>
+            <li class="{{NAV_CAREER_ACTIVE}}"><a href="career.html">Career</a></li>
+            <li class="{{NAV_CONTACT_ACTIVE}}"><a href="contact-us.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-right-actions">
+          <a href="#" class="btn-request-quote" data-bs-toggle="modal" data-bs-target="#consultationModal">Request Quote</a>
+          <button class="header-nav-toggle-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuDrawer" aria-controls="mobileMenuDrawer" aria-label="Toggle navigation">
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
