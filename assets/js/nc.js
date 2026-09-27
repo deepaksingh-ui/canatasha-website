@@ -616,6 +616,17 @@
       }
       form.reset();
       stat.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+
+      if (window.ncToast) {
+        window.ncToast('Thank you, ' + (name.split(' ')[0] || 'there') + '! Enquiry received.', 'success');
+      }
+      var modalParent = form.closest ? form.closest('dialog.nc-modal') : null;
+      if (modalParent) {
+        setTimeout(function () {
+          try { window.open(wa, '_blank'); } catch (err) {}
+          try { modalParent.close(); } catch (err) {}
+        }, 700);
+      }
     });
   }
 
@@ -822,6 +833,94 @@
   }
 
   /* ------------------------------------------------------------------
+     19. Modern Web Guidance: Form Interaction & ARIA Sync
+     ------------------------------------------------------------------ */
+  function formAriaSync() {
+    function sync(el) {
+      if (!el || !el.setAttribute) return;
+      if (el.matches && (el.matches('input') || el.matches('textarea') || el.matches('select'))) {
+        try {
+          if (el.matches(':user-invalid')) {
+            el.setAttribute('aria-invalid', 'true');
+          } else if (el.matches(':user-valid')) {
+            el.removeAttribute('aria-invalid');
+          }
+        } catch (e) {}
+      }
+    }
+    document.addEventListener('blur', function (e) { sync(e.target); }, true);
+    document.addEventListener('input', function (e) {
+      if (e.target.hasAttribute && e.target.hasAttribute('aria-invalid')) sync(e.target);
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     20. Modern Web Guidance: Native <dialog> Modal Controller & Light Dismiss
+     ------------------------------------------------------------------ */
+  function modalController() {
+    var dialog = document.getElementById('ncConsultModal');
+    if (!dialog) return;
+
+    // Light-dismiss: clicking the backdrop closes the modal
+    dialog.addEventListener('click', function (e) {
+      var rect = dialog.getBoundingClientRect();
+      var inDialog = (
+        rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width
+      );
+      if (!inDialog) {
+        dialog.close();
+      }
+    });
+
+    var closeBtn = dialog.querySelector('.nc-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        dialog.close();
+      });
+    }
+
+    // Open triggers: any link or button with data-open-modal="ncConsultModal"
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest ? e.target.closest('[data-open-modal="ncConsultModal"]') : null;
+      if (trigger) {
+        e.preventDefault();
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          window.location.href = trigger.getAttribute('href') || 'contact-us.html';
+        }
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     21. Modern Web Guidance: Non-Intrusive Toast Notifications
+     ------------------------------------------------------------------ */
+  window.ncToast = function (message, kind) {
+    var shelf = document.getElementById('ncToastShelf');
+    if (!shelf) {
+      shelf = document.createElement('div');
+      shelf.id = 'ncToastShelf';
+      shelf.className = 'nc-toast-shelf';
+      shelf.setAttribute('aria-live', 'polite');
+      document.body.appendChild(shelf);
+    }
+
+    var toast = document.createElement('div');
+    toast.className = 'nc-toast ' + (kind || 'info');
+    toast.innerHTML = '<span class="nc-toast-icon">' + (kind === 'success' ? '✅' : 'ℹ️') + '</span><span>' + message + '</span>';
+    shelf.appendChild(toast);
+
+    setTimeout(function () {
+      toast.classList.add('is-leaving');
+      setTimeout(function () {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 320);
+    }, 4000);
+  };
+
+  /* ------------------------------------------------------------------
      Boot
      ------------------------------------------------------------------ */
   function init() {
@@ -842,6 +941,8 @@
     calendar();
     heroSlides();
     contactForm();
+    formAriaSync();
+    modalController();
     tilt();
     mega();
   }

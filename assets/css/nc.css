@@ -135,6 +135,29 @@ hr{border:0;border-top:1px solid var(--nc-line);margin:2.5rem 0}
 
 :focus-visible{outline:2px solid var(--nc-pri);outline-offset:3px;border-radius:4px}
 
+/* Modern Web Guidance: Branded Ergonomic Scrollbars */
+:root {
+  --scrollbar-thumb: var(--nc-pri-lt);
+  --scrollbar-track: var(--nc-surface-2);
+}
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+}
+
 /* ---------- 3. Typography ---------- */
 h1,h2,h3,h4,h5,h6{
   margin:0 0 .6em;
@@ -1005,6 +1028,15 @@ body.nc-menu-open .nc-drawer{
   background-repeat:no-repeat;
   background-position:right .85rem center;
   background-size:16px;
+}
+/* Modern Web Guidance: Smooth Autofill treatment */
+.nc-input:-webkit-autofill,
+.nc-input:-webkit-autofill:hover, 
+.nc-input:-webkit-autofill:focus,
+.nc-input:autofill {
+  -webkit-text-fill-color: var(--nc-ink);
+  -webkit-box-shadow: 0 0 0px 1000px #F0F6FC inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .nc-textarea{min-height:130px;resize:vertical;line-height:1.6}
 .nc-select{
@@ -1962,3 +1994,113 @@ body>main{flex:1 0 auto}
   transform: scale(1.1) !important;
   box-shadow: 0 6px 18px rgba(14, 75, 140, 0.2) !important;
 }
+
+/* ==========================================================================
+   42. Modern Web Guidance: Native HTML5 <dialog> Consultation Modal
+   ========================================================================== */
+dialog.nc-modal {
+  padding: 0;
+  border: 1px solid var(--nc-line-2);
+  border-radius: var(--nc-r-xl);
+  background: var(--nc-surface);
+  box-shadow: var(--nc-sh-3);
+  max-width: min(520px, 92vw);
+  width: 100%;
+  color: var(--nc-ink);
+  overflow: hidden;
+  margin: auto;
+}
+dialog.nc-modal::backdrop {
+  background: rgba(10, 36, 64, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: nc-fade-in .25s ease-out;
+}
+dialog.nc-modal[open] {
+  animation: nc-modal-pop .3s var(--nc-ease);
+}
+@keyframes nc-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes nc-modal-pop {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.nc-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  background: var(--nc-surface-2);
+  border-bottom: 1px solid var(--nc-line);
+}
+.nc-modal-head h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.nc-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nc-surface-3);
+  color: var(--nc-ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: background .2s ease, color .2s ease;
+}
+.nc-modal-close:hover {
+  background: var(--nc-pri);
+  color: #ffffff;
+}
+.nc-modal-body {
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   43. Modern Web Guidance: Non-Intrusive Toast Notifications
+   ========================================================================== */
+.nc-toast-shelf {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  max-width: min(420px, 92vw);
+  width: 100%;
+}
+.nc-toast {
+  pointer-events: auto;
+  background: var(--nc-ftr-bg);
+  color: #ffffff;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--nc-r);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  animation: nc-toast-in .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.nc-toast.is-leaving {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+}
+.nc-toast-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+@keyframes nc-toast-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

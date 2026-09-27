@@ -502,7 +502,7 @@ def header_html():
     </nav>
 
     <div class="nc-hdr-act">
-      <a class="nc-btn nc-btn-sm" href="{book}">Book a consultation</a>
+      <a class="nc-btn nc-btn-sm" href="{book}" data-open-modal="ncConsultModal">Book a consultation</a>
       <button class="nc-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nc-drawer">
         <span></span><span></span><span></span>
       </button>
@@ -524,7 +524,7 @@ def header_html():
   <div class="nc-drawer-body">
     <ul class="nc-macc">{macc}</ul>
     <div class="nc-drawer-cta">
-      <a class="nc-btn nc-btn-full" href="{book}">Book a consultation</a>
+      <a class="nc-btn nc-btn-full" href="{book}" data-open-modal="ncConsultModal">Book a consultation</a>
       <a class="nc-btn nc-btn-ghost nc-btn-full" href="tel:{phone}">{ph_ico} {phone_d}</a>
     </div>
   </div>
@@ -537,7 +537,7 @@ def header_html():
 
 
 def footer_html():
-    return """<footer class="nc-ftr">
+    ftr_core = """<footer class="nc-ftr">
   <div class="nc-wrap">
     <div class="nc-ftr-grid">
 
@@ -627,6 +627,43 @@ def footer_html():
                      '<a href="%s" target="_blank" rel="noopener me" aria-label="%s">%s</a>'
                      % (url, label, social(kind)) for kind, label, url in PROFILES),
                  ph=ico("phone"), ml=ico("mail"), pin=ico("pin"), up=ico("up"))
+
+    modal_and_toast = """
+<dialog class="nc-modal" id="ncConsultModal" aria-labelledby="ncConsultModalTitle">
+  <div class="nc-modal-head">
+    <h3 id="ncConsultModalTitle">Book a Free Consultation</h3>
+    <button class="nc-modal-close" type="button" aria-label="Close modal">&times;</button>
+  </div>
+  <div class="nc-modal-body">
+    <p class="nc-muted" style="margin-bottom:1.2rem;font-size:0.92rem">Speak directly with CA Natasha Rajvaidya (FCA) &amp; team at our Bhopal office or over phone.</p>
+    <form class="nc-stack" data-nc-contact data-source="modal" style="gap:1rem">
+      <div class="nc-field">
+        <label for="modal-name">Full Name *</label>
+        <input class="nc-input" id="modal-name" name="name" type="text" required placeholder="Your Name or Business" autocomplete="name">
+      </div>
+      <div class="nc-field">
+        <label for="modal-phone">Mobile / WhatsApp Number *</label>
+        <input class="nc-input" id="modal-phone" name="phone" type="tel" required placeholder="98260 00000" autocomplete="tel" inputmode="numeric" pattern="[0-9]{10}">
+      </div>
+      <div class="nc-field">
+        <label for="modal-service">Service Needed *</label>
+        <select class="nc-select" id="modal-service" name="service" required>
+          <option value="">Select Service...</option>
+          <option value="Income Tax &amp; ITR">Income Tax &amp; ITR Filing</option>
+          <option value="GST Notice / Audit">GST Notice / GST Audit</option>
+          <option value="Tax Audit u/s 44AB">Tax Audit u/s 44AB</option>
+          <option value="Company / ROC Compliance">Company / ROC Compliance</option>
+          <option value="Virtual CFO / Advisory">Virtual CFO / Advisory</option>
+          <option value="Other Advisory">Other Advisory Query</option>
+        </select>
+      </div>
+      <button class="nc-btn nc-btn-pri nc-btn-lg" type="submit" style="width:100%;margin-top:0.4rem">Schedule Consultation &rarr;</button>
+      <div class="nc-fstat" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</dialog>
+<div class="nc-toast-shelf" id="ncToastShelf" aria-live="polite"></div>"""
+    return ftr_core + modal_and_toast
 
 
 # <title> tags kept to 60 characters, primary keyword first. Google cuts a
