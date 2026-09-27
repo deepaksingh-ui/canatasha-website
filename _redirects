@@ -202,6 +202,3 @@
 /feed/                                                                 /blog.html 301
 /comments/feed                                                         /blog.html 301
 /comments/feed/                                                        /blog.html 301
-
-# 3. Custom 404 Fallback
-/*              /404.html                   404
