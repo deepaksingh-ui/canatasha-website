@@ -409,21 +409,20 @@ def netlify():
     seen = set()
     for src, dest in U.rules():
         target = "/" + dest if dest else "/"
+        # Cloudflare / Pages natively handles /slug serving /slug.html without redirect loops.
+        # Skip self-referencing rules where src stem matches dest stem.
+        src_stem = src.strip("/").replace(".html", "").lower()
+        dest_stem = dest.strip("/").replace(".html", "").lower()
+        if src_stem == dest_stem:
+            continue
         for variant in sorted({src, U.encoded(src)}):
             for s in ("/" + variant, "/" + variant + "/"):
                 if s not in seen:
                     redirect_lines.append("%-70s %s 301" % (s, target))
                     seen.add(s)
 
-    redirect_lines.extend([
-        "",
-        "# 3. Custom 404 Fallback",
-        "/*              /404.html                   404",
-        ""
-    ])
-
     with io.open(os.path.join(ROOT, "_redirects"), "w", encoding="utf-8") as f:
-        f.write("\n".join(redirect_lines))
+        f.write("\n".join(redirect_lines) + "\n")
 
     toml = """# Netlify Configuration for Natasha & Co. (canatasha.com)
 
