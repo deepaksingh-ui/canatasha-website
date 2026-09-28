@@ -213,7 +213,7 @@
         e.target.classList.add('is-in');
         io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.04 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
 
     els.forEach(function (el) {
       // Stagger siblings that share a parent unless an explicit delay is set.
@@ -222,7 +222,7 @@
           return c.hasAttribute('data-nc-rise');
         });
         var i = sibs.indexOf(el);
-        if (i > 0 && sibs.length > 1) el.style.setProperty('--d', Math.min(i, 8) * 110 + 'ms');
+        if (i > 0 && sibs.length > 1) el.style.setProperty('--d', Math.min(i, 8) * 80 + 'ms');
       }
       io.observe(el);
     });
