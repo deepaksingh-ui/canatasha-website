@@ -620,22 +620,59 @@ body.nc-menu-open .nc-drawer{
 .nc-hero-copy{max-width:860px;margin-inline:auto;text-align:center}
 .nc-hero h1,.nc-hero .nc-h1{margin-bottom:.85rem;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.5)}
 .nc-hero .nc-lead{max-width:740px;margin:0 auto 1.6rem;font-size:clamp(1rem,1.35vw,1.12rem);color:#EDF3FA;text-shadow:0 1px 14px rgba(0,0,0,.72),0 1px 3px rgba(0,0,0,.5)}
+/* ---------- Apple Design Language: Cupertino Hero Controls ---------- */
 .nc-hero-btns{display:flex;flex-direction:column;align-items:center;gap:.75rem;justify-content:center}
 .nc-hero-btn-group{display:inline-flex;flex-wrap:wrap;gap:.75rem;justify-content:center;align-items:center}
-.nc-hero-slide-link{display:inline-flex;align-items:center;gap:.4rem;color:#EDF3FA;font-size:.875rem;font-weight:500;text-decoration:none;padding:.38em 1.1em;border-radius:24px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:all .22s var(--nc-ease)}
-.nc-hero-slide-link:hover{color:#fff;background:rgba(255,255,255,.22);border-color:#fff;transform:translateY(-1px)}
-/* primary CTA switches to amber so it reads against the dark photo */
-.nc-hero .nc-btn{--_bg:var(--nc-acc);--_fg:var(--nc-on-acc);--_bd:var(--nc-acc)}
-.nc-hero .nc-btn:hover{--_bg:var(--nc-acc-lt);--_bd:var(--nc-acc-lt)}
-.nc-hero .nc-btn-ghost{--_bg:rgba(255,255,255,.08);--_fg:#fff;--_bd:rgba(255,255,255,.45)}
-.nc-hero .nc-btn-ghost:hover{--_bg:rgba(255,255,255,.18);--_bd:#fff}
-.nc-hero .nc-hero-btn-enq{--_bg:rgba(255,255,255,.15);--_fg:#ffffff;--_bd:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.nc-hero .nc-hero-btn-enq:hover{--_bg:#ffffff;--_fg:var(--nc-pri);--_bd:#ffffff;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.nc-hero-slide-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  color:#EDF3FA;font-size:.85rem;font-weight:500;text-decoration:none;
+  padding:.38em 1.15em;border-radius:980px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);
+  backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  transition:all .22s cubic-bezier(0.2,0,0,1);
+}
+.nc-hero-slide-link:hover{
+  color:#fff;background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55);
+  transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.22);
+}
+.nc-hero-slide-link:active{transform:scale(.97)}
+/* Apple-grade Cupertino Hero Buttons */
+.nc-hero .nc-btn{
+  border-radius:980px;
+  --_bg:var(--nc-acc);--_fg:var(--nc-on-acc);--_bd:var(--nc-acc);
+  box-shadow:0 4px 14px rgba(196,130,10,.35),inset 0 1px 0 rgba(255,255,255,.25);
+  transition:all .22s cubic-bezier(0.2,0,0,1);
+}
+.nc-hero .nc-btn:hover{--_bg:var(--nc-acc-lt);--_bd:var(--nc-acc-lt);transform:translateY(-1px);box-shadow:0 6px 20px rgba(196,130,10,.45)}
+.nc-hero .nc-btn:active{transform:scale(.965)}
+.nc-hero .nc-btn-ghost{
+  border-radius:980px;
+  --_bg:rgba(255,255,255,.1);--_fg:#fff;--_bd:rgba(255,255,255,.38);
+  backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);
+}
+.nc-hero .nc-btn-ghost:hover{--_bg:rgba(255,255,255,.2);--_bd:#fff}
+.nc-hero .nc-hero-btn-enq{
+  border-radius:980px;
+  --_bg:rgba(255,255,255,.14);--_fg:#ffffff;--_bd:rgba(255,255,255,.65);
+  backdrop-filter:blur(18px) saturate(190%);-webkit-backdrop-filter:blur(18px) saturate(190%);
+  box-shadow:0 4px 16px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.3);
+  transition:all .22s cubic-bezier(0.2,0,0,1);
+}
+.nc-hero .nc-hero-btn-enq:hover{
+  --_bg:#ffffff;--_fg:var(--nc-pri);--_bd:#ffffff;
+  box-shadow:0 6px 22px rgba(255,255,255,.3);transform:translateY(-1px);
+}
+.nc-hero .nc-hero-btn-enq:active{transform:scale(.965)}
+
 @media (max-width:640px){
   .nc-hero-btns{gap:.55rem}
   .nc-hero-btn-group{display:flex;flex-direction:row;flex-wrap:nowrap;gap:.5rem;width:100%;max-width:350px;margin-inline:auto}
-  .nc-hero-btn-group .nc-btn{flex:1 1 50%;padding:.62em .65em;font-size:.83rem;min-height:40px;letter-spacing:0;gap:.35rem;white-space:nowrap}
-  .nc-hero-slide-link{font-size:.8rem;padding:.3em .85em}
+  .nc-hero-btn-group .nc-btn{
+    flex:1 1 50%;padding:.62em .65em;font-size:.825rem;min-height:40px;letter-spacing:0;
+    gap:.35rem;white-space:nowrap;border-radius:980px;
+  }
+  .nc-hero-slide-link{font-size:.8rem;padding:.3em .9em}
 }
 .nc-hero .nc-shimmer{
   background:linear-gradient(100deg,var(--nc-acc) 0%,var(--nc-acc-lt) 30%,#FFE9C2 50%,var(--nc-acc-lt) 70%,var(--nc-acc) 100%);
@@ -2008,72 +2045,103 @@ body>main{flex:1 0 auto}
 }
 
 /* ==========================================================================
-   42. Modern Web Guidance: Native HTML5 <dialog> Consultation Modal
+   42. Apple Design Language: Cupertino Sheet Modal & Frosted Glass
    ========================================================================== */
 dialog.nc-modal {
   padding: 0;
-  border: 1px solid var(--nc-line-2);
-  border-radius: var(--nc-r-xl);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 22px;
   background: var(--nc-surface);
-  box-shadow: var(--nc-sh-3);
-  max-width: min(520px, 92vw);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.28), 0 12px 28px -6px rgba(0, 0, 0, 0.15);
+  max-width: min(500px, 92vw);
   width: 100%;
   color: var(--nc-ink);
   overflow: hidden;
   margin: auto;
 }
 dialog.nc-modal::backdrop {
-  background: rgba(10, 36, 64, 0.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  animation: nc-fade-in .25s ease-out;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  animation: nc-fade-in .25s cubic-bezier(0.2, 0, 0, 1);
 }
 dialog.nc-modal[open] {
-  animation: nc-modal-pop .3s var(--nc-ease);
+  animation: nc-modal-pop .32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes nc-fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 @keyframes nc-modal-pop {
-  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  from { opacity: 0; transform: scale(0.95) translateY(16px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 .nc-modal-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 1.5rem;
+  padding: 1.15rem 1.4rem;
   background: var(--nc-surface-2);
-  border-bottom: 1px solid var(--nc-line);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
 .nc-modal-head h3 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-family: -apple-system, BlinkMacSystemFont, var(--nc-display), sans-serif;
 }
 .nc-modal-close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--nc-surface-3);
-  color: var(--nc-ink);
-  font-size: 1.4rem;
+  background: rgba(142, 142, 147, 0.16);
+  color: #6e6e73;
+  font-size: 1.15rem;
   line-height: 1;
-  border: 1px solid var(--nc-line-2);
+  border: none;
   cursor: pointer;
-  transition: background .2s ease, color .2s ease, transform .15s ease;
+  transition: all .2s cubic-bezier(0.2, 0, 0, 1);
 }
 .nc-modal-close:hover {
-  background: #C6362C;
-  color: #ffffff;
-  border-color: #C6362C;
-  transform: scale(1.08);
+  background: rgba(142, 142, 147, 0.28);
+  color: #1c1c1e;
+  transform: scale(1.06);
+}
+.nc-modal-close:active {
+  transform: scale(0.94);
 }
 .nc-modal-body {
-  padding: 1.5rem;
+  padding: 1.35rem 1.4rem 1.5rem;
+}
+.nc-modal-body input,
+.nc-modal-body select,
+.nc-modal-body textarea {
+  border-radius: 11px !important;
+  background: rgba(0, 0, 0, 0.035) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  font-size: 0.94rem !important;
+  transition: border-color .2s ease, box-shadow .2s ease !important;
+}
+.nc-modal-body input:focus,
+.nc-modal-body select:focus,
+.nc-modal-body textarea:focus {
+  border-color: #0E4B8C !important;
+  box-shadow: 0 0 0 3.5px rgba(14, 75, 140, 0.18) !important;
+  outline: none !important;
+}
+.nc-modal-body button[type="submit"] {
+  border-radius: 980px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35) !important;
+  transition: all .2s cubic-bezier(0.2, 0, 0, 1) !important;
+}
+.nc-modal-body button[type="submit"]:active {
+  transform: scale(0.97) !important;
 }
 
 /* ==========================================================================
