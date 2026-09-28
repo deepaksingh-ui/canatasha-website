@@ -101,9 +101,11 @@ def hero():
   %s
   <p class="nc-lead">%s</p>
   <div class="nc-hero-btns">
-    <a class="nc-btn nc-btn-lg" href="%s" data-open-modal="ncConsultModal">Book a consultation</a>
-    <a class="nc-btn nc-btn-ghost nc-btn-lg nc-hero-btn-enq" href="#quick-enquiry" data-open-modal="ncConsultModal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:5px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Send Enquiry</a>
-    <a class="nc-btn nc-btn-ghost nc-btn-lg" href="%s">%s <span class="nc-ar">&rarr;</span></a>
+    <div class="nc-hero-btn-group">
+      <a class="nc-btn nc-btn-lg" href="%s" data-open-modal="ncConsultModal">Book consultation</a>
+      <a class="nc-btn nc-btn-ghost nc-btn-lg nc-hero-btn-enq" href="#quick-enquiry" data-open-modal="ncConsultModal"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Send Enquiry</a>
+    </div>
+    <a class="nc-hero-slide-link" href="%s">%s <span class="nc-ar">&rarr;</span></a>
   </div>
 </div>""" % (" is-on" if i == 0 else "", i + 1, len(SLIDES), name,
              eyebrow, head, lead, S.BOOK_URL, href, label))

@@ -620,16 +620,22 @@ body.nc-menu-open .nc-drawer{
 .nc-hero-copy{max-width:860px;margin-inline:auto;text-align:center}
 .nc-hero h1,.nc-hero .nc-h1{margin-bottom:.85rem;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.5)}
 .nc-hero .nc-lead{max-width:740px;margin:0 auto 1.6rem;font-size:clamp(1rem,1.35vw,1.12rem);color:#EDF3FA;text-shadow:0 1px 14px rgba(0,0,0,.72),0 1px 3px rgba(0,0,0,.5)}
-.nc-hero-btns{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
+.nc-hero-btns{display:flex;flex-direction:column;align-items:center;gap:.75rem;justify-content:center}
+.nc-hero-btn-group{display:inline-flex;flex-wrap:wrap;gap:.75rem;justify-content:center;align-items:center}
+.nc-hero-slide-link{display:inline-flex;align-items:center;gap:.4rem;color:#EDF3FA;font-size:.875rem;font-weight:500;text-decoration:none;padding:.38em 1.1em;border-radius:24px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:all .22s var(--nc-ease)}
+.nc-hero-slide-link:hover{color:#fff;background:rgba(255,255,255,.22);border-color:#fff;transform:translateY(-1px)}
 /* primary CTA switches to amber so it reads against the dark photo */
 .nc-hero .nc-btn{--_bg:var(--nc-acc);--_fg:var(--nc-on-acc);--_bd:var(--nc-acc)}
 .nc-hero .nc-btn:hover{--_bg:var(--nc-acc-lt);--_bd:var(--nc-acc-lt)}
 .nc-hero .nc-btn-ghost{--_bg:rgba(255,255,255,.08);--_fg:#fff;--_bd:rgba(255,255,255,.45)}
 .nc-hero .nc-btn-ghost:hover{--_bg:rgba(255,255,255,.18);--_bd:#fff}
-.nc-hero .nc-hero-btn-enq{--_bg:rgba(255,255,255,.16);--_fg:#ffffff;--_bd:rgba(255,255,255,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.nc-hero .nc-hero-btn-enq:hover{--_bg:#ffffff;--_fg:var(--nc-pri);--_bd:#ffffff;box-shadow:0 6px 20px rgba(0,0,0,.3)}
-@media (max-width:580px){
-  .nc-hero-btns{flex-direction:column;align-items:stretch;max-width:320px;margin-inline:auto}
+.nc-hero .nc-hero-btn-enq{--_bg:rgba(255,255,255,.15);--_fg:#ffffff;--_bd:rgba(255,255,255,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nc-hero .nc-hero-btn-enq:hover{--_bg:#ffffff;--_fg:var(--nc-pri);--_bd:#ffffff;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+@media (max-width:640px){
+  .nc-hero-btns{gap:.55rem}
+  .nc-hero-btn-group{display:flex;flex-direction:row;flex-wrap:nowrap;gap:.5rem;width:100%;max-width:350px;margin-inline:auto}
+  .nc-hero-btn-group .nc-btn{flex:1 1 50%;padding:.62em .65em;font-size:.83rem;min-height:40px;letter-spacing:0;gap:.35rem;white-space:nowrap}
+  .nc-hero-slide-link{font-size:.8rem;padding:.3em .85em}
 }
 .nc-hero .nc-shimmer{
   background:linear-gradient(100deg,var(--nc-acc) 0%,var(--nc-acc-lt) 30%,#FFE9C2 50%,var(--nc-acc-lt) 70%,var(--nc-acc) 100%);
