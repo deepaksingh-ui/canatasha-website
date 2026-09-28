@@ -892,6 +892,18 @@
         }
       }
     });
+
+    // Auto-open enquiry popup after 1.8 seconds on website open (once per session)
+    try {
+      if (!sessionStorage.getItem('nc_modal_seen')) {
+        setTimeout(function () {
+          if (dialog && !dialog.open && typeof dialog.showModal === 'function') {
+            dialog.showModal();
+            sessionStorage.setItem('nc_modal_seen', '1');
+          }
+        }, 1800);
+      }
+    } catch (err) {}
   }
 
   /* ------------------------------------------------------------------

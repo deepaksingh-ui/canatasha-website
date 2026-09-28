@@ -1207,14 +1207,15 @@ body.nc-menu-open .nc-drawer{
 /* ---------- 21. Floating actions ---------- */
 .nc-float{position:fixed;right:clamp(1rem,3vw,1.75rem);bottom:clamp(1rem,3vw,1.75rem);z-index:880;display:flex;flex-direction:column;gap:.7rem}
 .nc-fab{
-  position:relative;width:52px;height:52px;display:grid;place-items:center;border-radius:50%;
-  color:#fff;box-shadow:var(--nc-sh-2);
+  position:relative;width:56px;height:56px;display:grid;place-items:center;border-radius:50%;
+  color:#fff;box-shadow:var(--nc-sh-3);
   transition:transform .34s var(--nc-spring),box-shadow .34s var(--nc-ease),border-color .3s,color .3s;
 }
 .nc-fab:hover{transform:scale(1.09) translateY(-2px);box-shadow:var(--nc-sh-3)}
 .nc-fab:active{transform:scale(.96)}
-.nc-fab svg{width:25px;height:25px;position:relative;z-index:1}
-.nc-fab-wa{background:#25D366}
+.nc-fab svg{width:28px;height:28px;position:relative;z-index:1}
+.nc-fab-wa{background:#25D366;border:2px solid #ffffff;box-shadow:0 4px 18px rgba(37,211,102,0.45)}
+.nc-fab-wa svg{width:34px;height:34px}
 .nc-fab-wa:hover{color:#fff}
 .nc-fab-wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.5;animation:nc-fab-ping 2.6s var(--nc-ease-io) infinite}
 @keyframes nc-fab-ping{0%{transform:scale(1);opacity:.45}80%,100%{transform:scale(1.75);opacity:0}}
@@ -2043,18 +2044,22 @@ dialog.nc-modal[open] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--nc-surface-3);
   color: var(--nc-ink);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1;
-  transition: background .2s ease, color .2s ease;
+  border: 1px solid var(--nc-line-2);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
 }
 .nc-modal-close:hover {
-  background: var(--nc-pri);
+  background: #C6362C;
   color: #ffffff;
+  border-color: #C6362C;
+  transform: scale(1.08);
 }
 .nc-modal-body {
   padding: 1.5rem;
