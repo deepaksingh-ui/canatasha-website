@@ -494,7 +494,8 @@ def header_html():
 
 <div class="nc-strip">
   ISO 9001:2015 Certified Practice &nbsp;&middot;&nbsp; Serving Madhya Pradesh since 2017
-  &nbsp;&middot;&nbsp; <a href="{book}">Book a consultation</a>
+  &nbsp;&middot;&nbsp; <a href="{book}" data-open-modal="ncConsultModal">Book a consultation</a>
+  &nbsp;&middot;&nbsp; <a href="#quick-enquiry" data-open-modal="ncConsultModal" style="color:var(--nc-acc);font-weight:600">Send Enquiry</a>
 </div>
 
 <header class="nc-hdr">
@@ -534,7 +535,10 @@ def header_html():
     <ul class="nc-macc">{macc}</ul>
     <div class="nc-drawer-cta">
       <a class="nc-btn nc-btn-full" href="{book}" data-open-modal="ncConsultModal">Book a consultation</a>
-      <a class="nc-btn nc-btn-ghost nc-btn-full" href="tel:{phone}">{ph_ico} {phone_d}</a>
+      <a class="nc-btn nc-btn-ghost nc-btn-full" href="#quick-enquiry" data-open-modal="ncConsultModal" style="margin-top:.6rem">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Send Quick Enquiry
+      </a>
+      <a class="nc-btn nc-btn-ghost nc-btn-full" href="tel:{phone}" style="margin-top:.6rem">{ph_ico} {phone_d}</a>
     </div>
   </div>
 </div>""".format(nav="".join(rows), macc="".join(macc), phone=PHONE, book=BOOK_URL,
@@ -831,7 +835,10 @@ def cta_band(title="Let's get your compliance in order.",
       <h2>%s</h2>
       <p>%s</p>
       <div class="nc-row">
-        <a class="nc-btn nc-btn-lg" href="%s">Book a consultation</a>
+        <a class="nc-btn nc-btn-lg" href="%s" data-open-modal="ncConsultModal">Book a consultation</a>
+        <a class="nc-btn nc-btn-ghost nc-btn-lg" href="#quick-enquiry" data-open-modal="ncConsultModal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Send Enquiry
+        </a>
         <a class="nc-btn nc-btn-ghost nc-btn-lg" href="tel:%s">%s Call %s</a>
       </div>
     </div>

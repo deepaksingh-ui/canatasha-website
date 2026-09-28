@@ -353,7 +353,8 @@ def build(slug):
             through to closure.
           </p>
           <div class="nc-stack" style="gap:.6rem;margin-top:1.15rem">
-            <a class="nc-btn nc-btn-full nc-btn-sm" href="{book}">Book a consultation</a>
+            <a class="nc-btn nc-btn-full nc-btn-sm" href="{book}" data-open-modal="ncConsultModal">Book a consultation</a>
+            <a class="nc-btn nc-btn-ghost nc-btn-full nc-btn-sm" href="#quick-enquiry" data-open-modal="ncConsultModal">Send Quick Enquiry</a>
             <a class="nc-btn nc-btn-ghost nc-btn-full nc-btn-sm" href="tel:{phone}">{phone_d}</a>
           </div>
         </div>

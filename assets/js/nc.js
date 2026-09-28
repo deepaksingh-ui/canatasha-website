@@ -885,6 +885,7 @@
       var trigger = e.target.closest ? e.target.closest('[data-open-modal="ncConsultModal"]') : null;
       if (trigger) {
         e.preventDefault();
+        try { sessionStorage.setItem('nc_modal_seen', '1'); } catch (err) {}
         if (typeof dialog.showModal === 'function') {
           dialog.showModal();
         } else {

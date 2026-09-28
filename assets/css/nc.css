@@ -626,6 +626,11 @@ body.nc-menu-open .nc-drawer{
 .nc-hero .nc-btn:hover{--_bg:var(--nc-acc-lt);--_bd:var(--nc-acc-lt)}
 .nc-hero .nc-btn-ghost{--_bg:rgba(255,255,255,.08);--_fg:#fff;--_bd:rgba(255,255,255,.45)}
 .nc-hero .nc-btn-ghost:hover{--_bg:rgba(255,255,255,.18);--_bd:#fff}
+.nc-hero .nc-hero-btn-enq{--_bg:rgba(255,255,255,.16);--_fg:#ffffff;--_bd:rgba(255,255,255,.75);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nc-hero .nc-hero-btn-enq:hover{--_bg:#ffffff;--_fg:var(--nc-pri);--_bd:#ffffff;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+@media (max-width:580px){
+  .nc-hero-btns{flex-direction:column;align-items:stretch;max-width:320px;margin-inline:auto}
+}
 .nc-hero .nc-shimmer{
   background:linear-gradient(100deg,var(--nc-acc) 0%,var(--nc-acc-lt) 30%,#FFE9C2 50%,var(--nc-acc-lt) 70%,var(--nc-acc) 100%);
   background-size:220% 100%;
