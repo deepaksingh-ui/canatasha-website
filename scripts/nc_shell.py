@@ -223,6 +223,7 @@ def head(title, desc, slug, *, og_type="website", image=None, published=None,
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/brand/icon-192.png">
 <link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 
