@@ -13,5 +13,6 @@ scripts
 scripts/**
 worker.js
 wrangler.jsonc
+wrangler.toml
 .github
 .github/**
